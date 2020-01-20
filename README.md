@@ -4,7 +4,7 @@ ZumoKit Android SDK is provided as an Android Archive Library (AAR). The AAR can
 
 ## Example
 
-The [example project](example/) demonstrates the expected user flow, including authentication process, wallet creation and transaction submission. Ask your [account manager](support@zumo.money) to provide you with neccesarry credentials.
+The [example project](example/) demonstrates the expected user flow, including authentication process, wallet creation and transaction submission. Ask your [account manager](mailto:support@zumo.money) to provide you with neccesarry credentials.
 
 To run the example project, clone the repo, open  the project in Android Studio and build & run the project.
 
