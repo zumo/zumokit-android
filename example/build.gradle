@@ -1,0 +1,80 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 28
+    defaultConfig {
+        applicationId "money.zumo.example"
+        minSdkVersion 28
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        signingConfig signingConfigs.debug
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    buildTypes {
+        release {
+            buildConfigField "String", "TX_SERVICE_URL", PRODUCTION_TX_SERVICE_URL
+            buildConfigField "String", "API_KEY", PRODUCTION_API_KEY
+            buildConfigField "String", "API_URL", PRODUCTION_API_URL
+            buildConfigField "String", "BUNDLE_URL", PRODUCTION_BUNDLE_URL
+            buildConfigField "String", "CUSTOM_HEADERS", PRODUCTION_CUSTOM_HEADERS
+            buildConfigField "String", "USER_TOKEN", PRODUCTION_USER_TOKEN
+            buildConfigField "String", "USER_PASSWORD", PRODUCTION_USER_PASSWORD
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+
+        debug {
+            buildConfigField "String", "TX_SERVICE_URL", PRODUCTION_TX_SERVICE_URL
+            buildConfigField "String", "API_KEY", PRODUCTION_API_KEY
+            buildConfigField "String", "API_URL", PRODUCTION_API_URL
+            buildConfigField "String", "BUNDLE_URL", PRODUCTION_BUNDLE_URL
+            buildConfigField "String", "CUSTOM_HEADERS", PRODUCTION_CUSTOM_HEADERS
+            buildConfigField "String", "USER_TOKEN", PRODUCTION_USER_TOKEN
+            buildConfigField "String", "USER_PASSWORD", PRODUCTION_USER_PASSWORD
+            applicationIdSuffix ".debug"
+            debuggable true
+        }
+
+        staging {
+            buildConfigField "String", "TX_SERVICE_URL", STAGING_TX_SERVICE_URL
+            buildConfigField "String", "API_KEY", STAGING_API_KEY
+            buildConfigField "String", "API_URL", STAGING_API_URL
+            buildConfigField "String", "BUNDLE_URL", STAGING_BUNDLE_URL
+            buildConfigField "String", "CUSTOM_HEADERS", STAGING_CUSTOM_HEADERS
+            buildConfigField "String", "USER_TOKEN", STAGING_USER_TOKEN
+            buildConfigField "String", "USER_PASSWORD", STAGING_USER_PASSWORD
+            matchingFallbacks = ['debug']
+            applicationIdSuffix ".debug"
+            debuggable true
+        }
+
+        sandbox {
+            buildConfigField "String", "TX_SERVICE_URL", SANDBOX_TX_SERVICE_URL
+            buildConfigField "String", "API_KEY", SANDBOX_API_KEY
+            buildConfigField "String", "API_URL", SANDBOX_API_URL
+            buildConfigField "String", "BUNDLE_URL", SANDBOX_BUNDLE_URL
+            buildConfigField "String", "CUSTOM_HEADERS", SANDBOX_CUSTOM_HEADERS
+            buildConfigField "String", "USER_TOKEN", SANDBOX_USER_TOKEN
+            buildConfigField "String", "USER_PASSWORD", SANDBOX_USER_PASSWORD
+            matchingFallbacks = ['debug']
+            applicationIdSuffix ".debug"
+            debuggable true
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'com.android.support:appcompat-v7:28.0.0'
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    implementation project(':zumokit')
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.10.1'
+}
