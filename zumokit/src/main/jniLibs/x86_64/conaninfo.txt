@@ -1,0 +1,38 @@
+[settings]
+    arch=x86_64
+    build_type=Release
+    compiler=clang
+    compiler.libcxx=libc++
+    compiler.version=8
+    os=Android
+    os.api_level=21
+
+[requires]
+    bitcoin/0.13
+
+[options]
+
+
+[full_settings]
+    arch=x86_64
+    build_type=Release
+    compiler=clang
+    compiler.libcxx=libc++
+    compiler.version=8
+    os=Android
+    os.api_level=21
+
+[full_requires]
+    bitcoin/0.13@zumo/stable:7e2d71b51aa3781d11a8fa5e76a96b023960b654
+    boost_variant/1.69.0@bincrafters/stable:5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9
+    secp256k1/1.0@zumo/stable:b84ba2915bf155934a60588d6a50cad855a31500
+
+[full_options]
+    bitcoin:shared=True
+    secp256k1:shared=False
+
+[recipe_hash]
+
+
+[env]
+
