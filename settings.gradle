@@ -1,1 +1,6 @@
-include ':example', ':zumokit'
+File gradleProperties = new File('./gradle.properties');
+if ( gradleProperties.isFile() ) {
+  include ':example', ':zumokit'
+} else {
+  include ':zumokit'
+}
