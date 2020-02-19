@@ -108,7 +108,7 @@ public class MainActivity extends AppCompatActivity {
                     Log.i("zumokit/user", "User has no wallet. Creating new wallet...");
 
                     String mnemonic = zumoKit.utils().generateMnemonic(12);
-                    // String mnemonic = "certain pudding hand casual flight organ ensure horror actress caution rose once";
+                    // String mnemonic = "breeze lady dial claim eyebrow news urban warm scout barrel gorilla prevent";
 
                     user.createWallet(mnemonic, BuildConfig.USER_PASSWORD, new WalletCallback() {
                         @Override
