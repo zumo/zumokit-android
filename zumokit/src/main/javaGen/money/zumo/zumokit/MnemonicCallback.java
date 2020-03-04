@@ -6,7 +6,7 @@ package money.zumo.zumokit;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 public interface MnemonicCallback {
-    public void onError(String errorName, String errorMessage);
+    public void onError(ZumoKitError error);
 
     public void onSuccess(String mnemonic);
 
@@ -34,12 +34,12 @@ public interface MnemonicCallback {
         }
 
         @Override
-        public void onError(String errorName, String errorMessage)
+        public void onError(ZumoKitError error)
         {
             assert !this.destroyed.get() : "trying to use a destroyed object";
-            native_onError(this.nativeRef, errorName, errorMessage);
+            native_onError(this.nativeRef, error);
         }
-        private native void native_onError(long _nativeRef, String errorName, String errorMessage);
+        private native void native_onError(long _nativeRef, ZumoKitError error);
 
         @Override
         public void onSuccess(String mnemonic)

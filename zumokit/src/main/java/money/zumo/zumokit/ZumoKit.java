@@ -4,8 +4,6 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.HashMap;
 
-import android.util.Log;
-
 public class ZumoKit {
     private ZumoCore zumoCore;
 
@@ -40,8 +38,6 @@ public class ZumoKit {
     }
 
     public void auth(String userToken, HashMap<String, String> headers, AuthCallback callback) { zumoCore.auth(userToken, headers, callback); }
-
-    public void sync(SyncCallback callback) { zumoCore.sync(callback); }
 
     public Utils utils() { return zumoCore.getUtils(); }
 

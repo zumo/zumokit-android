@@ -6,7 +6,7 @@ package money.zumo.zumokit;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 public interface HttpCallback {
-    public void onNetworkError();
+    public void onNetworkError(String message);
 
     public void onSuccess(short httpCode, String data);
 
@@ -34,12 +34,12 @@ public interface HttpCallback {
         }
 
         @Override
-        public void onNetworkError()
+        public void onNetworkError(String message)
         {
             assert !this.destroyed.get() : "trying to use a destroyed object";
-            native_onNetworkError(this.nativeRef);
+            native_onNetworkError(this.nativeRef, message);
         }
-        private native void native_onNetworkError(long _nativeRef);
+        private native void native_onNetworkError(long _nativeRef, String message);
 
         @Override
         public void onSuccess(short httpCode, String data)

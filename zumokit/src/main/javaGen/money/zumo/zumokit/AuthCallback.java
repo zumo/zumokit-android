@@ -6,7 +6,7 @@ package money.zumo.zumokit;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 public interface AuthCallback {
-    public void onError(short errorCode, String errorMessage);
+    public void onError(ZumoKitError error);
 
     public void onSuccess(User user);
 
@@ -34,12 +34,12 @@ public interface AuthCallback {
         }
 
         @Override
-        public void onError(short errorCode, String errorMessage)
+        public void onError(ZumoKitError error)
         {
             assert !this.destroyed.get() : "trying to use a destroyed object";
-            native_onError(this.nativeRef, errorCode, errorMessage);
+            native_onError(this.nativeRef, error);
         }
-        private native void native_onError(long _nativeRef, short errorCode, String errorMessage);
+        private native void native_onError(long _nativeRef, ZumoKitError error);
 
         @Override
         public void onSuccess(User user)
