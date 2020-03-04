@@ -9,8 +9,6 @@ import java.util.concurrent.atomic.AtomicBoolean;
 public interface ZumoCore {
     public void auth(String token, HashMap<String, String> headers, AuthCallback callback);
 
-    public void sync(SyncCallback callback);
-
     public Utils getUtils();
 
     public State getState();
@@ -64,14 +62,6 @@ public interface ZumoCore {
             native_auth(this.nativeRef, token, headers, callback);
         }
         private native void native_auth(long _nativeRef, String token, HashMap<String, String> headers, AuthCallback callback);
-
-        @Override
-        public void sync(SyncCallback callback)
-        {
-            assert !this.destroyed.get() : "trying to use a destroyed object";
-            native_sync(this.nativeRef, callback);
-        }
-        private native void native_sync(long _nativeRef, SyncCallback callback);
 
         @Override
         public Utils getUtils()

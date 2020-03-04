@@ -90,8 +90,7 @@ public class AndroidHttp implements HttpImpl {
 
                     success = true;
                 } catch (Exception e) {
-                    Log.e("zumokit", e.toString());
-                    callback.onNetworkError();
+                    callback.onNetworkError(e.getMessage());
                 }
 
                 if (success) {
