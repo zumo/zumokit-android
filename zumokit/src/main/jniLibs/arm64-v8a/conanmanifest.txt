@@ -1,7 +1,7 @@
-1583339178
+1583485515
 conaninfo.txt: c478a4e6d709d2b8031be51e40127c83
 libbitcoin.so: ed89d76bd37ef832bfbd724c42b78df8
 libsecp256k1.so: c7af7ad66502d48b50062fd96703c080
 libtrezorcrypto.so: b56392d18af1724de668cc7c9411d9c2
 libutf8proc.so: 90e77df990e1a99ae6b14f3f30c6719f
-libzumocore.so: 01e7eeca804c56fa1a19bc33edb7cecd
+libzumocore.so: a54107aee094fd3f03956189e5deb028
