@@ -20,7 +20,7 @@ public final class Transaction {
 
     /*package*/ final String mCoin;
 
-    /*package*/ final Integer mChainId;
+    /*package*/ final NetworkType mNetwork;
 
     /*package*/ final Long mNonce;
 
@@ -61,7 +61,7 @@ public final class Transaction {
             String accountId,
             String symbol,
             String coin,
-            Integer chainId,
+            NetworkType network,
             Long nonce,
             TransactionStatus status,
             String fromAddress,
@@ -84,7 +84,7 @@ public final class Transaction {
         this.mAccountId = accountId;
         this.mSymbol = symbol;
         this.mCoin = coin;
-        this.mChainId = chainId;
+        this.mNetwork = network;
         this.mNonce = nonce;
         this.mStatus = status;
         this.mFromAddress = fromAddress;
@@ -127,8 +127,8 @@ public final class Transaction {
         return mCoin;
     }
 
-    public Integer getChainId() {
-        return mChainId;
+    public NetworkType getNetwork() {
+        return mNetwork;
     }
 
     public Long getNonce() {
@@ -207,7 +207,7 @@ public final class Transaction {
                 this.mAccountId.equals(other.mAccountId) &&
                 ((this.mSymbol == null && other.mSymbol == null) || (this.mSymbol != null && this.mSymbol.equals(other.mSymbol))) &&
                 this.mCoin.equals(other.mCoin) &&
-                ((this.mChainId == null && other.mChainId == null) || (this.mChainId != null && this.mChainId.equals(other.mChainId))) &&
+                this.mNetwork == other.mNetwork &&
                 ((this.mNonce == null && other.mNonce == null) || (this.mNonce != null && this.mNonce.equals(other.mNonce))) &&
                 this.mStatus == other.mStatus &&
                 this.mFromAddress.equals(other.mFromAddress) &&
@@ -236,7 +236,7 @@ public final class Transaction {
         hashCode = hashCode * 31 + mAccountId.hashCode();
         hashCode = hashCode * 31 + (mSymbol == null ? 0 : mSymbol.hashCode());
         hashCode = hashCode * 31 + mCoin.hashCode();
-        hashCode = hashCode * 31 + (mChainId == null ? 0 : mChainId.hashCode());
+        hashCode = hashCode * 31 + mNetwork.hashCode();
         hashCode = hashCode * 31 + (mNonce == null ? 0 : mNonce.hashCode());
         hashCode = hashCode * 31 + mStatus.hashCode();
         hashCode = hashCode * 31 + mFromAddress.hashCode();
@@ -265,7 +265,7 @@ public final class Transaction {
                 "," + "mAccountId=" + mAccountId +
                 "," + "mSymbol=" + mSymbol +
                 "," + "mCoin=" + mCoin +
-                "," + "mChainId=" + mChainId +
+                "," + "mNetwork=" + mNetwork +
                 "," + "mNonce=" + mNonce +
                 "," + "mStatus=" + mStatus +
                 "," + "mFromAddress=" + mFromAddress +

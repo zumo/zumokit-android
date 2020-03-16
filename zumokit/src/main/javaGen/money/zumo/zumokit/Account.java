@@ -18,11 +18,11 @@ public final class Account {
 
     /*package*/ final String mBalance;
 
-    /*package*/ final Integer mChainId;
-
     /*package*/ final Long mNonce;
 
     /*package*/ final NetworkType mNetwork;
+
+    /*package*/ final AccountType mType;
 
     /*package*/ final byte mVersion;
 
@@ -33,9 +33,9 @@ public final class Account {
             String coin,
             String address,
             String balance,
-            Integer chainId,
             Long nonce,
             NetworkType network,
+            AccountType type,
             byte version) {
         this.mId = id;
         this.mPath = path;
@@ -43,9 +43,9 @@ public final class Account {
         this.mCoin = coin;
         this.mAddress = address;
         this.mBalance = balance;
-        this.mChainId = chainId;
         this.mNonce = nonce;
         this.mNetwork = network;
+        this.mType = type;
         this.mVersion = version;
     }
 
@@ -73,16 +73,16 @@ public final class Account {
         return mBalance;
     }
 
-    public Integer getChainId() {
-        return mChainId;
-    }
-
     public Long getNonce() {
         return mNonce;
     }
 
     public NetworkType getNetwork() {
         return mNetwork;
+    }
+
+    public AccountType getType() {
+        return mType;
     }
 
     public byte getVersion() {
@@ -101,9 +101,9 @@ public final class Account {
                 this.mCoin.equals(other.mCoin) &&
                 this.mAddress.equals(other.mAddress) &&
                 this.mBalance.equals(other.mBalance) &&
-                ((this.mChainId == null && other.mChainId == null) || (this.mChainId != null && this.mChainId.equals(other.mChainId))) &&
                 ((this.mNonce == null && other.mNonce == null) || (this.mNonce != null && this.mNonce.equals(other.mNonce))) &&
                 this.mNetwork == other.mNetwork &&
+                this.mType == other.mType &&
                 this.mVersion == other.mVersion;
     }
 
@@ -117,9 +117,9 @@ public final class Account {
         hashCode = hashCode * 31 + mCoin.hashCode();
         hashCode = hashCode * 31 + mAddress.hashCode();
         hashCode = hashCode * 31 + mBalance.hashCode();
-        hashCode = hashCode * 31 + (mChainId == null ? 0 : mChainId.hashCode());
         hashCode = hashCode * 31 + (mNonce == null ? 0 : mNonce.hashCode());
         hashCode = hashCode * 31 + mNetwork.hashCode();
+        hashCode = hashCode * 31 + mType.hashCode();
         hashCode = hashCode * 31 + mVersion;
         return hashCode;
     }
@@ -133,9 +133,9 @@ public final class Account {
                 "," + "mCoin=" + mCoin +
                 "," + "mAddress=" + mAddress +
                 "," + "mBalance=" + mBalance +
-                "," + "mChainId=" + mChainId +
                 "," + "mNonce=" + mNonce +
                 "," + "mNetwork=" + mNetwork +
+                "," + "mType=" + mType +
                 "," + "mVersion=" + mVersion +
         "}";
     }

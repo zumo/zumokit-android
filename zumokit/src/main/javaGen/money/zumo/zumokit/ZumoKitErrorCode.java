@@ -11,7 +11,7 @@ public final class ZumoKitErrorCode {
 
     public static final String NO_WALLET_TO_RECOVER_FOUND = "no_wallet_to_recover_found";
 
-    public static final String INVALID_RECOVERY_MNEMONIC = "invalid_recovery_mnemonic";
+    public static final String INVALID_RECOVERY_PHRASE = "invalid_recovery_phrase";
 
     public static final String INVALID_MNEMONIC_WORD_COUNT = "invalid_mnemonic_word_count";
 
@@ -19,7 +19,7 @@ public final class ZumoKitErrorCode {
 
     public static final String INVALID_NETWORK_TYPE = "invalid_network_type";
 
-    public static final String BITCOIN_OVERFLOW = "bitcoin_overflow";
+    public static final String BITCOIN_AMOUNT_OVERFLOW = "bitcoin_amount_overflow";
 
     public static final String SIGNING_ERROR = "signing_error";
 
@@ -40,6 +40,20 @@ public final class ZumoKitErrorCode {
     public static final String INVALID_ADDRESS = "invalid_address";
 
     public static final String INSUFFICIENT_FUNDS = "insufficient_funds";
+
+    public static final String NONCE_OVERFLOW = "nonce_overflow";
+
+    public static final String GAS_TOO_LOW = "gas_too_low";
+
+    public static final String GAS_OVERFLOW = "gas_overflow";
+
+    public static final String NO_DESTINATION_ADDRESS = "no_destination_address";
+
+    public static final String DATA_OVERFLOW = "data_overflow";
+
+    public static final String INCOMPATIBLE_NETWORK_TYPES = "incompatible_network_types";
+
+    public static final String ACCOUNT_TYPE_NOT_SUPPORTED = "account_type_not_supported";
 
 
     public ZumoKitErrorCode(

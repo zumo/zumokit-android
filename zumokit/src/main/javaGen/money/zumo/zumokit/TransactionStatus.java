@@ -9,5 +9,6 @@ public enum TransactionStatus {
     FAILED,
     RESUBMITTED,
     CANCELLED,
+    PAUSED,
     ;
 }
