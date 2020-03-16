@@ -6,8 +6,9 @@ package money.zumo.zumokit;
 public enum NetworkType {
     MAINNET,
     TESTNET,
-    KOVAN,
-    RINKEBY,
     ROPSTEN,
+    RINKEBY,
+    GOERLI,
+    KOVAN,
     ;
 }
