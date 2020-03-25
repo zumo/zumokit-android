@@ -19,7 +19,7 @@ import money.zumo.zumokit.ZumoKit;
 import money.zumo.zumokit.AuthCallback;
 
 import money.zumo.example.BuildConfig;
-import money.zumo.zumokit.ZumoKitError;
+import money.zumo.zumokit.exceptions.ZumoKitException;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -65,8 +65,14 @@ public class MainActivity extends AppCompatActivity {
 
         zumoKit.auth(BuildConfig.USER_TOKEN, headers, new AuthCallback() {
             @Override
-            public void onError(ZumoKitError error) {
-                Log.e("zumokit/auth", error.toString());
+            public void onError(Exception e) {
+                String errorType = ((ZumoKitException) e).getErrorType();
+                String errorCode = ((ZumoKitException) e).getErrorCode();
+                String errorMessage = e.getMessage();
+                Log.e("zumokit/auth", errorType);
+                Log.e("zumokit/auth", errorCode);
+                Log.e("zumokit/auth", errorMessage);
+                Log.e("zumokit/auth", e.toString());
             }
 
             @Override
@@ -91,8 +97,8 @@ public class MainActivity extends AppCompatActivity {
                     Log.i("zumokit/user", "User has wallet. Unlocking wallet...");
                     user.unlockWallet(BuildConfig.USER_PASSWORD, new WalletCallback() {
                         @Override
-                        public void onError(ZumoKitError error) {
-                            Log.e("zumokit", error.toString());
+                        public void onError(Exception e) {
+                            Log.e("zumokit", e.toString());
                         }
 
                         @Override
@@ -113,8 +119,8 @@ public class MainActivity extends AppCompatActivity {
 
                     user.createWallet(mnemonic, BuildConfig.USER_PASSWORD, new WalletCallback() {
                         @Override
-                        public void onError(ZumoKitError error) {
-                            Log.e("zumokit", error.toString());
+                        public void onError(Exception e) {
+                            Log.e("zumokit", e.toString());
                         }
 
                         @Override
@@ -139,8 +145,8 @@ public class MainActivity extends AppCompatActivity {
         wallet.sendEthTransaction(account.getId(), gasPrice, gasLimit, to, value, null, null,
                 new SendTransactionCallback() {
                     @Override
-                    public void onError(ZumoKitError error) {
-                        Log.e("zumokit", error.toString());
+                    public void onError(Exception e) {
+                        Log.e("zumokit", e.toString());
                     }
 
                     @Override
@@ -157,8 +163,8 @@ public class MainActivity extends AppCompatActivity {
 
         wallet.sendBtcTransaction(account.getId(), account.getId(), to, value, feeRate, new SendTransactionCallback() {
             @Override
-            public void onError(ZumoKitError error) {
-                Log.e("zumokit", error.toString());
+            public void onError(Exception e) {
+                Log.e("zumokit", e.toString());
             }
 
             @Override

@@ -5,6 +5,8 @@ package money.zumo.zumokit;
 
 public final class ZumoKitErrorCode {
 
+    public static final String UNKNOWN_ERROR = "unknown_error";
+
     public static final String NOT_AUTHORIZED = "not_authorized";
 
     public static final String WALLET_LIMIT_EXCEEDED = "wallet_limit_exceeded";
