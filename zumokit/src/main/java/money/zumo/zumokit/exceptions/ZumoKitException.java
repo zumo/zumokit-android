@@ -1,20 +1,14 @@
 package money.zumo.zumokit.exceptions;
 
 public class ZumoKitException extends RuntimeException {
-    private final String errorType;
-    private final String errorCode;
+    private final String errorName;
 
-    public ZumoKitException(String errorType, String errorCode, String errorMessage) {
+    public ZumoKitException(String errorName, String errorMessage) {
         super(errorMessage);
-        this.errorType = errorType;
-        this.errorCode = errorCode;
+        this.errorName = errorName;
     }
 
-    public String getErrorType() {
-        return this.errorType;
-    }
-
-    public String getErrorCode() {
-        return this.errorCode;
+    public String getName() {
+        return this.errorName;
     }
 }
