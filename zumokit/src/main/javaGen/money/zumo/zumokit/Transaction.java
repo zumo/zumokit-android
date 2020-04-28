@@ -12,6 +12,8 @@ public final class Transaction {
 
     /*package*/ final TransactionType mType;
 
+    /*package*/ final TransactionDirection mDirection;
+
     /*package*/ final String mTxHash;
 
     /*package*/ final String mAccountId;
@@ -57,6 +59,7 @@ public final class Transaction {
     public Transaction(
             String id,
             TransactionType type,
+            TransactionDirection direction,
             String txHash,
             String accountId,
             String symbol,
@@ -80,6 +83,7 @@ public final class Transaction {
             long timestamp) {
         this.mId = id;
         this.mType = type;
+        this.mDirection = direction;
         this.mTxHash = txHash;
         this.mAccountId = accountId;
         this.mSymbol = symbol;
@@ -109,6 +113,10 @@ public final class Transaction {
 
     public TransactionType getType() {
         return mType;
+    }
+
+    public TransactionDirection getDirection() {
+        return mDirection;
     }
 
     public String getTxHash() {
@@ -203,6 +211,7 @@ public final class Transaction {
         Transaction other = (Transaction) obj;
         return this.mId.equals(other.mId) &&
                 this.mType == other.mType &&
+                this.mDirection == other.mDirection &&
                 ((this.mTxHash == null && other.mTxHash == null) || (this.mTxHash != null && this.mTxHash.equals(other.mTxHash))) &&
                 this.mAccountId.equals(other.mAccountId) &&
                 ((this.mSymbol == null && other.mSymbol == null) || (this.mSymbol != null && this.mSymbol.equals(other.mSymbol))) &&
@@ -232,6 +241,7 @@ public final class Transaction {
         int hashCode = 17;
         hashCode = hashCode * 31 + mId.hashCode();
         hashCode = hashCode * 31 + mType.hashCode();
+        hashCode = hashCode * 31 + mDirection.hashCode();
         hashCode = hashCode * 31 + (mTxHash == null ? 0 : mTxHash.hashCode());
         hashCode = hashCode * 31 + mAccountId.hashCode();
         hashCode = hashCode * 31 + (mSymbol == null ? 0 : mSymbol.hashCode());
@@ -261,6 +271,7 @@ public final class Transaction {
         return "Transaction{" +
                 "mId=" + mId +
                 "," + "mType=" + mType +
+                "," + "mDirection=" + mDirection +
                 "," + "mTxHash=" + mTxHash +
                 "," + "mAccountId=" + mAccountId +
                 "," + "mSymbol=" + mSymbol +

@@ -3,8 +3,8 @@
 
 package money.zumo.zumokit;
 
-public enum TransactionType {
-    NORMAL,
-    EXCHANGE,
+public enum TransactionDirection {
+    INCOMING,
+    OUTGOING,
     ;
 }

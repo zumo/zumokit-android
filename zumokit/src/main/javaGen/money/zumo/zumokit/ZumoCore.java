@@ -3,11 +3,10 @@
 
 package money.zumo.zumokit;
 
-import java.util.HashMap;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 public interface ZumoCore {
-    public void auth(String token, HashMap<String, String> headers, AuthCallback callback);
+    public void getUser(String userToken, UserCallback callback);
 
     public Utils getUtils();
 
@@ -22,13 +21,12 @@ public interface ZumoCore {
         return CppProxy.getVersion();
     }
 
-    public static ZumoCore init(HttpImpl httpImpl, WebSocketImpl wsImpl, String apiKey, String apiRoot, String myRoot, String txServiceRoot)
+    public static ZumoCore init(HttpImpl httpImpl, WebSocketImpl wsImpl, String apiKey, String apiRoot, String txServiceRoot)
     {
         return CppProxy.init(httpImpl,
                              wsImpl,
                              apiKey,
                              apiRoot,
-                             myRoot,
                              txServiceRoot);
     }
 
@@ -56,12 +54,12 @@ public interface ZumoCore {
         }
 
         @Override
-        public void auth(String token, HashMap<String, String> headers, AuthCallback callback)
+        public void getUser(String userToken, UserCallback callback)
         {
             assert !this.destroyed.get() : "trying to use a destroyed object";
-            native_auth(this.nativeRef, token, headers, callback);
+            native_getUser(this.nativeRef, userToken, callback);
         }
-        private native void native_auth(long _nativeRef, String token, HashMap<String, String> headers, AuthCallback callback);
+        private native void native_getUser(long _nativeRef, String userToken, UserCallback callback);
 
         @Override
         public Utils getUtils()
@@ -97,6 +95,6 @@ public interface ZumoCore {
 
         public static native String getVersion();
 
-        public static native ZumoCore init(HttpImpl httpImpl, WebSocketImpl wsImpl, String apiKey, String apiRoot, String myRoot, String txServiceRoot);
+        public static native ZumoCore init(HttpImpl httpImpl, WebSocketImpl wsImpl, String apiKey, String apiRoot, String txServiceRoot);
     }
 }

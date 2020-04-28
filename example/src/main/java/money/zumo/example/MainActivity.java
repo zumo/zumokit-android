@@ -1,14 +1,20 @@
 package money.zumo.example;
 
-import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 
 import money.zumo.zumokit.AccountType;
+import money.zumo.zumokit.ComposeExchangeCallback;
+import money.zumo.zumokit.ComposedExchange;
+import money.zumo.zumokit.ComposedTransaction;
+import money.zumo.zumokit.Exchange;
+import money.zumo.zumokit.ExchangeRate;
 import money.zumo.zumokit.NetworkType;
-import money.zumo.zumokit.SendTransactionCallback;
+import money.zumo.zumokit.ComposeTransactionCallback;
+import money.zumo.zumokit.ComposeExchangeCallback;
 import money.zumo.zumokit.StateListener;
+import money.zumo.zumokit.SubmitExchangeCallback;
 import money.zumo.zumokit.Transaction;
 import money.zumo.zumokit.Wallet;
 import money.zumo.zumokit.WalletCallback;
@@ -16,19 +22,15 @@ import money.zumo.zumokit.Account;
 import money.zumo.zumokit.State;
 import money.zumo.zumokit.User;
 import money.zumo.zumokit.ZumoKit;
-import money.zumo.zumokit.AuthCallback;
+import money.zumo.zumokit.UserCallback;
+import money.zumo.zumokit.exceptions.ZumoKitException;
 
-import money.zumo.example.BuildConfig;
-import money.zumo.zumokit.ZumoKitError;
-
-import java.io.IOException;
 import java.util.HashMap;
-import java.util.stream.Collectors;
-import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class MainActivity extends AppCompatActivity {
 
-    private ZumoKit zumoKit;
+    private ZumoKit mZumoKit;
+    private Wallet mWallet;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,36 +39,22 @@ public class MainActivity extends AppCompatActivity {
 
         Log.i("zumokit/version", ZumoKit.getVersion());
 
-        HashMap<String, String> headers = new HashMap<String, String>();
-        try {
-            ObjectMapper mapper = new ObjectMapper();
-            headers = mapper.readValue(BuildConfig.CUSTOM_HEADERS, HashMap.class);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        mZumoKit = new ZumoKit(BuildConfig.API_KEY, BuildConfig.API_URL, BuildConfig.TX_SERVICE_URL);
 
-        zumoKit = new ZumoKit(BuildConfig.TX_SERVICE_URL, BuildConfig.API_KEY, BuildConfig.API_URL,
-                BuildConfig.BUNDLE_URL);
-
-        zumoKit.addStateListener(new StateListener() {
-            Account prev_account = null;
-            Account next_account = null;
-
-            @Override
-            public void update(State state) {
-                prev_account = next_account;
-                next_account = state.getAccounts().stream().filter(a -> a.getCoin().equals("Ether")).findFirst()
-                        .orElse(null);
-                if (prev_account != next_account && next_account != null) {
-                    Log.i("zumokit/eth-account-updated", next_account.toString());
-                }
-            }
+        mZumoKit.addStateListener(state -> {
+            // Do something?
         });
 
-        zumoKit.auth(BuildConfig.USER_TOKEN, headers, new AuthCallback() {
+        mZumoKit.getUser(BuildConfig.USER_TOKEN, new UserCallback() {
             @Override
-            public void onError(ZumoKitError error) {
-                Log.e("zumokit/auth", error.toString());
+            public void onError(Exception e) {
+                String errorType = ((ZumoKitException) e).getErrorType();
+                String errorCode = ((ZumoKitException) e).getErrorCode();
+                String errorMessage = e.getMessage();
+                Log.e("zumokit/auth", errorType);
+                Log.e("zumokit/auth", errorCode);
+                Log.e("zumokit/auth", errorMessage);
+                Log.e("zumokit/auth", e.toString());
             }
 
             @Override
@@ -77,44 +65,47 @@ public class MainActivity extends AppCompatActivity {
                     // Ethereum account
                     Account ethAccount = user.getAccount("ETH", NetworkType.RINKEBY, AccountType.STANDARD);
                     Log.i("zumokit/eth-account", ethAccount.toString());
-                    Log.i("zumokit/eth-transactions", user.getAccountTransactions(ethAccount.getId()).toString());
 
                     // Bitcoin Testnet Compatibilty account
                     Account btcAccount = user.getAccount("BTC", NetworkType.TESTNET, AccountType.COMPATIBILITY);
                     Log.i("zumokit/btc-account", btcAccount.toString());
-                    Log.i("zumokit/btc-transactions", user.getAccountTransactions(btcAccount.getId()).toString());
 
-                    for (Account account : user.getAccounts()) {
-                        Log.i("zumokit/account", account.toString());
-                    }
+                    // Exchanges
+                    Log.i("zumokit/exchanges", mZumoKit.getState().getExchanges().toString());
 
                     Log.i("zumokit/user", "User has wallet. Unlocking wallet...");
                     user.unlockWallet(BuildConfig.USER_PASSWORD, new WalletCallback() {
                         @Override
-                        public void onError(ZumoKitError error) {
-                            Log.e("zumokit", error.toString());
+                        public void onError(Exception e) {
+                            Log.e("zumokit", e.toString());
                         }
 
                         @Override
                         public void onSuccess(Wallet wallet) {
-                            for (Account account : user.getAccounts()) {
-                                Log.i("zumokit/account", account.toString());
-                            }
+                            mWallet = wallet;
 
-                            //sendEthTransaction(ethAccount, wallet);
-                            //sendBtcTransaction(btcAccount, wallet);
+                            //composeEthTransaction(ethAccount);
+                            //composeBtcTransaction(btcAccount);
+
+                            HashMap<String, HashMap<String, ExchangeRate>> exchangeRate =
+                                    mZumoKit.getState().getExchangeRate();
+                            ExchangeRate ethBtcExchangeRate = exchangeRate.get("ETH").get("BTC");
+                            ExchangeRate btcEthExchangeRate = exchangeRate.get("BTC").get("ETH");
+
+                            //composeExchange(ethAccount, btcAccount, ethBtcExchangeRate, "0.04", true);
+                            //composeExchange(btcAccount, ethAccount, btcEthExchangeRate, "0.002");
                         }
                     });
                 } else {
                     Log.i("zumokit/user", "User has no wallet. Creating new wallet...");
 
-                    String mnemonic = zumoKit.utils().generateMnemonic(12);
+                    String mnemonic = mZumoKit.utils().generateMnemonic(12);
                     // String mnemonic = "breeze lady dial claim eyebrow news urban warm scout barrel gorilla prevent";
 
                     user.createWallet(mnemonic, BuildConfig.USER_PASSWORD, new WalletCallback() {
                         @Override
-                        public void onError(ZumoKitError error) {
-                            Log.e("zumokit", error.toString());
+                        public void onError(Exception e) {
+                            Log.e("zumokit", e.toString());
                         }
 
                         @Override
@@ -130,41 +121,73 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    private void sendEthTransaction(Account account, Wallet wallet) {
+    private void composeEthTransaction(Account account) {
         String gasPrice = "60";
         String gasLimit = "21000";
         String to = "0x361f6f8f32ffd5b5d003c8d87abacd35698a6d26";
         String value = "0.0069";
 
-        wallet.sendEthTransaction(account.getId(), gasPrice, gasLimit, to, value, null, null,
-                new SendTransactionCallback() {
+        mWallet.composeEthTransaction(account.getId(), gasPrice, gasLimit, to, value, null, null,
+                new ComposeTransactionCallback() {
                     @Override
-                    public void onError(ZumoKitError error) {
-                        Log.e("zumokit", error.toString());
+                    public void onError(Exception e) {
+                        Log.e("zumokit", e.toString());
                     }
 
                     @Override
-                    public void onSuccess(Transaction transaction) {
-                        Log.i("zumokit", transaction.toString());
+                    public void onSuccess(ComposedTransaction ctx) {
+                        Log.i("zumokit", ctx.toString());
                     }
                 });
     }
 
-    private void sendBtcTransaction(Account account, Wallet wallet) {
+    private void composeBtcTransaction(Account account) {
         String to = "2N6BfH356AicEzuC1dYt4gYkw6WFWZrfeSY";
         String value = "0.0002";
         String feeRate = "20";
 
-        wallet.sendBtcTransaction(account.getId(), account.getId(), to, value, feeRate, new SendTransactionCallback() {
-            @Override
-            public void onError(ZumoKitError error) {
-                Log.e("zumokit", error.toString());
-            }
+        mWallet.composeBtcTransaction(account.getId(), account.getId(), to, value, feeRate,
+                new ComposeTransactionCallback() {
+                    @Override
+                    public void onError(Exception e) {
+                        Log.e("zumokit", e.toString());
+                    }
 
-            @Override
-            public void onSuccess(Transaction transaction) {
-                Log.i("zumokit", transaction.toString());
+                    @Override
+                    public void onSuccess(ComposedTransaction ctx) {
+                Log.i("zumokit", ctx.toString());
             }
         });
+    }
+
+    private void composeExchange(Account depositAccount, Account withdrawAccount, ExchangeRate exchangeRate, String value, Boolean submit) {
+        mWallet.composeExchange(
+                depositAccount.getId(), withdrawAccount.getId(), exchangeRate, value,
+                new ComposeExchangeCallback() {
+                    @Override
+                    public void onError(Exception e) {
+                        Log.e("zumokit", e.toString());
+                    }
+
+                    @Override
+                    public void onSuccess(ComposedExchange composedExchange) {
+                        Log.i("zumokit", composedExchange.toString());
+
+                        if (!submit)
+                            return;
+
+                        mWallet.submitExchange(composedExchange, new SubmitExchangeCallback() {
+                            @Override
+                            public void onError(Exception e) {
+                                Log.e("zumokit", e.toString());
+                            }
+
+                            @Override
+                            public void onSuccess(Exchange exchange) {
+                                Log.i("zumokit", exchange.toString());
+                            }
+                        });
+                    }
+                });
     }
 }

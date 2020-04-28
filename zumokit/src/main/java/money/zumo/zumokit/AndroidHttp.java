@@ -1,6 +1,5 @@
 package money.zumo.zumokit;
 import java.io.BufferedInputStream;
-import java.io.BufferedReader;
 import java.io.OutputStream;
 import java.io.BufferedOutputStream;
 import java.io.IOException;
@@ -10,7 +9,6 @@ import java.io.StringWriter;
 import java.io.BufferedWriter;
 import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.HashMap;
 import java.util.concurrent.Executor;
@@ -18,7 +16,6 @@ import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-import android.util.Log;
 
 public class AndroidHttp implements HttpImpl {
     private Executor mExecutor;

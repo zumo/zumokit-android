@@ -2,7 +2,6 @@ package money.zumo.zumokit;
 
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.util.HashMap;
 
 public class ZumoKit {
     private ZumoCore zumoCore;
@@ -16,7 +15,7 @@ public class ZumoKit {
         System.loadLibrary("zumocore");
     }
 
-    public ZumoKit(String txServiceUrl, String apiKey, String apiRoot, String myRoot) {
+    public ZumoKit(String apiKey, String apiRoot, String txServiceUrl) {
         // HTTP implementation
         HttpImpl httpImpl = new AndroidHttp();
 
@@ -31,13 +30,13 @@ public class ZumoKit {
         AndroidWebSocket wsImpl = new AndroidWebSocket(uri);
 
         // initialise C++ core library
-        zumoCore = ZumoCore.init(httpImpl, wsImpl, apiKey, apiRoot, myRoot, txServiceUrl);
+        zumoCore = ZumoCore.init(httpImpl, wsImpl, apiKey, apiRoot, txServiceUrl);
 
         // Connect to WebSocket
         wsImpl.connect();
     }
 
-    public void auth(String userToken, HashMap<String, String> headers, AuthCallback callback) { zumoCore.auth(userToken, headers, callback); }
+    public void getUser(String userToken, UserCallback callback) { zumoCore.getUser(userToken, callback); }
 
     public Utils utils() { return zumoCore.getUtils(); }
 
