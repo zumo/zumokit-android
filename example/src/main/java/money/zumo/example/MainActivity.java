@@ -15,6 +15,7 @@ import money.zumo.zumokit.ComposeTransactionCallback;
 import money.zumo.zumokit.ComposeExchangeCallback;
 import money.zumo.zumokit.StateListener;
 import money.zumo.zumokit.SubmitExchangeCallback;
+import money.zumo.zumokit.SubmitTransactionCallback;
 import money.zumo.zumokit.Transaction;
 import money.zumo.zumokit.Wallet;
 import money.zumo.zumokit.WalletCallback;
@@ -84,7 +85,7 @@ public class MainActivity extends AppCompatActivity {
                         public void onSuccess(Wallet wallet) {
                             mWallet = wallet;
 
-                            //composeEthTransaction(ethAccount);
+                            //composeEthTransaction(ethAccount, true);
                             //composeBtcTransaction(btcAccount);
 
                             HashMap<String, HashMap<String, ExchangeRate>> exchangeRate =
@@ -92,8 +93,8 @@ public class MainActivity extends AppCompatActivity {
                             ExchangeRate ethBtcExchangeRate = exchangeRate.get("ETH").get("BTC");
                             ExchangeRate btcEthExchangeRate = exchangeRate.get("BTC").get("ETH");
 
-                            //composeExchange(ethAccount, btcAccount, ethBtcExchangeRate, "0.04", true);
-                            //composeExchange(btcAccount, ethAccount, btcEthExchangeRate, "0.002");
+                            composeExchange(ethAccount, btcAccount, ethBtcExchangeRate, "0.0222", true);
+                            //composeExchange(btcAccount, ethAccount, btcEthExchangeRate, "0.002", true);
                         }
                     });
                 } else {
@@ -121,7 +122,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    private void composeEthTransaction(Account account) {
+    private void composeEthTransaction(Account account, Boolean submit) {
         String gasPrice = "60";
         String gasLimit = "21000";
         String to = "0x361f6f8f32ffd5b5d003c8d87abacd35698a6d26";
@@ -137,6 +138,21 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onSuccess(ComposedTransaction ctx) {
                         Log.i("zumokit", ctx.toString());
+
+                        if (!submit)
+                            return;
+
+                        mWallet.submitTransaction(ctx, new SubmitTransactionCallback() {
+                            @Override
+                            public void onError(Exception e) {
+                                Log.e("zumokit", e.toString());
+                            }
+
+                            @Override
+                            public void onSuccess(Transaction tx) {
+                                Log.i("zumokit", tx.toString());
+                            }
+                        });
                     }
                 });
     }
