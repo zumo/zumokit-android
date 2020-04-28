@@ -31,6 +31,10 @@ public interface User {
 
     public ArrayList<Transaction> getTransactions();
 
+    public ArrayList<Exchange> getExchanges();
+
+    public Exchange getExchangeByTransactionId(String transactionId);
+
     public void addListener(UserListener listener);
 
     public void removeListener(UserListener listener);
@@ -161,6 +165,22 @@ public interface User {
             return native_getTransactions(this.nativeRef);
         }
         private native ArrayList<Transaction> native_getTransactions(long _nativeRef);
+
+        @Override
+        public ArrayList<Exchange> getExchanges()
+        {
+            assert !this.destroyed.get() : "trying to use a destroyed object";
+            return native_getExchanges(this.nativeRef);
+        }
+        private native ArrayList<Exchange> native_getExchanges(long _nativeRef);
+
+        @Override
+        public Exchange getExchangeByTransactionId(String transactionId)
+        {
+            assert !this.destroyed.get() : "trying to use a destroyed object";
+            return native_getExchangeByTransactionId(this.nativeRef, transactionId);
+        }
+        private native Exchange native_getExchangeByTransactionId(long _nativeRef, String transactionId);
 
         @Override
         public void addListener(UserListener listener)

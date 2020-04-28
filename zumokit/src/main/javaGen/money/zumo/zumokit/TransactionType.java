@@ -4,7 +4,7 @@
 package money.zumo.zumokit;
 
 public enum TransactionType {
-    INCOMING,
-    OUTGOING,
+    NORMAL,
+    EXCHANGE,
     ;
 }

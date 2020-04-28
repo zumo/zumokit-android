@@ -13,9 +13,17 @@ public final class State {
 
     /*package*/ final ArrayList<Transaction> mTransactions;
 
+    /*package*/ final ArrayList<Exchange> mExchanges;
+
     /*package*/ final String mToken;
 
     /*package*/ final String mActiveUserId;
+
+    /*package*/ final HashMap<String, HashMap<String, ExchangeRate>> mExchangeRate;
+
+    /*package*/ final String mBitcoinDepositAddress;
+
+    /*package*/ final String mEthereumDepositAddress;
 
     /*package*/ final String mExchangeRates;
 
@@ -28,16 +36,24 @@ public final class State {
     public State(
             ArrayList<Account> accounts,
             ArrayList<Transaction> transactions,
+            ArrayList<Exchange> exchanges,
             String token,
             String activeUserId,
+            HashMap<String, HashMap<String, ExchangeRate>> exchangeRate,
+            String bitcoinDepositAddress,
+            String ethereumDepositAddress,
             String exchangeRates,
             TxServiceConnection txServiceConnection,
             HashMap<String, FeeRates> feeRates,
             SyncStatus syncStatus) {
         this.mAccounts = accounts;
         this.mTransactions = transactions;
+        this.mExchanges = exchanges;
         this.mToken = token;
         this.mActiveUserId = activeUserId;
+        this.mExchangeRate = exchangeRate;
+        this.mBitcoinDepositAddress = bitcoinDepositAddress;
+        this.mEthereumDepositAddress = ethereumDepositAddress;
         this.mExchangeRates = exchangeRates;
         this.mTxServiceConnection = txServiceConnection;
         this.mFeeRates = feeRates;
@@ -52,6 +68,10 @@ public final class State {
         return mTransactions;
     }
 
+    public ArrayList<Exchange> getExchanges() {
+        return mExchanges;
+    }
+
     public String getToken() {
         return mToken;
     }
@@ -60,6 +80,20 @@ public final class State {
         return mActiveUserId;
     }
 
+    public HashMap<String, HashMap<String, ExchangeRate>> getExchangeRate() {
+        return mExchangeRate;
+    }
+
+    public String getBitcoinDepositAddress() {
+        return mBitcoinDepositAddress;
+    }
+
+    /** should be moved to internal state */
+    public String getEthereumDepositAddress() {
+        return mEthereumDepositAddress;
+    }
+
+    /** should be moved to internal state */
     public String getExchangeRates() {
         return mExchangeRates;
     }
@@ -84,8 +118,12 @@ public final class State {
         State other = (State) obj;
         return this.mAccounts.equals(other.mAccounts) &&
                 this.mTransactions.equals(other.mTransactions) &&
+                this.mExchanges.equals(other.mExchanges) &&
                 this.mToken.equals(other.mToken) &&
                 ((this.mActiveUserId == null && other.mActiveUserId == null) || (this.mActiveUserId != null && this.mActiveUserId.equals(other.mActiveUserId))) &&
+                this.mExchangeRate.equals(other.mExchangeRate) &&
+                this.mBitcoinDepositAddress.equals(other.mBitcoinDepositAddress) &&
+                this.mEthereumDepositAddress.equals(other.mEthereumDepositAddress) &&
                 this.mExchangeRates.equals(other.mExchangeRates) &&
                 this.mTxServiceConnection.equals(other.mTxServiceConnection) &&
                 this.mFeeRates.equals(other.mFeeRates) &&
@@ -98,8 +136,12 @@ public final class State {
         int hashCode = 17;
         hashCode = hashCode * 31 + mAccounts.hashCode();
         hashCode = hashCode * 31 + mTransactions.hashCode();
+        hashCode = hashCode * 31 + mExchanges.hashCode();
         hashCode = hashCode * 31 + mToken.hashCode();
         hashCode = hashCode * 31 + (mActiveUserId == null ? 0 : mActiveUserId.hashCode());
+        hashCode = hashCode * 31 + mExchangeRate.hashCode();
+        hashCode = hashCode * 31 + mBitcoinDepositAddress.hashCode();
+        hashCode = hashCode * 31 + mEthereumDepositAddress.hashCode();
         hashCode = hashCode * 31 + mExchangeRates.hashCode();
         hashCode = hashCode * 31 + mTxServiceConnection.hashCode();
         hashCode = hashCode * 31 + mFeeRates.hashCode();
@@ -112,8 +154,12 @@ public final class State {
         return "State{" +
                 "mAccounts=" + mAccounts +
                 "," + "mTransactions=" + mTransactions +
+                "," + "mExchanges=" + mExchanges +
                 "," + "mToken=" + mToken +
                 "," + "mActiveUserId=" + mActiveUserId +
+                "," + "mExchangeRate=" + mExchangeRate +
+                "," + "mBitcoinDepositAddress=" + mBitcoinDepositAddress +
+                "," + "mEthereumDepositAddress=" + mEthereumDepositAddress +
                 "," + "mExchangeRates=" + mExchangeRates +
                 "," + "mTxServiceConnection=" + mTxServiceConnection +
                 "," + "mFeeRates=" + mFeeRates +

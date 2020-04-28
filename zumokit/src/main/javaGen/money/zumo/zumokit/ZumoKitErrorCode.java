@@ -5,6 +5,8 @@ package money.zumo.zumokit;
 
 public final class ZumoKitErrorCode {
 
+    public static final String UNKNOWN_ERROR = "unknown_error";
+
     public static final String NOT_AUTHORIZED = "not_authorized";
 
     public static final String WALLET_LIMIT_EXCEEDED = "wallet_limit_exceeded";
@@ -27,9 +29,9 @@ public final class ZumoKitErrorCode {
 
     public static final String INVALID_HD_WALLET_PATH = "invalid_hd_wallet_path";
 
-    public static final String CHANGE_ACCOUNT_DOES_NOT_EXIST = "change_account_does_not_exist";
+    public static final String CHANGE_ACCOUNT_NOT_FOUND = "change_account_not_found";
 
-    public static final String ACCOUNT_DOES_NOT_EXIST = "account_does_not_exist";
+    public static final String ACCOUNT_NOT_FOUND = "account_not_found";
 
     public static final String KNOWN_TRANSACTION = "known_transaction";
 
@@ -53,7 +55,11 @@ public final class ZumoKitErrorCode {
 
     public static final String INCOMPATIBLE_NETWORK_TYPES = "incompatible_network_types";
 
-    public static final String ACCOUNT_TYPE_NOT_SUPPORTED = "account_type_not_supported";
+    public static final String INVALID_ACCOUNT_TYPE = "invalid_account_type";
+
+    public static final String INVALID_EXCHANGE_RATE = "invalid_exchange_rate";
+
+    public static final String EXCHANGE_RETURN_VALUE_NEGATIVE = "exchange_return_value_negative";
 
 
     public ZumoKitErrorCode(

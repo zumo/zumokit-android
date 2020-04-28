@@ -6,11 +6,17 @@ package money.zumo.zumokit;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 public interface Wallet {
-    public void sendEthTransaction(String accountId, String gasPrice, String gasLimit, String to, String value, String data, Long nonce, SendTransactionCallback callback);
+    public void submitTransaction(ComposedTransaction composedTransaction, SubmitTransactionCallback callback);
+
+    public void composeEthTransaction(String accountId, String gasPrice, String gasLimit, String to, String value, String data, Long nonce, ComposeTransactionCallback callback);
+
+    public void composeBtcTransaction(String accountId, String changeAccountId, String to, String value, String feeRate, ComposeTransactionCallback callback);
+
+    public void submitExchange(ComposedExchange composedExchange, SubmitExchangeCallback callback);
+
+    public void composeExchange(String depositAccountId, String withdrawAccountId, ExchangeRate exchangeRate, String value, ComposeExchangeCallback callback);
 
     public String maxSpendableEth(String accountId, String gasPrice, String gasLimit);
-
-    public void sendBtcTransaction(String accountId, String changeAccountId, String to, String value, String feeRate, SendTransactionCallback callback);
 
     public String maxSpendableBtc(String accountId, String to, String feeRate);
 
@@ -38,12 +44,44 @@ public interface Wallet {
         }
 
         @Override
-        public void sendEthTransaction(String accountId, String gasPrice, String gasLimit, String to, String value, String data, Long nonce, SendTransactionCallback callback)
+        public void submitTransaction(ComposedTransaction composedTransaction, SubmitTransactionCallback callback)
         {
             assert !this.destroyed.get() : "trying to use a destroyed object";
-            native_sendEthTransaction(this.nativeRef, accountId, gasPrice, gasLimit, to, value, data, nonce, callback);
+            native_submitTransaction(this.nativeRef, composedTransaction, callback);
         }
-        private native void native_sendEthTransaction(long _nativeRef, String accountId, String gasPrice, String gasLimit, String to, String value, String data, Long nonce, SendTransactionCallback callback);
+        private native void native_submitTransaction(long _nativeRef, ComposedTransaction composedTransaction, SubmitTransactionCallback callback);
+
+        @Override
+        public void composeEthTransaction(String accountId, String gasPrice, String gasLimit, String to, String value, String data, Long nonce, ComposeTransactionCallback callback)
+        {
+            assert !this.destroyed.get() : "trying to use a destroyed object";
+            native_composeEthTransaction(this.nativeRef, accountId, gasPrice, gasLimit, to, value, data, nonce, callback);
+        }
+        private native void native_composeEthTransaction(long _nativeRef, String accountId, String gasPrice, String gasLimit, String to, String value, String data, Long nonce, ComposeTransactionCallback callback);
+
+        @Override
+        public void composeBtcTransaction(String accountId, String changeAccountId, String to, String value, String feeRate, ComposeTransactionCallback callback)
+        {
+            assert !this.destroyed.get() : "trying to use a destroyed object";
+            native_composeBtcTransaction(this.nativeRef, accountId, changeAccountId, to, value, feeRate, callback);
+        }
+        private native void native_composeBtcTransaction(long _nativeRef, String accountId, String changeAccountId, String to, String value, String feeRate, ComposeTransactionCallback callback);
+
+        @Override
+        public void submitExchange(ComposedExchange composedExchange, SubmitExchangeCallback callback)
+        {
+            assert !this.destroyed.get() : "trying to use a destroyed object";
+            native_submitExchange(this.nativeRef, composedExchange, callback);
+        }
+        private native void native_submitExchange(long _nativeRef, ComposedExchange composedExchange, SubmitExchangeCallback callback);
+
+        @Override
+        public void composeExchange(String depositAccountId, String withdrawAccountId, ExchangeRate exchangeRate, String value, ComposeExchangeCallback callback)
+        {
+            assert !this.destroyed.get() : "trying to use a destroyed object";
+            native_composeExchange(this.nativeRef, depositAccountId, withdrawAccountId, exchangeRate, value, callback);
+        }
+        private native void native_composeExchange(long _nativeRef, String depositAccountId, String withdrawAccountId, ExchangeRate exchangeRate, String value, ComposeExchangeCallback callback);
 
         @Override
         public String maxSpendableEth(String accountId, String gasPrice, String gasLimit)
@@ -52,14 +90,6 @@ public interface Wallet {
             return native_maxSpendableEth(this.nativeRef, accountId, gasPrice, gasLimit);
         }
         private native String native_maxSpendableEth(long _nativeRef, String accountId, String gasPrice, String gasLimit);
-
-        @Override
-        public void sendBtcTransaction(String accountId, String changeAccountId, String to, String value, String feeRate, SendTransactionCallback callback)
-        {
-            assert !this.destroyed.get() : "trying to use a destroyed object";
-            native_sendBtcTransaction(this.nativeRef, accountId, changeAccountId, to, value, feeRate, callback);
-        }
-        private native void native_sendBtcTransaction(long _nativeRef, String accountId, String changeAccountId, String to, String value, String feeRate, SendTransactionCallback callback);
 
         @Override
         public String maxSpendableBtc(String accountId, String to, String feeRate)
