@@ -3,7 +3,7 @@
 
 package money.zumo.zumokit;
 
-public final class ExchangeRate {
+public final class ExchangeFees {
 
 
     /*package*/ final String mId;
@@ -12,24 +12,28 @@ public final class ExchangeRate {
 
     /*package*/ final String mWithdrawCurrency;
 
-    /*package*/ final String mValue;
+    /*package*/ final String mFeeRate;
 
-    /*package*/ final long mValidTo;
+    /*package*/ final String mDepositFeeRate;
+
+    /*package*/ final String mWithdrawFee;
 
     /*package*/ final long mTimestamp;
 
-    public ExchangeRate(
+    public ExchangeFees(
             String id,
             String depositCurrency,
             String withdrawCurrency,
-            String value,
-            long validTo,
+            String feeRate,
+            String depositFeeRate,
+            String withdrawFee,
             long timestamp) {
         this.mId = id;
         this.mDepositCurrency = depositCurrency;
         this.mWithdrawCurrency = withdrawCurrency;
-        this.mValue = value;
-        this.mValidTo = validTo;
+        this.mFeeRate = feeRate;
+        this.mDepositFeeRate = depositFeeRate;
+        this.mWithdrawFee = withdrawFee;
         this.mTimestamp = timestamp;
     }
 
@@ -45,12 +49,16 @@ public final class ExchangeRate {
         return mWithdrawCurrency;
     }
 
-    public String getValue() {
-        return mValue;
+    public String getFeeRate() {
+        return mFeeRate;
     }
 
-    public long getValidTo() {
-        return mValidTo;
+    public String getDepositFeeRate() {
+        return mDepositFeeRate;
+    }
+
+    public String getWithdrawFee() {
+        return mWithdrawFee;
     }
 
     public long getTimestamp() {
@@ -59,15 +67,16 @@ public final class ExchangeRate {
 
     @Override
     public boolean equals(Object obj) {
-        if (!(obj instanceof ExchangeRate)) {
+        if (!(obj instanceof ExchangeFees)) {
             return false;
         }
-        ExchangeRate other = (ExchangeRate) obj;
+        ExchangeFees other = (ExchangeFees) obj;
         return this.mId.equals(other.mId) &&
                 this.mDepositCurrency.equals(other.mDepositCurrency) &&
                 this.mWithdrawCurrency.equals(other.mWithdrawCurrency) &&
-                this.mValue.equals(other.mValue) &&
-                this.mValidTo == other.mValidTo &&
+                this.mFeeRate.equals(other.mFeeRate) &&
+                this.mDepositFeeRate.equals(other.mDepositFeeRate) &&
+                this.mWithdrawFee.equals(other.mWithdrawFee) &&
                 this.mTimestamp == other.mTimestamp;
     }
 
@@ -78,20 +87,22 @@ public final class ExchangeRate {
         hashCode = hashCode * 31 + mId.hashCode();
         hashCode = hashCode * 31 + mDepositCurrency.hashCode();
         hashCode = hashCode * 31 + mWithdrawCurrency.hashCode();
-        hashCode = hashCode * 31 + mValue.hashCode();
-        hashCode = hashCode * 31 + ((int) (mValidTo ^ (mValidTo >>> 32)));
+        hashCode = hashCode * 31 + mFeeRate.hashCode();
+        hashCode = hashCode * 31 + mDepositFeeRate.hashCode();
+        hashCode = hashCode * 31 + mWithdrawFee.hashCode();
         hashCode = hashCode * 31 + ((int) (mTimestamp ^ (mTimestamp >>> 32)));
         return hashCode;
     }
 
     @Override
     public String toString() {
-        return "ExchangeRate{" +
+        return "ExchangeFees{" +
                 "mId=" + mId +
                 "," + "mDepositCurrency=" + mDepositCurrency +
                 "," + "mWithdrawCurrency=" + mWithdrawCurrency +
-                "," + "mValue=" + mValue +
-                "," + "mValidTo=" + mValidTo +
+                "," + "mFeeRate=" + mFeeRate +
+                "," + "mDepositFeeRate=" + mDepositFeeRate +
+                "," + "mWithdrawFee=" + mWithdrawFee +
                 "," + "mTimestamp=" + mTimestamp +
         "}";
     }

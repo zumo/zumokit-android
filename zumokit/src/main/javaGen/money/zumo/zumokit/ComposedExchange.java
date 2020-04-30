@@ -14,6 +14,8 @@ public final class ComposedExchange {
 
     /*package*/ final ExchangeRate mExchangeRate;
 
+    /*package*/ final ExchangeFees mExchangeFees;
+
     /*package*/ final String mExchangeAddress;
 
     /*package*/ final String mValue;
@@ -31,6 +33,7 @@ public final class ComposedExchange {
             Account depositAccount,
             Account withdrawAccount,
             ExchangeRate exchangeRate,
+            ExchangeFees exchangeFees,
             String exchangeAddress,
             String value,
             String returnValue,
@@ -41,6 +44,7 @@ public final class ComposedExchange {
         this.mDepositAccount = depositAccount;
         this.mWithdrawAccount = withdrawAccount;
         this.mExchangeRate = exchangeRate;
+        this.mExchangeFees = exchangeFees;
         this.mExchangeAddress = exchangeAddress;
         this.mValue = value;
         this.mReturnValue = returnValue;
@@ -63,6 +67,10 @@ public final class ComposedExchange {
 
     public ExchangeRate getExchangeRate() {
         return mExchangeRate;
+    }
+
+    public ExchangeFees getExchangeFees() {
+        return mExchangeFees;
     }
 
     public String getExchangeAddress() {
@@ -99,6 +107,7 @@ public final class ComposedExchange {
                 this.mDepositAccount.equals(other.mDepositAccount) &&
                 this.mWithdrawAccount.equals(other.mWithdrawAccount) &&
                 this.mExchangeRate.equals(other.mExchangeRate) &&
+                this.mExchangeFees.equals(other.mExchangeFees) &&
                 this.mExchangeAddress.equals(other.mExchangeAddress) &&
                 this.mValue.equals(other.mValue) &&
                 this.mReturnValue.equals(other.mReturnValue) &&
@@ -115,6 +124,7 @@ public final class ComposedExchange {
         hashCode = hashCode * 31 + mDepositAccount.hashCode();
         hashCode = hashCode * 31 + mWithdrawAccount.hashCode();
         hashCode = hashCode * 31 + mExchangeRate.hashCode();
+        hashCode = hashCode * 31 + mExchangeFees.hashCode();
         hashCode = hashCode * 31 + mExchangeAddress.hashCode();
         hashCode = hashCode * 31 + mValue.hashCode();
         hashCode = hashCode * 31 + mReturnValue.hashCode();
@@ -131,6 +141,7 @@ public final class ComposedExchange {
                 "," + "mDepositAccount=" + mDepositAccount +
                 "," + "mWithdrawAccount=" + mWithdrawAccount +
                 "," + "mExchangeRate=" + mExchangeRate +
+                "," + "mExchangeFees=" + mExchangeFees +
                 "," + "mExchangeAddress=" + mExchangeAddress +
                 "," + "mValue=" + mValue +
                 "," + "mReturnValue=" + mReturnValue +
