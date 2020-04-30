@@ -90,23 +90,27 @@ public class MainActivity extends AppCompatActivity {
                             //composeBtcTransaction(btcAccount);
 
                             State state = mZumoKit.getState();
-                            Log.i("zumokit/exchange-rates", state.getExchangeRates());
-//                            composeExchange(
-//                                    ethAccount,
-//                                    btcAccount,
-//                                    state.getExchangeRates().get("ETH").get("BTC"),
-//                                    state.getExchangeFees().get("ETH").get("BTC"),
-//                                    "0.0222",
-//                                    true
-//                            );
-//                            composeExchange(
-//                                    btcAccount,
-//                                    ethAccount,
-//                                    state.getExchangeRates().get("BTC").get("ETH"),
-//                                    state.getExchangeFees().get("BTC").get("ETH"),
-//                                    "0.002",
-//                                    false
-//                            );
+//                            Log.i("zumokit/exchange-rates", state.getExchangeRate());
+                            composeExchange(
+                                    ethAccount,
+                                    btcAccount,
+                                    state.getExchangeRates().get("ETH").get("BTC"),
+                                    state.getExchangeFees().get("ETH").get("BTC"),
+                                    "0.0222",
+                                    false
+                            );
+
+                            Log.i("zumokit/exchange-rates",  state.getExchangeRates().get("BTC").get("ETH").toString());
+                            Log.i("zumokit/exchange-rates",  state.getExchangeFees().get("BTC").get("ETH").toString());
+
+                            composeExchange(
+                                    btcAccount,
+                                    ethAccount,
+                                    state.getExchangeRates().get("BTC").get("ETH"),
+                                    state.getExchangeFees().get("BTC").get("ETH"),
+                                    "0.001",
+                                    true
+                            );
                         }
                     });
                 } else {
