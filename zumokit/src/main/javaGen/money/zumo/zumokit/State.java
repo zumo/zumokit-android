@@ -19,7 +19,7 @@ public final class State {
 
     /*package*/ final String mActiveUserId;
 
-    /*package*/ final String mExchangeRates;
+    /*package*/ final HashMap<String, HashMap<String, ExchangeRate>> mExchangeRates;
 
     /*package*/ final HashMap<String, HashMap<String, ExchangeFees>> mExchangeFees;
 
@@ -39,7 +39,7 @@ public final class State {
             ArrayList<Exchange> exchanges,
             String token,
             String activeUserId,
-            String exchangeRates,
+            HashMap<String, HashMap<String, ExchangeRate>> exchangeRates,
             HashMap<String, HashMap<String, ExchangeFees>> exchangeFees,
             String bitcoinDepositAddress,
             String ethereumDepositAddress,
@@ -80,11 +80,10 @@ public final class State {
         return mActiveUserId;
     }
 
-    public String getExchangeRates() {
+    public HashMap<String, HashMap<String, ExchangeRate>> getExchangeRates() {
         return mExchangeRates;
     }
 
-    /** exchange_rates: map<string, map<string, exchange_rate>>; */
     public HashMap<String, HashMap<String, ExchangeFees>> getExchangeFees() {
         return mExchangeFees;
     }
