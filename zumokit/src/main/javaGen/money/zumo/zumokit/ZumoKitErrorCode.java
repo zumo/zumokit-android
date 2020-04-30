@@ -59,6 +59,8 @@ public final class ZumoKitErrorCode {
 
     public static final String INVALID_EXCHANGE_RATE = "invalid_exchange_rate";
 
+    public static final String INVALID_EXCHANGE_FEES = "invalid_exchange_fees";
+
     public static final String EXCHANGE_RETURN_VALUE_NEGATIVE = "exchange_return_value_negative";
 
 

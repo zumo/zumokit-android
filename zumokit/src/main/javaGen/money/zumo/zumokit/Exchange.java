@@ -24,7 +24,17 @@ public final class Exchange {
 
     /*package*/ final String mAmount;
 
+    /*package*/ final String mDepositFee;
+
     /*package*/ final String mReturnAmount;
+
+    /*package*/ final String mExchangeFee;
+
+    /*package*/ final String mWithdrawFee;
+
+    /*package*/ final ExchangeRate mExchangeRate;
+
+    /*package*/ final ExchangeFees mExchangeFees;
 
     /*package*/ final Long mSubmittedAt;
 
@@ -40,7 +50,12 @@ public final class Exchange {
             String withdrawAccountId,
             String withdrawTransactionId,
             String amount,
+            String depositFee,
             String returnAmount,
+            String exchangeFee,
+            String withdrawFee,
+            ExchangeRate exchangeRate,
+            ExchangeFees exchangeFees,
             Long submittedAt,
             Long confirmedAt) {
         this.mId = id;
@@ -52,7 +67,12 @@ public final class Exchange {
         this.mWithdrawAccountId = withdrawAccountId;
         this.mWithdrawTransactionId = withdrawTransactionId;
         this.mAmount = amount;
+        this.mDepositFee = depositFee;
         this.mReturnAmount = returnAmount;
+        this.mExchangeFee = exchangeFee;
+        this.mWithdrawFee = withdrawFee;
+        this.mExchangeRate = exchangeRate;
+        this.mExchangeFees = exchangeFees;
         this.mSubmittedAt = submittedAt;
         this.mConfirmedAt = confirmedAt;
     }
@@ -93,8 +113,28 @@ public final class Exchange {
         return mAmount;
     }
 
+    public String getDepositFee() {
+        return mDepositFee;
+    }
+
     public String getReturnAmount() {
         return mReturnAmount;
+    }
+
+    public String getExchangeFee() {
+        return mExchangeFee;
+    }
+
+    public String getWithdrawFee() {
+        return mWithdrawFee;
+    }
+
+    public ExchangeRate getExchangeRate() {
+        return mExchangeRate;
+    }
+
+    public ExchangeFees getExchangeFees() {
+        return mExchangeFees;
     }
 
     public Long getSubmittedAt() {
@@ -120,7 +160,12 @@ public final class Exchange {
                 this.mWithdrawAccountId.equals(other.mWithdrawAccountId) &&
                 ((this.mWithdrawTransactionId == null && other.mWithdrawTransactionId == null) || (this.mWithdrawTransactionId != null && this.mWithdrawTransactionId.equals(other.mWithdrawTransactionId))) &&
                 this.mAmount.equals(other.mAmount) &&
+                this.mDepositFee.equals(other.mDepositFee) &&
                 this.mReturnAmount.equals(other.mReturnAmount) &&
+                this.mExchangeFee.equals(other.mExchangeFee) &&
+                this.mWithdrawFee.equals(other.mWithdrawFee) &&
+                this.mExchangeRate.equals(other.mExchangeRate) &&
+                this.mExchangeFees.equals(other.mExchangeFees) &&
                 ((this.mSubmittedAt == null && other.mSubmittedAt == null) || (this.mSubmittedAt != null && this.mSubmittedAt.equals(other.mSubmittedAt))) &&
                 ((this.mConfirmedAt == null && other.mConfirmedAt == null) || (this.mConfirmedAt != null && this.mConfirmedAt.equals(other.mConfirmedAt)));
     }
@@ -138,7 +183,12 @@ public final class Exchange {
         hashCode = hashCode * 31 + mWithdrawAccountId.hashCode();
         hashCode = hashCode * 31 + (mWithdrawTransactionId == null ? 0 : mWithdrawTransactionId.hashCode());
         hashCode = hashCode * 31 + mAmount.hashCode();
+        hashCode = hashCode * 31 + mDepositFee.hashCode();
         hashCode = hashCode * 31 + mReturnAmount.hashCode();
+        hashCode = hashCode * 31 + mExchangeFee.hashCode();
+        hashCode = hashCode * 31 + mWithdrawFee.hashCode();
+        hashCode = hashCode * 31 + mExchangeRate.hashCode();
+        hashCode = hashCode * 31 + mExchangeFees.hashCode();
         hashCode = hashCode * 31 + (mSubmittedAt == null ? 0 : mSubmittedAt.hashCode());
         hashCode = hashCode * 31 + (mConfirmedAt == null ? 0 : mConfirmedAt.hashCode());
         return hashCode;
@@ -156,7 +206,12 @@ public final class Exchange {
                 "," + "mWithdrawAccountId=" + mWithdrawAccountId +
                 "," + "mWithdrawTransactionId=" + mWithdrawTransactionId +
                 "," + "mAmount=" + mAmount +
+                "," + "mDepositFee=" + mDepositFee +
                 "," + "mReturnAmount=" + mReturnAmount +
+                "," + "mExchangeFee=" + mExchangeFee +
+                "," + "mWithdrawFee=" + mWithdrawFee +
+                "," + "mExchangeRate=" + mExchangeRate +
+                "," + "mExchangeFees=" + mExchangeFees +
                 "," + "mSubmittedAt=" + mSubmittedAt +
                 "," + "mConfirmedAt=" + mConfirmedAt +
         "}";
