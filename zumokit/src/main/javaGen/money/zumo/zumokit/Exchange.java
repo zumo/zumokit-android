@@ -8,7 +8,7 @@ public final class Exchange {
 
     /*package*/ final String mId;
 
-    /*package*/ final ExchangeStatus mStatus;
+    /*package*/ final String mStatus;
 
     /*package*/ final String mDepositCurrency;
 
@@ -42,7 +42,7 @@ public final class Exchange {
 
     public Exchange(
             String id,
-            ExchangeStatus status,
+            String status,
             String depositCurrency,
             String depositAccountId,
             String depositTransactionId,
@@ -81,7 +81,7 @@ public final class Exchange {
         return mId;
     }
 
-    public ExchangeStatus getStatus() {
+    public String getStatus() {
         return mStatus;
     }
 
@@ -152,7 +152,7 @@ public final class Exchange {
         }
         Exchange other = (Exchange) obj;
         return this.mId.equals(other.mId) &&
-                this.mStatus == other.mStatus &&
+                this.mStatus.equals(other.mStatus) &&
                 this.mDepositCurrency.equals(other.mDepositCurrency) &&
                 this.mDepositAccountId.equals(other.mDepositAccountId) &&
                 this.mDepositTransactionId.equals(other.mDepositTransactionId) &&
