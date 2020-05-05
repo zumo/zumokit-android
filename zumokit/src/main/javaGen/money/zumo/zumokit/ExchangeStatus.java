@@ -3,13 +3,31 @@
 
 package money.zumo.zumokit;
 
-public enum ExchangeStatus {
-    PENDING_DEPOSIT,
-    PENDING_WITHDRAW,
-    CONFIRMED,
-    FAILED,
-    RESUBMITTED,
-    CANCELLED,
-    PAUSED,
-    ;
+public final class ExchangeStatus {
+
+    public static final String PENDING = "PENDING";
+
+    public static final String DEPOSITED = "DEPOSITED";
+
+    public static final String CONFIRMED = "CONFIRMED";
+
+    public static final String FAILED = "FAILED";
+
+    public static final String RESUBMITTED = "RESUBMITTED";
+
+    public static final String CANCELLED = "CANCELLED";
+
+    public static final String PAUSED = "PAUSED";
+
+
+    public ExchangeStatus(
+            ) {
+    }
+
+    @Override
+    public String toString() {
+        return "ExchangeStatus{" +
+        "}";
+    }
+
 }

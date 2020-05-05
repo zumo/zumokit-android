@@ -46,9 +46,9 @@ public final class Transaction {
 
     /*package*/ final String mGasLimit;
 
-    /*package*/ final String mCost;
+    /*package*/ final String mFee;
 
-    /*package*/ final HashMap<String, String> mFiatCost;
+    /*package*/ final HashMap<String, String> mFiatFee;
 
     /*package*/ final Long mSubmittedAt;
 
@@ -76,8 +76,8 @@ public final class Transaction {
             String data,
             String gasPrice,
             String gasLimit,
-            String cost,
-            HashMap<String, String> fiatCost,
+            String fee,
+            HashMap<String, String> fiatFee,
             Long submittedAt,
             Long confirmedAt,
             long timestamp) {
@@ -100,8 +100,8 @@ public final class Transaction {
         this.mData = data;
         this.mGasPrice = gasPrice;
         this.mGasLimit = gasLimit;
-        this.mCost = cost;
-        this.mFiatCost = fiatCost;
+        this.mFee = fee;
+        this.mFiatFee = fiatFee;
         this.mSubmittedAt = submittedAt;
         this.mConfirmedAt = confirmedAt;
         this.mTimestamp = timestamp;
@@ -183,12 +183,12 @@ public final class Transaction {
         return mGasLimit;
     }
 
-    public String getCost() {
-        return mCost;
+    public String getFee() {
+        return mFee;
     }
 
-    public HashMap<String, String> getFiatCost() {
-        return mFiatCost;
+    public HashMap<String, String> getFiatFee() {
+        return mFiatFee;
     }
 
     public Long getSubmittedAt() {
@@ -228,8 +228,8 @@ public final class Transaction {
                 ((this.mData == null && other.mData == null) || (this.mData != null && this.mData.equals(other.mData))) &&
                 ((this.mGasPrice == null && other.mGasPrice == null) || (this.mGasPrice != null && this.mGasPrice.equals(other.mGasPrice))) &&
                 ((this.mGasLimit == null && other.mGasLimit == null) || (this.mGasLimit != null && this.mGasLimit.equals(other.mGasLimit))) &&
-                this.mCost.equals(other.mCost) &&
-                this.mFiatCost.equals(other.mFiatCost) &&
+                ((this.mFee == null && other.mFee == null) || (this.mFee != null && this.mFee.equals(other.mFee))) &&
+                this.mFiatFee.equals(other.mFiatFee) &&
                 ((this.mSubmittedAt == null && other.mSubmittedAt == null) || (this.mSubmittedAt != null && this.mSubmittedAt.equals(other.mSubmittedAt))) &&
                 ((this.mConfirmedAt == null && other.mConfirmedAt == null) || (this.mConfirmedAt != null && this.mConfirmedAt.equals(other.mConfirmedAt))) &&
                 this.mTimestamp == other.mTimestamp;
@@ -258,8 +258,8 @@ public final class Transaction {
         hashCode = hashCode * 31 + (mData == null ? 0 : mData.hashCode());
         hashCode = hashCode * 31 + (mGasPrice == null ? 0 : mGasPrice.hashCode());
         hashCode = hashCode * 31 + (mGasLimit == null ? 0 : mGasLimit.hashCode());
-        hashCode = hashCode * 31 + mCost.hashCode();
-        hashCode = hashCode * 31 + mFiatCost.hashCode();
+        hashCode = hashCode * 31 + (mFee == null ? 0 : mFee.hashCode());
+        hashCode = hashCode * 31 + mFiatFee.hashCode();
         hashCode = hashCode * 31 + (mSubmittedAt == null ? 0 : mSubmittedAt.hashCode());
         hashCode = hashCode * 31 + (mConfirmedAt == null ? 0 : mConfirmedAt.hashCode());
         hashCode = hashCode * 31 + ((int) (mTimestamp ^ (mTimestamp >>> 32)));
@@ -288,8 +288,8 @@ public final class Transaction {
                 "," + "mData=" + mData +
                 "," + "mGasPrice=" + mGasPrice +
                 "," + "mGasLimit=" + mGasLimit +
-                "," + "mCost=" + mCost +
-                "," + "mFiatCost=" + mFiatCost +
+                "," + "mFee=" + mFee +
+                "," + "mFiatFee=" + mFiatFee +
                 "," + "mSubmittedAt=" + mSubmittedAt +
                 "," + "mConfirmedAt=" + mConfirmedAt +
                 "," + "mTimestamp=" + mTimestamp +
