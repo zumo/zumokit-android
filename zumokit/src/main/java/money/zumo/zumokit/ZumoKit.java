@@ -42,6 +42,8 @@ public class ZumoKit {
 
     public State getState() { return zumoCore.getState(); };
 
+    public void getHistoricalExchangeRates(HistoricalExchangeRatesCallback callback) { zumoCore.getHistoricalExchangeRates(callback); }
+
     public void addStateListener(StateListener listener) { zumoCore.addStateListener(listener); };
 
     public void removeStateListener(StateListener listener) { zumoCore.removeStateListener(listener); };
