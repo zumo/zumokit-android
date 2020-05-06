@@ -9,5 +9,5 @@ import java.util.HashMap;
 public interface HistoricalExchangeRatesCallback {
     public void onError(Exception e);
 
-    public void onSuccess(HashMap<String, ArrayList<HashMap<String, HashMap<String, ExchangeRate>>>> historicalExchangeRates);
+    public void onSuccess(HashMap<String, HashMap<String, HashMap<String, ArrayList<ExchangeRate>>>> historicalExchangeRates);
 }
