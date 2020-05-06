@@ -10,6 +10,8 @@ public interface ZumoCore {
 
     public Utils getUtils();
 
+    public void getHistoricalExchangeRates(HistoricalExchangeRatesCallback callback);
+
     public State getState();
 
     public void addStateListener(StateListener listener);
@@ -68,6 +70,14 @@ public interface ZumoCore {
             return native_getUtils(this.nativeRef);
         }
         private native Utils native_getUtils(long _nativeRef);
+
+        @Override
+        public void getHistoricalExchangeRates(HistoricalExchangeRatesCallback callback)
+        {
+            assert !this.destroyed.get() : "trying to use a destroyed object";
+            native_getHistoricalExchangeRates(this.nativeRef, callback);
+        }
+        private native void native_getHistoricalExchangeRates(long _nativeRef, HistoricalExchangeRatesCallback callback);
 
         @Override
         public State getState()

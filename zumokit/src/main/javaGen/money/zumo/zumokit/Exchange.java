@@ -160,7 +160,7 @@ public final class Exchange {
                 this.mWithdrawAccountId.equals(other.mWithdrawAccountId) &&
                 ((this.mWithdrawTransactionId == null && other.mWithdrawTransactionId == null) || (this.mWithdrawTransactionId != null && this.mWithdrawTransactionId.equals(other.mWithdrawTransactionId))) &&
                 this.mAmount.equals(other.mAmount) &&
-                this.mDepositFee.equals(other.mDepositFee) &&
+                ((this.mDepositFee == null && other.mDepositFee == null) || (this.mDepositFee != null && this.mDepositFee.equals(other.mDepositFee))) &&
                 this.mReturnAmount.equals(other.mReturnAmount) &&
                 this.mExchangeFee.equals(other.mExchangeFee) &&
                 this.mWithdrawFee.equals(other.mWithdrawFee) &&
@@ -183,7 +183,7 @@ public final class Exchange {
         hashCode = hashCode * 31 + mWithdrawAccountId.hashCode();
         hashCode = hashCode * 31 + (mWithdrawTransactionId == null ? 0 : mWithdrawTransactionId.hashCode());
         hashCode = hashCode * 31 + mAmount.hashCode();
-        hashCode = hashCode * 31 + mDepositFee.hashCode();
+        hashCode = hashCode * 31 + (mDepositFee == null ? 0 : mDepositFee.hashCode());
         hashCode = hashCode * 31 + mReturnAmount.hashCode();
         hashCode = hashCode * 31 + mExchangeFee.hashCode();
         hashCode = hashCode * 31 + mWithdrawFee.hashCode();
