@@ -7,6 +7,10 @@ public final class ZumoKitErrorCode {
 
     public static final String UNKNOWN_ERROR = "unknown_error";
 
+    public static final String INVALID_API_RESPONSE = "invalid_api_response";
+
+    public static final String INVALID_WEBSOCKET_RESPONSE = "invalid_websocket_response";
+
     public static final String API_SERVICE_ERROR = "api_service_error";
 
     public static final String TRANSACTION_SERVICE_ERROR = "transaction_service_error";
