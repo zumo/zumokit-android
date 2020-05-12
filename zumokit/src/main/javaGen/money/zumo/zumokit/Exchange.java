@@ -3,6 +3,8 @@
 
 package money.zumo.zumokit;
 
+import java.util.HashMap;
+
 public final class Exchange {
 
 
@@ -36,6 +38,8 @@ public final class Exchange {
 
     /*package*/ final ExchangeFees mExchangeFees;
 
+    /*package*/ final HashMap<String, HashMap<String, ExchangeRate>> mExchangeRates;
+
     /*package*/ final Long mSubmittedAt;
 
     /*package*/ final Long mConfirmedAt;
@@ -56,6 +60,7 @@ public final class Exchange {
             String withdrawFee,
             ExchangeRate exchangeRate,
             ExchangeFees exchangeFees,
+            HashMap<String, HashMap<String, ExchangeRate>> exchangeRates,
             Long submittedAt,
             Long confirmedAt) {
         this.mId = id;
@@ -73,6 +78,7 @@ public final class Exchange {
         this.mWithdrawFee = withdrawFee;
         this.mExchangeRate = exchangeRate;
         this.mExchangeFees = exchangeFees;
+        this.mExchangeRates = exchangeRates;
         this.mSubmittedAt = submittedAt;
         this.mConfirmedAt = confirmedAt;
     }
@@ -137,6 +143,10 @@ public final class Exchange {
         return mExchangeFees;
     }
 
+    public HashMap<String, HashMap<String, ExchangeRate>> getExchangeRates() {
+        return mExchangeRates;
+    }
+
     public Long getSubmittedAt() {
         return mSubmittedAt;
     }
@@ -166,6 +176,7 @@ public final class Exchange {
                 this.mWithdrawFee.equals(other.mWithdrawFee) &&
                 this.mExchangeRate.equals(other.mExchangeRate) &&
                 this.mExchangeFees.equals(other.mExchangeFees) &&
+                this.mExchangeRates.equals(other.mExchangeRates) &&
                 ((this.mSubmittedAt == null && other.mSubmittedAt == null) || (this.mSubmittedAt != null && this.mSubmittedAt.equals(other.mSubmittedAt))) &&
                 ((this.mConfirmedAt == null && other.mConfirmedAt == null) || (this.mConfirmedAt != null && this.mConfirmedAt.equals(other.mConfirmedAt)));
     }
@@ -189,6 +200,7 @@ public final class Exchange {
         hashCode = hashCode * 31 + mWithdrawFee.hashCode();
         hashCode = hashCode * 31 + mExchangeRate.hashCode();
         hashCode = hashCode * 31 + mExchangeFees.hashCode();
+        hashCode = hashCode * 31 + mExchangeRates.hashCode();
         hashCode = hashCode * 31 + (mSubmittedAt == null ? 0 : mSubmittedAt.hashCode());
         hashCode = hashCode * 31 + (mConfirmedAt == null ? 0 : mConfirmedAt.hashCode());
         return hashCode;
@@ -212,6 +224,7 @@ public final class Exchange {
                 "," + "mWithdrawFee=" + mWithdrawFee +
                 "," + "mExchangeRate=" + mExchangeRate +
                 "," + "mExchangeFees=" + mExchangeFees +
+                "," + "mExchangeRates=" + mExchangeRates +
                 "," + "mSubmittedAt=" + mSubmittedAt +
                 "," + "mConfirmedAt=" + mConfirmedAt +
         "}";
