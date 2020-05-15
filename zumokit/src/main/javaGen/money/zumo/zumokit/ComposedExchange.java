@@ -3,8 +3,6 @@
 
 package money.zumo.zumokit;
 
-import java.util.HashMap;
-
 public final class ComposedExchange {
 
 
@@ -17,8 +15,6 @@ public final class ComposedExchange {
     /*package*/ final ExchangeRate mExchangeRate;
 
     /*package*/ final ExchangeSettings mExchangeSettings;
-
-    /*package*/ final HashMap<String, HashMap<String, ExchangeRate>> mExchangeRates;
 
     /*package*/ final String mExchangeAddress;
 
@@ -38,7 +34,6 @@ public final class ComposedExchange {
             Account withdrawAccount,
             ExchangeRate exchangeRate,
             ExchangeSettings exchangeSettings,
-            HashMap<String, HashMap<String, ExchangeRate>> exchangeRates,
             String exchangeAddress,
             String value,
             String returnValue,
@@ -50,7 +45,6 @@ public final class ComposedExchange {
         this.mWithdrawAccount = withdrawAccount;
         this.mExchangeRate = exchangeRate;
         this.mExchangeSettings = exchangeSettings;
-        this.mExchangeRates = exchangeRates;
         this.mExchangeAddress = exchangeAddress;
         this.mValue = value;
         this.mReturnValue = returnValue;
@@ -77,10 +71,6 @@ public final class ComposedExchange {
 
     public ExchangeSettings getExchangeSettings() {
         return mExchangeSettings;
-    }
-
-    public HashMap<String, HashMap<String, ExchangeRate>> getExchangeRates() {
-        return mExchangeRates;
     }
 
     public String getExchangeAddress() {
@@ -118,7 +108,6 @@ public final class ComposedExchange {
                 this.mWithdrawAccount.equals(other.mWithdrawAccount) &&
                 this.mExchangeRate.equals(other.mExchangeRate) &&
                 this.mExchangeSettings.equals(other.mExchangeSettings) &&
-                this.mExchangeRates.equals(other.mExchangeRates) &&
                 this.mExchangeAddress.equals(other.mExchangeAddress) &&
                 this.mValue.equals(other.mValue) &&
                 this.mReturnValue.equals(other.mReturnValue) &&
@@ -136,7 +125,6 @@ public final class ComposedExchange {
         hashCode = hashCode * 31 + mWithdrawAccount.hashCode();
         hashCode = hashCode * 31 + mExchangeRate.hashCode();
         hashCode = hashCode * 31 + mExchangeSettings.hashCode();
-        hashCode = hashCode * 31 + mExchangeRates.hashCode();
         hashCode = hashCode * 31 + mExchangeAddress.hashCode();
         hashCode = hashCode * 31 + mValue.hashCode();
         hashCode = hashCode * 31 + mReturnValue.hashCode();
@@ -154,7 +142,6 @@ public final class ComposedExchange {
                 "," + "mWithdrawAccount=" + mWithdrawAccount +
                 "," + "mExchangeRate=" + mExchangeRate +
                 "," + "mExchangeSettings=" + mExchangeSettings +
-                "," + "mExchangeRates=" + mExchangeRates +
                 "," + "mExchangeAddress=" + mExchangeAddress +
                 "," + "mValue=" + mValue +
                 "," + "mReturnValue=" + mReturnValue +
