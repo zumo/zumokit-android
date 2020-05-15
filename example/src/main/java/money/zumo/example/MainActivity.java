@@ -10,6 +10,7 @@ import money.zumo.zumokit.ComposedExchange;
 import money.zumo.zumokit.ComposedTransaction;
 import money.zumo.zumokit.Exchange;
 import money.zumo.zumokit.ExchangeRate;
+import money.zumo.zumokit.ExchangeSettings;
 import money.zumo.zumokit.NetworkType;
 import money.zumo.zumokit.ComposeTransactionCallback;
 import money.zumo.zumokit.ComposeExchangeCallback;
@@ -93,13 +94,14 @@ public class MainActivity extends AppCompatActivity {
                             State state = mZumoKit.getState();
                             //Log.i("zumokit/exchange-rates", state.getExchangeSettings().toString());
                             //Log.i("zumokit/exchange-rates",  state.getExchangeRates().get("BTC").get("ETH").toString());
-                            //Log.i("zumokit/exchange-rates",  state.getExchangeFees().get("BTC").get("ETH").toString());
+                            //Log.i("zumokit/exchange-rates",  state.getExchangeSettings().get("BTC").get("ETH").toString());
 
                             composeExchange(
                                     ethAccount,
                                     btcAccount,
-                                    state.getExchangeRates(),
-                                    "0",
+                                    state.getExchangeRates().get("ETH").get("BTC"),
+                                    state.getExchangeSettings().get("ETH").get("BTC"),
+                                    "0.02",
                                     false
                             );
 
@@ -191,9 +193,9 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void composeExchange(Account depositAccount, Account withdrawAccount, HashMap<String, HashMap<String, ExchangeRate>> exchangeRates, String value, Boolean submit) {
+    private void composeExchange(Account depositAccount, Account withdrawAccount, ExchangeRate exchangeRate, ExchangeSettings exchangeSettings, String value, Boolean submit) {
         mWallet.composeExchange(
-                depositAccount.getId(), withdrawAccount.getId(), exchangeRates, value,
+                depositAccount.getId(), withdrawAccount.getId(), exchangeRate, exchangeSettings, value,
                 new ComposeExchangeCallback() {
                     @Override
                     public void onError(Exception e) {
