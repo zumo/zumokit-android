@@ -9,7 +9,6 @@ import money.zumo.zumokit.ComposeExchangeCallback;
 import money.zumo.zumokit.ComposedExchange;
 import money.zumo.zumokit.ComposedTransaction;
 import money.zumo.zumokit.Exchange;
-import money.zumo.zumokit.ExchangeFees;
 import money.zumo.zumokit.ExchangeRate;
 import money.zumo.zumokit.NetworkType;
 import money.zumo.zumokit.ComposeTransactionCallback;
@@ -32,6 +31,7 @@ import java.util.HashMap;
 public class MainActivity extends AppCompatActivity {
 
     private ZumoKit mZumoKit;
+    private User mUser;
     private Wallet mWallet;
 
     @Override
@@ -61,6 +61,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onSuccess(User user) {
+                mUser = user;
                 Log.i("zumokit/auth", user.getId());
 
                 if (user.hasWallet()) {
@@ -90,27 +91,25 @@ public class MainActivity extends AppCompatActivity {
                             //composeBtcTransaction(btcAccount);
 
                             State state = mZumoKit.getState();
-//                            Log.i("zumokit/exchange-rates", state.getExchangeRate());
+                            //Log.i("zumokit/exchange-rates", state.getExchangeSettings().toString());
+                            //Log.i("zumokit/exchange-rates",  state.getExchangeRates().get("BTC").get("ETH").toString());
+                            //Log.i("zumokit/exchange-rates",  state.getExchangeFees().get("BTC").get("ETH").toString());
+
                             composeExchange(
                                     ethAccount,
                                     btcAccount,
-                                    state.getExchangeRates().get("ETH").get("BTC"),
-                                    state.getExchangeFees().get("ETH").get("BTC"),
-                                    "0.0222",
+                                    state.getExchangeRates(),
+                                    "0",
                                     false
                             );
 
-                            Log.i("zumokit/exchange-rates",  state.getExchangeRates().get("BTC").get("ETH").toString());
-                            Log.i("zumokit/exchange-rates",  state.getExchangeFees().get("BTC").get("ETH").toString());
-
-                            composeExchange(
-                                    btcAccount,
-                                    ethAccount,
-                                    state.getExchangeRates().get("BTC").get("ETH"),
-                                    state.getExchangeFees().get("BTC").get("ETH"),
-                                    "0.001",
-                                    true
-                            );
+                            //composeExchange(
+                            //        btcAccount,
+                            //        ethAccount,
+                            //        state.getExchangeRates(),
+                            //        "0.001",
+                            //        false
+                            //);
                         }
                     });
                 } else {
@@ -192,9 +191,9 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void composeExchange(Account depositAccount, Account withdrawAccount, ExchangeRate exchangeRate, ExchangeFees exchangeFees, String value, Boolean submit) {
+    private void composeExchange(Account depositAccount, Account withdrawAccount, HashMap<String, HashMap<String, ExchangeRate>> exchangeRates, String value, Boolean submit) {
         mWallet.composeExchange(
-                depositAccount.getId(), withdrawAccount.getId(), exchangeRate, exchangeFees, value,
+                depositAccount.getId(), withdrawAccount.getId(), exchangeRates, value,
                 new ComposeExchangeCallback() {
                     @Override
                     public void onError(Exception e) {

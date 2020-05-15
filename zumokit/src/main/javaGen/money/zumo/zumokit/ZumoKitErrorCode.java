@@ -51,6 +51,10 @@ public final class ZumoKitErrorCode {
 
     public static final String INSUFFICIENT_FUNDS = "insufficient_funds";
 
+    public static final String INSUFFICIENT_FUNDS_FOR_TRANSACTION = "insufficient_funds_for_transaction";
+
+    public static final String INSUFFICIENT_FUNDS_FOR_EXCHANGE = "insufficient_funds_for_exchange";
+
     public static final String NONCE_OVERFLOW = "nonce_overflow";
 
     public static final String GAS_TOO_LOW = "gas_too_low";
@@ -67,9 +71,13 @@ public final class ZumoKitErrorCode {
 
     public static final String INVALID_EXCHANGE_RATE = "invalid_exchange_rate";
 
-    public static final String INVALID_EXCHANGE_FEES = "invalid_exchange_fees";
+    public static final String INVALID_EXCHANGE_SETTINGS = "invalid_exchange_settings";
 
     public static final String EXCHANGE_RETURN_VALUE_NEGATIVE = "exchange_return_value_negative";
+
+    public static final String INVALID_EXCHANGE_DEPOSIT_ADDRESS = "invalid_exchange_deposit_address";
+
+    public static final String EXCHANGE_AMOUNT_TOO_LOW = "exchange_amount_too_low";
 
 
     public ZumoKitErrorCode(

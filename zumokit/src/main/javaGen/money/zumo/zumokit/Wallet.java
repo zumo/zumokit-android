@@ -3,6 +3,7 @@
 
 package money.zumo.zumokit;
 
+import java.util.HashMap;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 public interface Wallet {
@@ -14,7 +15,7 @@ public interface Wallet {
 
     public void submitExchange(ComposedExchange composedExchange, SubmitExchangeCallback callback);
 
-    public void composeExchange(String depositAccountId, String withdrawAccountId, ExchangeRate exchangeRate, ExchangeFees exchangeFees, String value, ComposeExchangeCallback callback);
+    public void composeExchange(String depositAccountId, String withdrawAccountId, HashMap<String, HashMap<String, ExchangeRate>> exchangeRates, String value, ComposeExchangeCallback callback);
 
     public String maxSpendableEth(String accountId, String gasPrice, String gasLimit);
 
@@ -76,12 +77,12 @@ public interface Wallet {
         private native void native_submitExchange(long _nativeRef, ComposedExchange composedExchange, SubmitExchangeCallback callback);
 
         @Override
-        public void composeExchange(String depositAccountId, String withdrawAccountId, ExchangeRate exchangeRate, ExchangeFees exchangeFees, String value, ComposeExchangeCallback callback)
+        public void composeExchange(String depositAccountId, String withdrawAccountId, HashMap<String, HashMap<String, ExchangeRate>> exchangeRates, String value, ComposeExchangeCallback callback)
         {
             assert !this.destroyed.get() : "trying to use a destroyed object";
-            native_composeExchange(this.nativeRef, depositAccountId, withdrawAccountId, exchangeRate, exchangeFees, value, callback);
+            native_composeExchange(this.nativeRef, depositAccountId, withdrawAccountId, exchangeRates, value, callback);
         }
-        private native void native_composeExchange(long _nativeRef, String depositAccountId, String withdrawAccountId, ExchangeRate exchangeRate, ExchangeFees exchangeFees, String value, ComposeExchangeCallback callback);
+        private native void native_composeExchange(long _nativeRef, String depositAccountId, String withdrawAccountId, HashMap<String, HashMap<String, ExchangeRate>> exchangeRates, String value, ComposeExchangeCallback callback);
 
         @Override
         public String maxSpendableEth(String accountId, String gasPrice, String gasLimit)
