@@ -36,7 +36,7 @@ public final class Exchange {
 
     /*package*/ final ExchangeRate mExchangeRate;
 
-    /*package*/ final ExchangeFees mExchangeFees;
+    /*package*/ final ExchangeSettings mExchangeSettings;
 
     /*package*/ final HashMap<String, HashMap<String, ExchangeRate>> mExchangeRates;
 
@@ -59,7 +59,7 @@ public final class Exchange {
             String exchangeFee,
             String withdrawFee,
             ExchangeRate exchangeRate,
-            ExchangeFees exchangeFees,
+            ExchangeSettings exchangeSettings,
             HashMap<String, HashMap<String, ExchangeRate>> exchangeRates,
             Long submittedAt,
             Long confirmedAt) {
@@ -77,7 +77,7 @@ public final class Exchange {
         this.mExchangeFee = exchangeFee;
         this.mWithdrawFee = withdrawFee;
         this.mExchangeRate = exchangeRate;
-        this.mExchangeFees = exchangeFees;
+        this.mExchangeSettings = exchangeSettings;
         this.mExchangeRates = exchangeRates;
         this.mSubmittedAt = submittedAt;
         this.mConfirmedAt = confirmedAt;
@@ -139,8 +139,8 @@ public final class Exchange {
         return mExchangeRate;
     }
 
-    public ExchangeFees getExchangeFees() {
-        return mExchangeFees;
+    public ExchangeSettings getExchangeSettings() {
+        return mExchangeSettings;
     }
 
     public HashMap<String, HashMap<String, ExchangeRate>> getExchangeRates() {
@@ -165,7 +165,7 @@ public final class Exchange {
                 this.mStatus.equals(other.mStatus) &&
                 this.mDepositCurrency.equals(other.mDepositCurrency) &&
                 this.mDepositAccountId.equals(other.mDepositAccountId) &&
-                this.mDepositTransactionId.equals(other.mDepositTransactionId) &&
+                ((this.mDepositTransactionId == null && other.mDepositTransactionId == null) || (this.mDepositTransactionId != null && this.mDepositTransactionId.equals(other.mDepositTransactionId))) &&
                 this.mWithdrawCurrency.equals(other.mWithdrawCurrency) &&
                 this.mWithdrawAccountId.equals(other.mWithdrawAccountId) &&
                 ((this.mWithdrawTransactionId == null && other.mWithdrawTransactionId == null) || (this.mWithdrawTransactionId != null && this.mWithdrawTransactionId.equals(other.mWithdrawTransactionId))) &&
@@ -175,7 +175,7 @@ public final class Exchange {
                 this.mExchangeFee.equals(other.mExchangeFee) &&
                 this.mWithdrawFee.equals(other.mWithdrawFee) &&
                 this.mExchangeRate.equals(other.mExchangeRate) &&
-                this.mExchangeFees.equals(other.mExchangeFees) &&
+                this.mExchangeSettings.equals(other.mExchangeSettings) &&
                 this.mExchangeRates.equals(other.mExchangeRates) &&
                 ((this.mSubmittedAt == null && other.mSubmittedAt == null) || (this.mSubmittedAt != null && this.mSubmittedAt.equals(other.mSubmittedAt))) &&
                 ((this.mConfirmedAt == null && other.mConfirmedAt == null) || (this.mConfirmedAt != null && this.mConfirmedAt.equals(other.mConfirmedAt)));
@@ -189,7 +189,7 @@ public final class Exchange {
         hashCode = hashCode * 31 + mStatus.hashCode();
         hashCode = hashCode * 31 + mDepositCurrency.hashCode();
         hashCode = hashCode * 31 + mDepositAccountId.hashCode();
-        hashCode = hashCode * 31 + mDepositTransactionId.hashCode();
+        hashCode = hashCode * 31 + (mDepositTransactionId == null ? 0 : mDepositTransactionId.hashCode());
         hashCode = hashCode * 31 + mWithdrawCurrency.hashCode();
         hashCode = hashCode * 31 + mWithdrawAccountId.hashCode();
         hashCode = hashCode * 31 + (mWithdrawTransactionId == null ? 0 : mWithdrawTransactionId.hashCode());
@@ -199,7 +199,7 @@ public final class Exchange {
         hashCode = hashCode * 31 + mExchangeFee.hashCode();
         hashCode = hashCode * 31 + mWithdrawFee.hashCode();
         hashCode = hashCode * 31 + mExchangeRate.hashCode();
-        hashCode = hashCode * 31 + mExchangeFees.hashCode();
+        hashCode = hashCode * 31 + mExchangeSettings.hashCode();
         hashCode = hashCode * 31 + mExchangeRates.hashCode();
         hashCode = hashCode * 31 + (mSubmittedAt == null ? 0 : mSubmittedAt.hashCode());
         hashCode = hashCode * 31 + (mConfirmedAt == null ? 0 : mConfirmedAt.hashCode());
@@ -223,7 +223,7 @@ public final class Exchange {
                 "," + "mExchangeFee=" + mExchangeFee +
                 "," + "mWithdrawFee=" + mWithdrawFee +
                 "," + "mExchangeRate=" + mExchangeRate +
-                "," + "mExchangeFees=" + mExchangeFees +
+                "," + "mExchangeSettings=" + mExchangeSettings +
                 "," + "mExchangeRates=" + mExchangeRates +
                 "," + "mSubmittedAt=" + mSubmittedAt +
                 "," + "mConfirmedAt=" + mConfirmedAt +

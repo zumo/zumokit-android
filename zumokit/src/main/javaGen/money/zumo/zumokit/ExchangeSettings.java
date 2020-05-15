@@ -3,14 +3,20 @@
 
 package money.zumo.zumokit;
 
-public final class ExchangeFees {
+import java.util.HashMap;
+
+public final class ExchangeSettings {
 
 
     /*package*/ final String mId;
 
+    /*package*/ final HashMap<NetworkType, String> mDepositAddress;
+
     /*package*/ final String mDepositCurrency;
 
     /*package*/ final String mWithdrawCurrency;
+
+    /*package*/ final String mMinExchangeAmount;
 
     /*package*/ final String mFeeRate;
 
@@ -20,17 +26,21 @@ public final class ExchangeFees {
 
     /*package*/ final long mTimestamp;
 
-    public ExchangeFees(
+    public ExchangeSettings(
             String id,
+            HashMap<NetworkType, String> depositAddress,
             String depositCurrency,
             String withdrawCurrency,
+            String minExchangeAmount,
             String feeRate,
             String depositFeeRate,
             String withdrawFee,
             long timestamp) {
         this.mId = id;
+        this.mDepositAddress = depositAddress;
         this.mDepositCurrency = depositCurrency;
         this.mWithdrawCurrency = withdrawCurrency;
+        this.mMinExchangeAmount = minExchangeAmount;
         this.mFeeRate = feeRate;
         this.mDepositFeeRate = depositFeeRate;
         this.mWithdrawFee = withdrawFee;
@@ -41,12 +51,20 @@ public final class ExchangeFees {
         return mId;
     }
 
+    public HashMap<NetworkType, String> getDepositAddress() {
+        return mDepositAddress;
+    }
+
     public String getDepositCurrency() {
         return mDepositCurrency;
     }
 
     public String getWithdrawCurrency() {
         return mWithdrawCurrency;
+    }
+
+    public String getMinExchangeAmount() {
+        return mMinExchangeAmount;
     }
 
     public String getFeeRate() {
@@ -67,13 +85,15 @@ public final class ExchangeFees {
 
     @Override
     public boolean equals(Object obj) {
-        if (!(obj instanceof ExchangeFees)) {
+        if (!(obj instanceof ExchangeSettings)) {
             return false;
         }
-        ExchangeFees other = (ExchangeFees) obj;
+        ExchangeSettings other = (ExchangeSettings) obj;
         return this.mId.equals(other.mId) &&
+                this.mDepositAddress.equals(other.mDepositAddress) &&
                 this.mDepositCurrency.equals(other.mDepositCurrency) &&
                 this.mWithdrawCurrency.equals(other.mWithdrawCurrency) &&
+                this.mMinExchangeAmount.equals(other.mMinExchangeAmount) &&
                 this.mFeeRate.equals(other.mFeeRate) &&
                 this.mDepositFeeRate.equals(other.mDepositFeeRate) &&
                 this.mWithdrawFee.equals(other.mWithdrawFee) &&
@@ -85,8 +105,10 @@ public final class ExchangeFees {
         // Pick an arbitrary non-zero starting value
         int hashCode = 17;
         hashCode = hashCode * 31 + mId.hashCode();
+        hashCode = hashCode * 31 + mDepositAddress.hashCode();
         hashCode = hashCode * 31 + mDepositCurrency.hashCode();
         hashCode = hashCode * 31 + mWithdrawCurrency.hashCode();
+        hashCode = hashCode * 31 + mMinExchangeAmount.hashCode();
         hashCode = hashCode * 31 + mFeeRate.hashCode();
         hashCode = hashCode * 31 + mDepositFeeRate.hashCode();
         hashCode = hashCode * 31 + mWithdrawFee.hashCode();
@@ -96,10 +118,12 @@ public final class ExchangeFees {
 
     @Override
     public String toString() {
-        return "ExchangeFees{" +
+        return "ExchangeSettings{" +
                 "mId=" + mId +
+                "," + "mDepositAddress=" + mDepositAddress +
                 "," + "mDepositCurrency=" + mDepositCurrency +
                 "," + "mWithdrawCurrency=" + mWithdrawCurrency +
+                "," + "mMinExchangeAmount=" + mMinExchangeAmount +
                 "," + "mFeeRate=" + mFeeRate +
                 "," + "mDepositFeeRate=" + mDepositFeeRate +
                 "," + "mWithdrawFee=" + mWithdrawFee +
