@@ -79,6 +79,22 @@ public final class ZumoKitErrorCode {
 
     public static final String EXCHANGE_AMOUNT_TOO_LOW = "exchange_amount_too_low";
 
+    public static final String VALUE_PROVIDED_WHEN_SEND_MAX_SET = "value_provided_when_send_max_set";
+
+    public static final String DATA_PROVIDED_WHEN_SEND_MAX_SET = "data_provided_when_send_max_set";
+
+    public static final String TRANSACTION_TOO_LARGE = "transaction_too_large";
+
+    public static final String CHANGE_INDEX_OUT_OF_RANGE = "change_index_out_of_range";
+
+    public static final String TRANSACTION_AMOUNT_TOO_SMALL = "transaction_amount_too_small";
+
+    public static final String SEND_MAX_INSUFFICIENT_FUNDS_FOR_FEE = "send_max_insufficient_funds_for_fee";
+
+    public static final String SEND_MAX_INSUFFICIENT_FUNDS_FOR_TRANSACTION = "send_max_insufficient_funds_for_transaction";
+
+    public static final String AMOUNT_NOT_SET = "amount_not_set";
+
 
     public ZumoKitErrorCode(
             ) {

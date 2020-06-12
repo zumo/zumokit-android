@@ -17,7 +17,7 @@ public class ZumoKit {
 
     public ZumoKit(String apiKey, String apiRoot, String txServiceUrl) {
         // HTTP implementation
-        HttpImpl httpImpl = new AndroidHttp();
+        HttpImpl httpImpl = new HttpService();
 
         // WebSocket implementation
         URI uri;
@@ -27,7 +27,7 @@ public class ZumoKit {
             e.printStackTrace();
             return;
         }
-        AndroidWebSocket wsImpl = new AndroidWebSocket(uri);
+        WebSocketService wsImpl = new WebSocketService(uri);
 
         // initialise C++ core library
         zumoCore = ZumoCore.init(httpImpl, wsImpl, apiKey, apiRoot, txServiceUrl);

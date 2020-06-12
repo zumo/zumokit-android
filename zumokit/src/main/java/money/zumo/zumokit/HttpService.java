@@ -17,10 +17,10 @@ import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
-public class AndroidHttp implements HttpImpl {
+public class HttpService implements HttpImpl {
     private Executor mExecutor;
 
-    public AndroidHttp() {
+    public HttpService() {
         BlockingQueue<Runnable> workQueue = new LinkedBlockingQueue<Runnable>();
         mExecutor = new ThreadPoolExecutor(1, 20, 60, TimeUnit.SECONDS, workQueue);
     }

@@ -8,11 +8,11 @@ import android.util.Log;
 import java.net.URI;
 import java.nio.ByteBuffer;
 
-public class AndroidWebSocket extends WebSocketClient implements WebSocketImpl {
+public class WebSocketService extends WebSocketClient implements WebSocketImpl {
     private WebSocketListener wsListener;
     private final FuzzingBackOffGenerator backOffGenerator;
 
-    public AndroidWebSocket(URI serverURI) {
+    public WebSocketService(URI serverURI) {
         super(serverURI);
         backOffGenerator = new FuzzingBackOffGenerator(1 * 1000, 30 * 60 * 1000, 0.5);
     }
@@ -29,7 +29,7 @@ public class AndroidWebSocket extends WebSocketClient implements WebSocketImpl {
 
     @Override
     public void onClose(int code, String reason, boolean remote) {
-        AndroidWebSocket activeWs = this;
+        WebSocketService activeWs = this;
         wsListener.onClose("closed with exit code " + code + ", additional info: " + reason);
         setTimeout(new Runnable() {
             @Override
