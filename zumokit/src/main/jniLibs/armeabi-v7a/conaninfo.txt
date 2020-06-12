@@ -8,10 +8,11 @@
     os.api_level=21
 
 [requires]
-    bitcoin_core/0.20.0rc
+    bitcoin_core/0.20.0
 
 [options]
-
+    coverage=False
+    enable_tests=False
 
 [full_settings]
     arch=armv7
@@ -23,11 +24,13 @@
     os.api_level=21
 
 [full_requires]
-    bitcoin_core/0.20.0rc@zumo/stable:9b28cc67a06814b7cdebbb60753d8be54b0b38f2
+    bitcoin_core/0.20.0@zumo/stable:9b28cc67a06814b7cdebbb60753d8be54b0b38f2
     boost_headers/1.72.0@zumo/stable:246a63c996ab1b87ec754a0cd4786f95a4bd6957
     secp256k1/1.0@zumo/stable:7e437d7911bb64b0946466a47d6c8d3b7ae2affd
 
 [full_options]
+    coverage=False
+    enable_tests=False
     bitcoin_core:shared=True
     boost_headers:include_headers=boost/optional.hpp, boost/variant.hpp, boost/algorithm/string/classification.hpp, boost/algorithm/string/split.hpp, boost/algorithm/string/replace.hpp 
     secp256k1:shared=False

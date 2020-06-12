@@ -24,6 +24,8 @@ public final class Account {
 
     /*package*/ final AccountType mType;
 
+    /*package*/ final String mUtxoPool;
+
     /*package*/ final byte mVersion;
 
     public Account(
@@ -36,6 +38,7 @@ public final class Account {
             Long nonce,
             NetworkType network,
             AccountType type,
+            String utxoPool,
             byte version) {
         this.mId = id;
         this.mPath = path;
@@ -46,6 +49,7 @@ public final class Account {
         this.mNonce = nonce;
         this.mNetwork = network;
         this.mType = type;
+        this.mUtxoPool = utxoPool;
         this.mVersion = version;
     }
 
@@ -85,6 +89,10 @@ public final class Account {
         return mType;
     }
 
+    public String getUtxoPool() {
+        return mUtxoPool;
+    }
+
     public byte getVersion() {
         return mVersion;
     }
@@ -104,6 +112,7 @@ public final class Account {
                 ((this.mNonce == null && other.mNonce == null) || (this.mNonce != null && this.mNonce.equals(other.mNonce))) &&
                 this.mNetwork == other.mNetwork &&
                 this.mType == other.mType &&
+                ((this.mUtxoPool == null && other.mUtxoPool == null) || (this.mUtxoPool != null && this.mUtxoPool.equals(other.mUtxoPool))) &&
                 this.mVersion == other.mVersion;
     }
 
@@ -120,6 +129,7 @@ public final class Account {
         hashCode = hashCode * 31 + (mNonce == null ? 0 : mNonce.hashCode());
         hashCode = hashCode * 31 + mNetwork.hashCode();
         hashCode = hashCode * 31 + mType.hashCode();
+        hashCode = hashCode * 31 + (mUtxoPool == null ? 0 : mUtxoPool.hashCode());
         hashCode = hashCode * 31 + mVersion;
         return hashCode;
     }
@@ -136,6 +146,7 @@ public final class Account {
                 "," + "mNonce=" + mNonce +
                 "," + "mNetwork=" + mNetwork +
                 "," + "mType=" + mType +
+                "," + "mUtxoPool=" + mUtxoPool +
                 "," + "mVersion=" + mVersion +
         "}";
     }

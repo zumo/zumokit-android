@@ -8,10 +8,11 @@
     os.api_level=21
 
 [requires]
-    bitcoin_core/0.20.0rc
+    bitcoin_core/0.20.0
 
 [options]
-
+    coverage=False
+    enable_tests=False
 
 [full_settings]
     arch=x86_64
@@ -23,11 +24,13 @@
     os.api_level=21
 
 [full_requires]
-    bitcoin_core/0.20.0rc@zumo/stable:68297b6438403460573c4fe9cbd801fef817b13c
+    bitcoin_core/0.20.0@zumo/stable:68297b6438403460573c4fe9cbd801fef817b13c
     boost_headers/1.72.0@zumo/stable:246a63c996ab1b87ec754a0cd4786f95a4bd6957
     secp256k1/1.0@zumo/stable:b84ba2915bf155934a60588d6a50cad855a31500
 
 [full_options]
+    coverage=False
+    enable_tests=False
     bitcoin_core:shared=True
     boost_headers:include_headers=boost/optional.hpp, boost/variant.hpp, boost/algorithm/string/classification.hpp, boost/algorithm/string/split.hpp, boost/algorithm/string/replace.hpp 
     secp256k1:shared=False

@@ -17,50 +17,54 @@ android {
     }
     buildTypes {
         release {
-            buildConfigField "String", "TX_SERVICE_URL", PRODUCTION_TX_SERVICE_URL
             buildConfigField "String", "API_KEY", PRODUCTION_API_KEY
             buildConfigField "String", "API_URL", PRODUCTION_API_URL
-            buildConfigField "String", "BUNDLE_URL", PRODUCTION_BUNDLE_URL
-            buildConfigField "String", "CUSTOM_HEADERS", PRODUCTION_CUSTOM_HEADERS
-            buildConfigField "String", "USER_TOKEN", PRODUCTION_USER_TOKEN
-            buildConfigField "String", "USER_PASSWORD", PRODUCTION_USER_PASSWORD
+            buildConfigField "String", "TX_SERVICE_URL", PRODUCTION_TX_SERVICE_URL
+            buildConfigField "String", "CLIENT_ZUMOKIT_AUTH_ENDPOINT", PRODUCTION_CLIENT_ZUMOKIT_AUTH_ENDPOINT
+            buildConfigField "String", "CLIENT_HEADERS", PRODUCTION_CLIENT_HEADERS
+            buildConfigField "String", "CLIENT_BODY", PRODUCTION_CLIENT_BODY
+            buildConfigField "String", "CLIENT_METHOD", PRODUCTION_CLIENT_METHOD
+            buildConfigField "String", "USER_WALLET_PASSWORD", PRODUCTION_USER_WALLET_PASSWORD
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
 
         debug {
-            buildConfigField "String", "TX_SERVICE_URL", PRODUCTION_TX_SERVICE_URL
             buildConfigField "String", "API_KEY", PRODUCTION_API_KEY
             buildConfigField "String", "API_URL", PRODUCTION_API_URL
-            buildConfigField "String", "BUNDLE_URL", PRODUCTION_BUNDLE_URL
-            buildConfigField "String", "CUSTOM_HEADERS", PRODUCTION_CUSTOM_HEADERS
-            buildConfigField "String", "USER_TOKEN", PRODUCTION_USER_TOKEN
-            buildConfigField "String", "USER_PASSWORD", PRODUCTION_USER_PASSWORD
+            buildConfigField "String", "TX_SERVICE_URL", PRODUCTION_TX_SERVICE_URL
+            buildConfigField "String", "CLIENT_ZUMOKIT_AUTH_ENDPOINT", PRODUCTION_CLIENT_ZUMOKIT_AUTH_ENDPOINT
+            buildConfigField "String", "CLIENT_HEADERS", PRODUCTION_CLIENT_HEADERS
+            buildConfigField "String", "CLIENT_BODY", PRODUCTION_CLIENT_BODY
+            buildConfigField "String", "CLIENT_METHOD", PRODUCTION_CLIENT_METHOD
+            buildConfigField "String", "USER_WALLET_PASSWORD", PRODUCTION_USER_WALLET_PASSWORD
             applicationIdSuffix ".debug"
             debuggable true
         }
 
         staging {
-            buildConfigField "String", "TX_SERVICE_URL", STAGING_TX_SERVICE_URL
             buildConfigField "String", "API_KEY", STAGING_API_KEY
             buildConfigField "String", "API_URL", STAGING_API_URL
-            buildConfigField "String", "BUNDLE_URL", STAGING_BUNDLE_URL
-            buildConfigField "String", "CUSTOM_HEADERS", STAGING_CUSTOM_HEADERS
-            buildConfigField "String", "USER_TOKEN", STAGING_USER_TOKEN
-            buildConfigField "String", "USER_PASSWORD", STAGING_USER_PASSWORD
+            buildConfigField "String", "TX_SERVICE_URL", STAGING_TX_SERVICE_URL
+            buildConfigField "String", "CLIENT_ZUMOKIT_AUTH_ENDPOINT", STAGING_CLIENT_ZUMOKIT_AUTH_ENDPOINT
+            buildConfigField "String", "CLIENT_HEADERS", STAGING_CLIENT_HEADERS
+            buildConfigField "String", "CLIENT_BODY", STAGING_CLIENT_BODY
+            buildConfigField "String", "CLIENT_METHOD", STAGING_CLIENT_METHOD
+            buildConfigField "String", "USER_WALLET_PASSWORD", STAGING_USER_WALLET_PASSWORD
             matchingFallbacks = ['debug']
             applicationIdSuffix ".debug"
             debuggable true
         }
 
         sandbox {
-            buildConfigField "String", "TX_SERVICE_URL", SANDBOX_TX_SERVICE_URL
             buildConfigField "String", "API_KEY", SANDBOX_API_KEY
             buildConfigField "String", "API_URL", SANDBOX_API_URL
-            buildConfigField "String", "BUNDLE_URL", SANDBOX_BUNDLE_URL
-            buildConfigField "String", "CUSTOM_HEADERS", SANDBOX_CUSTOM_HEADERS
-            buildConfigField "String", "USER_TOKEN", SANDBOX_USER_TOKEN
-            buildConfigField "String", "USER_PASSWORD", SANDBOX_USER_PASSWORD
+            buildConfigField "String", "TX_SERVICE_URL", SANDBOX_TX_SERVICE_URL
+            buildConfigField "String", "CLIENT_ZUMOKIT_AUTH_ENDPOINT", SANDBOX_CLIENT_ZUMOKIT_AUTH_ENDPOINT
+            buildConfigField "String", "CLIENT_HEADERS", SANDBOX_CLIENT_HEADERS
+            buildConfigField "String", "CLIENT_BODY", SANDBOX_CLIENT_BODY
+            buildConfigField "String", "CLIENT_METHOD", SANDBOX_CLIENT_METHOD
+            buildConfigField "String", "USER_WALLET_PASSWORD", SANDBOX_USER_WALLET_PASSWORD
             matchingFallbacks = ['debug']
             applicationIdSuffix ".debug"
             debuggable true
@@ -76,4 +80,5 @@ dependencies {
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     implementation project(':zumokit')
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.10.1'
 }

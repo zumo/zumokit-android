@@ -6,7 +6,7 @@ package money.zumo.zumokit;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 public interface ZumoCore {
-    public void getUser(String userToken, UserCallback callback);
+    public void getUser(String userTokenSet, UserCallback callback);
 
     public Utils getUtils();
 
@@ -56,12 +56,12 @@ public interface ZumoCore {
         }
 
         @Override
-        public void getUser(String userToken, UserCallback callback)
+        public void getUser(String userTokenSet, UserCallback callback)
         {
             assert !this.destroyed.get() : "trying to use a destroyed object";
-            native_getUser(this.nativeRef, userToken, callback);
+            native_getUser(this.nativeRef, userTokenSet, callback);
         }
-        private native void native_getUser(long _nativeRef, String userToken, UserCallback callback);
+        private native void native_getUser(long _nativeRef, String userTokenSet, UserCallback callback);
 
         @Override
         public Utils getUtils()
