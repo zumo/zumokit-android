@@ -13,6 +13,12 @@ public interface User {
 
     public boolean isActiveUser();
 
+    public boolean isModulrCustomer(String network);
+
+    public void makeModulrCustomer(String network, String firstName, String middleName, String lastName, String dateOfBirth, String email, String phone, String addressLine1, String addressLine2, String country, String postCode, String postTown, SuccessCallback callback);
+
+    public void createFiatAccount(String network, String currencyCode, AccountCallback callback);
+
     public void createWallet(String mnemonic, String password, WalletCallback callback);
 
     public void unlockWallet(String password, WalletCallback callback);
@@ -23,7 +29,7 @@ public interface User {
 
     public void recoverWallet(String mnemonic, String password, WalletCallback callback);
 
-    public Account getAccount(String symbol, NetworkType network, AccountType type);
+    public Account getAccount(String currencyCode, String network, String type);
 
     public ArrayList<Account> getAccounts();
 
@@ -97,6 +103,30 @@ public interface User {
         private native boolean native_isActiveUser(long _nativeRef);
 
         @Override
+        public boolean isModulrCustomer(String network)
+        {
+            assert !this.destroyed.get() : "trying to use a destroyed object";
+            return native_isModulrCustomer(this.nativeRef, network);
+        }
+        private native boolean native_isModulrCustomer(long _nativeRef, String network);
+
+        @Override
+        public void makeModulrCustomer(String network, String firstName, String middleName, String lastName, String dateOfBirth, String email, String phone, String addressLine1, String addressLine2, String country, String postCode, String postTown, SuccessCallback callback)
+        {
+            assert !this.destroyed.get() : "trying to use a destroyed object";
+            native_makeModulrCustomer(this.nativeRef, network, firstName, middleName, lastName, dateOfBirth, email, phone, addressLine1, addressLine2, country, postCode, postTown, callback);
+        }
+        private native void native_makeModulrCustomer(long _nativeRef, String network, String firstName, String middleName, String lastName, String dateOfBirth, String email, String phone, String addressLine1, String addressLine2, String country, String postCode, String postTown, SuccessCallback callback);
+
+        @Override
+        public void createFiatAccount(String network, String currencyCode, AccountCallback callback)
+        {
+            assert !this.destroyed.get() : "trying to use a destroyed object";
+            native_createFiatAccount(this.nativeRef, network, currencyCode, callback);
+        }
+        private native void native_createFiatAccount(long _nativeRef, String network, String currencyCode, AccountCallback callback);
+
+        @Override
         public void createWallet(String mnemonic, String password, WalletCallback callback)
         {
             assert !this.destroyed.get() : "trying to use a destroyed object";
@@ -137,12 +167,12 @@ public interface User {
         private native void native_recoverWallet(long _nativeRef, String mnemonic, String password, WalletCallback callback);
 
         @Override
-        public Account getAccount(String symbol, NetworkType network, AccountType type)
+        public Account getAccount(String currencyCode, String network, String type)
         {
             assert !this.destroyed.get() : "trying to use a destroyed object";
-            return native_getAccount(this.nativeRef, symbol, network, type);
+            return native_getAccount(this.nativeRef, currencyCode, network, type);
         }
-        private native Account native_getAccount(long _nativeRef, String symbol, NetworkType network, AccountType type);
+        private native Account native_getAccount(long _nativeRef, String currencyCode, String network, String type);
 
         @Override
         public ArrayList<Account> getAccounts()

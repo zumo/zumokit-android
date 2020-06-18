@@ -10,7 +10,7 @@ public final class ExchangeSettings {
 
     /*package*/ final String mId;
 
-    /*package*/ final HashMap<NetworkType, String> mDepositAddress;
+    /*package*/ final HashMap<String, String> mDepositAddress;
 
     /*package*/ final String mDepositCurrency;
 
@@ -28,7 +28,7 @@ public final class ExchangeSettings {
 
     public ExchangeSettings(
             String id,
-            HashMap<NetworkType, String> depositAddress,
+            HashMap<String, String> depositAddress,
             String depositCurrency,
             String withdrawCurrency,
             String minExchangeAmount,
@@ -51,7 +51,7 @@ public final class ExchangeSettings {
         return mId;
     }
 
-    public HashMap<NetworkType, String> getDepositAddress() {
+    public HashMap<String, String> getDepositAddress() {
         return mDepositAddress;
     }
 

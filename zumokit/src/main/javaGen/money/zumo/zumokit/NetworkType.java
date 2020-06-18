@@ -3,12 +3,29 @@
 
 package money.zumo.zumokit;
 
-public enum NetworkType {
-    MAINNET,
-    TESTNET,
-    ROPSTEN,
-    RINKEBY,
-    GOERLI,
-    KOVAN,
-    ;
+public final class NetworkType {
+
+    public static final String MAINNET = "MAINNET";
+
+    public static final String TESTNET = "TESTNET";
+
+    public static final String ROPSTEN = "ROPSTEN";
+
+    public static final String RINKEBY = "RINKEBY";
+
+    public static final String GOERLI = "GOERLI";
+
+    public static final String KOVAN = "KOVAN";
+
+
+    public NetworkType(
+            ) {
+    }
+
+    @Override
+    public String toString() {
+        return "NetworkType{" +
+        "}";
+    }
+
 }

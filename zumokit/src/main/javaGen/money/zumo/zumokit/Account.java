@@ -8,93 +8,69 @@ public final class Account {
 
     /*package*/ final String mId;
 
-    /*package*/ final String mPath;
+    /*package*/ final String mCurrencyType;
 
-    /*package*/ final String mSymbol;
+    /*package*/ final String mCurrencyCode;
 
-    /*package*/ final String mCoin;
+    /*package*/ final String mNetwork;
 
-    /*package*/ final String mAddress;
+    /*package*/ final String mType;
 
     /*package*/ final String mBalance;
 
-    /*package*/ final Long mNonce;
+    /*package*/ final CryptoProperties mCryptoProperties;
 
-    /*package*/ final NetworkType mNetwork;
-
-    /*package*/ final AccountType mType;
-
-    /*package*/ final String mUtxoPool;
-
-    /*package*/ final byte mVersion;
+    /*package*/ final FiatProperties mFiatProperties;
 
     public Account(
             String id,
-            String path,
-            String symbol,
-            String coin,
-            String address,
+            String currencyType,
+            String currencyCode,
+            String network,
+            String type,
             String balance,
-            Long nonce,
-            NetworkType network,
-            AccountType type,
-            String utxoPool,
-            byte version) {
+            CryptoProperties cryptoProperties,
+            FiatProperties fiatProperties) {
         this.mId = id;
-        this.mPath = path;
-        this.mSymbol = symbol;
-        this.mCoin = coin;
-        this.mAddress = address;
-        this.mBalance = balance;
-        this.mNonce = nonce;
+        this.mCurrencyType = currencyType;
+        this.mCurrencyCode = currencyCode;
         this.mNetwork = network;
         this.mType = type;
-        this.mUtxoPool = utxoPool;
-        this.mVersion = version;
+        this.mBalance = balance;
+        this.mCryptoProperties = cryptoProperties;
+        this.mFiatProperties = fiatProperties;
     }
 
     public String getId() {
         return mId;
     }
 
-    public String getPath() {
-        return mPath;
+    public String getCurrencyType() {
+        return mCurrencyType;
     }
 
-    public String getSymbol() {
-        return mSymbol;
+    public String getCurrencyCode() {
+        return mCurrencyCode;
     }
 
-    public String getCoin() {
-        return mCoin;
+    public String getNetwork() {
+        return mNetwork;
     }
 
-    public String getAddress() {
-        return mAddress;
+    public String getType() {
+        return mType;
     }
 
     public String getBalance() {
         return mBalance;
     }
 
-    public Long getNonce() {
-        return mNonce;
+    public CryptoProperties getCryptoProperties() {
+        return mCryptoProperties;
     }
 
-    public NetworkType getNetwork() {
-        return mNetwork;
-    }
-
-    public AccountType getType() {
-        return mType;
-    }
-
-    public String getUtxoPool() {
-        return mUtxoPool;
-    }
-
-    public byte getVersion() {
-        return mVersion;
+    public FiatProperties getFiatProperties() {
+        return mFiatProperties;
     }
 
     @Override
@@ -104,16 +80,13 @@ public final class Account {
         }
         Account other = (Account) obj;
         return this.mId.equals(other.mId) &&
-                this.mPath.equals(other.mPath) &&
-                this.mSymbol.equals(other.mSymbol) &&
-                this.mCoin.equals(other.mCoin) &&
-                this.mAddress.equals(other.mAddress) &&
+                this.mCurrencyType.equals(other.mCurrencyType) &&
+                this.mCurrencyCode.equals(other.mCurrencyCode) &&
+                this.mNetwork.equals(other.mNetwork) &&
+                this.mType.equals(other.mType) &&
                 this.mBalance.equals(other.mBalance) &&
-                ((this.mNonce == null && other.mNonce == null) || (this.mNonce != null && this.mNonce.equals(other.mNonce))) &&
-                this.mNetwork == other.mNetwork &&
-                this.mType == other.mType &&
-                ((this.mUtxoPool == null && other.mUtxoPool == null) || (this.mUtxoPool != null && this.mUtxoPool.equals(other.mUtxoPool))) &&
-                this.mVersion == other.mVersion;
+                ((this.mCryptoProperties == null && other.mCryptoProperties == null) || (this.mCryptoProperties != null && this.mCryptoProperties.equals(other.mCryptoProperties))) &&
+                ((this.mFiatProperties == null && other.mFiatProperties == null) || (this.mFiatProperties != null && this.mFiatProperties.equals(other.mFiatProperties)));
     }
 
     @Override
@@ -121,16 +94,13 @@ public final class Account {
         // Pick an arbitrary non-zero starting value
         int hashCode = 17;
         hashCode = hashCode * 31 + mId.hashCode();
-        hashCode = hashCode * 31 + mPath.hashCode();
-        hashCode = hashCode * 31 + mSymbol.hashCode();
-        hashCode = hashCode * 31 + mCoin.hashCode();
-        hashCode = hashCode * 31 + mAddress.hashCode();
-        hashCode = hashCode * 31 + mBalance.hashCode();
-        hashCode = hashCode * 31 + (mNonce == null ? 0 : mNonce.hashCode());
+        hashCode = hashCode * 31 + mCurrencyType.hashCode();
+        hashCode = hashCode * 31 + mCurrencyCode.hashCode();
         hashCode = hashCode * 31 + mNetwork.hashCode();
         hashCode = hashCode * 31 + mType.hashCode();
-        hashCode = hashCode * 31 + (mUtxoPool == null ? 0 : mUtxoPool.hashCode());
-        hashCode = hashCode * 31 + mVersion;
+        hashCode = hashCode * 31 + mBalance.hashCode();
+        hashCode = hashCode * 31 + (mCryptoProperties == null ? 0 : mCryptoProperties.hashCode());
+        hashCode = hashCode * 31 + (mFiatProperties == null ? 0 : mFiatProperties.hashCode());
         return hashCode;
     }
 
@@ -138,16 +108,13 @@ public final class Account {
     public String toString() {
         return "Account{" +
                 "mId=" + mId +
-                "," + "mPath=" + mPath +
-                "," + "mSymbol=" + mSymbol +
-                "," + "mCoin=" + mCoin +
-                "," + "mAddress=" + mAddress +
-                "," + "mBalance=" + mBalance +
-                "," + "mNonce=" + mNonce +
+                "," + "mCurrencyType=" + mCurrencyType +
+                "," + "mCurrencyCode=" + mCurrencyCode +
                 "," + "mNetwork=" + mNetwork +
                 "," + "mType=" + mType +
-                "," + "mUtxoPool=" + mUtxoPool +
-                "," + "mVersion=" + mVersion +
+                "," + "mBalance=" + mBalance +
+                "," + "mCryptoProperties=" + mCryptoProperties +
+                "," + "mFiatProperties=" + mFiatProperties +
         "}";
     }
 

@@ -29,6 +29,8 @@ public final class State {
 
     /*package*/ final SyncStatus mSyncStatus;
 
+    /*package*/ final boolean mIsModulrCustomer;
+
     public State(
             ArrayList<Account> accounts,
             ArrayList<Transaction> transactions,
@@ -39,7 +41,8 @@ public final class State {
             HashMap<String, HashMap<String, ExchangeSettings>> exchangeSettings,
             TxServiceConnection txServiceConnection,
             HashMap<String, FeeRates> feeRates,
-            SyncStatus syncStatus) {
+            SyncStatus syncStatus,
+            boolean isModulrCustomer) {
         this.mAccounts = accounts;
         this.mTransactions = transactions;
         this.mExchanges = exchanges;
@@ -50,6 +53,7 @@ public final class State {
         this.mTxServiceConnection = txServiceConnection;
         this.mFeeRates = feeRates;
         this.mSyncStatus = syncStatus;
+        this.mIsModulrCustomer = isModulrCustomer;
     }
 
     public ArrayList<Account> getAccounts() {
@@ -92,6 +96,10 @@ public final class State {
         return mSyncStatus;
     }
 
+    public boolean getIsModulrCustomer() {
+        return mIsModulrCustomer;
+    }
+
     @Override
     public boolean equals(Object obj) {
         if (!(obj instanceof State)) {
@@ -107,7 +115,8 @@ public final class State {
                 this.mExchangeSettings.equals(other.mExchangeSettings) &&
                 this.mTxServiceConnection.equals(other.mTxServiceConnection) &&
                 this.mFeeRates.equals(other.mFeeRates) &&
-                this.mSyncStatus == other.mSyncStatus;
+                this.mSyncStatus == other.mSyncStatus &&
+                this.mIsModulrCustomer == other.mIsModulrCustomer;
     }
 
     @Override
@@ -124,6 +133,7 @@ public final class State {
         hashCode = hashCode * 31 + mTxServiceConnection.hashCode();
         hashCode = hashCode * 31 + mFeeRates.hashCode();
         hashCode = hashCode * 31 + mSyncStatus.hashCode();
+        hashCode = hashCode * 31 + (mIsModulrCustomer ? 1 : 0);
         return hashCode;
     }
 
@@ -140,6 +150,7 @@ public final class State {
                 "," + "mTxServiceConnection=" + mTxServiceConnection +
                 "," + "mFeeRates=" + mFeeRates +
                 "," + "mSyncStatus=" + mSyncStatus +
+                "," + "mIsModulrCustomer=" + mIsModulrCustomer +
         "}";
     }
 
