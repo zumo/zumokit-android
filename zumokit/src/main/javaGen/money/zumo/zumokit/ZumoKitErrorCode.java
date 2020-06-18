@@ -95,6 +95,8 @@ public final class ZumoKitErrorCode {
 
     public static final String AMOUNT_NOT_SET = "amount_not_set";
 
+    public static final String ALREADY_MODULR_CUSTOMER = "already_modulr_customer";
+
 
     public ZumoKitErrorCode(
             ) {

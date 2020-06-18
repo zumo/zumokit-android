@@ -4,7 +4,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 
+import money.zumo.zumokit.AccountCallback;
 import money.zumo.zumokit.AccountType;
+import money.zumo.zumokit.CurrencyCode;
 import money.zumo.zumokit.HttpService;
 import money.zumo.zumokit.ComposeExchangeCallback;
 import money.zumo.zumokit.ComposedExchange;
@@ -13,11 +15,12 @@ import money.zumo.zumokit.Exchange;
 import money.zumo.zumokit.ExchangeRate;
 import money.zumo.zumokit.ExchangeSettings;
 import money.zumo.zumokit.HttpCallback;
-import money.zumo.zumokit.MnemonicCallback;
+import money.zumo.zumokit.State;
 import money.zumo.zumokit.NetworkType;
 import money.zumo.zumokit.ComposeTransactionCallback;
 import money.zumo.zumokit.SubmitExchangeCallback;
 import money.zumo.zumokit.SubmitTransactionCallback;
+import money.zumo.zumokit.SuccessCallback;
 import money.zumo.zumokit.Transaction;
 import money.zumo.zumokit.Wallet;
 import money.zumo.zumokit.WalletCallback;
@@ -88,9 +91,51 @@ public class MainActivity extends AppCompatActivity {
                         @Override
                         public void onSuccess(User user) {
                             mUser = user;
-                            Log.i("zumokit/user", user.getId());
+                            Log.i("zumokit/user", mUser.getId());
 
-                            if (user.hasWallet()) {
+                            Log.i("zumokit/modulr-user", mUser.isModulrCustomer(NetworkType.TESTNET) ? "YES" : "NO");
+
+//                            user.makeModulrCustomer(
+//                                    NetworkType.TESTNET,
+//                                    "Joe",
+//                                    null,
+//                                    "Biden",
+//                                    "1989-02-02",
+//                                    "joe.biden@staging.zumo.money",
+//                                    "+56123456",
+//                                    "Downing st. 23",
+//                                    null,
+//                                    "GB",
+//                                    "B33 8TH",
+//                                    "London",
+//                                    new SuccessCallback() {
+//                                        @Override
+//                                        public void onError(Exception e) {
+//                                            Log.e("zumokit/modulr", e.toString());
+//                                        }
+//
+//                                        @Override
+//                                        public void onSuccess() {
+//                                            Log.i("zumokit/modulr", "User created!");
+//                                        }
+//                                    }
+//                            );
+
+                            Log.i("zumokit/modulr", mUser.getAccount(CurrencyCode.GBP, NetworkType.TESTNET, AccountType.STANDARD).toString());
+
+//                            mUser.createFiatAccount(NetworkType.TESTNET, CurrencyCode.GBP, new AccountCallback() {
+//                                @Override
+//                                public void onError(Exception e) {
+//                                    Log.e("zumokit/modulr", e.toString());
+//                                }
+//
+//                                @Override
+//                                public void onSuccess(Account account) {
+//                                    Log.i("zumokit/modulr", account.toString());
+//                                }
+//                            });
+
+                            if (mUser.hasWallet()) {
                                 // Ethereum account
                                 Account ethAccount = user.getAccount("ETH", NetworkType.RINKEBY, AccountType.STANDARD);
                                 Log.i("zumokit/eth-account", ethAccount.toString());
@@ -105,7 +150,7 @@ public class MainActivity extends AppCompatActivity {
                                 Log.i("zumokit/average", mZumoKit.getState().getFeeRates().get("BTC").getAverage());
 
                                 Log.i("zumokit/user", "User has wallet. Unlocking wallet...");
-                                user.unlockWallet(BuildConfig.USER_WALLET_PASSWORD, new WalletCallback() {
+                                mUser.unlockWallet(BuildConfig.USER_WALLET_PASSWORD, new WalletCallback() {
                                     @Override
                                     public void onError(Exception e) {
                                         Log.e("zumokit", e.toString());
@@ -116,33 +161,36 @@ public class MainActivity extends AppCompatActivity {
                                         mWallet = wallet;
 
                                         // Compose ETH and BTC transactions
-                                        composeEthTransaction(ethAccount, false);
+                                        //composeEthTransaction(ethAccount, false);
                                         //composeBtcTransaction(btcAccount, false);
 
                                         // Display current exchange rates & exchange settings
                                         //State state = mZumoKit.getState();
                                         //Log.i("zumokit/exchange-rates", state.getExchangeSettings().toString());
                                         //Log.i("zumokit/exchange-rates",  state.getExchangeRates().get("BTC").get("ETH").toString());
-                                        //Log.i("zumokit/exchange-rates",  state.getExchangeSettings().get("BTC").get("ETH").toString());
+                                        //Log.i("zumokit/exchange-rates",  state.getExchangeSettings().get("ETH").get("BTC").toString());
 
                                         // Compose ETH -> BTC exchange
-                                        //composeExchange(
-                                        //        ethAccount,
-                                        //        btcAccount,
-                                        //        state.getExchangeRates().get("ETH").get("BTC"),
-                                        //        state.getExchangeSettings().get("ETH").get("BTC"),
-                                        //        "0.02",
-                                        //        false
-                                        //);
+//                                        composeExchange(
+//                                                ethAccount,
+//                                                btcAccount,
+//                                                state.getExchangeRates().get("ETH").get("BTC"),
+//                                                state.getExchangeSettings().get("ETH").get("BTC"),
+//                                                "0.1",
+//                                                false,
+//                                                false
+//                                        );
 
                                         // Compose BTC -> ETH Exchange
-                                        //composeExchange(
-                                        //        btcAccount,
-                                        //        ethAccount,
-                                        //        state.getExchangeRates(),
-                                        //        "0.001",
-                                        //        false
-                                        //);
+//                                        composeExchange(
+//                                                btcAccount,
+//                                                ethAccount,
+//                                                state.getExchangeRates().get("BTC").get("ETH"),
+//                                                state.getExchangeSettings().get("BTC").get("ETH"),
+//                                                "2",
+//                                                false,
+//                                                false
+//                                        );
                                     }
                                 });
                             } else {
@@ -150,7 +198,7 @@ public class MainActivity extends AppCompatActivity {
 
                                 String mnemonic = mZumoKit.utils().generateMnemonic(12);
 
-                                user.createWallet(mnemonic, BuildConfig.USER_WALLET_PASSWORD, new WalletCallback() {
+                                mUser.createWallet(mnemonic, BuildConfig.USER_WALLET_PASSWORD, new WalletCallback() {
                                     @Override
                                     public void onError(Exception e) {
                                         Log.e("zumokit", e.toString());

@@ -10,7 +10,7 @@ public interface Utils {
 
     public boolean isValidEthAddress(String address);
 
-    public boolean isValidBtcAddress(String address, NetworkType network);
+    public boolean isValidBtcAddress(String address, String network);
 
     public String weiToEth(String number);
 
@@ -64,12 +64,12 @@ public interface Utils {
         private native boolean native_isValidEthAddress(long _nativeRef, String address);
 
         @Override
-        public boolean isValidBtcAddress(String address, NetworkType network)
+        public boolean isValidBtcAddress(String address, String network)
         {
             assert !this.destroyed.get() : "trying to use a destroyed object";
             return native_isValidBtcAddress(this.nativeRef, address, network);
         }
-        private native boolean native_isValidBtcAddress(long _nativeRef, String address, NetworkType network);
+        private native boolean native_isValidBtcAddress(long _nativeRef, String address, String network);
 
         @Override
         public String weiToEth(String number)

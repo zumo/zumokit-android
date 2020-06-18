@@ -3,9 +3,23 @@
 
 package money.zumo.zumokit;
 
-public enum AccountType {
-    STANDARD,
-    COMPATIBILITY,
-    SEGWIT,
-    ;
+public final class AccountType {
+
+    public static final String STANDARD = "STANDARD";
+
+    public static final String COMPATIBILITY = "COMPATIBILITY";
+
+    public static final String SEGWIT = "SEGWIT";
+
+
+    public AccountType(
+            ) {
+    }
+
+    @Override
+    public String toString() {
+        return "AccountType{" +
+        "}";
+    }
+
 }

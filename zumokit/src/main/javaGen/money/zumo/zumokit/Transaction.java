@@ -22,7 +22,7 @@ public final class Transaction {
 
     /*package*/ final String mCoin;
 
-    /*package*/ final NetworkType mNetwork;
+    /*package*/ final String mNetwork;
 
     /*package*/ final Long mNonce;
 
@@ -64,7 +64,7 @@ public final class Transaction {
             String accountId,
             String symbol,
             String coin,
-            NetworkType network,
+            String network,
             Long nonce,
             TransactionStatus status,
             String fromAddress,
@@ -135,7 +135,7 @@ public final class Transaction {
         return mCoin;
     }
 
-    public NetworkType getNetwork() {
+    public String getNetwork() {
         return mNetwork;
     }
 
@@ -216,7 +216,7 @@ public final class Transaction {
                 this.mAccountId.equals(other.mAccountId) &&
                 ((this.mSymbol == null && other.mSymbol == null) || (this.mSymbol != null && this.mSymbol.equals(other.mSymbol))) &&
                 this.mCoin.equals(other.mCoin) &&
-                this.mNetwork == other.mNetwork &&
+                this.mNetwork.equals(other.mNetwork) &&
                 ((this.mNonce == null && other.mNonce == null) || (this.mNonce != null && this.mNonce.equals(other.mNonce))) &&
                 this.mStatus == other.mStatus &&
                 this.mFromAddress.equals(other.mFromAddress) &&
