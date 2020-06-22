@@ -53,6 +53,9 @@ public class MainActivity extends AppCompatActivity {
         // Listen to ZumoKit state changes
         mZumoKit.addStateListener(state -> {
             // React to state changes
+            for (Transaction tx : state.getTransactions()) {
+                Log.i("zumokit/transaction", tx.toString());
+            }
         });
 
         // Get ZumoKit user token from Client API
@@ -121,7 +124,7 @@ public class MainActivity extends AppCompatActivity {
 //                                    }
 //                            );
 
-                            Log.i("zumokit/modulr", mUser.getAccount(CurrencyCode.GBP, NetworkType.TESTNET, AccountType.STANDARD).toString());
+//                            Log.i("zumokit/modulr", mUser.getAccount(CurrencyCode.GBP, NetworkType.TESTNET, AccountType.STANDARD).toString());
 
 //                            mUser.createFiatAccount(NetworkType.TESTNET, CurrencyCode.GBP, new AccountCallback() {
 //                                @Override
