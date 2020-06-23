@@ -3,52 +3,34 @@
 
 package money.zumo.zumokit;
 
-import java.util.HashMap;
-
 public final class Transaction {
 
 
     /*package*/ final String mId;
 
-    /*package*/ final TransactionType mType;
-
-    /*package*/ final TransactionDirection mDirection;
-
-    /*package*/ final String mTxHash;
+    /*package*/ final String mType;
 
     /*package*/ final String mAccountId;
 
-    /*package*/ final String mSymbol;
-
-    /*package*/ final String mCoin;
-
-    /*package*/ final String mNetwork;
-
-    /*package*/ final Long mNonce;
-
-    /*package*/ final TransactionStatus mStatus;
-
-    /*package*/ final String mFromAddress;
+    /*package*/ final String mCurrencyCode;
 
     /*package*/ final String mFromUserId;
 
-    /*package*/ final String mToAddress;
-
     /*package*/ final String mToUserId;
 
-    /*package*/ final String mValue;
+    /*package*/ final String mNetwork;
 
-    /*package*/ final HashMap<String, String> mFiatValue;
+    /*package*/ final String mDirection;
 
-    /*package*/ final String mData;
+    /*package*/ final String mStatus;
 
-    /*package*/ final String mGasPrice;
-
-    /*package*/ final String mGasLimit;
+    /*package*/ final String mAmount;
 
     /*package*/ final String mFee;
 
-    /*package*/ final HashMap<String, String> mFiatFee;
+    /*package*/ final CryptoDetails mCryptoDetails;
+
+    /*package*/ final String mFiatDetails;
 
     /*package*/ final Long mSubmittedAt;
 
@@ -58,50 +40,34 @@ public final class Transaction {
 
     public Transaction(
             String id,
-            TransactionType type,
-            TransactionDirection direction,
-            String txHash,
+            String type,
             String accountId,
-            String symbol,
-            String coin,
-            String network,
-            Long nonce,
-            TransactionStatus status,
-            String fromAddress,
+            String currencyCode,
             String fromUserId,
-            String toAddress,
             String toUserId,
-            String value,
-            HashMap<String, String> fiatValue,
-            String data,
-            String gasPrice,
-            String gasLimit,
+            String network,
+            String direction,
+            String status,
+            String amount,
             String fee,
-            HashMap<String, String> fiatFee,
+            CryptoDetails cryptoDetails,
+            String fiatDetails,
             Long submittedAt,
             Long confirmedAt,
             long timestamp) {
         this.mId = id;
         this.mType = type;
-        this.mDirection = direction;
-        this.mTxHash = txHash;
         this.mAccountId = accountId;
-        this.mSymbol = symbol;
-        this.mCoin = coin;
-        this.mNetwork = network;
-        this.mNonce = nonce;
-        this.mStatus = status;
-        this.mFromAddress = fromAddress;
+        this.mCurrencyCode = currencyCode;
         this.mFromUserId = fromUserId;
-        this.mToAddress = toAddress;
         this.mToUserId = toUserId;
-        this.mValue = value;
-        this.mFiatValue = fiatValue;
-        this.mData = data;
-        this.mGasPrice = gasPrice;
-        this.mGasLimit = gasLimit;
+        this.mNetwork = network;
+        this.mDirection = direction;
+        this.mStatus = status;
+        this.mAmount = amount;
         this.mFee = fee;
-        this.mFiatFee = fiatFee;
+        this.mCryptoDetails = cryptoDetails;
+        this.mFiatDetails = fiatDetails;
         this.mSubmittedAt = submittedAt;
         this.mConfirmedAt = confirmedAt;
         this.mTimestamp = timestamp;
@@ -111,84 +77,52 @@ public final class Transaction {
         return mId;
     }
 
-    public TransactionType getType() {
+    public String getType() {
         return mType;
-    }
-
-    public TransactionDirection getDirection() {
-        return mDirection;
-    }
-
-    public String getTxHash() {
-        return mTxHash;
     }
 
     public String getAccountId() {
         return mAccountId;
     }
 
-    public String getSymbol() {
-        return mSymbol;
-    }
-
-    public String getCoin() {
-        return mCoin;
-    }
-
-    public String getNetwork() {
-        return mNetwork;
-    }
-
-    public Long getNonce() {
-        return mNonce;
-    }
-
-    public TransactionStatus getStatus() {
-        return mStatus;
-    }
-
-    public String getFromAddress() {
-        return mFromAddress;
+    public String getCurrencyCode() {
+        return mCurrencyCode;
     }
 
     public String getFromUserId() {
         return mFromUserId;
     }
 
-    public String getToAddress() {
-        return mToAddress;
-    }
-
     public String getToUserId() {
         return mToUserId;
     }
 
-    public String getValue() {
-        return mValue;
+    public String getNetwork() {
+        return mNetwork;
     }
 
-    public HashMap<String, String> getFiatValue() {
-        return mFiatValue;
+    public String getDirection() {
+        return mDirection;
     }
 
-    public String getData() {
-        return mData;
+    public String getStatus() {
+        return mStatus;
     }
 
-    public String getGasPrice() {
-        return mGasPrice;
-    }
-
-    public String getGasLimit() {
-        return mGasLimit;
+    public String getAmount() {
+        return mAmount;
     }
 
     public String getFee() {
         return mFee;
     }
 
-    public HashMap<String, String> getFiatFee() {
-        return mFiatFee;
+    public CryptoDetails getCryptoDetails() {
+        return mCryptoDetails;
+    }
+
+    public String getFiatDetails() {
+        return mFiatDetails;
     }
 
     public Long getSubmittedAt() {
@@ -210,26 +144,18 @@ public final class Transaction {
         }
         Transaction other = (Transaction) obj;
         return this.mId.equals(other.mId) &&
-                this.mType == other.mType &&
-                this.mDirection == other.mDirection &&
-                ((this.mTxHash == null && other.mTxHash == null) || (this.mTxHash != null && this.mTxHash.equals(other.mTxHash))) &&
+                this.mType.equals(other.mType) &&
                 this.mAccountId.equals(other.mAccountId) &&
-                ((this.mSymbol == null && other.mSymbol == null) || (this.mSymbol != null && this.mSymbol.equals(other.mSymbol))) &&
-                this.mCoin.equals(other.mCoin) &&
-                this.mNetwork.equals(other.mNetwork) &&
-                ((this.mNonce == null && other.mNonce == null) || (this.mNonce != null && this.mNonce.equals(other.mNonce))) &&
-                this.mStatus == other.mStatus &&
-                this.mFromAddress.equals(other.mFromAddress) &&
+                this.mCurrencyCode.equals(other.mCurrencyCode) &&
                 ((this.mFromUserId == null && other.mFromUserId == null) || (this.mFromUserId != null && this.mFromUserId.equals(other.mFromUserId))) &&
-                this.mToAddress.equals(other.mToAddress) &&
                 ((this.mToUserId == null && other.mToUserId == null) || (this.mToUserId != null && this.mToUserId.equals(other.mToUserId))) &&
-                ((this.mValue == null && other.mValue == null) || (this.mValue != null && this.mValue.equals(other.mValue))) &&
-                this.mFiatValue.equals(other.mFiatValue) &&
-                ((this.mData == null && other.mData == null) || (this.mData != null && this.mData.equals(other.mData))) &&
-                ((this.mGasPrice == null && other.mGasPrice == null) || (this.mGasPrice != null && this.mGasPrice.equals(other.mGasPrice))) &&
-                ((this.mGasLimit == null && other.mGasLimit == null) || (this.mGasLimit != null && this.mGasLimit.equals(other.mGasLimit))) &&
+                this.mNetwork.equals(other.mNetwork) &&
+                this.mDirection.equals(other.mDirection) &&
+                this.mStatus.equals(other.mStatus) &&
+                ((this.mAmount == null && other.mAmount == null) || (this.mAmount != null && this.mAmount.equals(other.mAmount))) &&
                 ((this.mFee == null && other.mFee == null) || (this.mFee != null && this.mFee.equals(other.mFee))) &&
-                this.mFiatFee.equals(other.mFiatFee) &&
+                ((this.mCryptoDetails == null && other.mCryptoDetails == null) || (this.mCryptoDetails != null && this.mCryptoDetails.equals(other.mCryptoDetails))) &&
+                ((this.mFiatDetails == null && other.mFiatDetails == null) || (this.mFiatDetails != null && this.mFiatDetails.equals(other.mFiatDetails))) &&
                 ((this.mSubmittedAt == null && other.mSubmittedAt == null) || (this.mSubmittedAt != null && this.mSubmittedAt.equals(other.mSubmittedAt))) &&
                 ((this.mConfirmedAt == null && other.mConfirmedAt == null) || (this.mConfirmedAt != null && this.mConfirmedAt.equals(other.mConfirmedAt))) &&
                 this.mTimestamp == other.mTimestamp;
@@ -241,25 +167,17 @@ public final class Transaction {
         int hashCode = 17;
         hashCode = hashCode * 31 + mId.hashCode();
         hashCode = hashCode * 31 + mType.hashCode();
-        hashCode = hashCode * 31 + mDirection.hashCode();
-        hashCode = hashCode * 31 + (mTxHash == null ? 0 : mTxHash.hashCode());
         hashCode = hashCode * 31 + mAccountId.hashCode();
-        hashCode = hashCode * 31 + (mSymbol == null ? 0 : mSymbol.hashCode());
-        hashCode = hashCode * 31 + mCoin.hashCode();
-        hashCode = hashCode * 31 + mNetwork.hashCode();
-        hashCode = hashCode * 31 + (mNonce == null ? 0 : mNonce.hashCode());
-        hashCode = hashCode * 31 + mStatus.hashCode();
-        hashCode = hashCode * 31 + mFromAddress.hashCode();
+        hashCode = hashCode * 31 + mCurrencyCode.hashCode();
         hashCode = hashCode * 31 + (mFromUserId == null ? 0 : mFromUserId.hashCode());
-        hashCode = hashCode * 31 + mToAddress.hashCode();
         hashCode = hashCode * 31 + (mToUserId == null ? 0 : mToUserId.hashCode());
-        hashCode = hashCode * 31 + (mValue == null ? 0 : mValue.hashCode());
-        hashCode = hashCode * 31 + mFiatValue.hashCode();
-        hashCode = hashCode * 31 + (mData == null ? 0 : mData.hashCode());
-        hashCode = hashCode * 31 + (mGasPrice == null ? 0 : mGasPrice.hashCode());
-        hashCode = hashCode * 31 + (mGasLimit == null ? 0 : mGasLimit.hashCode());
+        hashCode = hashCode * 31 + mNetwork.hashCode();
+        hashCode = hashCode * 31 + mDirection.hashCode();
+        hashCode = hashCode * 31 + mStatus.hashCode();
+        hashCode = hashCode * 31 + (mAmount == null ? 0 : mAmount.hashCode());
         hashCode = hashCode * 31 + (mFee == null ? 0 : mFee.hashCode());
-        hashCode = hashCode * 31 + mFiatFee.hashCode();
+        hashCode = hashCode * 31 + (mCryptoDetails == null ? 0 : mCryptoDetails.hashCode());
+        hashCode = hashCode * 31 + (mFiatDetails == null ? 0 : mFiatDetails.hashCode());
         hashCode = hashCode * 31 + (mSubmittedAt == null ? 0 : mSubmittedAt.hashCode());
         hashCode = hashCode * 31 + (mConfirmedAt == null ? 0 : mConfirmedAt.hashCode());
         hashCode = hashCode * 31 + ((int) (mTimestamp ^ (mTimestamp >>> 32)));
@@ -271,25 +189,17 @@ public final class Transaction {
         return "Transaction{" +
                 "mId=" + mId +
                 "," + "mType=" + mType +
-                "," + "mDirection=" + mDirection +
-                "," + "mTxHash=" + mTxHash +
                 "," + "mAccountId=" + mAccountId +
-                "," + "mSymbol=" + mSymbol +
-                "," + "mCoin=" + mCoin +
-                "," + "mNetwork=" + mNetwork +
-                "," + "mNonce=" + mNonce +
-                "," + "mStatus=" + mStatus +
-                "," + "mFromAddress=" + mFromAddress +
+                "," + "mCurrencyCode=" + mCurrencyCode +
                 "," + "mFromUserId=" + mFromUserId +
-                "," + "mToAddress=" + mToAddress +
                 "," + "mToUserId=" + mToUserId +
-                "," + "mValue=" + mValue +
-                "," + "mFiatValue=" + mFiatValue +
-                "," + "mData=" + mData +
-                "," + "mGasPrice=" + mGasPrice +
-                "," + "mGasLimit=" + mGasLimit +
+                "," + "mNetwork=" + mNetwork +
+                "," + "mDirection=" + mDirection +
+                "," + "mStatus=" + mStatus +
+                "," + "mAmount=" + mAmount +
                 "," + "mFee=" + mFee +
-                "," + "mFiatFee=" + mFiatFee +
+                "," + "mCryptoDetails=" + mCryptoDetails +
+                "," + "mFiatDetails=" + mFiatDetails +
                 "," + "mSubmittedAt=" + mSubmittedAt +
                 "," + "mConfirmedAt=" + mConfirmedAt +
                 "," + "mTimestamp=" + mTimestamp +

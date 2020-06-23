@@ -12,7 +12,7 @@ public final class ComposedTransaction {
 
     /*package*/ final String mDestination;
 
-    /*package*/ final String mValue;
+    /*package*/ final String mAmount;
 
     /*package*/ final String mData;
 
@@ -22,13 +22,13 @@ public final class ComposedTransaction {
             String signedTransaction,
             Account account,
             String destination,
-            String value,
+            String amount,
             String data,
             String fee) {
         this.mSignedTransaction = signedTransaction;
         this.mAccount = account;
         this.mDestination = destination;
-        this.mValue = value;
+        this.mAmount = amount;
         this.mData = data;
         this.mFee = fee;
     }
@@ -45,8 +45,8 @@ public final class ComposedTransaction {
         return mDestination;
     }
 
-    public String getValue() {
-        return mValue;
+    public String getAmount() {
+        return mAmount;
     }
 
     public String getData() {
@@ -66,7 +66,7 @@ public final class ComposedTransaction {
         return this.mSignedTransaction.equals(other.mSignedTransaction) &&
                 this.mAccount.equals(other.mAccount) &&
                 ((this.mDestination == null && other.mDestination == null) || (this.mDestination != null && this.mDestination.equals(other.mDestination))) &&
-                ((this.mValue == null && other.mValue == null) || (this.mValue != null && this.mValue.equals(other.mValue))) &&
+                ((this.mAmount == null && other.mAmount == null) || (this.mAmount != null && this.mAmount.equals(other.mAmount))) &&
                 ((this.mData == null && other.mData == null) || (this.mData != null && this.mData.equals(other.mData))) &&
                 this.mFee.equals(other.mFee);
     }
@@ -78,7 +78,7 @@ public final class ComposedTransaction {
         hashCode = hashCode * 31 + mSignedTransaction.hashCode();
         hashCode = hashCode * 31 + mAccount.hashCode();
         hashCode = hashCode * 31 + (mDestination == null ? 0 : mDestination.hashCode());
-        hashCode = hashCode * 31 + (mValue == null ? 0 : mValue.hashCode());
+        hashCode = hashCode * 31 + (mAmount == null ? 0 : mAmount.hashCode());
         hashCode = hashCode * 31 + (mData == null ? 0 : mData.hashCode());
         hashCode = hashCode * 31 + mFee.hashCode();
         return hashCode;
@@ -90,7 +90,7 @@ public final class ComposedTransaction {
                 "mSignedTransaction=" + mSignedTransaction +
                 "," + "mAccount=" + mAccount +
                 "," + "mDestination=" + mDestination +
-                "," + "mValue=" + mValue +
+                "," + "mAmount=" + mAmount +
                 "," + "mData=" + mData +
                 "," + "mFee=" + mFee +
         "}";

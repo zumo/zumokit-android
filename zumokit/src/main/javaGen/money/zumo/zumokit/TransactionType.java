@@ -3,8 +3,25 @@
 
 package money.zumo.zumokit;
 
-public enum TransactionType {
-    NORMAL,
-    EXCHANGE,
-    ;
+public final class TransactionType {
+
+    public static final String CRYPTO = "CRYPTO";
+
+    public static final String EXCHANGE = "EXCHANGE";
+
+    public static final String FIAT = "FIAT";
+
+    public static final String NOMINATED = "NOMINATED";
+
+
+    public TransactionType(
+            ) {
+    }
+
+    @Override
+    public String toString() {
+        return "TransactionType{" +
+        "}";
+    }
+
 }
