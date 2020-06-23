@@ -9,14 +9,6 @@ public final class TransactionDirection {
 
     public static final String OUTGOING = "OUTGOING";
 
-    public static final String FAILED = "FAILED";
-
-    public static final String RESUBMITTED = "RESUBMITTED";
-
-    public static final String CANCELLED = "CANCELLED";
-
-    public static final String PAUSED = "PAUSED";
-
 
     public TransactionDirection(
             ) {
