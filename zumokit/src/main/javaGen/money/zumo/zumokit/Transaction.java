@@ -10,17 +10,17 @@ public final class Transaction {
 
     /*package*/ final String mType;
 
-    /*package*/ final String mAccountId;
-
     /*package*/ final String mCurrencyCode;
 
     /*package*/ final String mFromUserId;
 
     /*package*/ final String mToUserId;
 
-    /*package*/ final String mNetwork;
+    /*package*/ final String mFromAccountId;
 
-    /*package*/ final String mDirection;
+    /*package*/ final String mToAccountId;
+
+    /*package*/ final String mNetwork;
 
     /*package*/ final String mStatus;
 
@@ -41,12 +41,12 @@ public final class Transaction {
     public Transaction(
             String id,
             String type,
-            String accountId,
             String currencyCode,
             String fromUserId,
             String toUserId,
+            String fromAccountId,
+            String toAccountId,
             String network,
-            String direction,
             String status,
             String amount,
             String fee,
@@ -57,12 +57,12 @@ public final class Transaction {
             long timestamp) {
         this.mId = id;
         this.mType = type;
-        this.mAccountId = accountId;
         this.mCurrencyCode = currencyCode;
         this.mFromUserId = fromUserId;
         this.mToUserId = toUserId;
+        this.mFromAccountId = fromAccountId;
+        this.mToAccountId = toAccountId;
         this.mNetwork = network;
-        this.mDirection = direction;
         this.mStatus = status;
         this.mAmount = amount;
         this.mFee = fee;
@@ -81,10 +81,6 @@ public final class Transaction {
         return mType;
     }
 
-    public String getAccountId() {
-        return mAccountId;
-    }
-
     public String getCurrencyCode() {
         return mCurrencyCode;
     }
@@ -97,12 +93,16 @@ public final class Transaction {
         return mToUserId;
     }
 
-    public String getNetwork() {
-        return mNetwork;
+    public String getFromAccountId() {
+        return mFromAccountId;
     }
 
-    public String getDirection() {
-        return mDirection;
+    public String getToAccountId() {
+        return mToAccountId;
+    }
+
+    public String getNetwork() {
+        return mNetwork;
     }
 
     public String getStatus() {
@@ -145,12 +145,12 @@ public final class Transaction {
         Transaction other = (Transaction) obj;
         return this.mId.equals(other.mId) &&
                 this.mType.equals(other.mType) &&
-                this.mAccountId.equals(other.mAccountId) &&
                 this.mCurrencyCode.equals(other.mCurrencyCode) &&
                 ((this.mFromUserId == null && other.mFromUserId == null) || (this.mFromUserId != null && this.mFromUserId.equals(other.mFromUserId))) &&
                 ((this.mToUserId == null && other.mToUserId == null) || (this.mToUserId != null && this.mToUserId.equals(other.mToUserId))) &&
+                ((this.mFromAccountId == null && other.mFromAccountId == null) || (this.mFromAccountId != null && this.mFromAccountId.equals(other.mFromAccountId))) &&
+                ((this.mToAccountId == null && other.mToAccountId == null) || (this.mToAccountId != null && this.mToAccountId.equals(other.mToAccountId))) &&
                 this.mNetwork.equals(other.mNetwork) &&
-                this.mDirection.equals(other.mDirection) &&
                 this.mStatus.equals(other.mStatus) &&
                 ((this.mAmount == null && other.mAmount == null) || (this.mAmount != null && this.mAmount.equals(other.mAmount))) &&
                 ((this.mFee == null && other.mFee == null) || (this.mFee != null && this.mFee.equals(other.mFee))) &&
@@ -167,12 +167,12 @@ public final class Transaction {
         int hashCode = 17;
         hashCode = hashCode * 31 + mId.hashCode();
         hashCode = hashCode * 31 + mType.hashCode();
-        hashCode = hashCode * 31 + mAccountId.hashCode();
         hashCode = hashCode * 31 + mCurrencyCode.hashCode();
         hashCode = hashCode * 31 + (mFromUserId == null ? 0 : mFromUserId.hashCode());
         hashCode = hashCode * 31 + (mToUserId == null ? 0 : mToUserId.hashCode());
+        hashCode = hashCode * 31 + (mFromAccountId == null ? 0 : mFromAccountId.hashCode());
+        hashCode = hashCode * 31 + (mToAccountId == null ? 0 : mToAccountId.hashCode());
         hashCode = hashCode * 31 + mNetwork.hashCode();
-        hashCode = hashCode * 31 + mDirection.hashCode();
         hashCode = hashCode * 31 + mStatus.hashCode();
         hashCode = hashCode * 31 + (mAmount == null ? 0 : mAmount.hashCode());
         hashCode = hashCode * 31 + (mFee == null ? 0 : mFee.hashCode());
@@ -189,12 +189,12 @@ public final class Transaction {
         return "Transaction{" +
                 "mId=" + mId +
                 "," + "mType=" + mType +
-                "," + "mAccountId=" + mAccountId +
                 "," + "mCurrencyCode=" + mCurrencyCode +
                 "," + "mFromUserId=" + mFromUserId +
                 "," + "mToUserId=" + mToUserId +
+                "," + "mFromAccountId=" + mFromAccountId +
+                "," + "mToAccountId=" + mToAccountId +
                 "," + "mNetwork=" + mNetwork +
-                "," + "mDirection=" + mDirection +
                 "," + "mStatus=" + mStatus +
                 "," + "mAmount=" + mAmount +
                 "," + "mFee=" + mFee +
