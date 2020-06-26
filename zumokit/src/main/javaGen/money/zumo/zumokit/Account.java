@@ -18,9 +18,9 @@ public final class Account {
 
     /*package*/ final String mBalance;
 
-    /*package*/ final CryptoProperties mCryptoProperties;
+    /*package*/ final AccountCryptoProperties mCryptoProperties;
 
-    /*package*/ final FiatProperties mFiatProperties;
+    /*package*/ final AccountFiatProperties mFiatProperties;
 
     public Account(
             String id,
@@ -29,8 +29,8 @@ public final class Account {
             String network,
             String type,
             String balance,
-            CryptoProperties cryptoProperties,
-            FiatProperties fiatProperties) {
+            AccountCryptoProperties cryptoProperties,
+            AccountFiatProperties fiatProperties) {
         this.mId = id;
         this.mCurrencyType = currencyType;
         this.mCurrencyCode = currencyCode;
@@ -65,11 +65,11 @@ public final class Account {
         return mBalance;
     }
 
-    public CryptoProperties getCryptoProperties() {
+    public AccountCryptoProperties getCryptoProperties() {
         return mCryptoProperties;
     }
 
-    public FiatProperties getFiatProperties() {
+    public AccountFiatProperties getFiatProperties() {
         return mFiatProperties;
     }
 

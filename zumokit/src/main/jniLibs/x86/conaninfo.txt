@@ -9,6 +9,7 @@
 
 [requires]
     bitcoin_core/0.20.0
+    boost_headers/1.Y.Z
 
 [options]
     coverage=False
@@ -25,14 +26,13 @@
 
 [full_requires]
     bitcoin_core/0.20.0@zumo/stable:7fa2f5ee3d7a12e236b52f45d5c5f2bf1f6cc855
-    boost_headers/1.72.0@zumo/stable:246a63c996ab1b87ec754a0cd4786f95a4bd6957
+    boost_headers/1.72.0@zumo/stable:5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9
     secp256k1/1.0@zumo/stable:d45ae2920c6b3cf646990ec43f29e66666d79a2a
 
 [full_options]
     coverage=False
     enable_tests=False
     bitcoin_core:shared=True
-    boost_headers:include_headers=boost/optional.hpp, boost/variant.hpp, boost/algorithm/string/classification.hpp, boost/algorithm/string/split.hpp, boost/algorithm/string/replace.hpp 
     secp256k1:shared=False
 
 [recipe_hash]

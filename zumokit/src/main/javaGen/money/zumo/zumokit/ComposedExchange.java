@@ -103,7 +103,7 @@ public final class ComposedExchange {
             return false;
         }
         ComposedExchange other = (ComposedExchange) obj;
-        return this.mSignedTransaction.equals(other.mSignedTransaction) &&
+        return ((this.mSignedTransaction == null && other.mSignedTransaction == null) || (this.mSignedTransaction != null && this.mSignedTransaction.equals(other.mSignedTransaction))) &&
                 this.mDepositAccount.equals(other.mDepositAccount) &&
                 this.mWithdrawAccount.equals(other.mWithdrawAccount) &&
                 this.mExchangeRate.equals(other.mExchangeRate) &&
@@ -120,7 +120,7 @@ public final class ComposedExchange {
     public int hashCode() {
         // Pick an arbitrary non-zero starting value
         int hashCode = 17;
-        hashCode = hashCode * 31 + mSignedTransaction.hashCode();
+        hashCode = hashCode * 31 + (mSignedTransaction == null ? 0 : mSignedTransaction.hashCode());
         hashCode = hashCode * 31 + mDepositAccount.hashCode();
         hashCode = hashCode * 31 + mWithdrawAccount.hashCode();
         hashCode = hashCode * 31 + mExchangeRate.hashCode();

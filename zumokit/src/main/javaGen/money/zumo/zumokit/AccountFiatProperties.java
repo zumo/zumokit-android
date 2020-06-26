@@ -3,7 +3,7 @@
 
 package money.zumo.zumokit;
 
-public final class FiatProperties {
+public final class AccountFiatProperties {
 
 
     /*package*/ final String mAccountNumber;
@@ -14,15 +14,19 @@ public final class FiatProperties {
 
     /*package*/ final String mIban;
 
-    public FiatProperties(
+    /*package*/ final String mCustomerName;
+
+    public AccountFiatProperties(
             String accountNumber,
             String sortCode,
             String bic,
-            String iban) {
+            String iban,
+            String customerName) {
         this.mAccountNumber = accountNumber;
         this.mSortCode = sortCode;
         this.mBic = bic;
         this.mIban = iban;
+        this.mCustomerName = customerName;
     }
 
     public String getAccountNumber() {
@@ -41,16 +45,21 @@ public final class FiatProperties {
         return mIban;
     }
 
+    public String getCustomerName() {
+        return mCustomerName;
+    }
+
     @Override
     public boolean equals(Object obj) {
-        if (!(obj instanceof FiatProperties)) {
+        if (!(obj instanceof AccountFiatProperties)) {
             return false;
         }
-        FiatProperties other = (FiatProperties) obj;
+        AccountFiatProperties other = (AccountFiatProperties) obj;
         return ((this.mAccountNumber == null && other.mAccountNumber == null) || (this.mAccountNumber != null && this.mAccountNumber.equals(other.mAccountNumber))) &&
                 ((this.mSortCode == null && other.mSortCode == null) || (this.mSortCode != null && this.mSortCode.equals(other.mSortCode))) &&
                 ((this.mBic == null && other.mBic == null) || (this.mBic != null && this.mBic.equals(other.mBic))) &&
-                ((this.mIban == null && other.mIban == null) || (this.mIban != null && this.mIban.equals(other.mIban)));
+                ((this.mIban == null && other.mIban == null) || (this.mIban != null && this.mIban.equals(other.mIban))) &&
+                ((this.mCustomerName == null && other.mCustomerName == null) || (this.mCustomerName != null && this.mCustomerName.equals(other.mCustomerName)));
     }
 
     @Override
@@ -61,16 +70,18 @@ public final class FiatProperties {
         hashCode = hashCode * 31 + (mSortCode == null ? 0 : mSortCode.hashCode());
         hashCode = hashCode * 31 + (mBic == null ? 0 : mBic.hashCode());
         hashCode = hashCode * 31 + (mIban == null ? 0 : mIban.hashCode());
+        hashCode = hashCode * 31 + (mCustomerName == null ? 0 : mCustomerName.hashCode());
         return hashCode;
     }
 
     @Override
     public String toString() {
-        return "FiatProperties{" +
+        return "AccountFiatProperties{" +
                 "mAccountNumber=" + mAccountNumber +
                 "," + "mSortCode=" + mSortCode +
                 "," + "mBic=" + mBic +
                 "," + "mIban=" + mIban +
+                "," + "mCustomerName=" + mCustomerName +
         "}";
     }
 

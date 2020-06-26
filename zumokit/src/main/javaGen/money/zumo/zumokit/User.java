@@ -19,6 +19,8 @@ public interface User {
 
     public void createFiatAccount(String network, String currencyCode, AccountCallback callback);
 
+    public void getNominatedAccountFiatProperties(String accountId, AccountFiatPropertiesCallback callback);
+
     public void createWallet(String mnemonic, String password, WalletCallback callback);
 
     public void unlockWallet(String password, WalletCallback callback);
@@ -125,6 +127,14 @@ public interface User {
             native_createFiatAccount(this.nativeRef, network, currencyCode, callback);
         }
         private native void native_createFiatAccount(long _nativeRef, String network, String currencyCode, AccountCallback callback);
+
+        @Override
+        public void getNominatedAccountFiatProperties(String accountId, AccountFiatPropertiesCallback callback)
+        {
+            assert !this.destroyed.get() : "trying to use a destroyed object";
+            native_getNominatedAccountFiatProperties(this.nativeRef, accountId, callback);
+        }
+        private native void native_getNominatedAccountFiatProperties(long _nativeRef, String accountId, AccountFiatPropertiesCallback callback);
 
         @Override
         public void createWallet(String mnemonic, String password, WalletCallback callback)

@@ -5,7 +5,7 @@ package money.zumo.zumokit;
 
 import java.util.HashMap;
 
-public final class CryptoDetails {
+public final class TransactionCryptoProperties {
 
 
     /*package*/ final String mTxHash;
@@ -26,7 +26,7 @@ public final class CryptoDetails {
 
     /*package*/ final HashMap<String, String> mFiatFee;
 
-    public CryptoDetails(
+    public TransactionCryptoProperties(
             String txHash,
             Long nonce,
             String fromAddress,
@@ -85,10 +85,10 @@ public final class CryptoDetails {
 
     @Override
     public boolean equals(Object obj) {
-        if (!(obj instanceof CryptoDetails)) {
+        if (!(obj instanceof TransactionCryptoProperties)) {
             return false;
         }
-        CryptoDetails other = (CryptoDetails) obj;
+        TransactionCryptoProperties other = (TransactionCryptoProperties) obj;
         return ((this.mTxHash == null && other.mTxHash == null) || (this.mTxHash != null && this.mTxHash.equals(other.mTxHash))) &&
                 ((this.mNonce == null && other.mNonce == null) || (this.mNonce != null && this.mNonce.equals(other.mNonce))) &&
                 this.mFromAddress.equals(other.mFromAddress) &&
@@ -118,7 +118,7 @@ public final class CryptoDetails {
 
     @Override
     public String toString() {
-        return "CryptoDetails{" +
+        return "TransactionCryptoProperties{" +
                 "mTxHash=" + mTxHash +
                 "," + "mNonce=" + mNonce +
                 "," + "mFromAddress=" + mFromAddress +

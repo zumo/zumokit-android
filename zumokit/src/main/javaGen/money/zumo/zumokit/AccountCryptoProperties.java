@@ -3,7 +3,7 @@
 
 package money.zumo.zumokit;
 
-public final class CryptoProperties {
+public final class AccountCryptoProperties {
 
 
     /*package*/ final String mAddress;
@@ -16,7 +16,7 @@ public final class CryptoProperties {
 
     /*package*/ final byte mVersion;
 
-    public CryptoProperties(
+    public AccountCryptoProperties(
             String address,
             String path,
             Long nonce,
@@ -51,10 +51,10 @@ public final class CryptoProperties {
 
     @Override
     public boolean equals(Object obj) {
-        if (!(obj instanceof CryptoProperties)) {
+        if (!(obj instanceof AccountCryptoProperties)) {
             return false;
         }
-        CryptoProperties other = (CryptoProperties) obj;
+        AccountCryptoProperties other = (AccountCryptoProperties) obj;
         return this.mAddress.equals(other.mAddress) &&
                 this.mPath.equals(other.mPath) &&
                 ((this.mNonce == null && other.mNonce == null) || (this.mNonce != null && this.mNonce.equals(other.mNonce))) &&
@@ -76,7 +76,7 @@ public final class CryptoProperties {
 
     @Override
     public String toString() {
-        return "CryptoProperties{" +
+        return "AccountCryptoProperties{" +
                 "mAddress=" + mAddress +
                 "," + "mPath=" + mPath +
                 "," + "mNonce=" + mNonce +
