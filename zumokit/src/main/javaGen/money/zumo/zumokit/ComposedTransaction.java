@@ -6,6 +6,8 @@ package money.zumo.zumokit;
 public final class ComposedTransaction {
 
 
+    /*package*/ final String mType;
+
     /*package*/ final String mSignedTransaction;
 
     /*package*/ final Account mAccount;
@@ -18,19 +20,29 @@ public final class ComposedTransaction {
 
     /*package*/ final String mFee;
 
+    /*package*/ final String mNonce;
+
     public ComposedTransaction(
+            String type,
             String signedTransaction,
             Account account,
             String destination,
             String amount,
             String data,
-            String fee) {
+            String fee,
+            String nonce) {
+        this.mType = type;
         this.mSignedTransaction = signedTransaction;
         this.mAccount = account;
         this.mDestination = destination;
         this.mAmount = amount;
         this.mData = data;
         this.mFee = fee;
+        this.mNonce = nonce;
+    }
+
+    public String getType() {
+        return mType;
     }
 
     public String getSignedTransaction() {
@@ -57,42 +69,52 @@ public final class ComposedTransaction {
         return mFee;
     }
 
+    public String getNonce() {
+        return mNonce;
+    }
+
     @Override
     public boolean equals(Object obj) {
         if (!(obj instanceof ComposedTransaction)) {
             return false;
         }
         ComposedTransaction other = (ComposedTransaction) obj;
-        return this.mSignedTransaction.equals(other.mSignedTransaction) &&
+        return this.mType.equals(other.mType) &&
+                ((this.mSignedTransaction == null && other.mSignedTransaction == null) || (this.mSignedTransaction != null && this.mSignedTransaction.equals(other.mSignedTransaction))) &&
                 this.mAccount.equals(other.mAccount) &&
                 ((this.mDestination == null && other.mDestination == null) || (this.mDestination != null && this.mDestination.equals(other.mDestination))) &&
                 ((this.mAmount == null && other.mAmount == null) || (this.mAmount != null && this.mAmount.equals(other.mAmount))) &&
                 ((this.mData == null && other.mData == null) || (this.mData != null && this.mData.equals(other.mData))) &&
-                this.mFee.equals(other.mFee);
+                this.mFee.equals(other.mFee) &&
+                this.mNonce.equals(other.mNonce);
     }
 
     @Override
     public int hashCode() {
         // Pick an arbitrary non-zero starting value
         int hashCode = 17;
-        hashCode = hashCode * 31 + mSignedTransaction.hashCode();
+        hashCode = hashCode * 31 + mType.hashCode();
+        hashCode = hashCode * 31 + (mSignedTransaction == null ? 0 : mSignedTransaction.hashCode());
         hashCode = hashCode * 31 + mAccount.hashCode();
         hashCode = hashCode * 31 + (mDestination == null ? 0 : mDestination.hashCode());
         hashCode = hashCode * 31 + (mAmount == null ? 0 : mAmount.hashCode());
         hashCode = hashCode * 31 + (mData == null ? 0 : mData.hashCode());
         hashCode = hashCode * 31 + mFee.hashCode();
+        hashCode = hashCode * 31 + mNonce.hashCode();
         return hashCode;
     }
 
     @Override
     public String toString() {
         return "ComposedTransaction{" +
-                "mSignedTransaction=" + mSignedTransaction +
+                "mType=" + mType +
+                "," + "mSignedTransaction=" + mSignedTransaction +
                 "," + "mAccount=" + mAccount +
                 "," + "mDestination=" + mDestination +
                 "," + "mAmount=" + mAmount +
                 "," + "mData=" + mData +
                 "," + "mFee=" + mFee +
+                "," + "mNonce=" + mNonce +
         "}";
     }
 

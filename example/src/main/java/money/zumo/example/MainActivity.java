@@ -100,11 +100,11 @@ public class MainActivity extends AppCompatActivity {
 
 //                            user.makeModulrCustomer(
 //                                    NetworkType.TESTNET,
-//                                    "Joe",
+//                                    "Ivan",
 //                                    null,
-//                                    "Biden",
+//                                    "Romanovski",
 //                                    "1989-02-02",
-//                                    "joe.biden@staging.zumo.money",
+//                                    "ivan.romanovski@staging.zumo.money",
 //                                    "+56123456",
 //                                    "Downing st. 23",
 //                                    null,
@@ -123,8 +123,6 @@ public class MainActivity extends AppCompatActivity {
 //                                        }
 //                                    }
 //                            );
-
-//                            Log.i("zumokit/modulr", mUser.getAccount(CurrencyCode.GBP, NetworkType.TESTNET, AccountType.STANDARD).toString());
 
 //                            mUser.createFiatAccount(NetworkType.TESTNET, CurrencyCode.GBP, new AccountCallback() {
 //                                @Override
@@ -147,6 +145,10 @@ public class MainActivity extends AppCompatActivity {
                                 Account btcAccount = user.getAccount("BTC", NetworkType.TESTNET, AccountType.COMPATIBILITY);
                                 Log.i("zumokit/btc-account", btcAccount.toString());
 
+                                // Fiat account
+                                Account fiatAccount = mUser.getAccount(CurrencyCode.GBP, NetworkType.TESTNET, AccountType.STANDARD);
+                                Log.i("zumokit/fiat-account", fiatAccount.toString());
+
                                 // Exchanges
                                 Log.i("zumokit/exchanges", mZumoKit.getState().getExchanges().toString());
 
@@ -164,8 +166,9 @@ public class MainActivity extends AppCompatActivity {
                                         mWallet = wallet;
 
                                         // Compose ETH and BTC transactions
-                                        //composeEthTransaction(ethAccount, false);
+                                        //composeEthTransaction(ethAccount, true);
                                         //composeBtcTransaction(btcAccount, false);
+                                        composeFiatTransaction(fiatAccount, false);
 
                                         // Display current exchange rates & exchange settings
                                         //State state = mZumoKit.getState();
@@ -289,6 +292,39 @@ public class MainActivity extends AppCompatActivity {
                                 Log.i("zumokit", tx.toString());
                             }
                         });
+            }
+        });
+    }
+
+
+    private void composeFiatTransaction(Account account, Boolean submit) {
+        String destination = "d8473a8e-f78d-4d5c-84cb-921b4c5dfbb3";
+        String value = "50.2";
+
+        mWallet.composeInternalFiatTransaction(account.getId(), destination, value, false, new ComposeTransactionCallback() {
+            @Override
+            public void onError(Exception e) {
+                Log.e("zumokit", e.toString());
+            }
+
+            @Override
+            public void onSuccess(ComposedTransaction composedTransaction) {
+                Log.i("zumokit", composedTransaction.toString());
+
+                if (!submit)
+                    return;
+
+                mWallet.submitTransaction(composedTransaction, new SubmitTransactionCallback() {
+                    @Override
+                    public void onError(Exception e) {
+                        Log.e("zumokit", e.toString());
+                    }
+
+                    @Override
+                    public void onSuccess(Transaction tx) {
+                        Log.i("zumokit", tx.toString());
+                    }
+                });
             }
         });
     }

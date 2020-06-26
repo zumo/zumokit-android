@@ -28,9 +28,11 @@ public final class Transaction {
 
     /*package*/ final String mFee;
 
-    /*package*/ final CryptoDetails mCryptoDetails;
+    /*package*/ final String mNonce;
 
-    /*package*/ final String mFiatDetails;
+    /*package*/ final TransactionCryptoProperties mCryptoProperties;
+
+    /*package*/ final TransactionFiatProperties mFiatProperties;
 
     /*package*/ final Long mSubmittedAt;
 
@@ -50,8 +52,9 @@ public final class Transaction {
             String status,
             String amount,
             String fee,
-            CryptoDetails cryptoDetails,
-            String fiatDetails,
+            String nonce,
+            TransactionCryptoProperties cryptoProperties,
+            TransactionFiatProperties fiatProperties,
             Long submittedAt,
             Long confirmedAt,
             long timestamp) {
@@ -66,8 +69,9 @@ public final class Transaction {
         this.mStatus = status;
         this.mAmount = amount;
         this.mFee = fee;
-        this.mCryptoDetails = cryptoDetails;
-        this.mFiatDetails = fiatDetails;
+        this.mNonce = nonce;
+        this.mCryptoProperties = cryptoProperties;
+        this.mFiatProperties = fiatProperties;
         this.mSubmittedAt = submittedAt;
         this.mConfirmedAt = confirmedAt;
         this.mTimestamp = timestamp;
@@ -117,12 +121,16 @@ public final class Transaction {
         return mFee;
     }
 
-    public CryptoDetails getCryptoDetails() {
-        return mCryptoDetails;
+    public String getNonce() {
+        return mNonce;
     }
 
-    public String getFiatDetails() {
-        return mFiatDetails;
+    public TransactionCryptoProperties getCryptoProperties() {
+        return mCryptoProperties;
+    }
+
+    public TransactionFiatProperties getFiatProperties() {
+        return mFiatProperties;
     }
 
     public Long getSubmittedAt() {
@@ -154,8 +162,9 @@ public final class Transaction {
                 this.mStatus.equals(other.mStatus) &&
                 ((this.mAmount == null && other.mAmount == null) || (this.mAmount != null && this.mAmount.equals(other.mAmount))) &&
                 ((this.mFee == null && other.mFee == null) || (this.mFee != null && this.mFee.equals(other.mFee))) &&
-                ((this.mCryptoDetails == null && other.mCryptoDetails == null) || (this.mCryptoDetails != null && this.mCryptoDetails.equals(other.mCryptoDetails))) &&
-                ((this.mFiatDetails == null && other.mFiatDetails == null) || (this.mFiatDetails != null && this.mFiatDetails.equals(other.mFiatDetails))) &&
+                ((this.mNonce == null && other.mNonce == null) || (this.mNonce != null && this.mNonce.equals(other.mNonce))) &&
+                ((this.mCryptoProperties == null && other.mCryptoProperties == null) || (this.mCryptoProperties != null && this.mCryptoProperties.equals(other.mCryptoProperties))) &&
+                ((this.mFiatProperties == null && other.mFiatProperties == null) || (this.mFiatProperties != null && this.mFiatProperties.equals(other.mFiatProperties))) &&
                 ((this.mSubmittedAt == null && other.mSubmittedAt == null) || (this.mSubmittedAt != null && this.mSubmittedAt.equals(other.mSubmittedAt))) &&
                 ((this.mConfirmedAt == null && other.mConfirmedAt == null) || (this.mConfirmedAt != null && this.mConfirmedAt.equals(other.mConfirmedAt))) &&
                 this.mTimestamp == other.mTimestamp;
@@ -176,8 +185,9 @@ public final class Transaction {
         hashCode = hashCode * 31 + mStatus.hashCode();
         hashCode = hashCode * 31 + (mAmount == null ? 0 : mAmount.hashCode());
         hashCode = hashCode * 31 + (mFee == null ? 0 : mFee.hashCode());
-        hashCode = hashCode * 31 + (mCryptoDetails == null ? 0 : mCryptoDetails.hashCode());
-        hashCode = hashCode * 31 + (mFiatDetails == null ? 0 : mFiatDetails.hashCode());
+        hashCode = hashCode * 31 + (mNonce == null ? 0 : mNonce.hashCode());
+        hashCode = hashCode * 31 + (mCryptoProperties == null ? 0 : mCryptoProperties.hashCode());
+        hashCode = hashCode * 31 + (mFiatProperties == null ? 0 : mFiatProperties.hashCode());
         hashCode = hashCode * 31 + (mSubmittedAt == null ? 0 : mSubmittedAt.hashCode());
         hashCode = hashCode * 31 + (mConfirmedAt == null ? 0 : mConfirmedAt.hashCode());
         hashCode = hashCode * 31 + ((int) (mTimestamp ^ (mTimestamp >>> 32)));
@@ -198,8 +208,9 @@ public final class Transaction {
                 "," + "mStatus=" + mStatus +
                 "," + "mAmount=" + mAmount +
                 "," + "mFee=" + mFee +
-                "," + "mCryptoDetails=" + mCryptoDetails +
-                "," + "mFiatDetails=" + mFiatDetails +
+                "," + "mNonce=" + mNonce +
+                "," + "mCryptoProperties=" + mCryptoProperties +
+                "," + "mFiatProperties=" + mFiatProperties +
                 "," + "mSubmittedAt=" + mSubmittedAt +
                 "," + "mConfirmedAt=" + mConfirmedAt +
                 "," + "mTimestamp=" + mTimestamp +

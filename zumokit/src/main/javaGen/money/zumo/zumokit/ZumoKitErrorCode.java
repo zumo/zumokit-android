@@ -99,6 +99,10 @@ public final class ZumoKitErrorCode {
 
     public static final String ACCOUNT_LIMIT_EXCEEDED = "account_limit_exceeded";
 
+    public static final String DESTINATION_PROVIDED_WHEN_WITHDRAW_SET = "destination_provided_when_withdraw_set";
+
+    public static final String INVALID_TRANSACTION_TYPE = "invalid_transaction_type";
+
 
     public ZumoKitErrorCode(
             ) {

@@ -17,6 +17,8 @@ public final class TransactionStatus {
 
     public static final String PAUSED = "PAUSED";
 
+    public static final String REJECTED = "REJECTED";
+
 
     public TransactionStatus(
             ) {
