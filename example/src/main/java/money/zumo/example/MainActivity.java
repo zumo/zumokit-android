@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.util.Log;
 
 import money.zumo.zumokit.AccountCallback;
+import money.zumo.zumokit.AccountFiatProperties;
+import money.zumo.zumokit.AccountFiatPropertiesCallback;
 import money.zumo.zumokit.AccountType;
 import money.zumo.zumokit.CurrencyCode;
 import money.zumo.zumokit.HttpService;
@@ -148,6 +150,18 @@ public class MainActivity extends AppCompatActivity {
                                 // Fiat account
                                 Account fiatAccount = mUser.getAccount(CurrencyCode.GBP, NetworkType.TESTNET, AccountType.STANDARD);
                                 Log.i("zumokit/fiat-account", fiatAccount.toString());
+
+                                user.getNominatedAccountFiatProperties(fiatAccount.getId(), new AccountFiatPropertiesCallback() {
+                                    @Override
+                                    public void onError(Exception e) {
+                                        Log.e("zumokit/nominated-account", e.toString());
+                                    }
+
+                                    @Override
+                                    public void onSuccess(AccountFiatProperties account) {
+                                        Log.i("zumokit/nominated-account", account.toString());
+                                    }
+                                });
 
                                 // Exchanges
                                 Log.i("zumokit/exchanges", mZumoKit.getState().getExchanges().toString());
