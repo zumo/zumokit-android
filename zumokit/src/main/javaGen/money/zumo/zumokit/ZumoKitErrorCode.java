@@ -97,6 +97,8 @@ public final class ZumoKitErrorCode {
 
     public static final String ALREADY_MODULR_CUSTOMER = "already_modulr_customer";
 
+    public static final String USER_NOT_MODULR_CUSTOMER = "user_not_modulr_customer";
+
     public static final String ACCOUNT_LIMIT_EXCEEDED = "account_limit_exceeded";
 
     public static final String DESTINATION_PROVIDED_WHEN_WITHDRAW_SET = "destination_provided_when_withdraw_set";

@@ -29,7 +29,7 @@ public final class State {
 
     /*package*/ final SyncStatus mSyncStatus;
 
-    /*package*/ final boolean mIsModulrCustomer;
+    /*package*/ final ArrayList<String> mModulrCustomerOnNetworks;
 
     public State(
             ArrayList<Account> accounts,
@@ -42,7 +42,7 @@ public final class State {
             TxServiceConnection txServiceConnection,
             HashMap<String, FeeRates> feeRates,
             SyncStatus syncStatus,
-            boolean isModulrCustomer) {
+            ArrayList<String> modulrCustomerOnNetworks) {
         this.mAccounts = accounts;
         this.mTransactions = transactions;
         this.mExchanges = exchanges;
@@ -53,7 +53,7 @@ public final class State {
         this.mTxServiceConnection = txServiceConnection;
         this.mFeeRates = feeRates;
         this.mSyncStatus = syncStatus;
-        this.mIsModulrCustomer = isModulrCustomer;
+        this.mModulrCustomerOnNetworks = modulrCustomerOnNetworks;
     }
 
     public ArrayList<Account> getAccounts() {
@@ -96,8 +96,8 @@ public final class State {
         return mSyncStatus;
     }
 
-    public boolean getIsModulrCustomer() {
-        return mIsModulrCustomer;
+    public ArrayList<String> getModulrCustomerOnNetworks() {
+        return mModulrCustomerOnNetworks;
     }
 
     @Override
@@ -116,7 +116,7 @@ public final class State {
                 this.mTxServiceConnection.equals(other.mTxServiceConnection) &&
                 this.mFeeRates.equals(other.mFeeRates) &&
                 this.mSyncStatus == other.mSyncStatus &&
-                this.mIsModulrCustomer == other.mIsModulrCustomer;
+                this.mModulrCustomerOnNetworks.equals(other.mModulrCustomerOnNetworks);
     }
 
     @Override
@@ -133,7 +133,7 @@ public final class State {
         hashCode = hashCode * 31 + mTxServiceConnection.hashCode();
         hashCode = hashCode * 31 + mFeeRates.hashCode();
         hashCode = hashCode * 31 + mSyncStatus.hashCode();
-        hashCode = hashCode * 31 + (mIsModulrCustomer ? 1 : 0);
+        hashCode = hashCode * 31 + mModulrCustomerOnNetworks.hashCode();
         return hashCode;
     }
 
@@ -150,7 +150,7 @@ public final class State {
                 "," + "mTxServiceConnection=" + mTxServiceConnection +
                 "," + "mFeeRates=" + mFeeRates +
                 "," + "mSyncStatus=" + mSyncStatus +
-                "," + "mIsModulrCustomer=" + mIsModulrCustomer +
+                "," + "mModulrCustomerOnNetworks=" + mModulrCustomerOnNetworks +
         "}";
     }
 
