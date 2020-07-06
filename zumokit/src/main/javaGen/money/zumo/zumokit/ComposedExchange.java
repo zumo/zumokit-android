@@ -28,6 +28,8 @@ public final class ComposedExchange {
 
     /*package*/ final String mWithdrawFee;
 
+    /*package*/ final String mNonce;
+
     public ComposedExchange(
             String signedTransaction,
             Account depositAccount,
@@ -39,7 +41,8 @@ public final class ComposedExchange {
             String returnValue,
             String depositFee,
             String exchangeFee,
-            String withdrawFee) {
+            String withdrawFee,
+            String nonce) {
         this.mSignedTransaction = signedTransaction;
         this.mDepositAccount = depositAccount;
         this.mWithdrawAccount = withdrawAccount;
@@ -51,6 +54,7 @@ public final class ComposedExchange {
         this.mDepositFee = depositFee;
         this.mExchangeFee = exchangeFee;
         this.mWithdrawFee = withdrawFee;
+        this.mNonce = nonce;
     }
 
     public String getSignedTransaction() {
@@ -97,6 +101,10 @@ public final class ComposedExchange {
         return mWithdrawFee;
     }
 
+    public String getNonce() {
+        return mNonce;
+    }
+
     @Override
     public boolean equals(Object obj) {
         if (!(obj instanceof ComposedExchange)) {
@@ -108,12 +116,13 @@ public final class ComposedExchange {
                 this.mWithdrawAccount.equals(other.mWithdrawAccount) &&
                 this.mExchangeRate.equals(other.mExchangeRate) &&
                 this.mExchangeSettings.equals(other.mExchangeSettings) &&
-                this.mExchangeAddress.equals(other.mExchangeAddress) &&
+                ((this.mExchangeAddress == null && other.mExchangeAddress == null) || (this.mExchangeAddress != null && this.mExchangeAddress.equals(other.mExchangeAddress))) &&
                 this.mValue.equals(other.mValue) &&
                 this.mReturnValue.equals(other.mReturnValue) &&
                 this.mDepositFee.equals(other.mDepositFee) &&
                 this.mExchangeFee.equals(other.mExchangeFee) &&
-                this.mWithdrawFee.equals(other.mWithdrawFee);
+                this.mWithdrawFee.equals(other.mWithdrawFee) &&
+                ((this.mNonce == null && other.mNonce == null) || (this.mNonce != null && this.mNonce.equals(other.mNonce)));
     }
 
     @Override
@@ -125,12 +134,13 @@ public final class ComposedExchange {
         hashCode = hashCode * 31 + mWithdrawAccount.hashCode();
         hashCode = hashCode * 31 + mExchangeRate.hashCode();
         hashCode = hashCode * 31 + mExchangeSettings.hashCode();
-        hashCode = hashCode * 31 + mExchangeAddress.hashCode();
+        hashCode = hashCode * 31 + (mExchangeAddress == null ? 0 : mExchangeAddress.hashCode());
         hashCode = hashCode * 31 + mValue.hashCode();
         hashCode = hashCode * 31 + mReturnValue.hashCode();
         hashCode = hashCode * 31 + mDepositFee.hashCode();
         hashCode = hashCode * 31 + mExchangeFee.hashCode();
         hashCode = hashCode * 31 + mWithdrawFee.hashCode();
+        hashCode = hashCode * 31 + (mNonce == null ? 0 : mNonce.hashCode());
         return hashCode;
     }
 
@@ -148,6 +158,7 @@ public final class ComposedExchange {
                 "," + "mDepositFee=" + mDepositFee +
                 "," + "mExchangeFee=" + mExchangeFee +
                 "," + "mWithdrawFee=" + mWithdrawFee +
+                "," + "mNonce=" + mNonce +
         "}";
     }
 

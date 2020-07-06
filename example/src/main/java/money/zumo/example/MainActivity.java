@@ -182,35 +182,29 @@ public class MainActivity extends AppCompatActivity {
                                         // Compose ETH and BTC transactions
                                         //composeEthTransaction(ethAccount, true);
                                         //composeBtcTransaction(btcAccount, false);
-                                        composeFiatTransaction(fiatAccount, false);
+                                        //composeFiatTransaction(fiatAccount, false);
 
                                         // Display current exchange rates & exchange settings
-                                        //State state = mZumoKit.getState();
-                                        //Log.i("zumokit/exchange-rates", state.getExchangeSettings().toString());
-                                        //Log.i("zumokit/exchange-rates",  state.getExchangeRates().get("BTC").get("ETH").toString());
-                                        //Log.i("zumokit/exchange-rates",  state.getExchangeSettings().get("ETH").get("BTC").toString());
+                                        State state = mZumoKit.getState();
+                                        Log.i("zumokit/exchange-rates", state.getExchangeSettings().toString());
+                                        Log.i("zumokit/exchange-rates",  state.getExchangeRates().get("BTC").get("ETH").toString());
+                                        Log.i("zumokit/exchange-rates",  state.getExchangeSettings().get("ETH").get("BTC").toString());
 
-                                        // Compose ETH -> BTC exchange
-//                                        composeExchange(
-//                                                ethAccount,
-//                                                btcAccount,
-//                                                state.getExchangeRates().get("ETH").get("BTC"),
-//                                                state.getExchangeSettings().get("ETH").get("BTC"),
-//                                                "0.1",
-//                                                false,
-//                                                false
-//                                        );
+//                                        ExchangeRate rate = state.getExchangeRates().get("BTC").get("ETH");
+//                                        ExchangeRate fiatRate = new ExchangeRate(rate.getId(), "GBP", "BTC", "0.01", rate.getValidTo(), rate.getTimestamp());
+//                                        ExchangeSettings settings = state.getExchangeSettings().get("ETH").get("BTC");
+//                                        ExchangeSettings fiatSettings = new ExchangeSettings(settings.getId(), settings.getDepositAddress(), "GBP","BTC", "0.05", "0.001", "0", settings.getWithdrawFee(), settings.getTimestamp());
 
-                                        // Compose BTC -> ETH Exchange
-//                                        composeExchange(
-//                                                btcAccount,
-//                                                ethAccount,
-//                                                state.getExchangeRates().get("BTC").get("ETH"),
-//                                                state.getExchangeSettings().get("BTC").get("ETH"),
-//                                                "2",
-//                                                false,
-//                                                false
-//                                        );
+
+                                        composeExchange(
+                                                ethAccount,
+                                                btcAccount,
+                                                state.getExchangeRates().get("ETH").get("BTC"),
+                                                state.getExchangeSettings().get("ETH").get("BTC"),
+                                                "0.08",
+                                                false,
+                                                true
+                                        );
                                     }
                                 });
                             } else {

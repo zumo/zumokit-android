@@ -40,6 +40,8 @@ public final class Exchange {
 
     /*package*/ final HashMap<String, HashMap<String, ExchangeRate>> mExchangeRates;
 
+    /*package*/ final String mNonce;
+
     /*package*/ final Long mSubmittedAt;
 
     /*package*/ final Long mConfirmedAt;
@@ -61,6 +63,7 @@ public final class Exchange {
             ExchangeRate exchangeRate,
             ExchangeSettings exchangeSettings,
             HashMap<String, HashMap<String, ExchangeRate>> exchangeRates,
+            String nonce,
             Long submittedAt,
             Long confirmedAt) {
         this.mId = id;
@@ -79,6 +82,7 @@ public final class Exchange {
         this.mExchangeRate = exchangeRate;
         this.mExchangeSettings = exchangeSettings;
         this.mExchangeRates = exchangeRates;
+        this.mNonce = nonce;
         this.mSubmittedAt = submittedAt;
         this.mConfirmedAt = confirmedAt;
     }
@@ -147,6 +151,10 @@ public final class Exchange {
         return mExchangeRates;
     }
 
+    public String getNonce() {
+        return mNonce;
+    }
+
     public Long getSubmittedAt() {
         return mSubmittedAt;
     }
@@ -177,6 +185,7 @@ public final class Exchange {
                 this.mExchangeRate.equals(other.mExchangeRate) &&
                 this.mExchangeSettings.equals(other.mExchangeSettings) &&
                 this.mExchangeRates.equals(other.mExchangeRates) &&
+                ((this.mNonce == null && other.mNonce == null) || (this.mNonce != null && this.mNonce.equals(other.mNonce))) &&
                 ((this.mSubmittedAt == null && other.mSubmittedAt == null) || (this.mSubmittedAt != null && this.mSubmittedAt.equals(other.mSubmittedAt))) &&
                 ((this.mConfirmedAt == null && other.mConfirmedAt == null) || (this.mConfirmedAt != null && this.mConfirmedAt.equals(other.mConfirmedAt)));
     }
@@ -201,6 +210,7 @@ public final class Exchange {
         hashCode = hashCode * 31 + mExchangeRate.hashCode();
         hashCode = hashCode * 31 + mExchangeSettings.hashCode();
         hashCode = hashCode * 31 + mExchangeRates.hashCode();
+        hashCode = hashCode * 31 + (mNonce == null ? 0 : mNonce.hashCode());
         hashCode = hashCode * 31 + (mSubmittedAt == null ? 0 : mSubmittedAt.hashCode());
         hashCode = hashCode * 31 + (mConfirmedAt == null ? 0 : mConfirmedAt.hashCode());
         return hashCode;
@@ -225,6 +235,7 @@ public final class Exchange {
                 "," + "mExchangeRate=" + mExchangeRate +
                 "," + "mExchangeSettings=" + mExchangeSettings +
                 "," + "mExchangeRates=" + mExchangeRates +
+                "," + "mNonce=" + mNonce +
                 "," + "mSubmittedAt=" + mSubmittedAt +
                 "," + "mConfirmedAt=" + mConfirmedAt +
         "}";
