@@ -105,6 +105,8 @@ public final class ZumoKitErrorCode {
 
     public static final String INVALID_TRANSACTION_TYPE = "invalid_transaction_type";
 
+    public static final String EXCHANGE_CURRENCIES_MUST_BE_DIFFERENT = "exchange_currencies_must_be_different";
+
 
     public ZumoKitErrorCode(
             ) {
