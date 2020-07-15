@@ -182,19 +182,13 @@ public class MainActivity extends AppCompatActivity {
                                         // Compose ETH and BTC transactions
                                         //composeEthTransaction(ethAccount, true);
                                         //composeBtcTransaction(btcAccount, false);
-                                        //composeFiatTransaction(fiatAccount, false);
+                                        composeFiatTransaction(fiatAccount, true, false);
+
+                                        State state = mZumoKit.getState();
 
                                         // Display current exchange rates & exchange settings
-                                        State state = mZumoKit.getState();
-                                        Log.i("zumokit/exchange-rates", state.getExchangeSettings().toString());
                                         Log.i("zumokit/exchange-rates",  state.getExchangeRates().get("BTC").get("ETH").toString());
                                         Log.i("zumokit/exchange-rates",  state.getExchangeSettings().get("ETH").get("BTC").toString());
-
-//                                        ExchangeRate rate = state.getExchangeRates().get("BTC").get("ETH");
-//                                        ExchangeRate fiatRate = new ExchangeRate(rate.getId(), "GBP", "BTC", "0.01", rate.getValidTo(), rate.getTimestamp());
-//                                        ExchangeSettings settings = state.getExchangeSettings().get("ETH").get("BTC");
-//                                        ExchangeSettings fiatSettings = new ExchangeSettings(settings.getId(), settings.getDepositAddress(), "GBP","BTC", "0.05", "0.001", "0", settings.getWithdrawFee(), settings.getTimestamp());
-
 
                                         composeExchange(
                                                 ethAccount,
@@ -203,7 +197,7 @@ public class MainActivity extends AppCompatActivity {
                                                 state.getExchangeSettings().get("ETH").get("BTC"),
                                                 "0.08",
                                                 false,
-                                                true
+                                                false
                                         );
                                     }
                                 });
@@ -305,36 +299,65 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    private void composeFiatTransaction(Account account, Boolean submit) {
+    private void composeFiatTransaction(Account account, Boolean toNominated, Boolean submit) {
         String destination = "d8473a8e-f78d-4d5c-84cb-921b4c5dfbb3";
         String value = "50.2";
 
-        mWallet.composeInternalFiatTransaction(account.getId(), destination, value, false, new ComposeTransactionCallback() {
-            @Override
-            public void onError(Exception e) {
-                Log.e("zumokit", e.toString());
-            }
+        if (toNominated) {
+            mWallet.composeTransactionToNominatedAccount(account.getId(), value, false, new ComposeTransactionCallback() {
+                @Override
+                public void onError(Exception e) {
+                    Log.e("zumokit", e.toString());
+                }
 
-            @Override
-            public void onSuccess(ComposedTransaction composedTransaction) {
-                Log.i("zumokit", composedTransaction.toString());
+                @Override
+                public void onSuccess(ComposedTransaction composedTransaction) {
+                    Log.i("zumokit", composedTransaction.toString());
 
-                if (!submit)
-                    return;
+                    if (!submit)
+                        return;
 
-                mWallet.submitTransaction(composedTransaction, new SubmitTransactionCallback() {
-                    @Override
-                    public void onError(Exception e) {
-                        Log.e("zumokit", e.toString());
-                    }
+                    mWallet.submitTransaction(composedTransaction, new SubmitTransactionCallback() {
+                        @Override
+                        public void onError(Exception e) {
+                            Log.e("zumokit", e.toString());
+                        }
 
-                    @Override
-                    public void onSuccess(Transaction tx) {
-                        Log.i("zumokit", tx.toString());
-                    }
-                });
-            }
-        });
+                        @Override
+                        public void onSuccess(Transaction tx) {
+                            Log.i("zumokit", tx.toString());
+                        }
+                    });
+                }
+            });
+        } else {
+            mWallet.composeInternalFiatTransaction(account.getId(), destination, value, false, new ComposeTransactionCallback() {
+                @Override
+                public void onError(Exception e) {
+                    Log.e("zumokit", e.toString());
+                }
+
+                @Override
+                public void onSuccess(ComposedTransaction composedTransaction) {
+                    Log.i("zumokit", composedTransaction.toString());
+
+                    if (!submit)
+                        return;
+
+                    mWallet.submitTransaction(composedTransaction, new SubmitTransactionCallback() {
+                        @Override
+                        public void onError(Exception e) {
+                            Log.e("zumokit", e.toString());
+                        }
+
+                        @Override
+                        public void onSuccess(Transaction tx) {
+                            Log.i("zumokit", tx.toString());
+                        }
+                    });
+                }
+            });
+        }
     }
 
     private void composeExchange(Account depositAccount, Account withdrawAccount, ExchangeRate exchangeRate, ExchangeSettings exchangeSettings, String value, Boolean sendMax, Boolean submit) {
