@@ -27,13 +27,13 @@
 [full_requires]
     bitcoin_core/0.20.0@zumo/stable:9b28cc67a06814b7cdebbb60753d8be54b0b38f2
     boost_headers/1.72.0@zumo/stable:5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9
-    secp256k1/1.0@zumo/stable:7e437d7911bb64b0946466a47d6c8d3b7ae2affd
+    secp256k1/1.0@zumo/stable:e7d70165f6d6fd06f7f9906456f47cd5dbb4b2c4
 
 [full_options]
     coverage=False
     enable_tests=False
     bitcoin_core:shared=True
-    secp256k1:shared=False
+    secp256k1:shared=True
 
 [recipe_hash]
 
