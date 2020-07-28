@@ -151,17 +151,19 @@ public class MainActivity extends AppCompatActivity {
                                 Account fiatAccount = mUser.getAccount(CurrencyCode.GBP, NetworkType.TESTNET, AccountType.STANDARD);
                                 Log.i("zumokit/fiat-account", fiatAccount.toString());
 
-                                user.getNominatedAccountFiatProperties(fiatAccount.getId(), new AccountFiatPropertiesCallback() {
-                                    @Override
-                                    public void onError(Exception e) {
-                                        Log.e("zumokit/nominated-account", e.toString());
-                                    }
+                                if (fiatAccount.getHasNominatedAccount()) {
+                                    user.getNominatedAccountFiatProperties(fiatAccount.getId(), new AccountFiatPropertiesCallback() {
+                                        @Override
+                                        public void onError(Exception e) {
+                                            Log.e("zumokit/nominated-account", e.toString());
+                                        }
 
-                                    @Override
-                                    public void onSuccess(AccountFiatProperties account) {
-                                        Log.i("zumokit/nominated-account", account.toString());
-                                    }
-                                });
+                                        @Override
+                                        public void onSuccess(AccountFiatProperties account) {
+                                            Log.i("zumokit/nominated-account", account.toString());
+                                        }
+                                    });
+                                }
 
                                 // Exchanges
                                 Log.i("zumokit/exchanges", mZumoKit.getState().getExchanges().toString());
@@ -182,7 +184,7 @@ public class MainActivity extends AppCompatActivity {
                                         // Compose ETH and BTC transactions
                                         //composeEthTransaction(ethAccount, true);
                                         //composeBtcTransaction(btcAccount, false);
-                                        composeFiatTransaction(fiatAccount, true, false);
+                                        //composeFiatTransaction(fiatAccount, true, false);
 
                                         State state = mZumoKit.getState();
 
@@ -190,15 +192,15 @@ public class MainActivity extends AppCompatActivity {
                                         Log.i("zumokit/exchange-rates",  state.getExchangeRates().get("BTC").get("ETH").toString());
                                         Log.i("zumokit/exchange-rates",  state.getExchangeSettings().get("ETH").get("BTC").toString());
 
-                                        composeExchange(
-                                                ethAccount,
-                                                btcAccount,
-                                                state.getExchangeRates().get("ETH").get("BTC"),
-                                                state.getExchangeSettings().get("ETH").get("BTC"),
-                                                "0.08",
-                                                false,
-                                                false
-                                        );
+//                                        composeExchange(
+//                                                ethAccount,
+//                                                btcAccount,
+//                                                state.getExchangeRates().get("ETH").get("BTC"),
+//                                                state.getExchangeSettings().get("ETH").get("BTC"),
+//                                                "0.08",
+//                                                false,
+//                                                false
+//                                        );
                                     }
                                 });
                             } else {

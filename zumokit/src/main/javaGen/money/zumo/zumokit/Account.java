@@ -18,6 +18,8 @@ public final class Account {
 
     /*package*/ final String mBalance;
 
+    /*package*/ final boolean mHasNominatedAccount;
+
     /*package*/ final AccountCryptoProperties mCryptoProperties;
 
     /*package*/ final AccountFiatProperties mFiatProperties;
@@ -29,6 +31,7 @@ public final class Account {
             String network,
             String type,
             String balance,
+            boolean hasNominatedAccount,
             AccountCryptoProperties cryptoProperties,
             AccountFiatProperties fiatProperties) {
         this.mId = id;
@@ -37,6 +40,7 @@ public final class Account {
         this.mNetwork = network;
         this.mType = type;
         this.mBalance = balance;
+        this.mHasNominatedAccount = hasNominatedAccount;
         this.mCryptoProperties = cryptoProperties;
         this.mFiatProperties = fiatProperties;
     }
@@ -65,6 +69,10 @@ public final class Account {
         return mBalance;
     }
 
+    public boolean getHasNominatedAccount() {
+        return mHasNominatedAccount;
+    }
+
     public AccountCryptoProperties getCryptoProperties() {
         return mCryptoProperties;
     }
@@ -85,6 +93,7 @@ public final class Account {
                 this.mNetwork.equals(other.mNetwork) &&
                 this.mType.equals(other.mType) &&
                 this.mBalance.equals(other.mBalance) &&
+                this.mHasNominatedAccount == other.mHasNominatedAccount &&
                 ((this.mCryptoProperties == null && other.mCryptoProperties == null) || (this.mCryptoProperties != null && this.mCryptoProperties.equals(other.mCryptoProperties))) &&
                 ((this.mFiatProperties == null && other.mFiatProperties == null) || (this.mFiatProperties != null && this.mFiatProperties.equals(other.mFiatProperties)));
     }
@@ -99,6 +108,7 @@ public final class Account {
         hashCode = hashCode * 31 + mNetwork.hashCode();
         hashCode = hashCode * 31 + mType.hashCode();
         hashCode = hashCode * 31 + mBalance.hashCode();
+        hashCode = hashCode * 31 + (mHasNominatedAccount ? 1 : 0);
         hashCode = hashCode * 31 + (mCryptoProperties == null ? 0 : mCryptoProperties.hashCode());
         hashCode = hashCode * 31 + (mFiatProperties == null ? 0 : mFiatProperties.hashCode());
         return hashCode;
@@ -113,6 +123,7 @@ public final class Account {
                 "," + "mNetwork=" + mNetwork +
                 "," + "mType=" + mType +
                 "," + "mBalance=" + mBalance +
+                "," + "mHasNominatedAccount=" + mHasNominatedAccount +
                 "," + "mCryptoProperties=" + mCryptoProperties +
                 "," + "mFiatProperties=" + mFiatProperties +
         "}";
