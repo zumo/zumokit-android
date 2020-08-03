@@ -24,9 +24,9 @@ public final class Transaction {
 
     /*package*/ final String mStatus;
 
-    /*package*/ final String mAmount;
+    /*package*/ final java.math.BigDecimal mAmount;
 
-    /*package*/ final String mFee;
+    /*package*/ final java.math.BigDecimal mFee;
 
     /*package*/ final String mNonce;
 
@@ -50,8 +50,8 @@ public final class Transaction {
             String toAccountId,
             String network,
             String status,
-            String amount,
-            String fee,
+            java.math.BigDecimal amount,
+            java.math.BigDecimal fee,
             String nonce,
             TransactionCryptoProperties cryptoProperties,
             TransactionFiatProperties fiatProperties,
@@ -113,11 +113,11 @@ public final class Transaction {
         return mStatus;
     }
 
-    public String getAmount() {
+    public java.math.BigDecimal getAmount() {
         return mAmount;
     }
 
-    public String getFee() {
+    public java.math.BigDecimal getFee() {
         return mFee;
     }
 

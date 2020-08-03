@@ -19,7 +19,7 @@ public final class ZumoKitErrorCode {
 
     public static final String WALLET_LIMIT_EXCEEDED = "wallet_limit_exceeded";
 
-    public static final String NO_WALLET_TO_RECOVER_FOUND = "no_wallet_to_recover_found";
+    public static final String NO_WALLET_FOUND = "no_wallet_found";
 
     public static final String INVALID_RECOVERY_PHRASE = "invalid_recovery_phrase";
 
@@ -106,6 +106,10 @@ public final class ZumoKitErrorCode {
     public static final String INVALID_TRANSACTION_TYPE = "invalid_transaction_type";
 
     public static final String EXCHANGE_CURRENCIES_MUST_BE_DIFFERENT = "exchange_currencies_must_be_different";
+
+    public static final String INCORRECT_ACCOUNT_SELECTED = "incorrect_account_selected";
+
+    public static final String INCORRECT_CHANGE_ACCOUNT_SELECTED = "incorrect_change_account_selected";
 
 
     public ZumoKitErrorCode(

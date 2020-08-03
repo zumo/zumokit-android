@@ -18,15 +18,15 @@ public final class ComposedExchange {
 
     /*package*/ final String mExchangeAddress;
 
-    /*package*/ final String mValue;
+    /*package*/ final java.math.BigDecimal mValue;
 
-    /*package*/ final String mReturnValue;
+    /*package*/ final java.math.BigDecimal mReturnValue;
 
-    /*package*/ final String mDepositFee;
+    /*package*/ final java.math.BigDecimal mDepositFee;
 
-    /*package*/ final String mExchangeFee;
+    /*package*/ final java.math.BigDecimal mExchangeFee;
 
-    /*package*/ final String mWithdrawFee;
+    /*package*/ final java.math.BigDecimal mWithdrawFee;
 
     /*package*/ final String mNonce;
 
@@ -37,11 +37,11 @@ public final class ComposedExchange {
             ExchangeRate exchangeRate,
             ExchangeSettings exchangeSettings,
             String exchangeAddress,
-            String value,
-            String returnValue,
-            String depositFee,
-            String exchangeFee,
-            String withdrawFee,
+            java.math.BigDecimal value,
+            java.math.BigDecimal returnValue,
+            java.math.BigDecimal depositFee,
+            java.math.BigDecimal exchangeFee,
+            java.math.BigDecimal withdrawFee,
             String nonce) {
         this.mSignedTransaction = signedTransaction;
         this.mDepositAccount = depositAccount;
@@ -81,23 +81,23 @@ public final class ComposedExchange {
         return mExchangeAddress;
     }
 
-    public String getValue() {
+    public java.math.BigDecimal getValue() {
         return mValue;
     }
 
-    public String getReturnValue() {
+    public java.math.BigDecimal getReturnValue() {
         return mReturnValue;
     }
 
-    public String getDepositFee() {
+    public java.math.BigDecimal getDepositFee() {
         return mDepositFee;
     }
 
-    public String getExchangeFee() {
+    public java.math.BigDecimal getExchangeFee() {
         return mExchangeFee;
     }
 
-    public String getWithdrawFee() {
+    public java.math.BigDecimal getWithdrawFee() {
         return mWithdrawFee;
     }
 
@@ -135,11 +135,11 @@ public final class ComposedExchange {
         hashCode = hashCode * 31 + mExchangeRate.hashCode();
         hashCode = hashCode * 31 + mExchangeSettings.hashCode();
         hashCode = hashCode * 31 + (mExchangeAddress == null ? 0 : mExchangeAddress.hashCode());
-        hashCode = hashCode * 31 + mValue.hashCode();
-        hashCode = hashCode * 31 + mReturnValue.hashCode();
-        hashCode = hashCode * 31 + mDepositFee.hashCode();
-        hashCode = hashCode * 31 + mExchangeFee.hashCode();
-        hashCode = hashCode * 31 + mWithdrawFee.hashCode();
+        hashCode = hashCode * 31 + (mValue.hashCode());
+        hashCode = hashCode * 31 + (mReturnValue.hashCode());
+        hashCode = hashCode * 31 + (mDepositFee.hashCode());
+        hashCode = hashCode * 31 + (mExchangeFee.hashCode());
+        hashCode = hashCode * 31 + (mWithdrawFee.hashCode());
         hashCode = hashCode * 31 + (mNonce == null ? 0 : mNonce.hashCode());
         return hashCode;
     }

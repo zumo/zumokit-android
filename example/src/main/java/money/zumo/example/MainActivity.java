@@ -32,6 +32,7 @@ import money.zumo.zumokit.ZumoKit;
 import money.zumo.zumokit.UserCallback;
 import money.zumo.zumokit.exceptions.ZumoKitException;
 
+import java.math.BigDecimal;
 import java.util.HashMap;
 import java.io.IOException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -168,7 +169,7 @@ public class MainActivity extends AppCompatActivity {
                                 // Exchanges
                                 Log.i("zumokit/exchanges", mZumoKit.getState().getExchanges().toString());
 
-                                Log.i("zumokit/average", mZumoKit.getState().getFeeRates().get("BTC").getAverage());
+                                Log.i("zumokit/average", mZumoKit.getState().getFeeRates().get("BTC").getAverage().toString());
 
                                 Log.i("zumokit/user", "User has wallet. Unlocking wallet...");
                                 mUser.unlockWallet(BuildConfig.USER_WALLET_PASSWORD, new WalletCallback() {
@@ -182,7 +183,7 @@ public class MainActivity extends AppCompatActivity {
                                         mWallet = wallet;
 
                                         // Compose ETH and BTC transactions
-                                        //composeEthTransaction(ethAccount, true);
+                                        composeEthTransaction(ethAccount, false);
                                         //composeBtcTransaction(btcAccount, false);
                                         //composeFiatTransaction(fiatAccount, true, false);
 
@@ -232,10 +233,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void composeEthTransaction(Account account, Boolean submit) {
-        String gasPrice = "60";
-        String gasLimit = "21000";
         String to = "0xDa57228C976ba133b46B26066bBac337e62D8357";
-        String value = "0.02";
+        BigDecimal gasPrice = new BigDecimal("60");
+        BigDecimal gasLimit = new BigDecimal("21000");
+        BigDecimal value = new BigDecimal("0.02");
 
         mWallet.composeEthTransaction(account.getId(), gasPrice, gasLimit, to, value, null, null, false,
                 new ComposeTransactionCallback() {
@@ -268,8 +269,8 @@ public class MainActivity extends AppCompatActivity {
 
     private void composeBtcTransaction(Account account, Boolean submit) {
         String to = "2NBQtvK3wMXs43YGt9aotsoWSS79Qmh7z1J";
-        String value = "0.0002";
-        String feeRate = mZumoKit.getState().getFeeRates().get("BTC").getAverage();
+        BigDecimal value = new BigDecimal("0.0002");
+        BigDecimal feeRate = mZumoKit.getState().getFeeRates().get("BTC").getAverage();
 
         mWallet.composeBtcTransaction(account.getId(), account.getId(), to, value, feeRate, false,
                 new ComposeTransactionCallback() {
@@ -303,7 +304,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void composeFiatTransaction(Account account, Boolean toNominated, Boolean submit) {
         String destination = "d8473a8e-f78d-4d5c-84cb-921b4c5dfbb3";
-        String value = "50.2";
+        BigDecimal value = new BigDecimal("50.2");
 
         if (toNominated) {
             mWallet.composeTransactionToNominatedAccount(account.getId(), value, false, new ComposeTransactionCallback() {
@@ -362,7 +363,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    private void composeExchange(Account depositAccount, Account withdrawAccount, ExchangeRate exchangeRate, ExchangeSettings exchangeSettings, String value, Boolean sendMax, Boolean submit) {
+    private void composeExchange(Account depositAccount, Account withdrawAccount, ExchangeRate exchangeRate, ExchangeSettings exchangeSettings, BigDecimal value, Boolean sendMax, Boolean submit) {
         mWallet.composeExchange(
                 depositAccount.getId(), withdrawAccount.getId(), exchangeRate, exchangeSettings, value, sendMax,
                 new ComposeExchangeCallback() {

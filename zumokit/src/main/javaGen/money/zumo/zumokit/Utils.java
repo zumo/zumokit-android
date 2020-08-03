@@ -12,17 +12,17 @@ public interface Utils {
 
     public boolean isValidBtcAddress(String address, String network);
 
-    public String weiToEth(String number);
+    public java.math.BigDecimal weiToEth(java.math.BigDecimal number);
 
-    public String ethToWei(String number);
+    public java.math.BigDecimal ethToWei(java.math.BigDecimal number);
 
-    public String gweiToEth(String number);
+    public java.math.BigDecimal gweiToEth(java.math.BigDecimal number);
 
-    public String ethToGwei(String number);
+    public java.math.BigDecimal ethToGwei(java.math.BigDecimal number);
 
-    public String weiToGwei(String number);
+    public java.math.BigDecimal weiToGwei(java.math.BigDecimal number);
 
-    public String gweiToWei(String number);
+    public java.math.BigDecimal gweiToWei(java.math.BigDecimal number);
 
     static final class CppProxy implements Utils
     {
@@ -72,51 +72,51 @@ public interface Utils {
         private native boolean native_isValidBtcAddress(long _nativeRef, String address, String network);
 
         @Override
-        public String weiToEth(String number)
+        public java.math.BigDecimal weiToEth(java.math.BigDecimal number)
         {
             assert !this.destroyed.get() : "trying to use a destroyed object";
             return native_weiToEth(this.nativeRef, number);
         }
-        private native String native_weiToEth(long _nativeRef, String number);
+        private native java.math.BigDecimal native_weiToEth(long _nativeRef, java.math.BigDecimal number);
 
         @Override
-        public String ethToWei(String number)
+        public java.math.BigDecimal ethToWei(java.math.BigDecimal number)
         {
             assert !this.destroyed.get() : "trying to use a destroyed object";
             return native_ethToWei(this.nativeRef, number);
         }
-        private native String native_ethToWei(long _nativeRef, String number);
+        private native java.math.BigDecimal native_ethToWei(long _nativeRef, java.math.BigDecimal number);
 
         @Override
-        public String gweiToEth(String number)
+        public java.math.BigDecimal gweiToEth(java.math.BigDecimal number)
         {
             assert !this.destroyed.get() : "trying to use a destroyed object";
             return native_gweiToEth(this.nativeRef, number);
         }
-        private native String native_gweiToEth(long _nativeRef, String number);
+        private native java.math.BigDecimal native_gweiToEth(long _nativeRef, java.math.BigDecimal number);
 
         @Override
-        public String ethToGwei(String number)
+        public java.math.BigDecimal ethToGwei(java.math.BigDecimal number)
         {
             assert !this.destroyed.get() : "trying to use a destroyed object";
             return native_ethToGwei(this.nativeRef, number);
         }
-        private native String native_ethToGwei(long _nativeRef, String number);
+        private native java.math.BigDecimal native_ethToGwei(long _nativeRef, java.math.BigDecimal number);
 
         @Override
-        public String weiToGwei(String number)
+        public java.math.BigDecimal weiToGwei(java.math.BigDecimal number)
         {
             assert !this.destroyed.get() : "trying to use a destroyed object";
             return native_weiToGwei(this.nativeRef, number);
         }
-        private native String native_weiToGwei(long _nativeRef, String number);
+        private native java.math.BigDecimal native_weiToGwei(long _nativeRef, java.math.BigDecimal number);
 
         @Override
-        public String gweiToWei(String number)
+        public java.math.BigDecimal gweiToWei(java.math.BigDecimal number)
         {
             assert !this.destroyed.get() : "trying to use a destroyed object";
             return native_gweiToWei(this.nativeRef, number);
         }
-        private native String native_gweiToWei(long _nativeRef, String number);
+        private native java.math.BigDecimal native_gweiToWei(long _nativeRef, java.math.BigDecimal number);
     }
 }

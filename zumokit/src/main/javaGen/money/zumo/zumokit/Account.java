@@ -16,7 +16,7 @@ public final class Account {
 
     /*package*/ final String mType;
 
-    /*package*/ final String mBalance;
+    /*package*/ final java.math.BigDecimal mBalance;
 
     /*package*/ final boolean mHasNominatedAccount;
 
@@ -30,7 +30,7 @@ public final class Account {
             String currencyCode,
             String network,
             String type,
-            String balance,
+            java.math.BigDecimal balance,
             boolean hasNominatedAccount,
             AccountCryptoProperties cryptoProperties,
             AccountFiatProperties fiatProperties) {
@@ -65,7 +65,7 @@ public final class Account {
         return mType;
     }
 
-    public String getBalance() {
+    public java.math.BigDecimal getBalance() {
         return mBalance;
     }
 
@@ -107,7 +107,7 @@ public final class Account {
         hashCode = hashCode * 31 + mCurrencyCode.hashCode();
         hashCode = hashCode * 31 + mNetwork.hashCode();
         hashCode = hashCode * 31 + mType.hashCode();
-        hashCode = hashCode * 31 + mBalance.hashCode();
+        hashCode = hashCode * 31 + (mBalance.hashCode());
         hashCode = hashCode * 31 + (mHasNominatedAccount ? 1 : 0);
         hashCode = hashCode * 31 + (mCryptoProperties == null ? 0 : mCryptoProperties.hashCode());
         hashCode = hashCode * 31 + (mFiatProperties == null ? 0 : mFiatProperties.hashCode());

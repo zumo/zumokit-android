@@ -18,13 +18,13 @@ public final class TransactionCryptoProperties {
 
     /*package*/ final String mData;
 
-    /*package*/ final String mGasPrice;
+    /*package*/ final java.math.BigDecimal mGasPrice;
 
-    /*package*/ final String mGasLimit;
+    /*package*/ final java.math.BigDecimal mGasLimit;
 
-    /*package*/ final HashMap<String, String> mFiatAmount;
+    /*package*/ final HashMap<String, java.math.BigDecimal> mFiatAmount;
 
-    /*package*/ final HashMap<String, String> mFiatFee;
+    /*package*/ final HashMap<String, java.math.BigDecimal> mFiatFee;
 
     public TransactionCryptoProperties(
             String txHash,
@@ -32,10 +32,10 @@ public final class TransactionCryptoProperties {
             String fromAddress,
             String toAddress,
             String data,
-            String gasPrice,
-            String gasLimit,
-            HashMap<String, String> fiatAmount,
-            HashMap<String, String> fiatFee) {
+            java.math.BigDecimal gasPrice,
+            java.math.BigDecimal gasLimit,
+            HashMap<String, java.math.BigDecimal> fiatAmount,
+            HashMap<String, java.math.BigDecimal> fiatFee) {
         this.mTxHash = txHash;
         this.mNonce = nonce;
         this.mFromAddress = fromAddress;
@@ -67,19 +67,19 @@ public final class TransactionCryptoProperties {
         return mData;
     }
 
-    public String getGasPrice() {
+    public java.math.BigDecimal getGasPrice() {
         return mGasPrice;
     }
 
-    public String getGasLimit() {
+    public java.math.BigDecimal getGasLimit() {
         return mGasLimit;
     }
 
-    public HashMap<String, String> getFiatAmount() {
+    public HashMap<String, java.math.BigDecimal> getFiatAmount() {
         return mFiatAmount;
     }
 
-    public HashMap<String, String> getFiatFee() {
+    public HashMap<String, java.math.BigDecimal> getFiatFee() {
         return mFiatFee;
     }
 
