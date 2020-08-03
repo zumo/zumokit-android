@@ -6,11 +6,11 @@ package money.zumo.zumokit;
 public final class FeeRates {
 
 
-    /*package*/ final String mSlow;
+    /*package*/ final java.math.BigDecimal mSlow;
 
-    /*package*/ final String mAverage;
+    /*package*/ final java.math.BigDecimal mAverage;
 
-    /*package*/ final String mFast;
+    /*package*/ final java.math.BigDecimal mFast;
 
     /*package*/ final float mSlowTime;
 
@@ -21,9 +21,9 @@ public final class FeeRates {
     /*package*/ final String mSource;
 
     public FeeRates(
-            String slow,
-            String average,
-            String fast,
+            java.math.BigDecimal slow,
+            java.math.BigDecimal average,
+            java.math.BigDecimal fast,
             float slowTime,
             float averageTime,
             float fastTime,
@@ -37,15 +37,15 @@ public final class FeeRates {
         this.mSource = source;
     }
 
-    public String getSlow() {
+    public java.math.BigDecimal getSlow() {
         return mSlow;
     }
 
-    public String getAverage() {
+    public java.math.BigDecimal getAverage() {
         return mAverage;
     }
 
-    public String getFast() {
+    public java.math.BigDecimal getFast() {
         return mFast;
     }
 
@@ -84,9 +84,9 @@ public final class FeeRates {
     public int hashCode() {
         // Pick an arbitrary non-zero starting value
         int hashCode = 17;
-        hashCode = hashCode * 31 + mSlow.hashCode();
-        hashCode = hashCode * 31 + mAverage.hashCode();
-        hashCode = hashCode * 31 + mFast.hashCode();
+        hashCode = hashCode * 31 + (mSlow.hashCode());
+        hashCode = hashCode * 31 + (mAverage.hashCode());
+        hashCode = hashCode * 31 + (mFast.hashCode());
         hashCode = hashCode * 31 + Float.floatToIntBits(mSlowTime);
         hashCode = hashCode * 31 + Float.floatToIntBits(mAverageTime);
         hashCode = hashCode * 31 + Float.floatToIntBits(mFastTime);

@@ -24,15 +24,15 @@ public final class Exchange {
 
     /*package*/ final String mWithdrawTransactionId;
 
-    /*package*/ final String mAmount;
+    /*package*/ final java.math.BigDecimal mAmount;
 
-    /*package*/ final String mDepositFee;
+    /*package*/ final java.math.BigDecimal mDepositFee;
 
-    /*package*/ final String mReturnAmount;
+    /*package*/ final java.math.BigDecimal mReturnAmount;
 
-    /*package*/ final String mExchangeFee;
+    /*package*/ final java.math.BigDecimal mExchangeFee;
 
-    /*package*/ final String mWithdrawFee;
+    /*package*/ final java.math.BigDecimal mWithdrawFee;
 
     /*package*/ final ExchangeRate mExchangeRate;
 
@@ -55,11 +55,11 @@ public final class Exchange {
             String withdrawCurrency,
             String withdrawAccountId,
             String withdrawTransactionId,
-            String amount,
-            String depositFee,
-            String returnAmount,
-            String exchangeFee,
-            String withdrawFee,
+            java.math.BigDecimal amount,
+            java.math.BigDecimal depositFee,
+            java.math.BigDecimal returnAmount,
+            java.math.BigDecimal exchangeFee,
+            java.math.BigDecimal withdrawFee,
             ExchangeRate exchangeRate,
             ExchangeSettings exchangeSettings,
             HashMap<String, HashMap<String, ExchangeRate>> exchangeRates,
@@ -119,23 +119,23 @@ public final class Exchange {
         return mWithdrawTransactionId;
     }
 
-    public String getAmount() {
+    public java.math.BigDecimal getAmount() {
         return mAmount;
     }
 
-    public String getDepositFee() {
+    public java.math.BigDecimal getDepositFee() {
         return mDepositFee;
     }
 
-    public String getReturnAmount() {
+    public java.math.BigDecimal getReturnAmount() {
         return mReturnAmount;
     }
 
-    public String getExchangeFee() {
+    public java.math.BigDecimal getExchangeFee() {
         return mExchangeFee;
     }
 
-    public String getWithdrawFee() {
+    public java.math.BigDecimal getWithdrawFee() {
         return mWithdrawFee;
     }
 
@@ -202,11 +202,11 @@ public final class Exchange {
         hashCode = hashCode * 31 + mWithdrawCurrency.hashCode();
         hashCode = hashCode * 31 + mWithdrawAccountId.hashCode();
         hashCode = hashCode * 31 + (mWithdrawTransactionId == null ? 0 : mWithdrawTransactionId.hashCode());
-        hashCode = hashCode * 31 + mAmount.hashCode();
+        hashCode = hashCode * 31 + (mAmount.hashCode());
         hashCode = hashCode * 31 + (mDepositFee == null ? 0 : mDepositFee.hashCode());
-        hashCode = hashCode * 31 + mReturnAmount.hashCode();
-        hashCode = hashCode * 31 + mExchangeFee.hashCode();
-        hashCode = hashCode * 31 + mWithdrawFee.hashCode();
+        hashCode = hashCode * 31 + (mReturnAmount.hashCode());
+        hashCode = hashCode * 31 + (mExchangeFee.hashCode());
+        hashCode = hashCode * 31 + (mWithdrawFee.hashCode());
         hashCode = hashCode * 31 + mExchangeRate.hashCode();
         hashCode = hashCode * 31 + mExchangeSettings.hashCode();
         hashCode = hashCode * 31 + mExchangeRates.hashCode();

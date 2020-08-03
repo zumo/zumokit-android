@@ -10,45 +10,26 @@ To run the example project, clone the repo, open  the project in Android Studio 
 
 ## Requirements
 
-- Install or update [Android Studio](https://developer.android.com/studio) to its latest version
-- Make sure that your app meets the following requirements:
-  - Targets API level 21 or later
-  - Uses Java 8
+- Android 5.0 (API level 21) and above
+- Android Gradle Plugin 3.5.1
+- Gradle 5.3.1+
 
 ## Installation
 
-Copy the AAR file `zumokit-android-X.Y.Z.aar` into the `libs` folder in your project. Create this folder if it doesn’t exist. It needs to be located in the same folder as your application's Gradle build file, not the top level project folder.
-
-Declare the `libs` folder as a dependency repository in your application Gradle script:
+Add the JitPack repository to your root build.gradle at the end of repositories:
 
 ```
-repositories {
-    flatDir {
-        dirs 'libs'
+allprojects {
+    repositories {
+        ...
+        maven { url 'https://jitpack.io' }
     }
 }
 ```
 
-Declare AAR library as a dependency and add required transitive dependencies. In the future, when we  migrate to maven repository, transitive dependencies will be added automatically.
-
+Add the dependency:
 ```
 dependencies {
-    implementation(name:'zumokit', ext:'aar')
-    implementation 'org.java-websocket:Java-WebSocket:1.4.0'
+    implementation 'com.github.zumo:zumokit-android:X.Y.Z'
 }
-```
-
-Update Gradle script to require Java version 8:
-
-```
-compileOptions {
-    sourceCompatibility JavaVersion.VERSION_1_8
-    targetCompatibility JavaVersion.VERSION_1_8
-}
-```
-
-Add internet use permission to your app's `AndroidManifest.xml` unless already added:
-
-```xml
-<uses-permission android:name="android.permission.INTERNET" />
 ```

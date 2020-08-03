@@ -14,11 +14,11 @@ public final class ComposedTransaction {
 
     /*package*/ final String mDestination;
 
-    /*package*/ final String mAmount;
+    /*package*/ final java.math.BigDecimal mAmount;
 
     /*package*/ final String mData;
 
-    /*package*/ final String mFee;
+    /*package*/ final java.math.BigDecimal mFee;
 
     /*package*/ final String mNonce;
 
@@ -27,9 +27,9 @@ public final class ComposedTransaction {
             String signedTransaction,
             Account account,
             String destination,
-            String amount,
+            java.math.BigDecimal amount,
             String data,
-            String fee,
+            java.math.BigDecimal fee,
             String nonce) {
         this.mType = type;
         this.mSignedTransaction = signedTransaction;
@@ -57,7 +57,7 @@ public final class ComposedTransaction {
         return mDestination;
     }
 
-    public String getAmount() {
+    public java.math.BigDecimal getAmount() {
         return mAmount;
     }
 
@@ -65,7 +65,7 @@ public final class ComposedTransaction {
         return mData;
     }
 
-    public String getFee() {
+    public java.math.BigDecimal getFee() {
         return mFee;
     }
 
@@ -99,7 +99,7 @@ public final class ComposedTransaction {
         hashCode = hashCode * 31 + (mDestination == null ? 0 : mDestination.hashCode());
         hashCode = hashCode * 31 + (mAmount == null ? 0 : mAmount.hashCode());
         hashCode = hashCode * 31 + (mData == null ? 0 : mData.hashCode());
-        hashCode = hashCode * 31 + mFee.hashCode();
+        hashCode = hashCode * 31 + (mFee.hashCode());
         hashCode = hashCode * 31 + mNonce.hashCode();
         return hashCode;
     }

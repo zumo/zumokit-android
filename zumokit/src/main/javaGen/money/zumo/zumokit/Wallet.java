@@ -8,17 +8,17 @@ import java.util.concurrent.atomic.AtomicBoolean;
 public interface Wallet {
     public void submitTransaction(ComposedTransaction composedTransaction, SubmitTransactionCallback callback);
 
-    public void composeEthTransaction(String fromAccountId, String gasPrice, String gasLimit, String destination, String amount, String data, Long nonce, boolean sendMax, ComposeTransactionCallback callback);
+    public void composeEthTransaction(String fromAccountId, java.math.BigDecimal gasPrice, java.math.BigDecimal gasLimit, String destination, java.math.BigDecimal amount, String data, Long nonce, boolean sendMax, ComposeTransactionCallback callback);
 
-    public void composeBtcTransaction(String fromAccountId, String changeAccountId, String destination, String amount, String feeRate, boolean sendMax, ComposeTransactionCallback callback);
+    public void composeBtcTransaction(String fromAccountId, String changeAccountId, String destination, java.math.BigDecimal amount, java.math.BigDecimal feeRate, boolean sendMax, ComposeTransactionCallback callback);
 
-    public void composeInternalFiatTransaction(String fromAccountId, String toAccountId, String amount, boolean sendMax, ComposeTransactionCallback callback);
+    public void composeInternalFiatTransaction(String fromAccountId, String toAccountId, java.math.BigDecimal amount, boolean sendMax, ComposeTransactionCallback callback);
 
-    public void composeTransactionToNominatedAccount(String fromAccountId, String amount, boolean sendMax, ComposeTransactionCallback callback);
+    public void composeTransactionToNominatedAccount(String fromAccountId, java.math.BigDecimal amount, boolean sendMax, ComposeTransactionCallback callback);
 
     public void submitExchange(ComposedExchange composedExchange, SubmitExchangeCallback callback);
 
-    public void composeExchange(String depositAccountId, String withdrawAccountId, ExchangeRate exchangeRate, ExchangeSettings exchangeSettings, String value, boolean sendMax, ComposeExchangeCallback callback);
+    public void composeExchange(String depositAccountId, String withdrawAccountId, ExchangeRate exchangeRate, ExchangeSettings exchangeSettings, java.math.BigDecimal amount, boolean sendMax, ComposeExchangeCallback callback);
 
     static final class CppProxy implements Wallet
     {
@@ -52,36 +52,36 @@ public interface Wallet {
         private native void native_submitTransaction(long _nativeRef, ComposedTransaction composedTransaction, SubmitTransactionCallback callback);
 
         @Override
-        public void composeEthTransaction(String fromAccountId, String gasPrice, String gasLimit, String destination, String amount, String data, Long nonce, boolean sendMax, ComposeTransactionCallback callback)
+        public void composeEthTransaction(String fromAccountId, java.math.BigDecimal gasPrice, java.math.BigDecimal gasLimit, String destination, java.math.BigDecimal amount, String data, Long nonce, boolean sendMax, ComposeTransactionCallback callback)
         {
             assert !this.destroyed.get() : "trying to use a destroyed object";
             native_composeEthTransaction(this.nativeRef, fromAccountId, gasPrice, gasLimit, destination, amount, data, nonce, sendMax, callback);
         }
-        private native void native_composeEthTransaction(long _nativeRef, String fromAccountId, String gasPrice, String gasLimit, String destination, String amount, String data, Long nonce, boolean sendMax, ComposeTransactionCallback callback);
+        private native void native_composeEthTransaction(long _nativeRef, String fromAccountId, java.math.BigDecimal gasPrice, java.math.BigDecimal gasLimit, String destination, java.math.BigDecimal amount, String data, Long nonce, boolean sendMax, ComposeTransactionCallback callback);
 
         @Override
-        public void composeBtcTransaction(String fromAccountId, String changeAccountId, String destination, String amount, String feeRate, boolean sendMax, ComposeTransactionCallback callback)
+        public void composeBtcTransaction(String fromAccountId, String changeAccountId, String destination, java.math.BigDecimal amount, java.math.BigDecimal feeRate, boolean sendMax, ComposeTransactionCallback callback)
         {
             assert !this.destroyed.get() : "trying to use a destroyed object";
             native_composeBtcTransaction(this.nativeRef, fromAccountId, changeAccountId, destination, amount, feeRate, sendMax, callback);
         }
-        private native void native_composeBtcTransaction(long _nativeRef, String fromAccountId, String changeAccountId, String destination, String amount, String feeRate, boolean sendMax, ComposeTransactionCallback callback);
+        private native void native_composeBtcTransaction(long _nativeRef, String fromAccountId, String changeAccountId, String destination, java.math.BigDecimal amount, java.math.BigDecimal feeRate, boolean sendMax, ComposeTransactionCallback callback);
 
         @Override
-        public void composeInternalFiatTransaction(String fromAccountId, String toAccountId, String amount, boolean sendMax, ComposeTransactionCallback callback)
+        public void composeInternalFiatTransaction(String fromAccountId, String toAccountId, java.math.BigDecimal amount, boolean sendMax, ComposeTransactionCallback callback)
         {
             assert !this.destroyed.get() : "trying to use a destroyed object";
             native_composeInternalFiatTransaction(this.nativeRef, fromAccountId, toAccountId, amount, sendMax, callback);
         }
-        private native void native_composeInternalFiatTransaction(long _nativeRef, String fromAccountId, String toAccountId, String amount, boolean sendMax, ComposeTransactionCallback callback);
+        private native void native_composeInternalFiatTransaction(long _nativeRef, String fromAccountId, String toAccountId, java.math.BigDecimal amount, boolean sendMax, ComposeTransactionCallback callback);
 
         @Override
-        public void composeTransactionToNominatedAccount(String fromAccountId, String amount, boolean sendMax, ComposeTransactionCallback callback)
+        public void composeTransactionToNominatedAccount(String fromAccountId, java.math.BigDecimal amount, boolean sendMax, ComposeTransactionCallback callback)
         {
             assert !this.destroyed.get() : "trying to use a destroyed object";
             native_composeTransactionToNominatedAccount(this.nativeRef, fromAccountId, amount, sendMax, callback);
         }
-        private native void native_composeTransactionToNominatedAccount(long _nativeRef, String fromAccountId, String amount, boolean sendMax, ComposeTransactionCallback callback);
+        private native void native_composeTransactionToNominatedAccount(long _nativeRef, String fromAccountId, java.math.BigDecimal amount, boolean sendMax, ComposeTransactionCallback callback);
 
         @Override
         public void submitExchange(ComposedExchange composedExchange, SubmitExchangeCallback callback)
@@ -92,11 +92,11 @@ public interface Wallet {
         private native void native_submitExchange(long _nativeRef, ComposedExchange composedExchange, SubmitExchangeCallback callback);
 
         @Override
-        public void composeExchange(String depositAccountId, String withdrawAccountId, ExchangeRate exchangeRate, ExchangeSettings exchangeSettings, String value, boolean sendMax, ComposeExchangeCallback callback)
+        public void composeExchange(String depositAccountId, String withdrawAccountId, ExchangeRate exchangeRate, ExchangeSettings exchangeSettings, java.math.BigDecimal amount, boolean sendMax, ComposeExchangeCallback callback)
         {
             assert !this.destroyed.get() : "trying to use a destroyed object";
-            native_composeExchange(this.nativeRef, depositAccountId, withdrawAccountId, exchangeRate, exchangeSettings, value, sendMax, callback);
+            native_composeExchange(this.nativeRef, depositAccountId, withdrawAccountId, exchangeRate, exchangeSettings, amount, sendMax, callback);
         }
-        private native void native_composeExchange(long _nativeRef, String depositAccountId, String withdrawAccountId, ExchangeRate exchangeRate, ExchangeSettings exchangeSettings, String value, boolean sendMax, ComposeExchangeCallback callback);
+        private native void native_composeExchange(long _nativeRef, String depositAccountId, String withdrawAccountId, ExchangeRate exchangeRate, ExchangeSettings exchangeSettings, java.math.BigDecimal amount, boolean sendMax, ComposeExchangeCallback callback);
     }
 }

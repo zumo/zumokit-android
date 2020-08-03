@@ -12,7 +12,7 @@ public final class ExchangeRate {
 
     /*package*/ final String mWithdrawCurrency;
 
-    /*package*/ final String mValue;
+    /*package*/ final java.math.BigDecimal mValue;
 
     /*package*/ final long mValidTo;
 
@@ -22,7 +22,7 @@ public final class ExchangeRate {
             String id,
             String depositCurrency,
             String withdrawCurrency,
-            String value,
+            java.math.BigDecimal value,
             long validTo,
             long timestamp) {
         this.mId = id;
@@ -45,7 +45,7 @@ public final class ExchangeRate {
         return mWithdrawCurrency;
     }
 
-    public String getValue() {
+    public java.math.BigDecimal getValue() {
         return mValue;
     }
 
@@ -78,7 +78,7 @@ public final class ExchangeRate {
         hashCode = hashCode * 31 + mId.hashCode();
         hashCode = hashCode * 31 + mDepositCurrency.hashCode();
         hashCode = hashCode * 31 + mWithdrawCurrency.hashCode();
-        hashCode = hashCode * 31 + mValue.hashCode();
+        hashCode = hashCode * 31 + (mValue.hashCode());
         hashCode = hashCode * 31 + ((int) (mValidTo ^ (mValidTo >>> 32)));
         hashCode = hashCode * 31 + ((int) (mTimestamp ^ (mTimestamp >>> 32)));
         return hashCode;

@@ -16,13 +16,13 @@ public final class ExchangeSettings {
 
     /*package*/ final String mWithdrawCurrency;
 
-    /*package*/ final String mMinExchangeAmount;
+    /*package*/ final java.math.BigDecimal mMinExchangeAmount;
 
-    /*package*/ final String mFeeRate;
+    /*package*/ final java.math.BigDecimal mFeeRate;
 
-    /*package*/ final String mDepositFeeRate;
+    /*package*/ final java.math.BigDecimal mDepositFeeRate;
 
-    /*package*/ final String mWithdrawFee;
+    /*package*/ final java.math.BigDecimal mWithdrawFee;
 
     /*package*/ final long mTimestamp;
 
@@ -31,10 +31,10 @@ public final class ExchangeSettings {
             HashMap<String, String> depositAddress,
             String depositCurrency,
             String withdrawCurrency,
-            String minExchangeAmount,
-            String feeRate,
-            String depositFeeRate,
-            String withdrawFee,
+            java.math.BigDecimal minExchangeAmount,
+            java.math.BigDecimal feeRate,
+            java.math.BigDecimal depositFeeRate,
+            java.math.BigDecimal withdrawFee,
             long timestamp) {
         this.mId = id;
         this.mDepositAddress = depositAddress;
@@ -63,19 +63,19 @@ public final class ExchangeSettings {
         return mWithdrawCurrency;
     }
 
-    public String getMinExchangeAmount() {
+    public java.math.BigDecimal getMinExchangeAmount() {
         return mMinExchangeAmount;
     }
 
-    public String getFeeRate() {
+    public java.math.BigDecimal getFeeRate() {
         return mFeeRate;
     }
 
-    public String getDepositFeeRate() {
+    public java.math.BigDecimal getDepositFeeRate() {
         return mDepositFeeRate;
     }
 
-    public String getWithdrawFee() {
+    public java.math.BigDecimal getWithdrawFee() {
         return mWithdrawFee;
     }
 
@@ -108,10 +108,10 @@ public final class ExchangeSettings {
         hashCode = hashCode * 31 + mDepositAddress.hashCode();
         hashCode = hashCode * 31 + mDepositCurrency.hashCode();
         hashCode = hashCode * 31 + mWithdrawCurrency.hashCode();
-        hashCode = hashCode * 31 + mMinExchangeAmount.hashCode();
-        hashCode = hashCode * 31 + mFeeRate.hashCode();
-        hashCode = hashCode * 31 + mDepositFeeRate.hashCode();
-        hashCode = hashCode * 31 + mWithdrawFee.hashCode();
+        hashCode = hashCode * 31 + (mMinExchangeAmount.hashCode());
+        hashCode = hashCode * 31 + (mFeeRate.hashCode());
+        hashCode = hashCode * 31 + (mDepositFeeRate.hashCode());
+        hashCode = hashCode * 31 + (mWithdrawFee.hashCode());
         hashCode = hashCode * 31 + ((int) (mTimestamp ^ (mTimestamp >>> 32)));
         return hashCode;
     }
