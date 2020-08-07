@@ -5,18 +5,32 @@ package money.zumo.zumokit;
 
 public final class ZumoKitErrorType {
 
+    /** Failure to connect to ZumoKit’s API. */
     public static final String API_CONNECTION_ERROR = "api_connection_error";
 
+    /** Default error if something goes wrong on our side. */
     public static final String API_ERROR = "api_error";
 
+    /** Failed to authenticate with ZumoKit's API. */
     public static final String AUTHENTICATION_ERROR = "authentication_error";
 
+    /**
+     * Wallet errors are the most common type of error you should expect to handle.
+     * They result when user's wallet action can't be performed, e.g. balance too low or
+     * invalid wallet password are such errors.
+     */
     public static final String WALLET_ERROR = "wallet_error";
 
+    /** Invalid request errors arise when request to API has invalid parameters. */
     public static final String INVALID_REQUEST_ERROR = "invalid_request_error";
 
+    /** Too many requests hit the API too quickly. */
     public static final String RATE_LIMIT_ERROR = "rate_limit_error";
 
+    /**
+     * Errors triggered when failing to validate arguments,
+     * e.g. when a destination address is invalid.
+     */
     public static final String INVALID_ARGUMENT_ERROR = "invalid_argument_error";
 
 
