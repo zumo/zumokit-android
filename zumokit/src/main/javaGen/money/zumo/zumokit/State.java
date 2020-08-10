@@ -23,11 +23,7 @@ public final class State {
 
     /*package*/ final HashMap<String, HashMap<String, ExchangeSettings>> mExchangeSettings;
 
-    /*package*/ final TxServiceConnection mTxServiceConnection;
-
     /*package*/ final HashMap<String, FeeRates> mFeeRates;
-
-    /*package*/ final SyncStatus mSyncStatus;
 
     /*package*/ final ArrayList<String> mModulrCustomerOnNetworks;
 
@@ -39,9 +35,7 @@ public final class State {
             String activeUserId,
             HashMap<String, HashMap<String, ExchangeRate>> exchangeRates,
             HashMap<String, HashMap<String, ExchangeSettings>> exchangeSettings,
-            TxServiceConnection txServiceConnection,
             HashMap<String, FeeRates> feeRates,
-            SyncStatus syncStatus,
             ArrayList<String> modulrCustomerOnNetworks) {
         this.mAccounts = accounts;
         this.mTransactions = transactions;
@@ -50,9 +44,7 @@ public final class State {
         this.mActiveUserId = activeUserId;
         this.mExchangeRates = exchangeRates;
         this.mExchangeSettings = exchangeSettings;
-        this.mTxServiceConnection = txServiceConnection;
         this.mFeeRates = feeRates;
-        this.mSyncStatus = syncStatus;
         this.mModulrCustomerOnNetworks = modulrCustomerOnNetworks;
     }
 
@@ -84,16 +76,8 @@ public final class State {
         return mExchangeSettings;
     }
 
-    public TxServiceConnection getTxServiceConnection() {
-        return mTxServiceConnection;
-    }
-
     public HashMap<String, FeeRates> getFeeRates() {
         return mFeeRates;
-    }
-
-    public SyncStatus getSyncStatus() {
-        return mSyncStatus;
     }
 
     public ArrayList<String> getModulrCustomerOnNetworks() {
@@ -113,9 +97,7 @@ public final class State {
                 ((this.mActiveUserId == null && other.mActiveUserId == null) || (this.mActiveUserId != null && this.mActiveUserId.equals(other.mActiveUserId))) &&
                 this.mExchangeRates.equals(other.mExchangeRates) &&
                 this.mExchangeSettings.equals(other.mExchangeSettings) &&
-                this.mTxServiceConnection.equals(other.mTxServiceConnection) &&
                 this.mFeeRates.equals(other.mFeeRates) &&
-                this.mSyncStatus == other.mSyncStatus &&
                 this.mModulrCustomerOnNetworks.equals(other.mModulrCustomerOnNetworks);
     }
 
@@ -130,9 +112,7 @@ public final class State {
         hashCode = hashCode * 31 + (mActiveUserId == null ? 0 : mActiveUserId.hashCode());
         hashCode = hashCode * 31 + mExchangeRates.hashCode();
         hashCode = hashCode * 31 + mExchangeSettings.hashCode();
-        hashCode = hashCode * 31 + mTxServiceConnection.hashCode();
         hashCode = hashCode * 31 + mFeeRates.hashCode();
-        hashCode = hashCode * 31 + mSyncStatus.hashCode();
         hashCode = hashCode * 31 + mModulrCustomerOnNetworks.hashCode();
         return hashCode;
     }
@@ -147,9 +127,7 @@ public final class State {
                 "," + "mActiveUserId=" + mActiveUserId +
                 "," + "mExchangeRates=" + mExchangeRates +
                 "," + "mExchangeSettings=" + mExchangeSettings +
-                "," + "mTxServiceConnection=" + mTxServiceConnection +
                 "," + "mFeeRates=" + mFeeRates +
-                "," + "mSyncStatus=" + mSyncStatus +
                 "," + "mModulrCustomerOnNetworks=" + mModulrCustomerOnNetworks +
         "}";
     }
