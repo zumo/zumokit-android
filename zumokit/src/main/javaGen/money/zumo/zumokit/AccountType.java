@@ -3,7 +3,6 @@
 
 package money.zumo.zumokit;
 
-/** Account type. Only relevant for Bitcoin accounts. All other accounts are STANDARD account type. */
 public final class AccountType {
 
     public static final String STANDARD = "STANDARD";
