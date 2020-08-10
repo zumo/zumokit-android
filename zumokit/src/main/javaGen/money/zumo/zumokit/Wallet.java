@@ -5,26 +5,7 @@ package money.zumo.zumokit;
 
 import java.util.concurrent.atomic.AtomicBoolean;
 
-/**
- * User wallet
- * So many comments
- */
 public interface Wallet {
-    /**
-     * Returns an Image object that can then be painted on the screen.
-     * The url argument must specify an absolute <a href="#{@link}">{@link URL}</a>. The name
-     * argument is a specifier that is relative to the url argument.
-     * <p>
-     * This method always returns immediately, whether or not the
-     * image exists. When this applet attempts to draw the image on
-     * the screen, the data will be loaded. The graphics primitives
-     * that draw the image will incrementally paint on the screen.
-     *
-     * @param  url  an absolute URL giving the base location of the image
-     * @param  name the location of the image, relative to the url argument
-     * @return      the image at the specified URL
-     * @see         Transaction
-     */
     public void submitTransaction(ComposedTransaction composedTransaction, SubmitTransactionCallback callback);
 
     public void composeEthTransaction(String fromAccountId, java.math.BigDecimal gasPrice, java.math.BigDecimal gasLimit, String destination, java.math.BigDecimal amount, String data, Long nonce, boolean sendMax, ComposeTransactionCallback callback);
