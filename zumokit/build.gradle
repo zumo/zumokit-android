@@ -45,3 +45,15 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     implementation 'org.java-websocket:Java-WebSocket:1.4.0'
 }
+
+task javadoc(type: Javadoc) {
+    source = android.sourceSets.main.java.srcDirs
+    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
+    options.memberLevel = JavadocMemberLevel.PUBLIC
+    exclude "**/WebSocket*.java"
+    exclude "**/Http*.java"
+    exclude "**/FuzzingBackOffGenerator*.java"
+    exclude "**/ZumoCore*.java"
+    destinationDir = file("../docs/")
+    failOnError false
+}
