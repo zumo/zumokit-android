@@ -3,6 +3,7 @@
 
 package money.zumo.zumokit;
 
+/** Historical exchange rate intervals, such as 'hour', 'week' or 'year' */
 public final class HistoricalExchangeRatesInterval {
 
     public static final String HOUR = "hour";

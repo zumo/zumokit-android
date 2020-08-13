@@ -5,6 +5,10 @@ package money.zumo.zumokit;
 
 import java.util.HashMap;
 
+/**
+ * Record containing transaction's crypto properties.
+ * @see transaction
+ */
 public final class TransactionCryptoProperties {
 
 
@@ -47,38 +51,56 @@ public final class TransactionCryptoProperties {
         this.mFiatFee = fiatFee;
     }
 
+    /** Transaction hash or null. */
     public String getTxHash() {
         return mTxHash;
     }
 
+    /**
+     * Ethereum transaction nonce if greater than 0 and
+     * it is Ethereum transaction, otherwise returns null.
+     */
     public Long getNonce() {
         return mNonce;
     }
 
+    /** Wallet address of sender, */
     public String getFromAddress() {
         return mFromAddress;
     }
 
+    /** Wallet address of receiver or null, if it is Ethereum contract deploy. */
     public String getToAddress() {
         return mToAddress;
     }
 
+    /** Transaction data or null. */
     public String getData() {
         return mData;
     }
 
+    /** Ethereum gas price if it is Ethereum transaction, otherwise null. */
     public java.math.BigDecimal getGasPrice() {
         return mGasPrice;
     }
 
+    /** Ethereum gas limit if it is Ethereum transaction, otherwise null. */
     public java.math.BigDecimal getGasLimit() {
         return mGasLimit;
     }
 
+    /**
+     * Amount in fiat currencies at the time of the transaction submission.
+     * @see currency_code
+     */
     public HashMap<String, java.math.BigDecimal> getFiatAmount() {
         return mFiatAmount;
     }
 
+    /**
+     * Fee in fiat currencies at the time of the transaction submission.
+     * @see currency_code
+     */
     public HashMap<String, java.math.BigDecimal> getFiatFee() {
         return mFiatFee;
     }

@@ -5,6 +5,7 @@ package money.zumo.zumokit;
 
 import java.util.HashMap;
 
+/** Zumo exchange settings used in making exchanges. */
 public final class ExchangeSettings {
 
 
@@ -47,38 +48,56 @@ public final class ExchangeSettings {
         this.mTimestamp = timestamp;
     }
 
+    /** Identifier. */
     public String getId() {
         return mId;
     }
 
+    /**
+     * Zumo Exchange Service wallet address for each network type.
+     * @see network_type
+     */
     public HashMap<String, String> getDepositAddress() {
         return mDepositAddress;
     }
 
+    /**
+     * Currency code of outgoing transaction.
+     * @see currency_code
+     */
     public String getDepositCurrency() {
         return mDepositCurrency;
     }
 
+    /**
+     * Currency code of return transaction.
+     * @see currency_code
+     */
     public String getWithdrawCurrency() {
         return mWithdrawCurrency;
     }
 
+    /** Minimum amount that can be exchanged in outgoing transaction currency. */
     public java.math.BigDecimal getMinExchangeAmount() {
         return mMinExchangeAmount;
     }
 
+    /** Exchange fee rate that will be charged once currency is exchanged. */
     public java.math.BigDecimal getFeeRate() {
         return mFeeRate;
     }
 
+    /** Fee rate that will be used for outgoing transaction. */
     public java.math.BigDecimal getDepositFeeRate() {
         return mDepositFeeRate;
     }
 
+    /** Fee that will charged for return transaction. */
     public java.math.BigDecimal getWithdrawFee() {
         return mWithdrawFee;
     }
 
+    /** Epoch timestamp when the exchange settings were last updated. */
     public long getTimestamp() {
         return mTimestamp;
     }

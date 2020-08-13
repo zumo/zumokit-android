@@ -3,6 +3,10 @@
 
 package money.zumo.zumokit;
 
+/**
+ * Account's fiat related properties.
+ * @see account
+ */
 public final class AccountFiatProperties {
 
 
@@ -29,22 +33,27 @@ public final class AccountFiatProperties {
         this.mCustomerName = customerName;
     }
 
+    /** Fiat account number or null. */
     public String getAccountNumber() {
         return mAccountNumber;
     }
 
+    /** Fiat account sort code or null. */
     public String getSortCode() {
         return mSortCode;
     }
 
+    /** Fiat account BIC or null. */
     public String getBic() {
         return mBic;
     }
 
+    /** Fiat account IBAN or null. */
     public String getIban() {
         return mIban;
     }
 
+    /** Customer name or null. */
     public String getCustomerName() {
         return mCustomerName;
     }

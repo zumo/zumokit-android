@@ -3,6 +3,7 @@
 
 package money.zumo.zumokit;
 
+/** Result of the compose exchange method on @link wallet object. */
 public final class ComposedExchange {
 
 
@@ -57,50 +58,74 @@ public final class ComposedExchange {
         this.mNonce = nonce;
     }
 
+    /** Signed transaction for a crypto transaction, null otherwise. */
     public String getSignedTransaction() {
         return mSignedTransaction;
     }
 
+    /** Source account. */
     public Account getDepositAccount() {
         return mDepositAccount;
     }
 
+    /** Target account. */
     public Account getWithdrawAccount() {
         return mWithdrawAccount;
     }
 
+    /** Exchange rate used composing exchange. */
     public ExchangeRate getExchangeRate() {
         return mExchangeRate;
     }
 
+    /** Exchange settings used composing exchange. */
     public ExchangeSettings getExchangeSettings() {
         return mExchangeSettings;
     }
 
+    /**
+     * Zumo Exchange Service wallet address where outgoing crypto funds were deposited,
+     * null for exchanges from fiat currencies.
+     */
     public String getExchangeAddress() {
         return mExchangeAddress;
     }
 
+    /** Exchange value in source account currency. */
     public java.math.BigDecimal getValue() {
         return mValue;
     }
 
+    /**
+     * Amount that user receives, calculated as <code>value X exchangeRate X (1 - feeRate) - withdrawFee</code>.
+     * @see exchange_settings
+     */
     public java.math.BigDecimal getReturnValue() {
         return mReturnValue;
     }
 
+    /** Outgoing transaction fee. */
     public java.math.BigDecimal getDepositFee() {
         return mDepositFee;
     }
 
+    /**
+     * Exchange fee, calculated as <code>value X exchangeRate X feeRate</code>.
+     * @see exchange_settings
+     */
     public java.math.BigDecimal getExchangeFee() {
         return mExchangeFee;
     }
 
+    /**
+     * Return transaction fee.
+     * @see exchange_settings
+     */
     public java.math.BigDecimal getWithdrawFee() {
         return mWithdrawFee;
     }
 
+    /** Unique nonce used to prevent double spend. */
     public String getNonce() {
         return mNonce;
     }

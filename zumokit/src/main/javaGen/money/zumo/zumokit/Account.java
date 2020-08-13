@@ -3,6 +3,7 @@
 
 package money.zumo.zumokit;
 
+/** Record containing account details. */
 public final class Account {
 
 
@@ -45,38 +46,59 @@ public final class Account {
         this.mFiatProperties = fiatProperties;
     }
 
+    /** Unique account identifier. */
     public String getId() {
         return mId;
     }
 
+    /**
+     * Account currency type.
+     * @see currency_type
+     */
     public String getCurrencyType() {
         return mCurrencyType;
     }
 
+    /**
+     * Account currency code.
+     * @see currency_code
+     */
     public String getCurrencyCode() {
         return mCurrencyCode;
     }
 
+    /**
+     * Account network type.
+     * @see network_type
+     */
     public String getNetwork() {
         return mNetwork;
     }
 
+    /**
+     * Account type.
+     * @see account_type
+     */
     public String getType() {
         return mType;
     }
 
+    /** Account balance. */
     public java.math.BigDecimal getBalance() {
         return mBalance;
     }
 
+    /** Account has associated nominated account. */
     public boolean getHasNominatedAccount() {
         return mHasNominatedAccount;
     }
 
+    /** Account crypto properties if account is a crypto account, otherwise null. */
     public AccountCryptoProperties getCryptoProperties() {
         return mCryptoProperties;
     }
 
+    /** Account fiat properties if account is a fiat account, otherwise null. */
     public AccountFiatProperties getFiatProperties() {
         return mFiatProperties;
     }

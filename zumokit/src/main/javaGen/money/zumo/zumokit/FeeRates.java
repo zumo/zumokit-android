@@ -3,6 +3,7 @@
 
 package money.zumo.zumokit;
 
+/** Crypto transactions fee rates. */
 public final class FeeRates {
 
 
@@ -37,30 +38,37 @@ public final class FeeRates {
         this.mSource = source;
     }
 
+    /** Fee rate resulting in slow confirmation time. */
     public java.math.BigDecimal getSlow() {
         return mSlow;
     }
 
+    /** Fee rate resulting in average confirmation time. */
     public java.math.BigDecimal getAverage() {
         return mAverage;
     }
 
+    /** Fee rate resulting in fast confirmation time. */
     public java.math.BigDecimal getFast() {
         return mFast;
     }
 
+    /** Slow confirmation time in hours. */
     public float getSlowTime() {
         return mSlowTime;
     }
 
+    /** Average confirmation time in hours. */
     public float getAverageTime() {
         return mAverageTime;
     }
 
+    /** Fast confirmation time in hours. */
     public float getFastTime() {
         return mFastTime;
     }
 
+    /** Fee rate information provider. */
     public String getSource() {
         return mSource;
     }

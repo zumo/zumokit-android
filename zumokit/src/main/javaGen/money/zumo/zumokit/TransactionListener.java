@@ -5,6 +5,7 @@ package money.zumo.zumokit;
 
 import java.util.concurrent.atomic.AtomicBoolean;
 
+/** Callback interface used by methods in @link user class. */
 public interface TransactionListener {
     public void update(Transaction transaction);
 

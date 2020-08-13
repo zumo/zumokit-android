@@ -3,6 +3,7 @@
 
 package money.zumo.zumokit;
 
+/** Record containing transaction details. */
 public final class Transaction {
 
 
@@ -77,70 +78,99 @@ public final class Transaction {
         this.mTimestamp = timestamp;
     }
 
+    /** Identifier. */
     public String getId() {
         return mId;
     }
 
+    /**
+     * Transaction type.
+     * @see transaction_type
+     */
     public String getType() {
         return mType;
     }
 
+    /**
+     * Currency code.
+     * @see currency_code
+     */
     public String getCurrencyCode() {
         return mCurrencyCode;
     }
 
+    /** Sender integrator user identifier or null if it is external user. */
     public String getFromUserId() {
         return mFromUserId;
     }
 
+    /** Recipient integrator user identifier or null if it is external user. */
     public String getToUserId() {
         return mToUserId;
     }
 
+    /** Sender account identifier if it is internal transaction or null otherwise. */
     public String getFromAccountId() {
         return mFromAccountId;
     }
 
+    /** Recipient account identifier if it is internal transaction or null otherwise. */
     public String getToAccountId() {
         return mToAccountId;
     }
 
+    /**
+     * Network type.
+     * @see network_type
+     */
     public String getNetwork() {
         return mNetwork;
     }
 
+    /**
+     * Transaction status.
+     * @see transaction_status
+     */
     public String getStatus() {
         return mStatus;
     }
 
+    /** Amount in transaction currency or null if transaction is Ethereum contract deploy. */
     public java.math.BigDecimal getAmount() {
         return mAmount;
     }
 
+    /** Transaction fee in transaction currency or null, if not yet available. */
     public java.math.BigDecimal getFee() {
         return mFee;
     }
 
+    /** Transaction nonce or null. Used to prevent double spend. */
     public String getNonce() {
         return mNonce;
     }
 
+    /** Crypto properties if it is crypto transaction, null otherwise. */
     public TransactionCryptoProperties getCryptoProperties() {
         return mCryptoProperties;
     }
 
+    /** Fiat properties if it is crypto transaction, null otherwise. */
     public TransactionFiatProperties getFiatProperties() {
         return mFiatProperties;
     }
 
+    /** Epoch timestamp when transaction was submitted or null for incoming transactions from outside of Zumo ecosystem. */
     public Long getSubmittedAt() {
         return mSubmittedAt;
     }
 
+    /** Epoch timestamp when transaction was submitted or null if transaction was not confirmed yet. */
     public Long getConfirmedAt() {
         return mConfirmedAt;
     }
 
+    /** Epoch timestamp, minimum non-null value between submitted at and confirmed at timestamps. */
     public long getTimestamp() {
         return mTimestamp;
     }

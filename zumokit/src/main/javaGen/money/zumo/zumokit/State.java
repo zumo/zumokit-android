@@ -6,6 +6,7 @@ package money.zumo.zumokit;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+/** ZumuKit state. */
 public final class State {
 
 
@@ -48,38 +49,47 @@ public final class State {
         this.mModulrCustomerOnNetworks = modulrCustomerOnNetworks;
     }
 
+    /** Active user's accounts. */
     public ArrayList<Account> getAccounts() {
         return mAccounts;
     }
 
+    /** Active user's transactions. */
     public ArrayList<Transaction> getTransactions() {
         return mTransactions;
     }
 
+    /** Active user's exchanges. */
     public ArrayList<Exchange> getExchanges() {
         return mExchanges;
     }
 
+    /** Active user's token. */
     public String getToken() {
         return mToken;
     }
 
+    /** Active user's id. */
     public String getActiveUserId() {
         return mActiveUserId;
     }
 
+    /** Zumo exchange rates. */
     public HashMap<String, HashMap<String, ExchangeRate>> getExchangeRates() {
         return mExchangeRates;
     }
 
+    /** Zumo exchange settings. */
     public HashMap<String, HashMap<String, ExchangeSettings>> getExchangeSettings() {
         return mExchangeSettings;
     }
 
+    /** Crypto transactions fee rates. */
     public HashMap<String, FeeRates> getFeeRates() {
         return mFeeRates;
     }
 
+    /** List of networks where active user is Modulr customer. */
     public ArrayList<String> getModulrCustomerOnNetworks() {
         return mModulrCustomerOnNetworks;
     }

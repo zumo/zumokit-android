@@ -3,6 +3,10 @@
 
 package money.zumo.zumokit;
 
+/**
+ * Record containing transaction's fiat properties.
+ * @see transaction
+ */
 public final class TransactionFiatProperties {
 
 
@@ -17,10 +21,12 @@ public final class TransactionFiatProperties {
         this.mToFiatAccount = toFiatAccount;
     }
 
+    /** Sender fiat account properties. */
     public AccountFiatProperties getFromFiatAccount() {
         return mFromFiatAccount;
     }
 
+    /** Recipient fiat account properties. */
     public AccountFiatProperties getToFiatAccount() {
         return mToFiatAccount;
     }
