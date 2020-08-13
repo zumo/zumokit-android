@@ -3,6 +3,10 @@
 
 package money.zumo.zumokit;
 
+/**
+ * Result of one of the transaction compose methods on @link wallet object.
+ * @see wallet
+ */
 public final class ComposedTransaction {
 
 
@@ -41,34 +45,45 @@ public final class ComposedTransaction {
         this.mNonce = nonce;
     }
 
+    /**
+     * Transaction type, 'FIAT', 'CRYPTO' or 'NOMINATED'.
+     * @see transaction_type
+     */
     public String getType() {
         return mType;
     }
 
+    /** Signed transaction for a crypto transaction, null otherwise. */
     public String getSignedTransaction() {
         return mSignedTransaction;
     }
 
+    /** Account the composed transaction belongs to. */
     public Account getAccount() {
         return mAccount;
     }
 
+    /** Transaction destination, i.e. destination address for crypto transactions or user id for fiat transactions. */
     public String getDestination() {
         return mDestination;
     }
 
+    /** Transaction amount in account currency. */
     public java.math.BigDecimal getAmount() {
         return mAmount;
     }
 
+    /** Optional transaction data if available. */
     public String getData() {
         return mData;
     }
 
+    /** Maximum transaction fee. */
     public java.math.BigDecimal getFee() {
         return mFee;
     }
 
+    /** Transaction nonce to prevent double spend. */
     public String getNonce() {
         return mNonce;
     }

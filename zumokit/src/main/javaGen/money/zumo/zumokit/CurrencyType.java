@@ -3,6 +3,7 @@
 
 package money.zumo.zumokit;
 
+/** Curency type, 'FIAT' or 'CRYPTO'. */
 public final class CurrencyType {
 
     public static final String FIAT = "FIAT";

@@ -3,6 +3,10 @@
 
 package money.zumo.zumokit;
 
+/**
+ * Zumo exchange rates used in making exchanges.
+ * Can also be used to display amounts in local currency to the user.
+ */
 public final class ExchangeRate {
 
 
@@ -33,26 +37,38 @@ public final class ExchangeRate {
         this.mTimestamp = timestamp;
     }
 
+    /** Identifier. */
     public String getId() {
         return mId;
     }
 
+    /**
+     * Currency from which exchange is being made.
+     * @see currency_code
+     */
     public String getDepositCurrency() {
         return mDepositCurrency;
     }
 
+    /**
+     * Currency from which exchange is being made.
+     * @see currency_code
+     */
     public String getWithdrawCurrency() {
         return mWithdrawCurrency;
     }
 
+    /** Value of 1 unit of deposit currency in withdraw currency. */
     public java.math.BigDecimal getValue() {
         return mValue;
     }
 
+    /** Epoch timestamp representing expiration time of this exchange rate. */
     public long getValidTo() {
         return mValidTo;
     }
 
+    /** Epoch timestamp when the exchange rate was issued. */
     public long getTimestamp() {
         return mTimestamp;
     }

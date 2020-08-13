@@ -3,6 +3,7 @@
 
 package money.zumo.zumokit;
 
+/** Currency code, such as 'GBP', 'BTC' or 'ETH'. */
 public final class CurrencyCode {
 
     public static final String GBP = "GBP";

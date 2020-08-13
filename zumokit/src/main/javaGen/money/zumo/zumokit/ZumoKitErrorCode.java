@@ -3,6 +3,11 @@
 
 package money.zumo.zumokit;
 
+/**
+ * The code of error returned. Some errors that could be handled programmatically (e.g., balance too low)
+ * include an error code — a short string with a brief explanation — as a value for code.
+ * See <a href="https://developers.zumo.money/docs/guides/handling-errors">Handling Errors</a> for details.
+ */
 public final class ZumoKitErrorCode {
 
     /** Unknown error has occured. */
@@ -109,8 +114,8 @@ public final class ZumoKitErrorCode {
     public static final String INVALID_HD_WALLET_PATH = "invalid_hd_wallet_path";
 
     /**
-     * Invalid length of mnemonic phrase. Mnemonic phrase should be
-     * 12, 15, 18, 21 or 24 words long.
+     * Invalid length of mnemonic phrase.
+     * Mnemonic phrase should be 12, 15, 18, 21 or 24 words long.
      */
     public static final String INVALID_MNEMONIC_WORD_COUNT = "invalid_mnemonic_word_count";
 
@@ -123,7 +128,7 @@ public final class ZumoKitErrorCode {
     /** "The provided recovery phrase does not correspond to existing wallet." */
     public static final String INVALID_RECOVERY_PHRASE = "invalid_recovery_phrase";
 
-    /** Invalid transaction type. Check TransactionType for a list of valid transaction types. */
+    /** Invalid transaction type. */
     public static final String INVALID_TRANSACTION_TYPE = "invalid_transaction_type";
 
     /** Invalid transaction value. */
@@ -135,10 +140,7 @@ public final class ZumoKitErrorCode {
     /** Transaction already submitted. */
     public static final String KNOWN_TRANSACTION = "known_transaction";
 
-    /**
-     * No destination address.
-     * In case no transaction data is provided, destination address is obligatory.
-     */
+    /** No destination address. In case no transaction data is provided, destination address is obligatory. */
     public static final String NO_DESTINATION_ADDRESS = "no_destination_address";
 
     /** No nominated account found. */

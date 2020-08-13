@@ -3,6 +3,7 @@
 
 package money.zumo.zumokit;
 
+/** Callback interface used by methods in @link wallet class. */
 public interface ComposeTransactionCallback {
     public void onError(Exception e);
 

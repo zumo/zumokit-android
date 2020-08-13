@@ -50,6 +50,9 @@ task javadoc(type: Javadoc) {
     source = android.sourceSets.main.java.srcDirs
     classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
     options.memberLevel = JavadocMemberLevel.PUBLIC
+    options.setDocTitle('ZumoKit Android SDK')
+    options.setWindowTitle('ZumoKit Android SDK')
+    options.addStringOption('Xdoclint:none', '-quiet')
     exclude "**/WebSocket*.java"
     exclude "**/Http*.java"
     exclude "**/FuzzingBackOffGenerator*.java"

@@ -3,6 +3,10 @@
 
 package money.zumo.zumokit;
 
+/**
+ * Account's crypto related properties.
+ * @see account
+ */
 public final class AccountCryptoProperties {
 
 
@@ -29,14 +33,17 @@ public final class AccountCryptoProperties {
         this.mVersion = version;
     }
 
+    /** Account crypto address. */
     public String getAddress() {
         return mAddress;
     }
 
+    /** Hierarchical Deterministic (HD) account derivation path. */
     public String getPath() {
         return mPath;
     }
 
+    /** Ethereum account nonce if greater than 0 or null otherwise. */
     public Long getNonce() {
         return mNonce;
     }

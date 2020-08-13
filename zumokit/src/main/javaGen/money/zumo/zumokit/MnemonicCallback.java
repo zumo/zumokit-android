@@ -3,6 +3,7 @@
 
 package money.zumo.zumokit;
 
+/** Callback interface used by methods in @link user class. */
 public interface MnemonicCallback {
     public void onError(Exception e);
 

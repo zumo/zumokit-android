@@ -5,6 +5,7 @@ package money.zumo.zumokit;
 
 import java.util.HashMap;
 
+/** Record containing exchange details. */
 public final class Exchange {
 
 
@@ -87,78 +88,118 @@ public final class Exchange {
         this.mConfirmedAt = confirmedAt;
     }
 
+    /** Identifier */
     public String getId() {
         return mId;
     }
 
+    /**
+     * Exchange status.
+     * @see exchange_status
+     */
     public String getStatus() {
         return mStatus;
     }
 
+    /**
+     * Currency from which exchange was made.
+     * @see currency_code
+     */
     public String getDepositCurrency() {
         return mDepositCurrency;
     }
 
+    /** Source @link account identifier. */
     public String getDepositAccountId() {
         return mDepositAccountId;
     }
 
+    /** Outgoing @link transaction identifier. */
     public String getDepositTransactionId() {
         return mDepositTransactionId;
     }
 
+    /**
+     * Currency to which exchange was made.
+     * @see currency_code
+     */
     public String getWithdrawCurrency() {
         return mWithdrawCurrency;
     }
 
+    /** Target @link account identifier. */
     public String getWithdrawAccountId() {
         return mWithdrawAccountId;
     }
 
+    /** Return @link transaction identifier. */
     public String getWithdrawTransactionId() {
         return mWithdrawTransactionId;
     }
 
+    /** Amount in deposit currency. */
     public java.math.BigDecimal getAmount() {
         return mAmount;
     }
 
+    /** Deposit transaction fee. */
     public java.math.BigDecimal getDepositFee() {
         return mDepositFee;
     }
 
+    /**
+     * Amount that user receives, calculated as <code>amount X exchangeRate X (1 - feeRate) - withdrawFee</code>.
+     * @see exchange_settings
+     */
     public java.math.BigDecimal getReturnAmount() {
         return mReturnAmount;
     }
 
+    /**
+     * Exchange fee, calculated as <code>amount X exchangeRate X feeRate</code>.
+     * @see exchange_settings
+     */
     public java.math.BigDecimal getExchangeFee() {
         return mExchangeFee;
     }
 
+    /**
+     * Return transaction fee.
+     * @see exchange_settings
+     */
     public java.math.BigDecimal getWithdrawFee() {
         return mWithdrawFee;
     }
 
+    /** Exchange rate used. */
     public ExchangeRate getExchangeRate() {
         return mExchangeRate;
     }
 
+    /** Exchange settings used. */
     public ExchangeSettings getExchangeSettings() {
         return mExchangeSettings;
     }
 
+    /**
+     * Exchange rates at the time exchange was made.
+     * This can be used to display amounts in local currency to the user.
+     */
     public HashMap<String, HashMap<String, ExchangeRate>> getExchangeRates() {
         return mExchangeRates;
     }
 
+    /** Exchange nonce or null. Used to prevent double spend. */
     public String getNonce() {
         return mNonce;
     }
 
+    /** Epoch timestamp when transaction was submitted. */
     public Long getSubmittedAt() {
         return mSubmittedAt;
     }
 
+    /** Epoch timestamp when transaction was confirmed or null if not yet confirmed. */
     public Long getConfirmedAt() {
         return mConfirmedAt;
     }
