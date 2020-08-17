@@ -85,7 +85,7 @@ public final class Transaction {
 
     /**
      * Transaction type.
-     * @see transaction_type
+     * @see TransactionType
      */
     public String getType() {
         return mType;
@@ -93,7 +93,7 @@ public final class Transaction {
 
     /**
      * Currency code.
-     * @see currency_code
+     * @see CurrencyCode
      */
     public String getCurrencyCode() {
         return mCurrencyCode;
@@ -121,7 +121,7 @@ public final class Transaction {
 
     /**
      * Network type.
-     * @see network_type
+     * @see NetworkType
      */
     public String getNetwork() {
         return mNetwork;
@@ -129,7 +129,7 @@ public final class Transaction {
 
     /**
      * Transaction status.
-     * @see transaction_status
+     * @see TransactionStatus
      */
     public String getStatus() {
         return mStatus;

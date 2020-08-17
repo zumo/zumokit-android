@@ -95,7 +95,7 @@ public final class Exchange {
 
     /**
      * Exchange status.
-     * @see exchange_status
+     * @see ExchangeStatus
      */
     public String getStatus() {
         return mStatus;
@@ -103,36 +103,36 @@ public final class Exchange {
 
     /**
      * Currency from which exchange was made.
-     * @see currency_code
+     * @see CurrencyCode
      */
     public String getDepositCurrency() {
         return mDepositCurrency;
     }
 
-    /** Source @link account identifier. */
+    /** Source {@link  Account Account} identifier. */
     public String getDepositAccountId() {
         return mDepositAccountId;
     }
 
-    /** Outgoing @link transaction identifier. */
+    /** Outgoing {@link  Transaction Transaction} identifier. */
     public String getDepositTransactionId() {
         return mDepositTransactionId;
     }
 
     /**
      * Currency to which exchange was made.
-     * @see currency_code
+     * @see CurrencyCode
      */
     public String getWithdrawCurrency() {
         return mWithdrawCurrency;
     }
 
-    /** Target @link account identifier. */
+    /** Target {@link  Account Account} identifier. */
     public String getWithdrawAccountId() {
         return mWithdrawAccountId;
     }
 
-    /** Return @link transaction identifier. */
+    /** Return {@link  Transaction Transaction} identifier. */
     public String getWithdrawTransactionId() {
         return mWithdrawTransactionId;
     }
@@ -149,7 +149,7 @@ public final class Exchange {
 
     /**
      * Amount that user receives, calculated as <code>amount X exchangeRate X (1 - feeRate) - withdrawFee</code>.
-     * @see exchange_settings
+     * @see ExchangeSettings
      */
     public java.math.BigDecimal getReturnAmount() {
         return mReturnAmount;
@@ -157,7 +157,7 @@ public final class Exchange {
 
     /**
      * Exchange fee, calculated as <code>amount X exchangeRate X feeRate</code>.
-     * @see exchange_settings
+     * @see ExchangeSettings
      */
     public java.math.BigDecimal getExchangeFee() {
         return mExchangeFee;
@@ -165,7 +165,7 @@ public final class Exchange {
 
     /**
      * Return transaction fee.
-     * @see exchange_settings
+     * @see ExchangeSettings
      */
     public java.math.BigDecimal getWithdrawFee() {
         return mWithdrawFee;

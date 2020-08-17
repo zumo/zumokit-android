@@ -14,7 +14,7 @@ public interface ZumoCore {
      * @param userTokenSet   user token set
      * @param callback         an interface to receive the result or error
      *
-     * @see user
+     * @see User
      */
     public void getUser(String userTokenSet, UserCallback callback);
 
@@ -28,11 +28,11 @@ public interface ZumoCore {
     /**
      * Fetch historical exchange rates for supported time intervals.
      * On success callback returns historical exchange rates are contained in a mapping between
-     * time interval on a top level, from currency on second level, to currency on third level and @link exchange_rate objects.
+     * time interval on a top level, from currency on second level, to currency on third level and {@link  ExchangeRate ExchangeRate} objects.
      *
      * @param callback         an interface to receive the result or error
      *
-     * @see historical_exchange_rates_interval
+     * @see HistoricalExchangeRatesInterval
      */
     public void getHistoricalExchangeRates(HistoricalExchangeRatesCallback callback);
 

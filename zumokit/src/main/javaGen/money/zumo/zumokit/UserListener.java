@@ -6,7 +6,7 @@ package money.zumo.zumokit;
 import java.util.ArrayList;
 import java.util.concurrent.atomic.AtomicBoolean;
 
-/** Callback interface used by methods in @link user class. */
+/** Callback interface used by methods in {@link  User User} class. */
 public interface UserListener {
     public void update(ArrayList<Account> accounts, ArrayList<Transaction> transactions);
 

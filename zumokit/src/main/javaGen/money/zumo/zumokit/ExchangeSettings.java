@@ -55,7 +55,7 @@ public final class ExchangeSettings {
 
     /**
      * Zumo Exchange Service wallet address for each network type.
-     * @see network_type
+     * @see NetworkType
      */
     public HashMap<String, String> getDepositAddress() {
         return mDepositAddress;
@@ -63,7 +63,7 @@ public final class ExchangeSettings {
 
     /**
      * Currency code of outgoing transaction.
-     * @see currency_code
+     * @see CurrencyCode
      */
     public String getDepositCurrency() {
         return mDepositCurrency;
@@ -71,7 +71,7 @@ public final class ExchangeSettings {
 
     /**
      * Currency code of return transaction.
-     * @see currency_code
+     * @see CurrencyCode
      */
     public String getWithdrawCurrency() {
         return mWithdrawCurrency;

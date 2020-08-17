@@ -3,7 +3,7 @@
 
 package money.zumo.zumokit;
 
-/** Callback interface used by methods in @link ZumoKit class */
+/** Callback interface used by methods in {@link  ZumoKit ZumoKit} class */
 public interface UserCallback {
     public void onError(Exception e);
 

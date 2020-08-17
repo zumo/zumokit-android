@@ -3,7 +3,7 @@
 
 package money.zumo.zumokit;
 
-/** Result of the compose exchange method on @link wallet object. */
+/** Result of the compose exchange method on {@link  Wallet Wallet} object. */
 public final class ComposedExchange {
 
 
@@ -98,7 +98,7 @@ public final class ComposedExchange {
 
     /**
      * Amount that user receives, calculated as <code>value X exchangeRate X (1 - feeRate) - withdrawFee</code>.
-     * @see exchange_settings
+     * @see ExchangeSettings
      */
     public java.math.BigDecimal getReturnValue() {
         return mReturnValue;
@@ -111,7 +111,7 @@ public final class ComposedExchange {
 
     /**
      * Exchange fee, calculated as <code>value X exchangeRate X feeRate</code>.
-     * @see exchange_settings
+     * @see ExchangeSettings
      */
     public java.math.BigDecimal getExchangeFee() {
         return mExchangeFee;
@@ -119,7 +119,7 @@ public final class ComposedExchange {
 
     /**
      * Return transaction fee.
-     * @see exchange_settings
+     * @see ExchangeSettings
      */
     public java.math.BigDecimal getWithdrawFee() {
         return mWithdrawFee;

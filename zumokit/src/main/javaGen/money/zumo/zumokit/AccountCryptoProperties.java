@@ -5,7 +5,7 @@ package money.zumo.zumokit;
 
 /**
  * Account's crypto related properties.
- * @see account
+ * @see Account
  */
 public final class AccountCryptoProperties {
 
