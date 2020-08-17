@@ -3,7 +3,7 @@
 
 package money.zumo.zumokit;
 
-/** Callback interface used by methods in @link wallet class. */
+/** Callback interface used by methods in {@link  Wallet Wallet} class. */
 public interface SubmitExchangeCallback {
     public void onError(Exception e);
 

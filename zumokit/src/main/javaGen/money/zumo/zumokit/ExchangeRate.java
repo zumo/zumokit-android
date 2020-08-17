@@ -44,7 +44,7 @@ public final class ExchangeRate {
 
     /**
      * Currency from which exchange is being made.
-     * @see currency_code
+     * @see CurrencyCode
      */
     public String getDepositCurrency() {
         return mDepositCurrency;
@@ -52,7 +52,7 @@ public final class ExchangeRate {
 
     /**
      * Currency from which exchange is being made.
-     * @see currency_code
+     * @see CurrencyCode
      */
     public String getWithdrawCurrency() {
         return mWithdrawCurrency;

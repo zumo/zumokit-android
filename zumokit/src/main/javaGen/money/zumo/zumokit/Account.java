@@ -53,7 +53,7 @@ public final class Account {
 
     /**
      * Account currency type.
-     * @see currency_type
+     * @see CurrencyType
      */
     public String getCurrencyType() {
         return mCurrencyType;
@@ -61,7 +61,7 @@ public final class Account {
 
     /**
      * Account currency code.
-     * @see currency_code
+     * @see CurrencyCode
      */
     public String getCurrencyCode() {
         return mCurrencyCode;
@@ -69,7 +69,7 @@ public final class Account {
 
     /**
      * Account network type.
-     * @see network_type
+     * @see NetworkType
      */
     public String getNetwork() {
         return mNetwork;
@@ -77,7 +77,7 @@ public final class Account {
 
     /**
      * Account type.
-     * @see account_type
+     * @see AccountType
      */
     public String getType() {
         return mType;

@@ -8,19 +8,19 @@ import java.util.concurrent.atomic.AtomicBoolean;
 /**
  * User wallet provides methods for transfer and exchange of fiat and cryptocurrency funds.
  * Sending a transaction or making an exchange is a two step process. First a transaction or
- * exchange has to be composed via one of the compose methods, then @link composed_transaction or
- * @link composed_exchange can be submitted.
+ * exchange has to be composed via one of the compose methods, then {@link  ComposedTransaction ComposedTransaction} or
+ * {@link  ComposedExchange ComposedExchange} can be submitted.
  * <p>
- * User wallet instance can be obtained by creating, unlocking or recovering user wallet via @link user instance.
+ * User wallet instance can be obtained by creating, unlocking or recovering user wallet via {@link  User User} instance.
  */
 public interface Wallet {
     /**
      * Compose Bitcoin transaction asynchronously. Refer to <a href="https://developers.zumo.money/docs/guides/send-transactions#bitcoin">Send Transactions</a> guide for usage details.
      * <p>
-     * On success @link composed_transaction  is returned via callback.
+     * On success {@link  ComposedTransaction ComposedTransaction}  is returned via callback.
      *
-     * @param fromAccountId   @link account identifier
-     * @param changeAccountId change @link account identifier, which can be the same as fromAccountId
+     * @param fromAccountId   {@link  Account Account} identifier
+     * @param changeAccountId change {@link  Account Account} identifier, which can be the same as fromAccountId
      * @param destination       destination wallet address
      * @param amount            amount in BTC
      * @param feeRate          fee rate in satoshis/byte
@@ -32,9 +32,9 @@ public interface Wallet {
     /**
      * Compose Ethereum transaction asynchronously. Refer to <a href="https://developers.zumo.money/docs/guides/send-transactions#ethereum">Send Transactions</a> guide for usage details.
      * <p>
-     * On success @link composed_transaction is returned via callback.
+     * On success {@link  ComposedTransaction ComposedTransaction} is returned via callback.
      *
-     * @param fromAccountId @link account identifier
+     * @param fromAccountId {@link  Account Account} identifier
      * @param gasPrice       gas price in gwei
      * @param gasLimit       gas limit
      * @param destination     destination wallet address
@@ -49,10 +49,10 @@ public interface Wallet {
     /**
      * Compose fiat transaction between users in Zumo ecosystem asynchronously. Refer to <a href="https://developers.zumo.money/docs/guides/send-transactions#internal-fiat-transaction">Send Transactions</a> guide for usage details.
      * <p>
-     * On success @link composed_transaction is returned via callback.
+     * On success {@link  ComposedTransaction ComposedTransaction} is returned via callback.
      *
-     * @param fromAccountId @link account identifier
-     * @param toAccountId   @link account identifier
+     * @param fromAccountId {@link  Account Account} identifier
+     * @param toAccountId   {@link  Account Account} identifier
      * @param amount          amount in source account currency
      * @param sendMax        send maximum possible funds to destination
      * @param callback        an interface to receive the result or error
@@ -62,9 +62,9 @@ public interface Wallet {
     /**
      * Compose transaction to nominated account asynchronously. Refer to <a href="https://developers.zumo.money/docs/guides/send-transactions#external-fiat-transaction">Send Transactions</a> guide for usage details.
      * <p>
-     * On success @link composed_transaction object is returned via callback.
+     * On success {@link  ComposedTransaction ComposedTransaction} object is returned via callback.
      *
-     * @param fromAccountId @link account identifier
+     * @param fromAccountId {@link  Account Account} identifier
      * @param amount          amount in source account currency
      * @param sendMax        send maximum possible funds to destination
      * @param callback        an interface to receive the result or error
@@ -74,7 +74,7 @@ public interface Wallet {
     /**
      * Submit a transaction asynchronously. Refer to <a href="https://developers.zumo.money/docs/guides/send-transactions#submit-transaction">Send Transactions</a> guide for usage details.
      * <p>
-     * On success @link transaction object is returned via callback.
+     * On success {@link  Transaction Transaction} object is returned via callback.
      *
      * @param composedTransaction Composed transaction retrieved as a result
      *                             of one of the compose transaction methods
@@ -85,10 +85,10 @@ public interface Wallet {
     /**
      * Compose Bitcoin transaction asynchronously. Refer to <a href="https://developers.zumo.money/docs/guides/make-exchanges#compose-exchange">Make Exchanges</a> guide for usage details.
      * <p>
-     * On success @link composed_exchange  is returned via callback.
+     * On success {@link  ComposedExchange ComposedExchange}  is returned via callback.
      *
-     * @param depositAccountId  @link account identifier
-     * @param withdrawAccountId @link account identifier
+     * @param depositAccountId  {@link  Account Account} identifier
+     * @param withdrawAccountId {@link  Account Account} identifier
      * @param exchangeRate       Zumo exchange rate obtained from ZumoKit state
      * @param exchangeSettings   Zumo exchange settings obtained from ZumoKit state
      * @param amount              amount in deposit account currency
@@ -100,7 +100,7 @@ public interface Wallet {
     /**
      * Submit an exchange asynchronously. <a href="https://developers.zumo.money/docs/guides/make-exchanges#submit-exchange">Make Exchanges</a> guide for usage details.
      * <p>
-     * On success @link exchange object is returned via callback.
+     * On success {@link  Exchange Exchange} object is returned via callback.
      *
      * @param composedExchange Composed exchange retrieved as the result
      *                          of <code>composeExchange</code> method

@@ -5,7 +5,7 @@ package money.zumo.zumokit;
 
 /**
  * Record containing transaction's fiat properties.
- * @see transaction
+ * @see Transaction
  */
 public final class TransactionFiatProperties {
 

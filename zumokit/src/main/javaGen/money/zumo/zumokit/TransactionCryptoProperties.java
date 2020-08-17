@@ -7,7 +7,7 @@ import java.util.HashMap;
 
 /**
  * Record containing transaction's crypto properties.
- * @see transaction
+ * @see Transaction
  */
 public final class TransactionCryptoProperties {
 
@@ -91,7 +91,7 @@ public final class TransactionCryptoProperties {
 
     /**
      * Amount in fiat currencies at the time of the transaction submission.
-     * @see currency_code
+     * @see CurrencyCode
      */
     public HashMap<String, java.math.BigDecimal> getFiatAmount() {
         return mFiatAmount;
@@ -99,7 +99,7 @@ public final class TransactionCryptoProperties {
 
     /**
      * Fee in fiat currencies at the time of the transaction submission.
-     * @see currency_code
+     * @see CurrencyCode
      */
     public HashMap<String, java.math.BigDecimal> getFiatFee() {
         return mFiatFee;

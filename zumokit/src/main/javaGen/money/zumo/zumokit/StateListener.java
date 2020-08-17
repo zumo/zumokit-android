@@ -5,7 +5,7 @@ package money.zumo.zumokit;
 
 import java.util.concurrent.atomic.AtomicBoolean;
 
-/** Callback interface used by methods in @link ZumoKit class */
+/** Callback interface used by methods in {@link  ZumoKit ZumoKit} class */
 public interface StateListener {
     public void update(State state);
 

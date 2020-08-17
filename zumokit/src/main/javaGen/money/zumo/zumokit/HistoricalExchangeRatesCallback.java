@@ -6,7 +6,7 @@ package money.zumo.zumokit;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-/** Callback interface used by methods in @link ZumoKit class */
+/** Callback interface used by methods in {@link  ZumoKit ZumoKit} class */
 public interface HistoricalExchangeRatesCallback {
     public void onError(Exception e);
 
