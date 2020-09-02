@@ -15,7 +15,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
  */
 public interface Wallet {
     /**
-     * Compose Bitcoin transaction asynchronously. Refer to <a href="https://developers.zumo.money/docs/guides/send-transactions#bitcoin">Send Transactions</a> guide for usage details.
+     * Compose Bitcoin transaction asynchronously. Refer to <a target="_top" href="https://developers.zumo.money/docs/guides/send-transactions#bitcoin">Send Transactions</a> guide for usage details.
      * <p>
      * On success {@link  ComposedTransaction ComposedTransaction}  is returned via callback.
      *
@@ -30,7 +30,7 @@ public interface Wallet {
     public void composeBtcTransaction(String fromAccountId, String changeAccountId, String destination, java.math.BigDecimal amount, java.math.BigDecimal feeRate, boolean sendMax, ComposeTransactionCallback callback);
 
     /**
-     * Compose Ethereum transaction asynchronously. Refer to <a href="https://developers.zumo.money/docs/guides/send-transactions#ethereum">Send Transactions</a> guide for usage details.
+     * Compose Ethereum transaction asynchronously. Refer to <a target="_top" href="https://developers.zumo.money/docs/guides/send-transactions#ethereum">Send Transactions</a> guide for usage details.
      * <p>
      * On success {@link  ComposedTransaction ComposedTransaction} is returned via callback.
      *
@@ -47,7 +47,7 @@ public interface Wallet {
     public void composeEthTransaction(String fromAccountId, java.math.BigDecimal gasPrice, java.math.BigDecimal gasLimit, String destination, java.math.BigDecimal amount, String data, Long nonce, boolean sendMax, ComposeTransactionCallback callback);
 
     /**
-     * Compose fiat transaction between users in Zumo ecosystem asynchronously. Refer to <a href="https://developers.zumo.money/docs/guides/send-transactions#internal-fiat-transaction">Send Transactions</a> guide for usage details.
+     * Compose fiat transaction between users in Zumo ecosystem asynchronously. Refer to <a target="_top" href="https://developers.zumo.money/docs/guides/send-transactions#internal-fiat-transaction">Send Transactions</a> guide for usage details.
      * <p>
      * On success {@link  ComposedTransaction ComposedTransaction} is returned via callback.
      *
@@ -60,7 +60,7 @@ public interface Wallet {
     public void composeInternalFiatTransaction(String fromAccountId, String toAccountId, java.math.BigDecimal amount, boolean sendMax, ComposeTransactionCallback callback);
 
     /**
-     * Compose transaction to nominated account asynchronously. Refer to <a href="https://developers.zumo.money/docs/guides/send-transactions#external-fiat-transaction">Send Transactions</a> guide for usage details.
+     * Compose transaction to nominated account asynchronously. Refer to <a target="_top" href="https://developers.zumo.money/docs/guides/send-transactions#external-fiat-transaction">Send Transactions</a> guide for usage details.
      * <p>
      * On success {@link  ComposedTransaction ComposedTransaction} object is returned via callback.
      *
@@ -72,7 +72,7 @@ public interface Wallet {
     public void composeTransactionToNominatedAccount(String fromAccountId, java.math.BigDecimal amount, boolean sendMax, ComposeTransactionCallback callback);
 
     /**
-     * Submit a transaction asynchronously. Refer to <a href="https://developers.zumo.money/docs/guides/send-transactions#submit-transaction">Send Transactions</a> guide for usage details.
+     * Submit a transaction asynchronously. Refer to <a target="_top" href="https://developers.zumo.money/docs/guides/send-transactions#submit-transaction">Send Transactions</a> guide for usage details.
      * <p>
      * On success {@link  Transaction Transaction} object is returned via callback.
      *
@@ -83,7 +83,7 @@ public interface Wallet {
     public void submitTransaction(ComposedTransaction composedTransaction, SubmitTransactionCallback callback);
 
     /**
-     * Compose Bitcoin transaction asynchronously. Refer to <a href="https://developers.zumo.money/docs/guides/make-exchanges#compose-exchange">Make Exchanges</a> guide for usage details.
+     * Compose Bitcoin transaction asynchronously. Refer to <a target="_top" href="https://developers.zumo.money/docs/guides/make-exchanges#compose-exchange">Make Exchanges</a> guide for usage details.
      * <p>
      * On success {@link  ComposedExchange ComposedExchange}  is returned via callback.
      *
@@ -98,7 +98,7 @@ public interface Wallet {
     public void composeExchange(String depositAccountId, String withdrawAccountId, ExchangeRate exchangeRate, ExchangeSettings exchangeSettings, java.math.BigDecimal amount, boolean sendMax, ComposeExchangeCallback callback);
 
     /**
-     * Submit an exchange asynchronously. <a href="https://developers.zumo.money/docs/guides/make-exchanges#submit-exchange">Make Exchanges</a> guide for usage details.
+     * Submit an exchange asynchronously. <a target="_top" href="https://developers.zumo.money/docs/guides/make-exchanges#submit-exchange">Make Exchanges</a> guide for usage details.
      * <p>
      * On success {@link  Exchange Exchange} object is returned via callback.
      *

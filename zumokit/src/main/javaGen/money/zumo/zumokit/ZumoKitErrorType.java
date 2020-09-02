@@ -5,7 +5,7 @@ package money.zumo.zumokit;
 
 /**
  * The type of error returned. In case of wallet errors, these errors can be safely displayed to the end users.
- * See <a href="https://developers.zumo.money/docs/guides/handling-errors">Handling Errors</a> for details.
+ * See <a target="_top" href="https://developers.zumo.money/docs/guides/handling-errors">Handling Errors</a> for details.
  */
 public final class ZumoKitErrorType {
 

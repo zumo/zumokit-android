@@ -4,7 +4,7 @@ package money.zumo.zumokit.exceptions;
  * A base class for ZumoKit-related exceptions.
  * <p>
  * RuntimeException extension with error type and error code properties.
- * Refer to <a href="https://developers.zumo.money/docs/guides/handling-errors">Handling Errors</a>
+ * Refer to <a target="_top" href="https://developers.zumo.money/docs/guides/handling-errors">Handling Errors</a>
  * guide for details on handling errors.
  * */
 public class ZumoKitException extends RuntimeException {

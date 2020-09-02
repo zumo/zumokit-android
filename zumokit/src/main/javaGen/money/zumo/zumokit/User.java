@@ -11,9 +11,9 @@ import java.util.concurrent.atomic.AtomicBoolean;
  * <p>
  * User instance can be obtained via <code>getUser</code> method on {@link  ZumoKit ZumoKit} instance.
  * <p>
- * See <a href="https://developers.zumo.money/docs/guides/manage-user-wallet">Manage User Wallet</a>,
- * <a href="https://developers.zumo.money/docs/guides/create-fiat-account">Create Fiat Account</a> and
- * <a href="https://developers.zumo.money/docs/guides/view-user-data">View User Data</a>
+ * See <a target="_top" href="https://developers.zumo.money/docs/guides/manage-user-wallet">Manage User Wallet</a>,
+ * <a target="_top" href="https://developers.zumo.money/docs/guides/create-fiat-account">Create Fiat Account</a> and
+ * <a target="_top" href="https://developers.zumo.money/docs/guides/view-user-data">View User Data</a>
  * guides for usage details.
  */
 public interface User {
@@ -74,7 +74,7 @@ public interface User {
     /**
      * Get nominated account details for specified account if it exists.
      * Refer to
-     * <a href="https://developers.zumo.money/docs/guides/send-transactions#bitcoin">Create Fiat Account</a>
+     * <a target="_top" href="https://developers.zumo.money/docs/guides/send-transactions#bitcoin">Create Fiat Account</a>
      * for explanation about nominated account.
      * @param  accountId     {@link  Account Account} id
      * @param  callback       an interface to receive the result or error

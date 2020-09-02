@@ -11,7 +11,7 @@ import java.net.URISyntaxException;
  * {@linkplain #getHistoricalExchangeRates historical exchange rates}.
  * State change listeners can be  {@linkplain #addStateListener added} and {@linkplain #removeStateListener removed}.
  * <p>
- * See <a href="https://developers.zumo.money/docs/guides/getting-started">Getting Started</a> guide for usage details.
+ * See <a target="_top" href="https://developers.zumo.money/docs/guides/getting-started">Getting Started</a> guide for usage details.
  * */
 public class ZumoKit {
     private ZumoCore zumoCore;
@@ -59,7 +59,7 @@ public class ZumoKit {
 
     /**
      * Get user corresponding to user token set.
-     * Refer to <a href="https://developers.zumo.money/docs/setup/server#get-zumokit-user-token">Server</a> guide for details on how to get user token set.
+     * Refer to <a target="_top" href="https://developers.zumo.money/docs/setup/server#get-zumokit-user-token">Server</a> guide for details on how to get user token set.
      *
      * @param userTokenSet   user token set
      * @param callback       an interface to receive the result or error
@@ -76,7 +76,7 @@ public class ZumoKit {
     public Utils utils() { return zumoCore.getUtils(); }
 
     /**
-     * Returns current ZumoKit state. Refer to <a href="https://developers.zumo.money/docs/guides/zumokit-state">ZumoKit State</a> guide for details.
+     * Returns current ZumoKit state. Refer to <a target="_top" href="https://developers.zumo.money/docs/guides/zumokit-state">ZumoKit State</a> guide for details.
      *
      * @return current ZumoKit state
      */
@@ -94,14 +94,14 @@ public class ZumoKit {
     public void getHistoricalExchangeRates(HistoricalExchangeRatesCallback callback) { zumoCore.getHistoricalExchangeRates(callback); }
 
     /**
-     * Listen to all state changes. Refer to <a href="https://developers.zumo.money/docs/guides/zumokit-state#listen-to-state-changes">ZumoKit State</a> guide for details.
+     * Listen to all state changes. Refer to <a target="_top" href="https://developers.zumo.money/docs/guides/zumokit-state#listen-to-state-changes">ZumoKit State</a> guide for details.
      *
      * @param listener interface to listen to state changes
      */
     public void addStateListener(StateListener listener) { zumoCore.addStateListener(listener); };
 
     /**
-     * Remove listener to state changes. Refer to <a href="https://developers.zumo.money/docs/guides/zumokit-state#remove-state-listener">ZumoKit State</a> guide for details.
+     * Remove listener to state changes. Refer to <a target="_top" href="https://developers.zumo.money/docs/guides/zumokit-state#remove-state-listener">ZumoKit State</a> guide for details.
      *
      * @param listener interface to listen to state changes
      */

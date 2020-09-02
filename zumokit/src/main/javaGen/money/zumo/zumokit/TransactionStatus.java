@@ -9,7 +9,7 @@ package money.zumo.zumokit;
  * Once transaction is submitted it has to be confirmed. This might take variable amount of time depending on the selected fee rate.
  * Once a transaction is confirmed its status will change from pending to confirmed.
  * <p>
- * See <a href="https://developers.zumo.money/docs/guides/send-transactions#transaction-statuses">Send Transactions</a> guide for details.
+ * See <a target="_top" href="https://developers.zumo.money/docs/guides/send-transactions#transaction-statuses">Send Transactions</a> guide for details.
  */
 public final class TransactionStatus {
 

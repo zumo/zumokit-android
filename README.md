@@ -4,7 +4,7 @@ ZumoKit is a state of the art wallet architecture underpinning our flagship prod
 
 ## Docs
 
-Refer to ZumoKit SDK developer [documentation](https://developers.zumo.money/docs/intro/) and [reference](https://zumo.github.io/zumokit-android/) for usage details.
+Refer to ZumoKit SDK developer [documentation](https://developers.zumo.money/docs/) and [reference](https://zumo.github.io/zumokit-android/) for usage details.
 
 ## Requirements
 
