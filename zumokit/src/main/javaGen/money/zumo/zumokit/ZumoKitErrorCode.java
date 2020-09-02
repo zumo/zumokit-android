@@ -6,7 +6,7 @@ package money.zumo.zumokit;
 /**
  * The code of error returned. Some errors that could be handled programmatically (e.g., balance too low)
  * include an error code — a short string with a brief explanation — as a value for code.
- * See <a href="https://developers.zumo.money/docs/guides/handling-errors">Handling Errors</a> for details.
+ * See <a target="_top" href="https://developers.zumo.money/docs/guides/handling-errors">Handling Errors</a> for details.
  */
 public final class ZumoKitErrorCode {
 
@@ -27,9 +27,6 @@ public final class ZumoKitErrorCode {
 
     /** Invalid response received from ZumoKit API. */
     public static final String API_SERVICE_ERROR = "api_service_error";
-
-    /** Bitcoin amount exceeds maximum 63 bit precision. */
-    public static final String BITCOIN_AMOUNT_OVERFLOW = "bitcoin_amount_overflow";
 
     /** Requested change account not found. */
     public static final String CHANGE_ACCOUNT_NOT_FOUND = "change_account_not_found";
@@ -88,6 +85,9 @@ public final class ZumoKitErrorCode {
 
     /** Insufficient funds for transaction value. */
     public static final String INSUFFICIENT_FUNDS_FOR_TRANSACTION = "insufficient_funds_for_transaction";
+
+    /** Value exceeds maximum 63 bit precision. */
+    public static final String INT64_OVERFLOW = "int64_overflow";
 
     /** Account type not supported by the operation. */
     public static final String INVALID_ACCOUNT_TYPE = "invalid_account_type";
@@ -163,6 +163,9 @@ public final class ZumoKitErrorCode {
 
     /** Something went wrong signing transaction. */
     public static final String SIGNING_ERROR = "signing_error";
+
+    /** Transaction amount exceeds maximum precision. */
+    public static final String TRANSACTION_AMOUNT_OVERFLOW = "transaction_amount_overflow";
 
     /** Transaction amount too small to send. */
     public static final String TRANSACTION_AMOUNT_TOO_SMALL = "transaction_amount_too_small";

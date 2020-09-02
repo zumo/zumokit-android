@@ -9,7 +9,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 public interface ZumoCore {
     /**
      * Get user corresponding to user token set.
-     * Refer to <a href="https://developers.zumo.money/docs/setup/server#get-zumokit-user-token">Server</a> guide for details on how to get user token set.
+     * Refer to <a target="_top" href="https://developers.zumo.money/docs/setup/server#get-zumokit-user-token">Server</a> guide for details on how to get user token set.
      *
      * @param userTokenSet   user token set
      * @param callback         an interface to receive the result or error
@@ -37,21 +37,21 @@ public interface ZumoCore {
     public void getHistoricalExchangeRates(HistoricalExchangeRatesCallback callback);
 
     /**
-     * Returns current ZumoKit state. Refer to <a href="https://developers.zumo.money/docs/guides/zumokit-state">ZumoKit State</a> guide for details.
+     * Returns current ZumoKit state. Refer to <a target="_top" href="https://developers.zumo.money/docs/guides/zumokit-state">ZumoKit State</a> guide for details.
      *
      * @return current ZumoKit state
      */
     public State getState();
 
     /**
-     * Listen to all state changes. Refer to <a href="https://developers.zumo.money/docs/guides/zumokit-state#listen-to-state-changes">ZumoKit State</a> guide for details.
+     * Listen to all state changes. Refer to <a target="_top" href="https://developers.zumo.money/docs/guides/zumokit-state#listen-to-state-changes">ZumoKit State</a> guide for details.
      *
      * @param listener interface to listen to state changes
      */
     public void addStateListener(StateListener listener);
 
     /**
-     * Remove listener to state changes. Refer to <a href="https://developers.zumo.money/docs/guides/zumokit-state#remove-state-listener">ZumoKit State</a> guide for details.
+     * Remove listener to state changes. Refer to <a target="_top" href="https://developers.zumo.money/docs/guides/zumokit-state#remove-state-listener">ZumoKit State</a> guide for details.
      *
      * @param listener interface to listen to state changes
      */

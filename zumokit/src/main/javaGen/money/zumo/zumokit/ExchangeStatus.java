@@ -8,7 +8,7 @@ package money.zumo.zumokit;
  * <p>
  * Once exchange is submitted it has to be confirmed. Once exchange is confirmed its status will change from pending to confirmed.
  * <p>
- * See <a href="https://developers.zumo.money/docs/guides/make-exchanges#exchange-statuses">Make Exchanges</a> guide for details.
+ * See <a target="_top" href="https://developers.zumo.money/docs/guides/make-exchanges#exchange-statuses">Make Exchanges</a> guide for details.
  */
 public final class ExchangeStatus {
 
