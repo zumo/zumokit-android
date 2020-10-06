@@ -182,11 +182,14 @@ public final class ZumoKitErrorCode {
     /** Unspent transaction output could not be signed. */
     public static final String UTXO_SIGNING_ERROR = "utxo_signing_error";
 
-    /** Cannot set value when send max enabled. */
-    public static final String VALUE_PROVIDED_WHEN_SEND_MAX_SET = "value_provided_when_send_max_set";
+    /** Cannot set amount when send max enabled. Set amount to null if trying t send maximum funds. */
+    public static final String AMOUNT_PROVIDED_WHEN_SEND_MAX_SET = "amount_provided_when_send_max_set";
 
     /** Wallet could not be created. Wallet already exists. */
     public static final String WALLET_LIMIT_EXCEEDED = "wallet_limit_exceeded";
+
+    /** Invalid user token set. User token set should be a valid stringified JSON with accessToken, refreshToken and expiresIn properties. */
+    public static final String INVALID_USER_TOKEN_SET = "invalid_user_token_set";
 
 
     public ZumoKitErrorCode(

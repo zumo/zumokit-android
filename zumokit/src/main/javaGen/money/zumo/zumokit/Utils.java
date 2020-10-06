@@ -8,8 +8,8 @@ import java.util.concurrent.atomic.AtomicBoolean;
 /**
  * Utility class providing blockchain related utility methods. Accessed from {@link  ZumoKit ZumoKit} class.
  * <p>
- * This class provides mnemonic phrase generation utility, Bitcoin & Ethereum address
- * validation utilities and Ethereum unit conversion methods.
+ * This class provides mnemonic phrase generation utility and
+ *  Bitcoin & Ethereum address validation utilities.
  */
 public interface Utils {
     /**
@@ -33,48 +33,6 @@ public interface Utils {
      * @see NetworkType
      */
     public boolean isValidBtcAddress(String address, String network);
-
-    /**
-     * Converts wei value to ETH.
-     * @param number wei value to be converted
-     * @return ETH value
-     */
-    public java.math.BigDecimal weiToEth(java.math.BigDecimal number);
-
-    /**
-     * Converts ETH value to wei.
-     * @param number ETH value to be converted
-     * @return wei value
-     */
-    public java.math.BigDecimal ethToWei(java.math.BigDecimal number);
-
-    /**
-     * Converts gwei value to ETH.
-     * @param number gwei value to be converted
-     * @return ETH value
-     */
-    public java.math.BigDecimal gweiToEth(java.math.BigDecimal number);
-
-    /**
-     * Converts ETH value to gwei.
-     * @param number ETH value to be converted
-     * @return gwei value
-     */
-    public java.math.BigDecimal ethToGwei(java.math.BigDecimal number);
-
-    /**
-     * Converts wei value to gwei.
-     * @param number wei value to be converted
-     * @return gwei value
-     */
-    public java.math.BigDecimal weiToGwei(java.math.BigDecimal number);
-
-    /**
-     * Converts gwei value to wei.
-     * @param number gwei value to be converted
-     * @return wei value
-     */
-    public java.math.BigDecimal gweiToWei(java.math.BigDecimal number);
 
     static final class CppProxy implements Utils
     {
@@ -122,53 +80,5 @@ public interface Utils {
             return native_isValidBtcAddress(this.nativeRef, address, network);
         }
         private native boolean native_isValidBtcAddress(long _nativeRef, String address, String network);
-
-        @Override
-        public java.math.BigDecimal weiToEth(java.math.BigDecimal number)
-        {
-            assert !this.destroyed.get() : "trying to use a destroyed object";
-            return native_weiToEth(this.nativeRef, number);
-        }
-        private native java.math.BigDecimal native_weiToEth(long _nativeRef, java.math.BigDecimal number);
-
-        @Override
-        public java.math.BigDecimal ethToWei(java.math.BigDecimal number)
-        {
-            assert !this.destroyed.get() : "trying to use a destroyed object";
-            return native_ethToWei(this.nativeRef, number);
-        }
-        private native java.math.BigDecimal native_ethToWei(long _nativeRef, java.math.BigDecimal number);
-
-        @Override
-        public java.math.BigDecimal gweiToEth(java.math.BigDecimal number)
-        {
-            assert !this.destroyed.get() : "trying to use a destroyed object";
-            return native_gweiToEth(this.nativeRef, number);
-        }
-        private native java.math.BigDecimal native_gweiToEth(long _nativeRef, java.math.BigDecimal number);
-
-        @Override
-        public java.math.BigDecimal ethToGwei(java.math.BigDecimal number)
-        {
-            assert !this.destroyed.get() : "trying to use a destroyed object";
-            return native_ethToGwei(this.nativeRef, number);
-        }
-        private native java.math.BigDecimal native_ethToGwei(long _nativeRef, java.math.BigDecimal number);
-
-        @Override
-        public java.math.BigDecimal weiToGwei(java.math.BigDecimal number)
-        {
-            assert !this.destroyed.get() : "trying to use a destroyed object";
-            return native_weiToGwei(this.nativeRef, number);
-        }
-        private native java.math.BigDecimal native_weiToGwei(long _nativeRef, java.math.BigDecimal number);
-
-        @Override
-        public java.math.BigDecimal gweiToWei(java.math.BigDecimal number)
-        {
-            assert !this.destroyed.get() : "trying to use a destroyed object";
-            return native_gweiToWei(this.nativeRef, number);
-        }
-        private native java.math.BigDecimal native_gweiToWei(long _nativeRef, java.math.BigDecimal number);
     }
 }

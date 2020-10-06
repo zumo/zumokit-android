@@ -34,7 +34,7 @@ dependencies {
 
 ## Example
 
-The [example project](https://github.com/zumo/zumokit-android/tree/master/example) demonstrates the expected user flow, including authentication process, wallet creation and transaciton submission. Ask your [account manager](mailto:support@zumo.money) to provide you with neccesarry credentials.
+The [example project](https://github.com/zumo/zumokit-android/tree/master/example) demonstrates the expected user flow, including authentication process, wallet creation and transaction submission. Ask your [account manager](mailto:support@zumo.money) to provide you with neccesarry credentials.
 
 To run the example project, clone the repo, open  the project in Android Studio and build & run the project.
 

@@ -9,6 +9,9 @@ package money.zumo.zumokit;
  */
 public final class ZumoKitErrorType {
 
+    /** Base ZumoKit error. */
+    public static final String ZUMO_KIT_ERROR = "zumo_kit_error";
+
     /** Failure to connect to ZumoKit’s API. */
     public static final String API_CONNECTION_ERROR = "api_connection_error";
 

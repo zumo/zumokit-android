@@ -15,19 +15,19 @@ import java.util.concurrent.atomic.AtomicBoolean;
  */
 public interface Wallet {
     /**
-     * Compose Bitcoin transaction asynchronously. Refer to <a target="_top" href="https://developers.zumo.money/docs/guides/send-transactions#bitcoin">Send Transactions</a> guide for usage details.
+     * Compose BTC or BSV transaction asynchronously. Refer to <a target="_top" href="https://developers.zumo.money/docs/guides/send-transactions#crypto">Send Transactions</a> guide for usage details.
      * <p>
      * On success {@link  ComposedTransaction ComposedTransaction}  is returned via callback.
      *
      * @param fromAccountId   {@link  Account Account} identifier
      * @param changeAccountId change {@link  Account Account} identifier, which can be the same as fromAccountId
      * @param destination       destination wallet address
-     * @param amount            amount in BTC
+     * @param amount            amount in BTC or BSV
      * @param feeRate          fee rate in satoshis/byte
      * @param sendMax          send maximum possible funds to destination
      * @param callback          an interface to receive the result or error
      */
-    public void composeBtcTransaction(String fromAccountId, String changeAccountId, String destination, java.math.BigDecimal amount, java.math.BigDecimal feeRate, boolean sendMax, ComposeTransactionCallback callback);
+    public void composeTransaction(String fromAccountId, String changeAccountId, String destination, java.math.BigDecimal amount, java.math.BigDecimal feeRate, boolean sendMax, ComposeTransactionCallback callback);
 
     /**
      * Compose Ethereum transaction asynchronously. Refer to <a target="_top" href="https://developers.zumo.money/docs/guides/send-transactions#ethereum">Send Transactions</a> guide for usage details.
@@ -132,12 +132,12 @@ public interface Wallet {
         }
 
         @Override
-        public void composeBtcTransaction(String fromAccountId, String changeAccountId, String destination, java.math.BigDecimal amount, java.math.BigDecimal feeRate, boolean sendMax, ComposeTransactionCallback callback)
+        public void composeTransaction(String fromAccountId, String changeAccountId, String destination, java.math.BigDecimal amount, java.math.BigDecimal feeRate, boolean sendMax, ComposeTransactionCallback callback)
         {
             assert !this.destroyed.get() : "trying to use a destroyed object";
-            native_composeBtcTransaction(this.nativeRef, fromAccountId, changeAccountId, destination, amount, feeRate, sendMax, callback);
+            native_composeTransaction(this.nativeRef, fromAccountId, changeAccountId, destination, amount, feeRate, sendMax, callback);
         }
-        private native void native_composeBtcTransaction(long _nativeRef, String fromAccountId, String changeAccountId, String destination, java.math.BigDecimal amount, java.math.BigDecimal feeRate, boolean sendMax, ComposeTransactionCallback callback);
+        private native void native_composeTransaction(long _nativeRef, String fromAccountId, String changeAccountId, String destination, java.math.BigDecimal amount, java.math.BigDecimal feeRate, boolean sendMax, ComposeTransactionCallback callback);
 
         @Override
         public void composeEthTransaction(String fromAccountId, java.math.BigDecimal gasPrice, java.math.BigDecimal gasLimit, String destination, java.math.BigDecimal amount, String data, Long nonce, boolean sendMax, ComposeTransactionCallback callback)

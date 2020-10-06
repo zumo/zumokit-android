@@ -6,12 +6,7 @@ import java.net.URISyntaxException;
 /**
  * Entry point to ZumoKit Android SDK.
  * <p>
- * Once ZumoKit is {@linkplain #ZumoKit initialized}, this class provides access to {@linkplain #getUser user retrieval},
- * {@linkplain #getState ZumoKit state object}, {@linkplain #utils crypto utility class} and
- * {@linkplain #getHistoricalExchangeRates historical exchange rates}.
- * State change listeners can be  {@linkplain #addStateListener added} and {@linkplain #removeStateListener removed}.
- * <p>
- * See <a target="_top" href="https://developers.zumo.money/docs/guides/getting-started">Getting Started</a> guide for usage details.
+ * See <a href="https://developers.zumo.money/docs/guides/getting-started">Getting Started</a> guide for usage details.
  * */
 public class ZumoKit {
     private ZumoCore zumoCore;
@@ -32,18 +27,18 @@ public class ZumoKit {
     /**
      * Initializes ZumoKit SDK. Should only be called once.
      *
-     * @param apiKey          ZumoKit Api-Key
-     * @param apiRoot         ZumoKit API url
+     * @param apiKey        ZumoKit Api-Key
+     * @param apiUrl        ZumoKit API url
      * @param txServiceUrl  ZumoKit Transaction Service url
      */
-    public ZumoKit(String apiKey, String apiRoot, String txServiceUrl) {
+    public ZumoKit(String apiKey, String apiUrl, String txServiceUrl) {
         // HTTP implementation
         HttpImpl httpImpl = new HttpService();
 
         // WebSocket implementation
         URI uri;
         try {
-            uri = new URI(txServiceUrl);
+            uri = new URI(txServiceUrl.replace("https", "wss"));
         } catch (URISyntaxException e) {
             e.printStackTrace();
             return;
@@ -51,36 +46,71 @@ public class ZumoKit {
         WebSocketService wsImpl = new WebSocketService(uri);
 
         // initialise C++ core library
-        zumoCore = ZumoCore.init(httpImpl, wsImpl, apiKey, apiRoot, txServiceUrl);
+        zumoCore = ZumoCore.init(httpImpl, wsImpl, apiKey, apiUrl, txServiceUrl);
 
         // Connect to WebSocket
         wsImpl.connect();
     }
 
     /**
-     * Get user corresponding to user token set.
-     * Refer to <a target="_top" href="https://developers.zumo.money/docs/setup/server#get-zumokit-user-token">Server</a> guide for details on how to get user token set.
+     * Authenticates user token set and returns corresponding user. On success user is set as active user.
+     * Refer to <a href="https://developers.zumo.money/docs/setup/server#get-zumokit-user-token">Server</a> guide for details on how to get user token set.
      *
      * @param userTokenSet   user token set
      * @param callback       an interface to receive the result or error
      *
      * @see User
      */
-    public void getUser(String userTokenSet, UserCallback callback) { zumoCore.getUser(userTokenSet, callback); }
+    public void authUser(String userTokenSet, UserCallback callback) {
+        zumoCore.authUser(userTokenSet, callback);
+    }
+
+    /**
+     * Get active user if exists.
+     *
+     * @return active user or null
+     */
+    public User getActiveUser() {
+        return zumoCore.getActiveUser();
+    }
 
     /**
      * Get crypto utils.
      *
      * @return crypto utils
      */
-    public Utils utils() { return zumoCore.getUtils(); }
+    public Utils getUtils() {
+        return zumoCore.getUtils();
+    }
 
     /**
-     * Returns current ZumoKit state. Refer to <a target="_top" href="https://developers.zumo.money/docs/guides/zumokit-state">ZumoKit State</a> guide for details.
+     * Get exchange rate for selected currency pair.
      *
-     * @return current ZumoKit state
+     * @param fromCurrency   currency code
+     * @param toCurrency     currency code
      */
-    public State getState() { return zumoCore.getState(); };
+    public ExchangeRate getExchangeRate(String fromCurrency, String toCurrency) {
+        return zumoCore.getExchangeRate(fromCurrency, toCurrency);
+    }
+
+    /**
+     * Get exchange settings for selected currency pair.
+     *
+     * @param fromCurrency   currency code
+     * @param toCurrency     currency code
+     */
+    public ExchangeSettings getExchangeSettings(String fromCurrency, String toCurrency) {
+        return zumoCore.getExchangeSettings(fromCurrency, toCurrency);
+    }
+
+    /**
+     * Get exchange fee rates for selected currency.
+     *
+     * @param currency   currency code
+     */
+    public FeeRates getFeeRates(String currency) {
+        return zumoCore.getFeeRates(currency);
+    }
 
     /**
      * Fetch historical exchange rates for supported time intervals.
@@ -91,19 +121,8 @@ public class ZumoKit {
      *
      * @see HistoricalExchangeRatesInterval
      */
-    public void getHistoricalExchangeRates(HistoricalExchangeRatesCallback callback) { zumoCore.getHistoricalExchangeRates(callback); }
+    public void fetchHistoricalExchangeRates(HistoricalExchangeRatesCallback callback) {
+        zumoCore.fetchHistoricalExchangeRates(callback);
+    }
 
-    /**
-     * Listen to all state changes. Refer to <a target="_top" href="https://developers.zumo.money/docs/guides/zumokit-state#listen-to-state-changes">ZumoKit State</a> guide for details.
-     *
-     * @param listener interface to listen to state changes
-     */
-    public void addStateListener(StateListener listener) { zumoCore.addStateListener(listener); };
-
-    /**
-     * Remove listener to state changes. Refer to <a target="_top" href="https://developers.zumo.money/docs/guides/zumokit-state#remove-state-listener">ZumoKit State</a> guide for details.
-     *
-     * @param listener interface to listen to state changes
-     */
-    public void removeStateListener(StateListener listener) { zumoCore.removeStateListener(listener); };
 }
