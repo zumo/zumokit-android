@@ -8,9 +8,10 @@
     os.api_level=21
 
 [requires]
-    bitcoin_core/0.20.0
+    bitcoin_core/0.20.1
     boost_headers/1.Y.Z
     nlohmann_json/3.Y.Z
+    trezor_crypto/1.Y.Z
 
 [options]
     coverage=False
@@ -26,10 +27,11 @@
     os.api_level=21
 
 [full_requires]
-    bitcoin_core/0.20.0@zumo/stable:8934321bb22d5caba78d789917d56c60a42fc7f7
+    bitcoin_core/0.20.1@zumo/stable:8934321bb22d5caba78d789917d56c60a42fc7f7
     boost_headers/1.72.0@zumo/stable:5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9
     nlohmann_json/3.8.0:5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9
-    secp256k1/1.0@zumo/stable:23d9d98072c26a728bdbf4ab8aad7e3b2b7df07e
+    secp256k1/1.1@zumo/stable:23d9d98072c26a728bdbf4ab8aad7e3b2b7df07e
+    trezor_crypto/1.0@zumo/stable:23d9d98072c26a728bdbf4ab8aad7e3b2b7df07e
 
 [full_options]
     coverage=False
@@ -37,6 +39,7 @@
     bitcoin_core:shared=True
     nlohmann_json:multiple_headers=False
     secp256k1:shared=True
+    trezor_crypto:shared=True
 
 [recipe_hash]
 

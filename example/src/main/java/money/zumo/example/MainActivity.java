@@ -17,7 +17,6 @@ import money.zumo.zumokit.Exchange;
 import money.zumo.zumokit.ExchangeRate;
 import money.zumo.zumokit.ExchangeSettings;
 import money.zumo.zumokit.HttpCallback;
-import money.zumo.zumokit.State;
 import money.zumo.zumokit.NetworkType;
 import money.zumo.zumokit.ComposeTransactionCallback;
 import money.zumo.zumokit.SubmitExchangeCallback;
@@ -53,14 +52,6 @@ public class MainActivity extends AppCompatActivity {
         // Initialize ZumoKit
         mZumoKit = new ZumoKit(BuildConfig.API_KEY, BuildConfig.API_URL, BuildConfig.TX_SERVICE_URL);
 
-        // Listen to ZumoKit state changes
-        mZumoKit.addStateListener(state -> {
-            // React to state changes
-            for (Transaction tx : state.getTransactions()) {
-                Log.i("zumokit/transaction", tx.toString());
-            }
-        });
-
         // Get ZumoKit user token from Client API
         HttpService httpService = new HttpService();
 
@@ -82,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
             public void onSuccess(short httpCode, String responseData) {
                 if (httpCode == 200) {
                     String tokenSet = responseData;
-                    mZumoKit.getUser(tokenSet, new UserCallback() {
+                    mZumoKit.authUser(tokenSet, new UserCallback() {
                         @Override
                         public void onError(Exception e) {
                             String errorType = ((ZumoKitException) e).getErrorType();
@@ -150,26 +141,24 @@ public class MainActivity extends AppCompatActivity {
 
                                 // Fiat account
                                 Account fiatAccount = mUser.getAccount(CurrencyCode.GBP, NetworkType.TESTNET, AccountType.STANDARD);
-                                Log.i("zumokit/fiat-account", fiatAccount.toString());
 
-                                if (fiatAccount.getHasNominatedAccount()) {
-                                    user.getNominatedAccountFiatProperties(fiatAccount.getId(), new AccountFiatPropertiesCallback() {
-                                        @Override
-                                        public void onError(Exception e) {
-                                            Log.e("zumokit/nominated-account", e.toString());
-                                        }
+                                if (fiatAccount != null) {
+                                    Log.i("zumokit/fiat-account", fiatAccount.toString());
 
-                                        @Override
-                                        public void onSuccess(AccountFiatProperties account) {
-                                            Log.i("zumokit/nominated-account", account.toString());
-                                        }
-                                    });
+                                    if (fiatAccount.getHasNominatedAccount()) {
+                                        user.getNominatedAccountFiatProperties(fiatAccount.getId(), new AccountFiatPropertiesCallback() {
+                                            @Override
+                                            public void onError(Exception e) {
+                                                Log.e("zumokit/nominated-account", e.toString());
+                                            }
+
+                                            @Override
+                                            public void onSuccess(AccountFiatProperties account) {
+                                                Log.i("zumokit/nominated-account", account.toString());
+                                            }
+                                        });
+                                    }
                                 }
-
-                                // Exchanges
-                                Log.i("zumokit/exchanges", mZumoKit.getState().getExchanges().toString());
-
-                                Log.i("zumokit/average", mZumoKit.getState().getFeeRates().get("BTC").getAverage().toString());
 
                                 Log.i("zumokit/user", "User has wallet. Unlocking wallet...");
                                 mUser.unlockWallet(BuildConfig.USER_WALLET_PASSWORD, new WalletCallback() {
@@ -187,11 +176,9 @@ public class MainActivity extends AppCompatActivity {
                                         //composeBtcTransaction(btcAccount, false);
                                         //composeFiatTransaction(fiatAccount, true, false);
 
-                                        State state = mZumoKit.getState();
-
                                         // Display current exchange rates & exchange settings
-                                        Log.i("zumokit/exchange-rates",  state.getExchangeRates().get("BTC").get("ETH").toString());
-                                        Log.i("zumokit/exchange-rates",  state.getExchangeSettings().get("ETH").get("BTC").toString());
+                                        Log.i("zumokit/exchange-rates",  mZumoKit.getExchangeRate("BTC", "ETH").toString());
+                                        Log.i("zumokit/exchange-rates",  mZumoKit.getExchangeSettings("ETH", "BTC").toString());
 
 //                                        composeExchange(
 //                                                ethAccount,
@@ -207,7 +194,7 @@ public class MainActivity extends AppCompatActivity {
                             } else {
                                 Log.i("zumokit/user", "User has no wallet. Creating new wallet...");
 
-                                String mnemonic = mZumoKit.utils().generateMnemonic(12);
+                                String mnemonic = mZumoKit.getUtils().generateMnemonic(12);
 
                                 mUser.createWallet(mnemonic, BuildConfig.USER_WALLET_PASSWORD, new WalletCallback() {
                                     @Override
@@ -270,9 +257,9 @@ public class MainActivity extends AppCompatActivity {
     private void composeBtcTransaction(Account account, Boolean submit) {
         String to = "2NBQtvK3wMXs43YGt9aotsoWSS79Qmh7z1J";
         BigDecimal value = new BigDecimal("0.0002");
-        BigDecimal feeRate = mZumoKit.getState().getFeeRates().get("BTC").getAverage();
+        BigDecimal feeRate = mZumoKit.getFeeRates("BTC").getAverage();
 
-        mWallet.composeBtcTransaction(account.getId(), account.getId(), to, value, feeRate, false,
+        mWallet.composeTransaction(account.getId(), account.getId(), to, value, feeRate, false,
                 new ComposeTransactionCallback() {
                     @Override
                     public void onError(Exception e) {

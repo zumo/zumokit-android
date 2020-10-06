@@ -8,15 +8,22 @@ import java.util.concurrent.atomic.AtomicBoolean;
 /** Entry point to ZumoKit C++ SDK */
 public interface ZumoCore {
     /**
-     * Get user corresponding to user token set.
-     * Refer to <a target="_top" href="https://developers.zumo.money/docs/setup/server#get-zumokit-user-token">Server</a> guide for details on how to get user token set.
+     * Authenticates user token set and returns corresponding user. On success user is set as active user.
+     * Refer to <a href="https://developers.zumo.money/docs/setup/server#get-zumokit-user-token">Server</a> guide for details on how to get user token set.
      *
      * @param userTokenSet   user token set
      * @param callback         an interface to receive the result or error
      *
      * @see User
      */
-    public void getUser(String userTokenSet, UserCallback callback);
+    public void authUser(String userTokenSet, UserCallback callback);
+
+    /**
+     * Get active user if exists.
+     *
+     * @return active user or null
+     */
+    public User getActiveUser();
 
     /**
      * Get crypto utils class.
@@ -24,6 +31,35 @@ public interface ZumoCore {
      * @return crypto utils
      */
     public Utils getUtils();
+
+    /**
+     * Get exchange rate for selected currency pair.
+     *
+     * @param fromCurrency   currency code
+     * @param toCurrency     currency code
+     *
+     * @return exchange rate or null
+     */
+    public ExchangeRate getExchangeRate(String fromCurrency, String toCurrency);
+
+    /**
+     * Get exchange settings for selected currency pair.
+     *
+     * @param fromCurrency   currency code
+     * @param toCurrency     currency code
+     *
+     * @return exchange settings or null
+     */
+    public ExchangeSettings getExchangeSettings(String fromCurrency, String toCurrency);
+
+    /**
+     * Get crypto currency fee rates for selected currency.
+     *
+     * @param currency   currency code
+     *
+     * @return exchange settings or null
+     */
+    public FeeRates getFeeRates(String currency);
 
     /**
      * Fetch historical exchange rates for supported time intervals.
@@ -34,28 +70,7 @@ public interface ZumoCore {
      *
      * @see HistoricalExchangeRatesInterval
      */
-    public void getHistoricalExchangeRates(HistoricalExchangeRatesCallback callback);
-
-    /**
-     * Returns current ZumoKit state. Refer to <a target="_top" href="https://developers.zumo.money/docs/guides/zumokit-state">ZumoKit State</a> guide for details.
-     *
-     * @return current ZumoKit state
-     */
-    public State getState();
-
-    /**
-     * Listen to all state changes. Refer to <a target="_top" href="https://developers.zumo.money/docs/guides/zumokit-state#listen-to-state-changes">ZumoKit State</a> guide for details.
-     *
-     * @param listener interface to listen to state changes
-     */
-    public void addStateListener(StateListener listener);
-
-    /**
-     * Remove listener to state changes. Refer to <a target="_top" href="https://developers.zumo.money/docs/guides/zumokit-state#remove-state-listener">ZumoKit State</a> guide for details.
-     *
-     * @param listener interface to listen to state changes
-     */
-    public void removeStateListener(StateListener listener);
+    public void fetchHistoricalExchangeRates(HistoricalExchangeRatesCallback callback);
 
     /**
      * Get ZumoKit SDK version.
@@ -72,18 +87,18 @@ public interface ZumoCore {
      * @param httpImpl        HTTP implementation
      * @param wsImpl          WebSocet implementation
      * @param apiKey          ZumoKit Api-Key
-     * @param apiRoot         ZumoKit API url
-     * @param txServiceRoot  ZumoKit Transaction Service url
+     * @param apiUrl         ZumoKit API url
+     * @param txServiceUrl  ZumoKit Transaction Service url
      *
      * @return ZumoKit instance
      */
-    public static ZumoCore init(HttpImpl httpImpl, WebSocketImpl wsImpl, String apiKey, String apiRoot, String txServiceRoot)
+    public static ZumoCore init(HttpImpl httpImpl, WebSocketImpl wsImpl, String apiKey, String apiUrl, String txServiceUrl)
     {
         return CppProxy.init(httpImpl,
                              wsImpl,
                              apiKey,
-                             apiRoot,
-                             txServiceRoot);
+                             apiUrl,
+                             txServiceUrl);
     }
 
     static final class CppProxy implements ZumoCore
@@ -110,12 +125,20 @@ public interface ZumoCore {
         }
 
         @Override
-        public void getUser(String userTokenSet, UserCallback callback)
+        public void authUser(String userTokenSet, UserCallback callback)
         {
             assert !this.destroyed.get() : "trying to use a destroyed object";
-            native_getUser(this.nativeRef, userTokenSet, callback);
+            native_authUser(this.nativeRef, userTokenSet, callback);
         }
-        private native void native_getUser(long _nativeRef, String userTokenSet, UserCallback callback);
+        private native void native_authUser(long _nativeRef, String userTokenSet, UserCallback callback);
+
+        @Override
+        public User getActiveUser()
+        {
+            assert !this.destroyed.get() : "trying to use a destroyed object";
+            return native_getActiveUser(this.nativeRef);
+        }
+        private native User native_getActiveUser(long _nativeRef);
 
         @Override
         public Utils getUtils()
@@ -126,39 +149,39 @@ public interface ZumoCore {
         private native Utils native_getUtils(long _nativeRef);
 
         @Override
-        public void getHistoricalExchangeRates(HistoricalExchangeRatesCallback callback)
+        public ExchangeRate getExchangeRate(String fromCurrency, String toCurrency)
         {
             assert !this.destroyed.get() : "trying to use a destroyed object";
-            native_getHistoricalExchangeRates(this.nativeRef, callback);
+            return native_getExchangeRate(this.nativeRef, fromCurrency, toCurrency);
         }
-        private native void native_getHistoricalExchangeRates(long _nativeRef, HistoricalExchangeRatesCallback callback);
+        private native ExchangeRate native_getExchangeRate(long _nativeRef, String fromCurrency, String toCurrency);
 
         @Override
-        public State getState()
+        public ExchangeSettings getExchangeSettings(String fromCurrency, String toCurrency)
         {
             assert !this.destroyed.get() : "trying to use a destroyed object";
-            return native_getState(this.nativeRef);
+            return native_getExchangeSettings(this.nativeRef, fromCurrency, toCurrency);
         }
-        private native State native_getState(long _nativeRef);
+        private native ExchangeSettings native_getExchangeSettings(long _nativeRef, String fromCurrency, String toCurrency);
 
         @Override
-        public void addStateListener(StateListener listener)
+        public FeeRates getFeeRates(String currency)
         {
             assert !this.destroyed.get() : "trying to use a destroyed object";
-            native_addStateListener(this.nativeRef, listener);
+            return native_getFeeRates(this.nativeRef, currency);
         }
-        private native void native_addStateListener(long _nativeRef, StateListener listener);
+        private native FeeRates native_getFeeRates(long _nativeRef, String currency);
 
         @Override
-        public void removeStateListener(StateListener listener)
+        public void fetchHistoricalExchangeRates(HistoricalExchangeRatesCallback callback)
         {
             assert !this.destroyed.get() : "trying to use a destroyed object";
-            native_removeStateListener(this.nativeRef, listener);
+            native_fetchHistoricalExchangeRates(this.nativeRef, callback);
         }
-        private native void native_removeStateListener(long _nativeRef, StateListener listener);
+        private native void native_fetchHistoricalExchangeRates(long _nativeRef, HistoricalExchangeRatesCallback callback);
 
         public static native String getVersion();
 
-        public static native ZumoCore init(HttpImpl httpImpl, WebSocketImpl wsImpl, String apiKey, String apiRoot, String txServiceRoot);
+        public static native ZumoCore init(HttpImpl httpImpl, WebSocketImpl wsImpl, String apiKey, String apiUrl, String txServiceUrl);
     }
 }

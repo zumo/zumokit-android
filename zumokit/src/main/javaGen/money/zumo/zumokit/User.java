@@ -144,74 +144,16 @@ public interface User {
     public ArrayList<Account> getAccounts();
 
     /**
-     * Get account transactions for specified account.
-     * @param accountId {@link  Account Account} identifier
-     * @return all transactions corresponding to specified account
-     */
-    public ArrayList<Transaction> getAccountTransactions(String accountId);
-
-    /**
-     * Get all user transactions.
-     * @return all user transactions
-     */
-    public ArrayList<Transaction> getTransactions();
-
-    /**
-     * Get transaction with specific transaction identifier if such transaction exists.
-     * @param transactionId {@link  Transaction Transaction} identifier
-     * @return transaction with specified identifier if exists, null otherwise
-     */
-    public Transaction getTransaction(String transactionId);
-
-    /**
-     * Get all user exchanges.
-     * @return all user exchanges
-     */
-    public ArrayList<Exchange> getExchanges();
-
-    /**
-     * Get exchange associated with selected transaction if such exchange exists.
-     * @return exchange associated with selected transaction if such exchange exists
-     */
-    public Exchange getExchangeByTransactionId(String transactionId);
-
-    /**
-     * Listen to all user changes.
+     * Listen to all account data changes.
      * @param listener interface to listen to user changes
      */
-    public void addListener(UserListener listener);
+    public void addAccountDataListener(AccountDataListener listener);
 
     /**
-     * Remove listener to user changes.
+     * Remove listener to account data changes.
      * @param listener interface to listen to user changes
      */
-    public void removeListener(UserListener listener);
-
-    /**
-     * Listen to all account changes for specific account.
-     * @param accountId {@link  Account Account} identifier
-     * @param listener   interface to listen to account changes
-     */
-    public void addAccountListener(String accountId, AccountListener listener);
-
-    /**
-     * Remove listener to account changes.
-     * @param listener interface to listen to user changes
-     */
-    public void removeAccountListener(AccountListener listener);
-
-    /**
-     * Listen to all transaction changes for specific transaction.
-     * @param transactionId {@link  Transaction Transaction} identifier
-     * @param listener       interface to listen to transaction changes
-     */
-    public void addTransactionListener(String transactionId, TransactionListener listener);
-
-    /**
-     * Remove listener to transaction changes.
-     * @param listener interface to listen to transaction changes
-     */
-    public void removeTransactionListener(TransactionListener listener);
+    public void removeAccountDataListener(AccountDataListener listener);
 
     static final class CppProxy implements User
     {
@@ -349,91 +291,19 @@ public interface User {
         private native ArrayList<Account> native_getAccounts(long _nativeRef);
 
         @Override
-        public ArrayList<Transaction> getAccountTransactions(String accountId)
+        public void addAccountDataListener(AccountDataListener listener)
         {
             assert !this.destroyed.get() : "trying to use a destroyed object";
-            return native_getAccountTransactions(this.nativeRef, accountId);
+            native_addAccountDataListener(this.nativeRef, listener);
         }
-        private native ArrayList<Transaction> native_getAccountTransactions(long _nativeRef, String accountId);
+        private native void native_addAccountDataListener(long _nativeRef, AccountDataListener listener);
 
         @Override
-        public ArrayList<Transaction> getTransactions()
+        public void removeAccountDataListener(AccountDataListener listener)
         {
             assert !this.destroyed.get() : "trying to use a destroyed object";
-            return native_getTransactions(this.nativeRef);
+            native_removeAccountDataListener(this.nativeRef, listener);
         }
-        private native ArrayList<Transaction> native_getTransactions(long _nativeRef);
-
-        @Override
-        public Transaction getTransaction(String transactionId)
-        {
-            assert !this.destroyed.get() : "trying to use a destroyed object";
-            return native_getTransaction(this.nativeRef, transactionId);
-        }
-        private native Transaction native_getTransaction(long _nativeRef, String transactionId);
-
-        @Override
-        public ArrayList<Exchange> getExchanges()
-        {
-            assert !this.destroyed.get() : "trying to use a destroyed object";
-            return native_getExchanges(this.nativeRef);
-        }
-        private native ArrayList<Exchange> native_getExchanges(long _nativeRef);
-
-        @Override
-        public Exchange getExchangeByTransactionId(String transactionId)
-        {
-            assert !this.destroyed.get() : "trying to use a destroyed object";
-            return native_getExchangeByTransactionId(this.nativeRef, transactionId);
-        }
-        private native Exchange native_getExchangeByTransactionId(long _nativeRef, String transactionId);
-
-        @Override
-        public void addListener(UserListener listener)
-        {
-            assert !this.destroyed.get() : "trying to use a destroyed object";
-            native_addListener(this.nativeRef, listener);
-        }
-        private native void native_addListener(long _nativeRef, UserListener listener);
-
-        @Override
-        public void removeListener(UserListener listener)
-        {
-            assert !this.destroyed.get() : "trying to use a destroyed object";
-            native_removeListener(this.nativeRef, listener);
-        }
-        private native void native_removeListener(long _nativeRef, UserListener listener);
-
-        @Override
-        public void addAccountListener(String accountId, AccountListener listener)
-        {
-            assert !this.destroyed.get() : "trying to use a destroyed object";
-            native_addAccountListener(this.nativeRef, accountId, listener);
-        }
-        private native void native_addAccountListener(long _nativeRef, String accountId, AccountListener listener);
-
-        @Override
-        public void removeAccountListener(AccountListener listener)
-        {
-            assert !this.destroyed.get() : "trying to use a destroyed object";
-            native_removeAccountListener(this.nativeRef, listener);
-        }
-        private native void native_removeAccountListener(long _nativeRef, AccountListener listener);
-
-        @Override
-        public void addTransactionListener(String transactionId, TransactionListener listener)
-        {
-            assert !this.destroyed.get() : "trying to use a destroyed object";
-            native_addTransactionListener(this.nativeRef, transactionId, listener);
-        }
-        private native void native_addTransactionListener(long _nativeRef, String transactionId, TransactionListener listener);
-
-        @Override
-        public void removeTransactionListener(TransactionListener listener)
-        {
-            assert !this.destroyed.get() : "trying to use a destroyed object";
-            native_removeTransactionListener(this.nativeRef, listener);
-        }
-        private native void native_removeTransactionListener(long _nativeRef, TransactionListener listener);
+        private native void native_removeAccountDataListener(long _nativeRef, AccountDataListener listener);
     }
 }
