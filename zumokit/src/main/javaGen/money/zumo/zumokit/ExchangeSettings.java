@@ -11,40 +11,40 @@ public final class ExchangeSettings {
 
     /*package*/ final String mId;
 
-    /*package*/ final HashMap<String, String> mDepositAddress;
+    /*package*/ final HashMap<String, String> mExchangeAddress;
 
-    /*package*/ final String mDepositCurrency;
+    /*package*/ final String mFromCurrency;
 
-    /*package*/ final String mWithdrawCurrency;
+    /*package*/ final String mToCurrency;
 
     /*package*/ final java.math.BigDecimal mMinExchangeAmount;
 
-    /*package*/ final java.math.BigDecimal mFeeRate;
+    /*package*/ final java.math.BigDecimal mExchangeFeeRate;
 
-    /*package*/ final java.math.BigDecimal mDepositFeeRate;
+    /*package*/ final java.math.BigDecimal mOutgoingTransactionFeeRate;
 
-    /*package*/ final java.math.BigDecimal mWithdrawFee;
+    /*package*/ final java.math.BigDecimal mReturnTransactionFee;
 
     /*package*/ final long mTimestamp;
 
     public ExchangeSettings(
             String id,
-            HashMap<String, String> depositAddress,
-            String depositCurrency,
-            String withdrawCurrency,
+            HashMap<String, String> exchangeAddress,
+            String fromCurrency,
+            String toCurrency,
             java.math.BigDecimal minExchangeAmount,
-            java.math.BigDecimal feeRate,
-            java.math.BigDecimal depositFeeRate,
-            java.math.BigDecimal withdrawFee,
+            java.math.BigDecimal exchangeFeeRate,
+            java.math.BigDecimal outgoingTransactionFeeRate,
+            java.math.BigDecimal returnTransactionFee,
             long timestamp) {
         this.mId = id;
-        this.mDepositAddress = depositAddress;
-        this.mDepositCurrency = depositCurrency;
-        this.mWithdrawCurrency = withdrawCurrency;
+        this.mExchangeAddress = exchangeAddress;
+        this.mFromCurrency = fromCurrency;
+        this.mToCurrency = toCurrency;
         this.mMinExchangeAmount = minExchangeAmount;
-        this.mFeeRate = feeRate;
-        this.mDepositFeeRate = depositFeeRate;
-        this.mWithdrawFee = withdrawFee;
+        this.mExchangeFeeRate = exchangeFeeRate;
+        this.mOutgoingTransactionFeeRate = outgoingTransactionFeeRate;
+        this.mReturnTransactionFee = returnTransactionFee;
         this.mTimestamp = timestamp;
     }
 
@@ -54,27 +54,27 @@ public final class ExchangeSettings {
     }
 
     /**
-     * Zumo Exchange Service wallet address for each network type.
+     * Mapping between networks and Zumo Exchange addresses.
      * @see NetworkType
      */
-    public HashMap<String, String> getDepositAddress() {
-        return mDepositAddress;
+    public HashMap<String, String> getExchangeAddress() {
+        return mExchangeAddress;
     }
 
     /**
      * Currency code of outgoing transaction.
      * @see CurrencyCode
      */
-    public String getDepositCurrency() {
-        return mDepositCurrency;
+    public String getFromCurrency() {
+        return mFromCurrency;
     }
 
     /**
      * Currency code of return transaction.
      * @see CurrencyCode
      */
-    public String getWithdrawCurrency() {
-        return mWithdrawCurrency;
+    public String getToCurrency() {
+        return mToCurrency;
     }
 
     /** Minimum amount that can be exchanged in outgoing transaction currency. */
@@ -83,18 +83,18 @@ public final class ExchangeSettings {
     }
 
     /** Exchange fee rate that will be charged once currency is exchanged. */
-    public java.math.BigDecimal getFeeRate() {
-        return mFeeRate;
+    public java.math.BigDecimal getExchangeFeeRate() {
+        return mExchangeFeeRate;
     }
 
     /** Fee rate that will be used for outgoing transaction. */
-    public java.math.BigDecimal getDepositFeeRate() {
-        return mDepositFeeRate;
+    public java.math.BigDecimal getOutgoingTransactionFeeRate() {
+        return mOutgoingTransactionFeeRate;
     }
 
     /** Fee that will charged for return transaction. */
-    public java.math.BigDecimal getWithdrawFee() {
-        return mWithdrawFee;
+    public java.math.BigDecimal getReturnTransactionFee() {
+        return mReturnTransactionFee;
     }
 
     /** Epoch timestamp when the exchange settings were last updated. */
@@ -109,13 +109,13 @@ public final class ExchangeSettings {
         }
         ExchangeSettings other = (ExchangeSettings) obj;
         return this.mId.equals(other.mId) &&
-                this.mDepositAddress.equals(other.mDepositAddress) &&
-                this.mDepositCurrency.equals(other.mDepositCurrency) &&
-                this.mWithdrawCurrency.equals(other.mWithdrawCurrency) &&
+                this.mExchangeAddress.equals(other.mExchangeAddress) &&
+                this.mFromCurrency.equals(other.mFromCurrency) &&
+                this.mToCurrency.equals(other.mToCurrency) &&
                 this.mMinExchangeAmount.equals(other.mMinExchangeAmount) &&
-                this.mFeeRate.equals(other.mFeeRate) &&
-                this.mDepositFeeRate.equals(other.mDepositFeeRate) &&
-                this.mWithdrawFee.equals(other.mWithdrawFee) &&
+                this.mExchangeFeeRate.equals(other.mExchangeFeeRate) &&
+                this.mOutgoingTransactionFeeRate.equals(other.mOutgoingTransactionFeeRate) &&
+                this.mReturnTransactionFee.equals(other.mReturnTransactionFee) &&
                 this.mTimestamp == other.mTimestamp;
     }
 
@@ -124,13 +124,13 @@ public final class ExchangeSettings {
         // Pick an arbitrary non-zero starting value
         int hashCode = 17;
         hashCode = hashCode * 31 + mId.hashCode();
-        hashCode = hashCode * 31 + mDepositAddress.hashCode();
-        hashCode = hashCode * 31 + mDepositCurrency.hashCode();
-        hashCode = hashCode * 31 + mWithdrawCurrency.hashCode();
+        hashCode = hashCode * 31 + mExchangeAddress.hashCode();
+        hashCode = hashCode * 31 + mFromCurrency.hashCode();
+        hashCode = hashCode * 31 + mToCurrency.hashCode();
         hashCode = hashCode * 31 + (mMinExchangeAmount.hashCode());
-        hashCode = hashCode * 31 + (mFeeRate.hashCode());
-        hashCode = hashCode * 31 + (mDepositFeeRate.hashCode());
-        hashCode = hashCode * 31 + (mWithdrawFee.hashCode());
+        hashCode = hashCode * 31 + (mExchangeFeeRate.hashCode());
+        hashCode = hashCode * 31 + (mOutgoingTransactionFeeRate.hashCode());
+        hashCode = hashCode * 31 + (mReturnTransactionFee.hashCode());
         hashCode = hashCode * 31 + ((int) (mTimestamp ^ (mTimestamp >>> 32)));
         return hashCode;
     }
@@ -139,13 +139,13 @@ public final class ExchangeSettings {
     public String toString() {
         return "ExchangeSettings{" +
                 "mId=" + mId +
-                "," + "mDepositAddress=" + mDepositAddress +
-                "," + "mDepositCurrency=" + mDepositCurrency +
-                "," + "mWithdrawCurrency=" + mWithdrawCurrency +
+                "," + "mExchangeAddress=" + mExchangeAddress +
+                "," + "mFromCurrency=" + mFromCurrency +
+                "," + "mToCurrency=" + mToCurrency +
                 "," + "mMinExchangeAmount=" + mMinExchangeAmount +
-                "," + "mFeeRate=" + mFeeRate +
-                "," + "mDepositFeeRate=" + mDepositFeeRate +
-                "," + "mWithdrawFee=" + mWithdrawFee +
+                "," + "mExchangeFeeRate=" + mExchangeFeeRate +
+                "," + "mOutgoingTransactionFeeRate=" + mOutgoingTransactionFeeRate +
+                "," + "mReturnTransactionFee=" + mReturnTransactionFee +
                 "," + "mTimestamp=" + mTimestamp +
         "}";
     }

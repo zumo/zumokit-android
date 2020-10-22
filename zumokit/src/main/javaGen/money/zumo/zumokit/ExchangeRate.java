@@ -12,9 +12,9 @@ public final class ExchangeRate {
 
     /*package*/ final String mId;
 
-    /*package*/ final String mDepositCurrency;
+    /*package*/ final String mFromCurrency;
 
-    /*package*/ final String mWithdrawCurrency;
+    /*package*/ final String mToCurrency;
 
     /*package*/ final java.math.BigDecimal mValue;
 
@@ -24,14 +24,14 @@ public final class ExchangeRate {
 
     public ExchangeRate(
             String id,
-            String depositCurrency,
-            String withdrawCurrency,
+            String fromCurrency,
+            String toCurrency,
             java.math.BigDecimal value,
             long validTo,
             long timestamp) {
         this.mId = id;
-        this.mDepositCurrency = depositCurrency;
-        this.mWithdrawCurrency = withdrawCurrency;
+        this.mFromCurrency = fromCurrency;
+        this.mToCurrency = toCurrency;
         this.mValue = value;
         this.mValidTo = validTo;
         this.mTimestamp = timestamp;
@@ -46,19 +46,19 @@ public final class ExchangeRate {
      * Currency from which exchange is being made.
      * @see CurrencyCode
      */
-    public String getDepositCurrency() {
-        return mDepositCurrency;
+    public String getFromCurrency() {
+        return mFromCurrency;
     }
 
     /**
      * Currency from which exchange is being made.
      * @see CurrencyCode
      */
-    public String getWithdrawCurrency() {
-        return mWithdrawCurrency;
+    public String getToCurrency() {
+        return mToCurrency;
     }
 
-    /** Value of 1 unit of deposit currency in withdraw currency. */
+    /** Value of 1 unit of deposit currency in target currency. */
     public java.math.BigDecimal getValue() {
         return mValue;
     }
@@ -80,8 +80,8 @@ public final class ExchangeRate {
         }
         ExchangeRate other = (ExchangeRate) obj;
         return this.mId.equals(other.mId) &&
-                this.mDepositCurrency.equals(other.mDepositCurrency) &&
-                this.mWithdrawCurrency.equals(other.mWithdrawCurrency) &&
+                this.mFromCurrency.equals(other.mFromCurrency) &&
+                this.mToCurrency.equals(other.mToCurrency) &&
                 this.mValue.equals(other.mValue) &&
                 this.mValidTo == other.mValidTo &&
                 this.mTimestamp == other.mTimestamp;
@@ -92,8 +92,8 @@ public final class ExchangeRate {
         // Pick an arbitrary non-zero starting value
         int hashCode = 17;
         hashCode = hashCode * 31 + mId.hashCode();
-        hashCode = hashCode * 31 + mDepositCurrency.hashCode();
-        hashCode = hashCode * 31 + mWithdrawCurrency.hashCode();
+        hashCode = hashCode * 31 + mFromCurrency.hashCode();
+        hashCode = hashCode * 31 + mToCurrency.hashCode();
         hashCode = hashCode * 31 + (mValue.hashCode());
         hashCode = hashCode * 31 + ((int) (mValidTo ^ (mValidTo >>> 32)));
         hashCode = hashCode * 31 + ((int) (mTimestamp ^ (mTimestamp >>> 32)));
@@ -104,8 +104,8 @@ public final class ExchangeRate {
     public String toString() {
         return "ExchangeRate{" +
                 "mId=" + mId +
-                "," + "mDepositCurrency=" + mDepositCurrency +
-                "," + "mWithdrawCurrency=" + mWithdrawCurrency +
+                "," + "mFromCurrency=" + mFromCurrency +
+                "," + "mToCurrency=" + mToCurrency +
                 "," + "mValue=" + mValue +
                 "," + "mValidTo=" + mValidTo +
                 "," + "mTimestamp=" + mTimestamp +

@@ -163,8 +163,8 @@ var activeTableTab = "activeTableTab";
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../money/zumo/zumokit/Wallet.html#composeExchange-java.lang.String-java.lang.String-money.zumo.zumokit.ExchangeRate-money.zumo.zumokit.ExchangeSettings-java.math.BigDecimal-boolean-money.zumo.zumokit.ComposeExchangeCallback-">composeExchange</a></span>(java.lang.String&nbsp;depositAccountId,
-               java.lang.String&nbsp;withdrawAccountId,
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../money/zumo/zumokit/Wallet.html#composeExchange-java.lang.String-java.lang.String-money.zumo.zumokit.ExchangeRate-money.zumo.zumokit.ExchangeSettings-java.math.BigDecimal-boolean-money.zumo.zumokit.ComposeExchangeCallback-">composeExchange</a></span>(java.lang.String&nbsp;fromAccountId,
+               java.lang.String&nbsp;toAccountId,
                <a href="../../../money/zumo/zumokit/ExchangeRate.html" title="class in money.zumo.zumokit">ExchangeRate</a>&nbsp;exchangeRate,
                <a href="../../../money/zumo/zumokit/ExchangeSettings.html" title="class in money.zumo.zumokit">ExchangeSettings</a>&nbsp;exchangeSettings,
                java.math.BigDecimal&nbsp;amount,
@@ -364,8 +364,8 @@ var activeTableTab = "activeTableTab";
 <ul class="blockList">
 <li class="blockList">
 <h4>composeExchange</h4>
-<pre>void&nbsp;composeExchange(java.lang.String&nbsp;depositAccountId,
-                     java.lang.String&nbsp;withdrawAccountId,
+<pre>void&nbsp;composeExchange(java.lang.String&nbsp;fromAccountId,
+                     java.lang.String&nbsp;toAccountId,
                      <a href="../../../money/zumo/zumokit/ExchangeRate.html" title="class in money.zumo.zumokit">ExchangeRate</a>&nbsp;exchangeRate,
                      <a href="../../../money/zumo/zumokit/ExchangeSettings.html" title="class in money.zumo.zumokit">ExchangeSettings</a>&nbsp;exchangeSettings,
                      java.math.BigDecimal&nbsp;amount,
@@ -376,8 +376,8 @@ var activeTableTab = "activeTableTab";
  On success <a href="../../../money/zumo/zumokit/ComposedExchange.html" title="class in money.zumo.zumokit"><code>ComposedExchange</code></a>  is returned via callback.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>depositAccountId</code> - <a href="../../../money/zumo/zumokit/Account.html" title="class in money.zumo.zumokit"><code>Account</code></a> identifier</dd>
-<dd><code>withdrawAccountId</code> - <a href="../../../money/zumo/zumokit/Account.html" title="class in money.zumo.zumokit"><code>Account</code></a> identifier</dd>
+<dd><code>fromAccountId</code> - <a href="../../../money/zumo/zumokit/Account.html" title="class in money.zumo.zumokit"><code>Account</code></a> identifier</dd>
+<dd><code>toAccountId</code> - <a href="../../../money/zumo/zumokit/Account.html" title="class in money.zumo.zumokit"><code>Account</code></a> identifier</dd>
 <dd><code>exchangeRate</code> - Zumo exchange rate obtained from ZumoKit state</dd>
 <dd><code>exchangeSettings</code> - Zumo exchange settings obtained from ZumoKit state</dd>
 <dd><code>amount</code> - amount in deposit account currency</dd>

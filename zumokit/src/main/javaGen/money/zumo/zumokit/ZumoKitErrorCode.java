@@ -98,13 +98,13 @@ public final class ZumoKitErrorCode {
     /** Invalid response received from API. */
     public static final String INVALID_API_RESPONSE = "invalid_api_response";
 
-    /** Invalid or missing exchange deposit address. */
-    public static final String INVALID_EXCHANGE_DEPOSIT_ADDRESS = "invalid_exchange_deposit_address";
+    /** Invalid or missing Zumo Exchange Service address. */
+    public static final String INVALID_EXCHANGE_ADDRESS = "invalid_exchange_address";
 
-    /** Mismatch between exchange rate and selected deposit/withdraw accounts. */
+    /** Mismatch between exchange rate and selected accounts. */
     public static final String INVALID_EXCHANGE_RATE = "invalid_exchange_rate";
 
-    /** Mismatch between exchange settings and selected deposit/withdraw accounts. */
+    /** Mismatch between exchange settings and selected accounts. */
     public static final String INVALID_EXCHANGE_SETTINGS = "invalid_exchange_settings";
 
     /** Invalid fee rate. Fee rate should be an integer value. */

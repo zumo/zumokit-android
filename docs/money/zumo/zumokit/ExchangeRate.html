@@ -130,8 +130,8 @@ extends java.lang.Object</pre>
 </tr>
 <tr class="altColor">
 <td class="colOne"><code><span class="memberNameLink"><a href="../../../money/zumo/zumokit/ExchangeRate.html#ExchangeRate-java.lang.String-java.lang.String-java.lang.String-java.math.BigDecimal-long-long-">ExchangeRate</a></span>(java.lang.String&nbsp;id,
-            java.lang.String&nbsp;depositCurrency,
-            java.lang.String&nbsp;withdrawCurrency,
+            java.lang.String&nbsp;fromCurrency,
+            java.lang.String&nbsp;toCurrency,
             java.math.BigDecimal&nbsp;value,
             long&nbsp;validTo,
             long&nbsp;timestamp)</code>&nbsp;</td>
@@ -157,7 +157,7 @@ extends java.lang.Object</pre>
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>java.lang.String</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../money/zumo/zumokit/ExchangeRate.html#getDepositCurrency--">getDepositCurrency</a></span>()</code>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../money/zumo/zumokit/ExchangeRate.html#getFromCurrency--">getFromCurrency</a></span>()</code>
 <div class="block">Currency from which exchange is being made.</div>
 </td>
 </tr>
@@ -174,21 +174,21 @@ extends java.lang.Object</pre>
 </td>
 </tr>
 <tr id="i4" class="altColor">
+<td class="colFirst"><code>java.lang.String</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../money/zumo/zumokit/ExchangeRate.html#getToCurrency--">getToCurrency</a></span>()</code>
+<div class="block">Currency from which exchange is being made.</div>
+</td>
+</tr>
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code>long</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../money/zumo/zumokit/ExchangeRate.html#getValidTo--">getValidTo</a></span>()</code>
 <div class="block">Epoch timestamp representing expiration time of this exchange rate.</div>
 </td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i6" class="altColor">
 <td class="colFirst"><code>java.math.BigDecimal</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../money/zumo/zumokit/ExchangeRate.html#getValue--">getValue</a></span>()</code>
-<div class="block">Value of 1 unit of deposit currency in withdraw currency.</div>
-</td>
-</tr>
-<tr id="i6" class="altColor">
-<td class="colFirst"><code>java.lang.String</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../money/zumo/zumokit/ExchangeRate.html#getWithdrawCurrency--">getWithdrawCurrency</a></span>()</code>
-<div class="block">Currency from which exchange is being made.</div>
+<div class="block">Value of 1 unit of deposit currency in target currency.</div>
 </td>
 </tr>
 <tr id="i7" class="rowColor">
@@ -228,8 +228,8 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>ExchangeRate</h4>
 <pre>public&nbsp;ExchangeRate(java.lang.String&nbsp;id,
-                    java.lang.String&nbsp;depositCurrency,
-                    java.lang.String&nbsp;withdrawCurrency,
+                    java.lang.String&nbsp;fromCurrency,
+                    java.lang.String&nbsp;toCurrency,
                     java.math.BigDecimal&nbsp;value,
                     long&nbsp;validTo,
                     long&nbsp;timestamp)</pre>
@@ -253,13 +253,13 @@ extends java.lang.Object</pre>
 <div class="block">Identifier.</div>
 </li>
 </ul>
-<a name="getDepositCurrency--">
+<a name="getFromCurrency--">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>getDepositCurrency</h4>
-<pre>public&nbsp;java.lang.String&nbsp;getDepositCurrency()</pre>
+<h4>getFromCurrency</h4>
+<pre>public&nbsp;java.lang.String&nbsp;getFromCurrency()</pre>
 <div class="block">Currency from which exchange is being made.</div>
 <dl>
 <dt><span class="seeLabel">See Also:</span></dt>
@@ -267,13 +267,13 @@ extends java.lang.Object</pre>
 </dl>
 </li>
 </ul>
-<a name="getWithdrawCurrency--">
+<a name="getToCurrency--">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>getWithdrawCurrency</h4>
-<pre>public&nbsp;java.lang.String&nbsp;getWithdrawCurrency()</pre>
+<h4>getToCurrency</h4>
+<pre>public&nbsp;java.lang.String&nbsp;getToCurrency()</pre>
 <div class="block">Currency from which exchange is being made.</div>
 <dl>
 <dt><span class="seeLabel">See Also:</span></dt>
@@ -288,7 +288,7 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>getValue</h4>
 <pre>public&nbsp;java.math.BigDecimal&nbsp;getValue()</pre>
-<div class="block">Value of 1 unit of deposit currency in withdraw currency.</div>
+<div class="block">Value of 1 unit of deposit currency in target currency.</div>
 </li>
 </ul>
 <a name="getValidTo--">
