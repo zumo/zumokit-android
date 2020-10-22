@@ -129,13 +129,13 @@ extends java.lang.Object</pre>
 </tr>
 <tr class="altColor">
 <td class="colOne"><code><span class="memberNameLink"><a href="../../../money/zumo/zumokit/ExchangeSettings.html#ExchangeSettings-java.lang.String-java.util.HashMap-java.lang.String-java.lang.String-java.math.BigDecimal-java.math.BigDecimal-java.math.BigDecimal-java.math.BigDecimal-long-">ExchangeSettings</a></span>(java.lang.String&nbsp;id,
-                java.util.HashMap&lt;java.lang.String,java.lang.String&gt;&nbsp;depositAddress,
-                java.lang.String&nbsp;depositCurrency,
-                java.lang.String&nbsp;withdrawCurrency,
+                java.util.HashMap&lt;java.lang.String,java.lang.String&gt;&nbsp;exchangeAddress,
+                java.lang.String&nbsp;fromCurrency,
+                java.lang.String&nbsp;toCurrency,
                 java.math.BigDecimal&nbsp;minExchangeAmount,
-                java.math.BigDecimal&nbsp;feeRate,
-                java.math.BigDecimal&nbsp;depositFeeRate,
-                java.math.BigDecimal&nbsp;withdrawFee,
+                java.math.BigDecimal&nbsp;exchangeFeeRate,
+                java.math.BigDecimal&nbsp;outgoingTransactionFeeRate,
+                java.math.BigDecimal&nbsp;returnTransactionFee,
                 long&nbsp;timestamp)</code>&nbsp;</td>
 </tr>
 </table>
@@ -159,56 +159,56 @@ extends java.lang.Object</pre>
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>java.util.HashMap&lt;java.lang.String,java.lang.String&gt;</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../money/zumo/zumokit/ExchangeSettings.html#getDepositAddress--">getDepositAddress</a></span>()</code>
-<div class="block">Zumo Exchange Service wallet address for each network type.</div>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../money/zumo/zumokit/ExchangeSettings.html#getExchangeAddress--">getExchangeAddress</a></span>()</code>
+<div class="block">Mapping between networks and Zumo Exchange addresses.</div>
 </td>
 </tr>
 <tr id="i2" class="altColor">
-<td class="colFirst"><code>java.lang.String</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../money/zumo/zumokit/ExchangeSettings.html#getDepositCurrency--">getDepositCurrency</a></span>()</code>
-<div class="block">Currency code of outgoing transaction.</div>
-</td>
-</tr>
-<tr id="i3" class="rowColor">
 <td class="colFirst"><code>java.math.BigDecimal</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../money/zumo/zumokit/ExchangeSettings.html#getDepositFeeRate--">getDepositFeeRate</a></span>()</code>
-<div class="block">Fee rate that will be used for outgoing transaction.</div>
-</td>
-</tr>
-<tr id="i4" class="altColor">
-<td class="colFirst"><code>java.math.BigDecimal</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../money/zumo/zumokit/ExchangeSettings.html#getFeeRate--">getFeeRate</a></span>()</code>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../money/zumo/zumokit/ExchangeSettings.html#getExchangeFeeRate--">getExchangeFeeRate</a></span>()</code>
 <div class="block">Exchange fee rate that will be charged once currency is exchanged.</div>
 </td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i3" class="rowColor">
+<td class="colFirst"><code>java.lang.String</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../money/zumo/zumokit/ExchangeSettings.html#getFromCurrency--">getFromCurrency</a></span>()</code>
+<div class="block">Currency code of outgoing transaction.</div>
+</td>
+</tr>
+<tr id="i4" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../money/zumo/zumokit/ExchangeSettings.html#getId--">getId</a></span>()</code>
 <div class="block">Identifier.</div>
 </td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code>java.math.BigDecimal</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../money/zumo/zumokit/ExchangeSettings.html#getMinExchangeAmount--">getMinExchangeAmount</a></span>()</code>
 <div class="block">Minimum amount that can be exchanged in outgoing transaction currency.</div>
 </td>
 </tr>
+<tr id="i6" class="altColor">
+<td class="colFirst"><code>java.math.BigDecimal</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../money/zumo/zumokit/ExchangeSettings.html#getOutgoingTransactionFeeRate--">getOutgoingTransactionFeeRate</a></span>()</code>
+<div class="block">Fee rate that will be used for outgoing transaction.</div>
+</td>
+</tr>
 <tr id="i7" class="rowColor">
+<td class="colFirst"><code>java.math.BigDecimal</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../money/zumo/zumokit/ExchangeSettings.html#getReturnTransactionFee--">getReturnTransactionFee</a></span>()</code>
+<div class="block">Fee that will charged for return transaction.</div>
+</td>
+</tr>
+<tr id="i8" class="altColor">
 <td class="colFirst"><code>long</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../money/zumo/zumokit/ExchangeSettings.html#getTimestamp--">getTimestamp</a></span>()</code>
 <div class="block">Epoch timestamp when the exchange settings were last updated.</div>
 </td>
 </tr>
-<tr id="i8" class="altColor">
-<td class="colFirst"><code>java.lang.String</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../money/zumo/zumokit/ExchangeSettings.html#getWithdrawCurrency--">getWithdrawCurrency</a></span>()</code>
-<div class="block">Currency code of return transaction.</div>
-</td>
-</tr>
 <tr id="i9" class="rowColor">
-<td class="colFirst"><code>java.math.BigDecimal</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../money/zumo/zumokit/ExchangeSettings.html#getWithdrawFee--">getWithdrawFee</a></span>()</code>
-<div class="block">Fee that will charged for return transaction.</div>
+<td class="colFirst"><code>java.lang.String</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../money/zumo/zumokit/ExchangeSettings.html#getToCurrency--">getToCurrency</a></span>()</code>
+<div class="block">Currency code of return transaction.</div>
 </td>
 </tr>
 <tr id="i10" class="altColor">
@@ -248,13 +248,13 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>ExchangeSettings</h4>
 <pre>public&nbsp;ExchangeSettings(java.lang.String&nbsp;id,
-                        java.util.HashMap&lt;java.lang.String,java.lang.String&gt;&nbsp;depositAddress,
-                        java.lang.String&nbsp;depositCurrency,
-                        java.lang.String&nbsp;withdrawCurrency,
+                        java.util.HashMap&lt;java.lang.String,java.lang.String&gt;&nbsp;exchangeAddress,
+                        java.lang.String&nbsp;fromCurrency,
+                        java.lang.String&nbsp;toCurrency,
                         java.math.BigDecimal&nbsp;minExchangeAmount,
-                        java.math.BigDecimal&nbsp;feeRate,
-                        java.math.BigDecimal&nbsp;depositFeeRate,
-                        java.math.BigDecimal&nbsp;withdrawFee,
+                        java.math.BigDecimal&nbsp;exchangeFeeRate,
+                        java.math.BigDecimal&nbsp;outgoingTransactionFeeRate,
+                        java.math.BigDecimal&nbsp;returnTransactionFee,
                         long&nbsp;timestamp)</pre>
 </li>
 </ul>
@@ -276,27 +276,27 @@ extends java.lang.Object</pre>
 <div class="block">Identifier.</div>
 </li>
 </ul>
-<a name="getDepositAddress--">
+<a name="getExchangeAddress--">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>getDepositAddress</h4>
-<pre>public&nbsp;java.util.HashMap&lt;java.lang.String,java.lang.String&gt;&nbsp;getDepositAddress()</pre>
-<div class="block">Zumo Exchange Service wallet address for each network type.</div>
+<h4>getExchangeAddress</h4>
+<pre>public&nbsp;java.util.HashMap&lt;java.lang.String,java.lang.String&gt;&nbsp;getExchangeAddress()</pre>
+<div class="block">Mapping between networks and Zumo Exchange addresses.</div>
 <dl>
 <dt><span class="seeLabel">See Also:</span></dt>
 <dd><a href="../../../money/zumo/zumokit/NetworkType.html" title="class in money.zumo.zumokit"><code>NetworkType</code></a></dd>
 </dl>
 </li>
 </ul>
-<a name="getDepositCurrency--">
+<a name="getFromCurrency--">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>getDepositCurrency</h4>
-<pre>public&nbsp;java.lang.String&nbsp;getDepositCurrency()</pre>
+<h4>getFromCurrency</h4>
+<pre>public&nbsp;java.lang.String&nbsp;getFromCurrency()</pre>
 <div class="block">Currency code of outgoing transaction.</div>
 <dl>
 <dt><span class="seeLabel">See Also:</span></dt>
@@ -304,13 +304,13 @@ extends java.lang.Object</pre>
 </dl>
 </li>
 </ul>
-<a name="getWithdrawCurrency--">
+<a name="getToCurrency--">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>getWithdrawCurrency</h4>
-<pre>public&nbsp;java.lang.String&nbsp;getWithdrawCurrency()</pre>
+<h4>getToCurrency</h4>
+<pre>public&nbsp;java.lang.String&nbsp;getToCurrency()</pre>
 <div class="block">Currency code of return transaction.</div>
 <dl>
 <dt><span class="seeLabel">See Also:</span></dt>
@@ -328,33 +328,33 @@ extends java.lang.Object</pre>
 <div class="block">Minimum amount that can be exchanged in outgoing transaction currency.</div>
 </li>
 </ul>
-<a name="getFeeRate--">
+<a name="getExchangeFeeRate--">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>getFeeRate</h4>
-<pre>public&nbsp;java.math.BigDecimal&nbsp;getFeeRate()</pre>
+<h4>getExchangeFeeRate</h4>
+<pre>public&nbsp;java.math.BigDecimal&nbsp;getExchangeFeeRate()</pre>
 <div class="block">Exchange fee rate that will be charged once currency is exchanged.</div>
 </li>
 </ul>
-<a name="getDepositFeeRate--">
+<a name="getOutgoingTransactionFeeRate--">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>getDepositFeeRate</h4>
-<pre>public&nbsp;java.math.BigDecimal&nbsp;getDepositFeeRate()</pre>
+<h4>getOutgoingTransactionFeeRate</h4>
+<pre>public&nbsp;java.math.BigDecimal&nbsp;getOutgoingTransactionFeeRate()</pre>
 <div class="block">Fee rate that will be used for outgoing transaction.</div>
 </li>
 </ul>
-<a name="getWithdrawFee--">
+<a name="getReturnTransactionFee--">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>getWithdrawFee</h4>
-<pre>public&nbsp;java.math.BigDecimal&nbsp;getWithdrawFee()</pre>
+<h4>getReturnTransactionFee</h4>
+<pre>public&nbsp;java.math.BigDecimal&nbsp;getReturnTransactionFee()</pre>
 <div class="block">Fee that will charged for return transaction.</div>
 </li>
 </ul>

@@ -9,9 +9,9 @@ public final class ComposedExchange {
 
     /*package*/ final String mSignedTransaction;
 
-    /*package*/ final Account mDepositAccount;
+    /*package*/ final Account mFromAccount;
 
-    /*package*/ final Account mWithdrawAccount;
+    /*package*/ final Account mToAccount;
 
     /*package*/ final ExchangeRate mExchangeRate;
 
@@ -19,42 +19,42 @@ public final class ComposedExchange {
 
     /*package*/ final String mExchangeAddress;
 
-    /*package*/ final java.math.BigDecimal mValue;
+    /*package*/ final java.math.BigDecimal mAmount;
 
-    /*package*/ final java.math.BigDecimal mReturnValue;
+    /*package*/ final java.math.BigDecimal mReturnAmount;
 
-    /*package*/ final java.math.BigDecimal mDepositFee;
+    /*package*/ final java.math.BigDecimal mOutgoingTransactionFee;
 
     /*package*/ final java.math.BigDecimal mExchangeFee;
 
-    /*package*/ final java.math.BigDecimal mWithdrawFee;
+    /*package*/ final java.math.BigDecimal mReturnTransactionFee;
 
     /*package*/ final String mNonce;
 
     public ComposedExchange(
             String signedTransaction,
-            Account depositAccount,
-            Account withdrawAccount,
+            Account fromAccount,
+            Account toAccount,
             ExchangeRate exchangeRate,
             ExchangeSettings exchangeSettings,
             String exchangeAddress,
-            java.math.BigDecimal value,
-            java.math.BigDecimal returnValue,
-            java.math.BigDecimal depositFee,
+            java.math.BigDecimal amount,
+            java.math.BigDecimal returnAmount,
+            java.math.BigDecimal outgoingTransactionFee,
             java.math.BigDecimal exchangeFee,
-            java.math.BigDecimal withdrawFee,
+            java.math.BigDecimal returnTransactionFee,
             String nonce) {
         this.mSignedTransaction = signedTransaction;
-        this.mDepositAccount = depositAccount;
-        this.mWithdrawAccount = withdrawAccount;
+        this.mFromAccount = fromAccount;
+        this.mToAccount = toAccount;
         this.mExchangeRate = exchangeRate;
         this.mExchangeSettings = exchangeSettings;
         this.mExchangeAddress = exchangeAddress;
-        this.mValue = value;
-        this.mReturnValue = returnValue;
-        this.mDepositFee = depositFee;
+        this.mAmount = amount;
+        this.mReturnAmount = returnAmount;
+        this.mOutgoingTransactionFee = outgoingTransactionFee;
         this.mExchangeFee = exchangeFee;
-        this.mWithdrawFee = withdrawFee;
+        this.mReturnTransactionFee = returnTransactionFee;
         this.mNonce = nonce;
     }
 
@@ -64,13 +64,13 @@ public final class ComposedExchange {
     }
 
     /** Source account. */
-    public Account getDepositAccount() {
-        return mDepositAccount;
+    public Account getFromAccount() {
+        return mFromAccount;
     }
 
     /** Target account. */
-    public Account getWithdrawAccount() {
-        return mWithdrawAccount;
+    public Account getToAccount() {
+        return mToAccount;
     }
 
     /** Exchange rate used composing exchange. */
@@ -91,26 +91,26 @@ public final class ComposedExchange {
         return mExchangeAddress;
     }
 
-    /** Exchange value in source account currency. */
-    public java.math.BigDecimal getValue() {
-        return mValue;
+    /** Exchange amount in source account currency. */
+    public java.math.BigDecimal getAmount() {
+        return mAmount;
     }
 
     /**
-     * Amount that user receives, calculated as <code>value X exchangeRate X (1 - feeRate) - withdrawFee</code>.
+     * Amount that user receives, calculated as <code>value X exchangeRate X (1 - feeRate) - returnTransactionFee</code>.
      * @see ExchangeSettings
      */
-    public java.math.BigDecimal getReturnValue() {
-        return mReturnValue;
+    public java.math.BigDecimal getReturnAmount() {
+        return mReturnAmount;
     }
 
     /** Outgoing transaction fee. */
-    public java.math.BigDecimal getDepositFee() {
-        return mDepositFee;
+    public java.math.BigDecimal getOutgoingTransactionFee() {
+        return mOutgoingTransactionFee;
     }
 
     /**
-     * Exchange fee, calculated as <code>value X exchangeRate X feeRate</code>.
+     * Exchange fee, calculated as <code>value X exchangeRate X exchangeFeeRate</code>.
      * @see ExchangeSettings
      */
     public java.math.BigDecimal getExchangeFee() {
@@ -121,8 +121,8 @@ public final class ComposedExchange {
      * Return transaction fee.
      * @see ExchangeSettings
      */
-    public java.math.BigDecimal getWithdrawFee() {
-        return mWithdrawFee;
+    public java.math.BigDecimal getReturnTransactionFee() {
+        return mReturnTransactionFee;
     }
 
     /** Unique nonce used to prevent double spend. */
@@ -137,16 +137,16 @@ public final class ComposedExchange {
         }
         ComposedExchange other = (ComposedExchange) obj;
         return ((this.mSignedTransaction == null && other.mSignedTransaction == null) || (this.mSignedTransaction != null && this.mSignedTransaction.equals(other.mSignedTransaction))) &&
-                this.mDepositAccount.equals(other.mDepositAccount) &&
-                this.mWithdrawAccount.equals(other.mWithdrawAccount) &&
+                this.mFromAccount.equals(other.mFromAccount) &&
+                this.mToAccount.equals(other.mToAccount) &&
                 this.mExchangeRate.equals(other.mExchangeRate) &&
                 this.mExchangeSettings.equals(other.mExchangeSettings) &&
                 ((this.mExchangeAddress == null && other.mExchangeAddress == null) || (this.mExchangeAddress != null && this.mExchangeAddress.equals(other.mExchangeAddress))) &&
-                this.mValue.equals(other.mValue) &&
-                this.mReturnValue.equals(other.mReturnValue) &&
-                this.mDepositFee.equals(other.mDepositFee) &&
+                this.mAmount.equals(other.mAmount) &&
+                this.mReturnAmount.equals(other.mReturnAmount) &&
+                this.mOutgoingTransactionFee.equals(other.mOutgoingTransactionFee) &&
                 this.mExchangeFee.equals(other.mExchangeFee) &&
-                this.mWithdrawFee.equals(other.mWithdrawFee) &&
+                this.mReturnTransactionFee.equals(other.mReturnTransactionFee) &&
                 this.mNonce.equals(other.mNonce);
     }
 
@@ -155,16 +155,16 @@ public final class ComposedExchange {
         // Pick an arbitrary non-zero starting value
         int hashCode = 17;
         hashCode = hashCode * 31 + (mSignedTransaction == null ? 0 : mSignedTransaction.hashCode());
-        hashCode = hashCode * 31 + mDepositAccount.hashCode();
-        hashCode = hashCode * 31 + mWithdrawAccount.hashCode();
+        hashCode = hashCode * 31 + mFromAccount.hashCode();
+        hashCode = hashCode * 31 + mToAccount.hashCode();
         hashCode = hashCode * 31 + mExchangeRate.hashCode();
         hashCode = hashCode * 31 + mExchangeSettings.hashCode();
         hashCode = hashCode * 31 + (mExchangeAddress == null ? 0 : mExchangeAddress.hashCode());
-        hashCode = hashCode * 31 + (mValue.hashCode());
-        hashCode = hashCode * 31 + (mReturnValue.hashCode());
-        hashCode = hashCode * 31 + (mDepositFee.hashCode());
+        hashCode = hashCode * 31 + (mAmount.hashCode());
+        hashCode = hashCode * 31 + (mReturnAmount.hashCode());
+        hashCode = hashCode * 31 + (mOutgoingTransactionFee.hashCode());
         hashCode = hashCode * 31 + (mExchangeFee.hashCode());
-        hashCode = hashCode * 31 + (mWithdrawFee.hashCode());
+        hashCode = hashCode * 31 + (mReturnTransactionFee.hashCode());
         hashCode = hashCode * 31 + mNonce.hashCode();
         return hashCode;
     }
@@ -173,16 +173,16 @@ public final class ComposedExchange {
     public String toString() {
         return "ComposedExchange{" +
                 "mSignedTransaction=" + mSignedTransaction +
-                "," + "mDepositAccount=" + mDepositAccount +
-                "," + "mWithdrawAccount=" + mWithdrawAccount +
+                "," + "mFromAccount=" + mFromAccount +
+                "," + "mToAccount=" + mToAccount +
                 "," + "mExchangeRate=" + mExchangeRate +
                 "," + "mExchangeSettings=" + mExchangeSettings +
                 "," + "mExchangeAddress=" + mExchangeAddress +
-                "," + "mValue=" + mValue +
-                "," + "mReturnValue=" + mReturnValue +
-                "," + "mDepositFee=" + mDepositFee +
+                "," + "mAmount=" + mAmount +
+                "," + "mReturnAmount=" + mReturnAmount +
+                "," + "mOutgoingTransactionFee=" + mOutgoingTransactionFee +
                 "," + "mExchangeFee=" + mExchangeFee +
-                "," + "mWithdrawFee=" + mWithdrawFee +
+                "," + "mReturnTransactionFee=" + mReturnTransactionFee +
                 "," + "mNonce=" + mNonce +
         "}";
     }

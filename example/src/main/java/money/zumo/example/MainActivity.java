@@ -350,9 +350,9 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    private void composeExchange(Account depositAccount, Account withdrawAccount, ExchangeRate exchangeRate, ExchangeSettings exchangeSettings, BigDecimal value, Boolean sendMax, Boolean submit) {
+    private void composeExchange(Account fromAccount, Account toAccount, ExchangeRate exchangeRate, ExchangeSettings exchangeSettings, BigDecimal value, Boolean sendMax, Boolean submit) {
         mWallet.composeExchange(
-                depositAccount.getId(), withdrawAccount.getId(), exchangeRate, exchangeSettings, value, sendMax,
+                fromAccount.getId(), toAccount.getId(), exchangeRate, exchangeSettings, value, sendMax,
                 new ComposeExchangeCallback() {
                     @Override
                     public void onError(Exception e) {

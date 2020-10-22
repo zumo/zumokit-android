@@ -13,27 +13,27 @@ public final class Exchange {
 
     /*package*/ final String mStatus;
 
-    /*package*/ final String mDepositCurrency;
+    /*package*/ final String mFromCurrency;
 
-    /*package*/ final String mDepositAccountId;
+    /*package*/ final String mFromAccountId;
 
-    /*package*/ final String mDepositTransactionId;
+    /*package*/ final String mOutgoingTransactionId;
 
-    /*package*/ final String mWithdrawCurrency;
+    /*package*/ final String mToCurrency;
 
-    /*package*/ final String mWithdrawAccountId;
+    /*package*/ final String mToAccountId;
 
-    /*package*/ final String mWithdrawTransactionId;
+    /*package*/ final String mReturnTransactionId;
 
     /*package*/ final java.math.BigDecimal mAmount;
 
-    /*package*/ final java.math.BigDecimal mDepositFee;
+    /*package*/ final java.math.BigDecimal mOutgoingTransactionFee;
 
     /*package*/ final java.math.BigDecimal mReturnAmount;
 
     /*package*/ final java.math.BigDecimal mExchangeFee;
 
-    /*package*/ final java.math.BigDecimal mWithdrawFee;
+    /*package*/ final java.math.BigDecimal mReturnTransactionFee;
 
     /*package*/ final ExchangeRate mExchangeRate;
 
@@ -50,17 +50,17 @@ public final class Exchange {
     public Exchange(
             String id,
             String status,
-            String depositCurrency,
-            String depositAccountId,
-            String depositTransactionId,
-            String withdrawCurrency,
-            String withdrawAccountId,
-            String withdrawTransactionId,
+            String fromCurrency,
+            String fromAccountId,
+            String outgoingTransactionId,
+            String toCurrency,
+            String toAccountId,
+            String returnTransactionId,
             java.math.BigDecimal amount,
-            java.math.BigDecimal depositFee,
+            java.math.BigDecimal outgoingTransactionFee,
             java.math.BigDecimal returnAmount,
             java.math.BigDecimal exchangeFee,
-            java.math.BigDecimal withdrawFee,
+            java.math.BigDecimal returnTransactionFee,
             ExchangeRate exchangeRate,
             ExchangeSettings exchangeSettings,
             HashMap<String, HashMap<String, ExchangeRate>> exchangeRates,
@@ -69,17 +69,17 @@ public final class Exchange {
             Long confirmedAt) {
         this.mId = id;
         this.mStatus = status;
-        this.mDepositCurrency = depositCurrency;
-        this.mDepositAccountId = depositAccountId;
-        this.mDepositTransactionId = depositTransactionId;
-        this.mWithdrawCurrency = withdrawCurrency;
-        this.mWithdrawAccountId = withdrawAccountId;
-        this.mWithdrawTransactionId = withdrawTransactionId;
+        this.mFromCurrency = fromCurrency;
+        this.mFromAccountId = fromAccountId;
+        this.mOutgoingTransactionId = outgoingTransactionId;
+        this.mToCurrency = toCurrency;
+        this.mToAccountId = toAccountId;
+        this.mReturnTransactionId = returnTransactionId;
         this.mAmount = amount;
-        this.mDepositFee = depositFee;
+        this.mOutgoingTransactionFee = outgoingTransactionFee;
         this.mReturnAmount = returnAmount;
         this.mExchangeFee = exchangeFee;
-        this.mWithdrawFee = withdrawFee;
+        this.mReturnTransactionFee = returnTransactionFee;
         this.mExchangeRate = exchangeRate;
         this.mExchangeSettings = exchangeSettings;
         this.mExchangeRates = exchangeRates;
@@ -105,36 +105,36 @@ public final class Exchange {
      * Currency from which exchange was made.
      * @see CurrencyCode
      */
-    public String getDepositCurrency() {
-        return mDepositCurrency;
+    public String getFromCurrency() {
+        return mFromCurrency;
     }
 
     /** Source {@link  Account Account} identifier. */
-    public String getDepositAccountId() {
-        return mDepositAccountId;
+    public String getFromAccountId() {
+        return mFromAccountId;
     }
 
     /** Outgoing {@link  Transaction Transaction} identifier. */
-    public String getDepositTransactionId() {
-        return mDepositTransactionId;
+    public String getOutgoingTransactionId() {
+        return mOutgoingTransactionId;
     }
 
     /**
      * Currency to which exchange was made.
      * @see CurrencyCode
      */
-    public String getWithdrawCurrency() {
-        return mWithdrawCurrency;
+    public String getToCurrency() {
+        return mToCurrency;
     }
 
     /** Target {@link  Account Account} identifier. */
-    public String getWithdrawAccountId() {
-        return mWithdrawAccountId;
+    public String getToAccountId() {
+        return mToAccountId;
     }
 
     /** Return {@link  Transaction Transaction} identifier. */
-    public String getWithdrawTransactionId() {
-        return mWithdrawTransactionId;
+    public String getReturnTransactionId() {
+        return mReturnTransactionId;
     }
 
     /** Amount in deposit currency. */
@@ -142,13 +142,13 @@ public final class Exchange {
         return mAmount;
     }
 
-    /** Deposit transaction fee. */
-    public java.math.BigDecimal getDepositFee() {
-        return mDepositFee;
+    /** Outgoing transaction fee. */
+    public java.math.BigDecimal getOutgoingTransactionFee() {
+        return mOutgoingTransactionFee;
     }
 
     /**
-     * Amount that user receives, calculated as <code>amount X exchangeRate X (1 - feeRate) - withdrawFee</code>.
+     * Amount that user receives, calculated as <code>amount X exchangeRate X (1 - feeRate) - returnTransactionFee</code>.
      * @see ExchangeSettings
      */
     public java.math.BigDecimal getReturnAmount() {
@@ -156,7 +156,7 @@ public final class Exchange {
     }
 
     /**
-     * Exchange fee, calculated as <code>amount X exchangeRate X feeRate</code>.
+     * Exchange fee, calculated as <code>amount X exchangeRate X exchangeFeeRate</code>.
      * @see ExchangeSettings
      */
     public java.math.BigDecimal getExchangeFee() {
@@ -167,8 +167,8 @@ public final class Exchange {
      * Return transaction fee.
      * @see ExchangeSettings
      */
-    public java.math.BigDecimal getWithdrawFee() {
-        return mWithdrawFee;
+    public java.math.BigDecimal getReturnTransactionFee() {
+        return mReturnTransactionFee;
     }
 
     /** Exchange rate used. */
@@ -212,17 +212,17 @@ public final class Exchange {
         Exchange other = (Exchange) obj;
         return this.mId.equals(other.mId) &&
                 this.mStatus.equals(other.mStatus) &&
-                this.mDepositCurrency.equals(other.mDepositCurrency) &&
-                this.mDepositAccountId.equals(other.mDepositAccountId) &&
-                ((this.mDepositTransactionId == null && other.mDepositTransactionId == null) || (this.mDepositTransactionId != null && this.mDepositTransactionId.equals(other.mDepositTransactionId))) &&
-                this.mWithdrawCurrency.equals(other.mWithdrawCurrency) &&
-                this.mWithdrawAccountId.equals(other.mWithdrawAccountId) &&
-                ((this.mWithdrawTransactionId == null && other.mWithdrawTransactionId == null) || (this.mWithdrawTransactionId != null && this.mWithdrawTransactionId.equals(other.mWithdrawTransactionId))) &&
+                this.mFromCurrency.equals(other.mFromCurrency) &&
+                this.mFromAccountId.equals(other.mFromAccountId) &&
+                ((this.mOutgoingTransactionId == null && other.mOutgoingTransactionId == null) || (this.mOutgoingTransactionId != null && this.mOutgoingTransactionId.equals(other.mOutgoingTransactionId))) &&
+                this.mToCurrency.equals(other.mToCurrency) &&
+                this.mToAccountId.equals(other.mToAccountId) &&
+                ((this.mReturnTransactionId == null && other.mReturnTransactionId == null) || (this.mReturnTransactionId != null && this.mReturnTransactionId.equals(other.mReturnTransactionId))) &&
                 this.mAmount.equals(other.mAmount) &&
-                ((this.mDepositFee == null && other.mDepositFee == null) || (this.mDepositFee != null && this.mDepositFee.equals(other.mDepositFee))) &&
+                ((this.mOutgoingTransactionFee == null && other.mOutgoingTransactionFee == null) || (this.mOutgoingTransactionFee != null && this.mOutgoingTransactionFee.equals(other.mOutgoingTransactionFee))) &&
                 this.mReturnAmount.equals(other.mReturnAmount) &&
                 this.mExchangeFee.equals(other.mExchangeFee) &&
-                this.mWithdrawFee.equals(other.mWithdrawFee) &&
+                this.mReturnTransactionFee.equals(other.mReturnTransactionFee) &&
                 this.mExchangeRate.equals(other.mExchangeRate) &&
                 this.mExchangeSettings.equals(other.mExchangeSettings) &&
                 this.mExchangeRates.equals(other.mExchangeRates) &&
@@ -237,17 +237,17 @@ public final class Exchange {
         int hashCode = 17;
         hashCode = hashCode * 31 + mId.hashCode();
         hashCode = hashCode * 31 + mStatus.hashCode();
-        hashCode = hashCode * 31 + mDepositCurrency.hashCode();
-        hashCode = hashCode * 31 + mDepositAccountId.hashCode();
-        hashCode = hashCode * 31 + (mDepositTransactionId == null ? 0 : mDepositTransactionId.hashCode());
-        hashCode = hashCode * 31 + mWithdrawCurrency.hashCode();
-        hashCode = hashCode * 31 + mWithdrawAccountId.hashCode();
-        hashCode = hashCode * 31 + (mWithdrawTransactionId == null ? 0 : mWithdrawTransactionId.hashCode());
+        hashCode = hashCode * 31 + mFromCurrency.hashCode();
+        hashCode = hashCode * 31 + mFromAccountId.hashCode();
+        hashCode = hashCode * 31 + (mOutgoingTransactionId == null ? 0 : mOutgoingTransactionId.hashCode());
+        hashCode = hashCode * 31 + mToCurrency.hashCode();
+        hashCode = hashCode * 31 + mToAccountId.hashCode();
+        hashCode = hashCode * 31 + (mReturnTransactionId == null ? 0 : mReturnTransactionId.hashCode());
         hashCode = hashCode * 31 + (mAmount.hashCode());
-        hashCode = hashCode * 31 + (mDepositFee == null ? 0 : mDepositFee.hashCode());
+        hashCode = hashCode * 31 + (mOutgoingTransactionFee == null ? 0 : mOutgoingTransactionFee.hashCode());
         hashCode = hashCode * 31 + (mReturnAmount.hashCode());
         hashCode = hashCode * 31 + (mExchangeFee.hashCode());
-        hashCode = hashCode * 31 + (mWithdrawFee.hashCode());
+        hashCode = hashCode * 31 + (mReturnTransactionFee.hashCode());
         hashCode = hashCode * 31 + mExchangeRate.hashCode();
         hashCode = hashCode * 31 + mExchangeSettings.hashCode();
         hashCode = hashCode * 31 + mExchangeRates.hashCode();
@@ -262,17 +262,17 @@ public final class Exchange {
         return "Exchange{" +
                 "mId=" + mId +
                 "," + "mStatus=" + mStatus +
-                "," + "mDepositCurrency=" + mDepositCurrency +
-                "," + "mDepositAccountId=" + mDepositAccountId +
-                "," + "mDepositTransactionId=" + mDepositTransactionId +
-                "," + "mWithdrawCurrency=" + mWithdrawCurrency +
-                "," + "mWithdrawAccountId=" + mWithdrawAccountId +
-                "," + "mWithdrawTransactionId=" + mWithdrawTransactionId +
+                "," + "mFromCurrency=" + mFromCurrency +
+                "," + "mFromAccountId=" + mFromAccountId +
+                "," + "mOutgoingTransactionId=" + mOutgoingTransactionId +
+                "," + "mToCurrency=" + mToCurrency +
+                "," + "mToAccountId=" + mToAccountId +
+                "," + "mReturnTransactionId=" + mReturnTransactionId +
                 "," + "mAmount=" + mAmount +
-                "," + "mDepositFee=" + mDepositFee +
+                "," + "mOutgoingTransactionFee=" + mOutgoingTransactionFee +
                 "," + "mReturnAmount=" + mReturnAmount +
                 "," + "mExchangeFee=" + mExchangeFee +
-                "," + "mWithdrawFee=" + mWithdrawFee +
+                "," + "mReturnTransactionFee=" + mReturnTransactionFee +
                 "," + "mExchangeRate=" + mExchangeRate +
                 "," + "mExchangeSettings=" + mExchangeSettings +
                 "," + "mExchangeRates=" + mExchangeRates +

@@ -94,7 +94,7 @@
 <dd>
 <div class="block">Record containing account's crypto related properties.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="money/zumo/zumokit/AccountCryptoProperties.html#AccountCryptoProperties-java.lang.String-java.lang.String-java.lang.Long-java.util.ArrayList-byte-">AccountCryptoProperties(String, String, Long, ArrayList&lt;UnspentOutput&gt;, byte)</a></span> - Constructor for class money.zumo.zumokit.<a href="money/zumo/zumokit/AccountCryptoProperties.html" title="class in money.zumo.zumokit">AccountCryptoProperties</a></dt>
+<dt><span class="memberNameLink"><a href="money/zumo/zumokit/AccountCryptoProperties.html#AccountCryptoProperties-java.lang.String-java.lang.String-java.lang.Long-">AccountCryptoProperties(String, String, Long)</a></span> - Constructor for class money.zumo.zumokit.<a href="money/zumo/zumokit/AccountCryptoProperties.html" title="class in money.zumo.zumokit">AccountCryptoProperties</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="money/zumo/zumokit/AccountDataListener.html" title="interface in money.zumo.zumokit"><span class="typeNameLink">AccountDataListener</span></a> - Interface in <a href="money/zumo/zumokit/package-summary.html">money.zumo.zumokit</a></dt>
 <dd>
@@ -484,6 +484,10 @@
 <dd>
 <div class="block">Account crypto address.</div>
 </dd>
+<dt><span class="memberNameLink"><a href="money/zumo/zumokit/ComposedExchange.html#getAmount--">getAmount()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/ComposedExchange.html" title="class in money.zumo.zumokit">ComposedExchange</a></dt>
+<dd>
+<div class="block">Exchange amount in source account currency.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/ComposedTransaction.html#getAmount--">getAmount()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/ComposedTransaction.html" title="class in money.zumo.zumokit">ComposedTransaction</a></dt>
 <dd>
 <div class="block">Transaction amount in account currency.</div>
@@ -552,46 +556,6 @@
 <dd>
 <div class="block">Transaction data or null.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="money/zumo/zumokit/ComposedExchange.html#getDepositAccount--">getDepositAccount()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/ComposedExchange.html" title="class in money.zumo.zumokit">ComposedExchange</a></dt>
-<dd>
-<div class="block">Source account.</div>
-</dd>
-<dt><span class="memberNameLink"><a href="money/zumo/zumokit/Exchange.html#getDepositAccountId--">getDepositAccountId()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/Exchange.html" title="class in money.zumo.zumokit">Exchange</a></dt>
-<dd>
-<div class="block">Source <a href="money/zumo/zumokit/Account.html" title="class in money.zumo.zumokit"><code>Account</code></a> identifier.</div>
-</dd>
-<dt><span class="memberNameLink"><a href="money/zumo/zumokit/ExchangeSettings.html#getDepositAddress--">getDepositAddress()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/ExchangeSettings.html" title="class in money.zumo.zumokit">ExchangeSettings</a></dt>
-<dd>
-<div class="block">Zumo Exchange Service wallet address for each network type.</div>
-</dd>
-<dt><span class="memberNameLink"><a href="money/zumo/zumokit/Exchange.html#getDepositCurrency--">getDepositCurrency()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/Exchange.html" title="class in money.zumo.zumokit">Exchange</a></dt>
-<dd>
-<div class="block">Currency from which exchange was made.</div>
-</dd>
-<dt><span class="memberNameLink"><a href="money/zumo/zumokit/ExchangeRate.html#getDepositCurrency--">getDepositCurrency()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/ExchangeRate.html" title="class in money.zumo.zumokit">ExchangeRate</a></dt>
-<dd>
-<div class="block">Currency from which exchange is being made.</div>
-</dd>
-<dt><span class="memberNameLink"><a href="money/zumo/zumokit/ExchangeSettings.html#getDepositCurrency--">getDepositCurrency()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/ExchangeSettings.html" title="class in money.zumo.zumokit">ExchangeSettings</a></dt>
-<dd>
-<div class="block">Currency code of outgoing transaction.</div>
-</dd>
-<dt><span class="memberNameLink"><a href="money/zumo/zumokit/ComposedExchange.html#getDepositFee--">getDepositFee()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/ComposedExchange.html" title="class in money.zumo.zumokit">ComposedExchange</a></dt>
-<dd>
-<div class="block">Outgoing transaction fee.</div>
-</dd>
-<dt><span class="memberNameLink"><a href="money/zumo/zumokit/Exchange.html#getDepositFee--">getDepositFee()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/Exchange.html" title="class in money.zumo.zumokit">Exchange</a></dt>
-<dd>
-<div class="block">Deposit transaction fee.</div>
-</dd>
-<dt><span class="memberNameLink"><a href="money/zumo/zumokit/ExchangeSettings.html#getDepositFeeRate--">getDepositFeeRate()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/ExchangeSettings.html" title="class in money.zumo.zumokit">ExchangeSettings</a></dt>
-<dd>
-<div class="block">Fee rate that will be used for outgoing transaction.</div>
-</dd>
-<dt><span class="memberNameLink"><a href="money/zumo/zumokit/Exchange.html#getDepositTransactionId--">getDepositTransactionId()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/Exchange.html" title="class in money.zumo.zumokit">Exchange</a></dt>
-<dd>
-<div class="block">Outgoing <a href="money/zumo/zumokit/Transaction.html" title="class in money.zumo.zumokit"><code>Transaction</code></a> identifier.</div>
-</dd>
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/ComposedTransaction.html#getDestination--">getDestination()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/ComposedTransaction.html" title="class in money.zumo.zumokit">ComposedTransaction</a></dt>
 <dd>
 <div class="block">Transaction destination, i.e.</div>
@@ -614,13 +578,21 @@
 <div class="block">Zumo Exchange Service wallet address where outgoing crypto funds were deposited,
  null for exchanges from fiat currencies.</div>
 </dd>
+<dt><span class="memberNameLink"><a href="money/zumo/zumokit/ExchangeSettings.html#getExchangeAddress--">getExchangeAddress()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/ExchangeSettings.html" title="class in money.zumo.zumokit">ExchangeSettings</a></dt>
+<dd>
+<div class="block">Mapping between networks and Zumo Exchange addresses.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/ComposedExchange.html#getExchangeFee--">getExchangeFee()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/ComposedExchange.html" title="class in money.zumo.zumokit">ComposedExchange</a></dt>
 <dd>
-<div class="block">Exchange fee, calculated as <code>value X exchangeRate X feeRate</code>.</div>
+<div class="block">Exchange fee, calculated as <code>value X exchangeRate X exchangeFeeRate</code>.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/Exchange.html#getExchangeFee--">getExchangeFee()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/Exchange.html" title="class in money.zumo.zumokit">Exchange</a></dt>
 <dd>
-<div class="block">Exchange fee, calculated as <code>amount X exchangeRate X feeRate</code>.</div>
+<div class="block">Exchange fee, calculated as <code>amount X exchangeRate X exchangeFeeRate</code>.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="money/zumo/zumokit/ExchangeSettings.html#getExchangeFeeRate--">getExchangeFeeRate()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/ExchangeSettings.html" title="class in money.zumo.zumokit">ExchangeSettings</a></dt>
+<dd>
+<div class="block">Exchange fee rate that will be charged once currency is exchanged.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/ComposedExchange.html#getExchangeRate--">getExchangeRate()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/ComposedExchange.html" title="class in money.zumo.zumokit">ComposedExchange</a></dt>
 <dd>
@@ -666,10 +638,6 @@
 <dd>
 <div class="block">Transaction fee in transaction currency or null, if not yet available.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="money/zumo/zumokit/ExchangeSettings.html#getFeeRate--">getFeeRate()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/ExchangeSettings.html" title="class in money.zumo.zumokit">ExchangeSettings</a></dt>
-<dd>
-<div class="block">Exchange fee rate that will be charged once currency is exchanged.</div>
-</dd>
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/ZumoKit.html#getFeeRates-java.lang.String-">getFeeRates(String)</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/ZumoKit.html" title="class in money.zumo.zumokit">ZumoKit</a></dt>
 <dd>
 <div class="block">Get exchange fee rates for selected currency.</div>
@@ -690,6 +658,14 @@
 <dd>
 <div class="block">Fiat properties if it is a fiat transaction, null otherwise.</div>
 </dd>
+<dt><span class="memberNameLink"><a href="money/zumo/zumokit/ComposedExchange.html#getFromAccount--">getFromAccount()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/ComposedExchange.html" title="class in money.zumo.zumokit">ComposedExchange</a></dt>
+<dd>
+<div class="block">Source account.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="money/zumo/zumokit/Exchange.html#getFromAccountId--">getFromAccountId()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/Exchange.html" title="class in money.zumo.zumokit">Exchange</a></dt>
+<dd>
+<div class="block">Source <a href="money/zumo/zumokit/Account.html" title="class in money.zumo.zumokit"><code>Account</code></a> identifier.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/Transaction.html#getFromAccountId--">getFromAccountId()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/Transaction.html" title="class in money.zumo.zumokit">Transaction</a></dt>
 <dd>
 <div class="block">Sender account identifier if it is internal transaction or null otherwise.</div>
@@ -697,6 +673,18 @@
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/TransactionCryptoProperties.html#getFromAddress--">getFromAddress()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/TransactionCryptoProperties.html" title="class in money.zumo.zumokit">TransactionCryptoProperties</a></dt>
 <dd>
 <div class="block">Wallet address of sender,</div>
+</dd>
+<dt><span class="memberNameLink"><a href="money/zumo/zumokit/Exchange.html#getFromCurrency--">getFromCurrency()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/Exchange.html" title="class in money.zumo.zumokit">Exchange</a></dt>
+<dd>
+<div class="block">Currency from which exchange was made.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="money/zumo/zumokit/ExchangeRate.html#getFromCurrency--">getFromCurrency()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/ExchangeRate.html" title="class in money.zumo.zumokit">ExchangeRate</a></dt>
+<dd>
+<div class="block">Currency from which exchange is being made.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="money/zumo/zumokit/ExchangeSettings.html#getFromCurrency--">getFromCurrency()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/ExchangeSettings.html" title="class in money.zumo.zumokit">ExchangeSettings</a></dt>
+<dd>
+<div class="block">Currency code of outgoing transaction.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/TransactionFiatProperties.html#getFromFiatAccount--">getFromFiatAccount()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/TransactionFiatProperties.html" title="class in money.zumo.zumokit">TransactionFiatProperties</a></dt>
 <dd>
@@ -791,17 +779,49 @@
 <div class="block">Ethereum transaction nonce if greater than 0 and
  it is Ethereum transaction, otherwise returns null.</div>
 </dd>
+<dt><span class="memberNameLink"><a href="money/zumo/zumokit/ComposedExchange.html#getOutgoingTransactionFee--">getOutgoingTransactionFee()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/ComposedExchange.html" title="class in money.zumo.zumokit">ComposedExchange</a></dt>
+<dd>
+<div class="block">Outgoing transaction fee.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="money/zumo/zumokit/Exchange.html#getOutgoingTransactionFee--">getOutgoingTransactionFee()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/Exchange.html" title="class in money.zumo.zumokit">Exchange</a></dt>
+<dd>
+<div class="block">Outgoing transaction fee.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="money/zumo/zumokit/ExchangeSettings.html#getOutgoingTransactionFeeRate--">getOutgoingTransactionFeeRate()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/ExchangeSettings.html" title="class in money.zumo.zumokit">ExchangeSettings</a></dt>
+<dd>
+<div class="block">Fee rate that will be used for outgoing transaction.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="money/zumo/zumokit/Exchange.html#getOutgoingTransactionId--">getOutgoingTransactionId()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/Exchange.html" title="class in money.zumo.zumokit">Exchange</a></dt>
+<dd>
+<div class="block">Outgoing <a href="money/zumo/zumokit/Transaction.html" title="class in money.zumo.zumokit"><code>Transaction</code></a> identifier.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/AccountCryptoProperties.html#getPath--">getPath()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/AccountCryptoProperties.html" title="class in money.zumo.zumokit">AccountCryptoProperties</a></dt>
 <dd>
 <div class="block">Hierarchical Deterministic (HD) account derivation path.</div>
 </dd>
+<dt><span class="memberNameLink"><a href="money/zumo/zumokit/ComposedExchange.html#getReturnAmount--">getReturnAmount()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/ComposedExchange.html" title="class in money.zumo.zumokit">ComposedExchange</a></dt>
+<dd>
+<div class="block">Amount that user receives, calculated as <code>value X exchangeRate X (1 - feeRate) - returnTransactionFee</code>.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/Exchange.html#getReturnAmount--">getReturnAmount()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/Exchange.html" title="class in money.zumo.zumokit">Exchange</a></dt>
 <dd>
-<div class="block">Amount that user receives, calculated as <code>amount X exchangeRate X (1 - feeRate) - withdrawFee</code>.</div>
+<div class="block">Amount that user receives, calculated as <code>amount X exchangeRate X (1 - feeRate) - returnTransactionFee</code>.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="money/zumo/zumokit/ComposedExchange.html#getReturnValue--">getReturnValue()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/ComposedExchange.html" title="class in money.zumo.zumokit">ComposedExchange</a></dt>
+<dt><span class="memberNameLink"><a href="money/zumo/zumokit/ComposedExchange.html#getReturnTransactionFee--">getReturnTransactionFee()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/ComposedExchange.html" title="class in money.zumo.zumokit">ComposedExchange</a></dt>
 <dd>
-<div class="block">Amount that user receives, calculated as <code>value X exchangeRate X (1 - feeRate) - withdrawFee</code>.</div>
+<div class="block">Return transaction fee.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="money/zumo/zumokit/Exchange.html#getReturnTransactionFee--">getReturnTransactionFee()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/Exchange.html" title="class in money.zumo.zumokit">Exchange</a></dt>
+<dd>
+<div class="block">Return transaction fee.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="money/zumo/zumokit/ExchangeSettings.html#getReturnTransactionFee--">getReturnTransactionFee()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/ExchangeSettings.html" title="class in money.zumo.zumokit">ExchangeSettings</a></dt>
+<dd>
+<div class="block">Fee that will charged for return transaction.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="money/zumo/zumokit/Exchange.html#getReturnTransactionId--">getReturnTransactionId()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/Exchange.html" title="class in money.zumo.zumokit">Exchange</a></dt>
+<dd>
+<div class="block">Return <a href="money/zumo/zumokit/Transaction.html" title="class in money.zumo.zumokit"><code>Transaction</code></a> identifier.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/UnspentOutput.html#getScript--">getScript()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/UnspentOutput.html" title="class in money.zumo.zumokit">UnspentOutput</a></dt>
 <dd>&nbsp;</dd>
@@ -857,6 +877,14 @@
 <dd>
 <div class="block">Epoch timestamp, minimum non-null value between submitted at and confirmed at timestamps.</div>
 </dd>
+<dt><span class="memberNameLink"><a href="money/zumo/zumokit/ComposedExchange.html#getToAccount--">getToAccount()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/ComposedExchange.html" title="class in money.zumo.zumokit">ComposedExchange</a></dt>
+<dd>
+<div class="block">Target account.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="money/zumo/zumokit/Exchange.html#getToAccountId--">getToAccountId()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/Exchange.html" title="class in money.zumo.zumokit">Exchange</a></dt>
+<dd>
+<div class="block">Target <a href="money/zumo/zumokit/Account.html" title="class in money.zumo.zumokit"><code>Account</code></a> identifier.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/Transaction.html#getToAccountId--">getToAccountId()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/Transaction.html" title="class in money.zumo.zumokit">Transaction</a></dt>
 <dd>
 <div class="block">Recipient account identifier if it is internal transaction or null otherwise.</div>
@@ -864,6 +892,18 @@
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/TransactionCryptoProperties.html#getToAddress--">getToAddress()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/TransactionCryptoProperties.html" title="class in money.zumo.zumokit">TransactionCryptoProperties</a></dt>
 <dd>
 <div class="block">Wallet address of receiver or null, if it is Ethereum contract deploy.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="money/zumo/zumokit/Exchange.html#getToCurrency--">getToCurrency()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/Exchange.html" title="class in money.zumo.zumokit">Exchange</a></dt>
+<dd>
+<div class="block">Currency to which exchange was made.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="money/zumo/zumokit/ExchangeRate.html#getToCurrency--">getToCurrency()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/ExchangeRate.html" title="class in money.zumo.zumokit">ExchangeRate</a></dt>
+<dd>
+<div class="block">Currency from which exchange is being made.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="money/zumo/zumokit/ExchangeSettings.html#getToCurrency--">getToCurrency()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/ExchangeSettings.html" title="class in money.zumo.zumokit">ExchangeSettings</a></dt>
+<dd>
+<div class="block">Currency code of return transaction.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/TransactionFiatProperties.html#getToFiatAccount--">getToFiatAccount()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/TransactionFiatProperties.html" title="class in money.zumo.zumokit">TransactionFiatProperties</a></dt>
 <dd>
@@ -901,63 +941,19 @@
 <dd>
 <div class="block">Get crypto utils.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="money/zumo/zumokit/AccountCryptoProperties.html#getUtxoPool--">getUtxoPool()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/AccountCryptoProperties.html" title="class in money.zumo.zumokit">AccountCryptoProperties</a></dt>
-<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/ExchangeRate.html#getValidTo--">getValidTo()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/ExchangeRate.html" title="class in money.zumo.zumokit">ExchangeRate</a></dt>
 <dd>
 <div class="block">Epoch timestamp representing expiration time of this exchange rate.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="money/zumo/zumokit/ComposedExchange.html#getValue--">getValue()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/ComposedExchange.html" title="class in money.zumo.zumokit">ComposedExchange</a></dt>
-<dd>
-<div class="block">Exchange value in source account currency.</div>
-</dd>
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/ExchangeRate.html#getValue--">getValue()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/ExchangeRate.html" title="class in money.zumo.zumokit">ExchangeRate</a></dt>
 <dd>
-<div class="block">Value of 1 unit of deposit currency in withdraw currency.</div>
+<div class="block">Value of 1 unit of deposit currency in target currency.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/UnspentOutput.html#getValue--">getValue()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/UnspentOutput.html" title="class in money.zumo.zumokit">UnspentOutput</a></dt>
-<dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="money/zumo/zumokit/AccountCryptoProperties.html#getVersion--">getVersion()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/AccountCryptoProperties.html" title="class in money.zumo.zumokit">AccountCryptoProperties</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/ZumoKit.html#getVersion--">getVersion()</a></span> - Static method in class money.zumo.zumokit.<a href="money/zumo/zumokit/ZumoKit.html" title="class in money.zumo.zumokit">ZumoKit</a></dt>
 <dd>
 <div class="block">Get ZumoKit SDK version.</div>
-</dd>
-<dt><span class="memberNameLink"><a href="money/zumo/zumokit/ComposedExchange.html#getWithdrawAccount--">getWithdrawAccount()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/ComposedExchange.html" title="class in money.zumo.zumokit">ComposedExchange</a></dt>
-<dd>
-<div class="block">Target account.</div>
-</dd>
-<dt><span class="memberNameLink"><a href="money/zumo/zumokit/Exchange.html#getWithdrawAccountId--">getWithdrawAccountId()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/Exchange.html" title="class in money.zumo.zumokit">Exchange</a></dt>
-<dd>
-<div class="block">Target <a href="money/zumo/zumokit/Account.html" title="class in money.zumo.zumokit"><code>Account</code></a> identifier.</div>
-</dd>
-<dt><span class="memberNameLink"><a href="money/zumo/zumokit/Exchange.html#getWithdrawCurrency--">getWithdrawCurrency()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/Exchange.html" title="class in money.zumo.zumokit">Exchange</a></dt>
-<dd>
-<div class="block">Currency to which exchange was made.</div>
-</dd>
-<dt><span class="memberNameLink"><a href="money/zumo/zumokit/ExchangeRate.html#getWithdrawCurrency--">getWithdrawCurrency()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/ExchangeRate.html" title="class in money.zumo.zumokit">ExchangeRate</a></dt>
-<dd>
-<div class="block">Currency from which exchange is being made.</div>
-</dd>
-<dt><span class="memberNameLink"><a href="money/zumo/zumokit/ExchangeSettings.html#getWithdrawCurrency--">getWithdrawCurrency()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/ExchangeSettings.html" title="class in money.zumo.zumokit">ExchangeSettings</a></dt>
-<dd>
-<div class="block">Currency code of return transaction.</div>
-</dd>
-<dt><span class="memberNameLink"><a href="money/zumo/zumokit/ComposedExchange.html#getWithdrawFee--">getWithdrawFee()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/ComposedExchange.html" title="class in money.zumo.zumokit">ComposedExchange</a></dt>
-<dd>
-<div class="block">Return transaction fee.</div>
-</dd>
-<dt><span class="memberNameLink"><a href="money/zumo/zumokit/Exchange.html#getWithdrawFee--">getWithdrawFee()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/Exchange.html" title="class in money.zumo.zumokit">Exchange</a></dt>
-<dd>
-<div class="block">Return transaction fee.</div>
-</dd>
-<dt><span class="memberNameLink"><a href="money/zumo/zumokit/ExchangeSettings.html#getWithdrawFee--">getWithdrawFee()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/ExchangeSettings.html" title="class in money.zumo.zumokit">ExchangeSettings</a></dt>
-<dd>
-<div class="block">Fee that will charged for return transaction.</div>
-</dd>
-<dt><span class="memberNameLink"><a href="money/zumo/zumokit/Exchange.html#getWithdrawTransactionId--">getWithdrawTransactionId()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/Exchange.html" title="class in money.zumo.zumokit">Exchange</a></dt>
-<dd>
-<div class="block">Return <a href="money/zumo/zumokit/Transaction.html" title="class in money.zumo.zumokit"><code>Transaction</code></a> identifier.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/NetworkType.html#GOERLI">GOERLI</a></span> - Static variable in class money.zumo.zumokit.<a href="money/zumo/zumokit/NetworkType.html" title="class in money.zumo.zumokit">NetworkType</a></dt>
 <dd>&nbsp;</dd>
@@ -1061,17 +1057,17 @@
 <div class="block">Errors triggered when failing to validate arguments,
  e.g.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="money/zumo/zumokit/ZumoKitErrorCode.html#INVALID_EXCHANGE_DEPOSIT_ADDRESS">INVALID_EXCHANGE_DEPOSIT_ADDRESS</a></span> - Static variable in class money.zumo.zumokit.<a href="money/zumo/zumokit/ZumoKitErrorCode.html" title="class in money.zumo.zumokit">ZumoKitErrorCode</a></dt>
+<dt><span class="memberNameLink"><a href="money/zumo/zumokit/ZumoKitErrorCode.html#INVALID_EXCHANGE_ADDRESS">INVALID_EXCHANGE_ADDRESS</a></span> - Static variable in class money.zumo.zumokit.<a href="money/zumo/zumokit/ZumoKitErrorCode.html" title="class in money.zumo.zumokit">ZumoKitErrorCode</a></dt>
 <dd>
-<div class="block">Invalid or missing exchange deposit address.</div>
+<div class="block">Invalid or missing Zumo Exchange Service address.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/ZumoKitErrorCode.html#INVALID_EXCHANGE_RATE">INVALID_EXCHANGE_RATE</a></span> - Static variable in class money.zumo.zumokit.<a href="money/zumo/zumokit/ZumoKitErrorCode.html" title="class in money.zumo.zumokit">ZumoKitErrorCode</a></dt>
 <dd>
-<div class="block">Mismatch between exchange rate and selected deposit/withdraw accounts.</div>
+<div class="block">Mismatch between exchange rate and selected accounts.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/ZumoKitErrorCode.html#INVALID_EXCHANGE_SETTINGS">INVALID_EXCHANGE_SETTINGS</a></span> - Static variable in class money.zumo.zumokit.<a href="money/zumo/zumokit/ZumoKitErrorCode.html" title="class in money.zumo.zumokit">ZumoKitErrorCode</a></dt>
 <dd>
-<div class="block">Mismatch between exchange settings and selected deposit/withdraw accounts.</div>
+<div class="block">Mismatch between exchange settings and selected accounts.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/ZumoKitErrorCode.html#INVALID_FEE_RATE">INVALID_FEE_RATE</a></span> - Static variable in class money.zumo.zumokit.<a href="money/zumo/zumokit/ZumoKitErrorCode.html" title="class in money.zumo.zumokit">ZumoKitErrorCode</a></dt>
 <dd>
