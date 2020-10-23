@@ -90,9 +90,9 @@ public class MainActivity extends AppCompatActivity {
                             mUser = user;
                             Log.i("zumokit/user", mUser.getId());
 
-                            Log.i("zumokit/modulr-user", mUser.isModulrCustomer(NetworkType.TESTNET) ? "YES" : "NO");
+                            Log.i("zumokit/fiat-customer", mUser.isFiatCustomer(NetworkType.TESTNET) ? "YES" : "NO");
 
-//                            user.makeModulrCustomer(
+//                            user.makeFiatCustomer(
 //                                    NetworkType.TESTNET,
 //                                    "Ivan",
 //                                    null,
@@ -108,12 +108,12 @@ public class MainActivity extends AppCompatActivity {
 //                                    new SuccessCallback() {
 //                                        @Override
 //                                        public void onError(Exception e) {
-//                                            Log.e("zumokit/modulr", e.toString());
+//                                            Log.e("zumokit/fiat-customer", e.toString());
 //                                        }
 //
 //                                        @Override
 //                                        public void onSuccess() {
-//                                            Log.i("zumokit/modulr", "User created!");
+//                                            Log.i("zumokit/fiat-customer", "User created!");
 //                                        }
 //                                    }
 //                            );
@@ -121,12 +121,12 @@ public class MainActivity extends AppCompatActivity {
 //                            mUser.createFiatAccount(NetworkType.TESTNET, CurrencyCode.GBP, new AccountCallback() {
 //                                @Override
 //                                public void onError(Exception e) {
-//                                    Log.e("zumokit/modulr", e.toString());
+//                                    Log.e("zumokit/fiat-account", e.toString());
 //                                }
 //
 //                                @Override
 //                                public void onSuccess(Account account) {
-//                                    Log.i("zumokit/modulr", account.toString());
+//                                    Log.i("zumokit/fiat-account", account.toString());
 //                                }
 //                            });
 

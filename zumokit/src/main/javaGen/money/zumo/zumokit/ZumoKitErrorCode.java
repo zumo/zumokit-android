@@ -16,8 +16,8 @@ public final class ZumoKitErrorCode {
     /** New account could not be created. Account already exists. */
     public static final String ACCOUNT_LIMIT_EXCEEDED = "account_limit_exceeded";
 
-    /** Could not make user Modulr customer. User is already Modulr customer. */
-    public static final String ALREADY_MODULR_CUSTOMER = "already_modulr_customer";
+    /** Could not make user fiat customer. User is already fiat customer. */
+    public static final String ALREADY_FIAT_CUSTOMER = "already_fiat_customer";
 
     /** Requested account not found. */
     public static final String ACCOUNT_NOT_FOUND = "account_not_found";
@@ -176,8 +176,8 @@ public final class ZumoKitErrorCode {
     /** Resulting transaction is too large. */
     public static final String TRANSACTION_TOO_LARGE = "transaction_too_large";
 
-    /** Fiat account could no be created. User is not yet a Modulr customer on selected network. */
-    public static final String USER_NOT_MODULR_CUSTOMER = "user_not_modulr_customer";
+    /** Fiat account could no be created. User is not yet a fiat customer on selected network. */
+    public static final String USER_NOT_FIAT_CUSTOMER = "user_not_fiat_customer";
 
     /** Unspent transaction output could not be signed. */
     public static final String UTXO_SIGNING_ERROR = "utxo_signing_error";

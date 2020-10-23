@@ -218,8 +218,8 @@ implements <a href="../../../money/zumo/zumokit/User.html" title="interface in m
 </tr>
 <tr id="i10" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../money/zumo/zumokit/User.CppProxy.html#isModulrCustomer-java.lang.String-">isModulrCustomer</a></span>(java.lang.String&nbsp;network)</code>
-<div class="block">Check if user is a Modulr customer on 'MAINNET' or 'TESTNET' network.</div>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../money/zumo/zumokit/User.CppProxy.html#isFiatCustomer-java.lang.String-">isFiatCustomer</a></span>(java.lang.String&nbsp;network)</code>
+<div class="block">Check if user is a fiat customer on 'MAINNET' or 'TESTNET' network.</div>
 </td>
 </tr>
 <tr id="i11" class="rowColor">
@@ -230,20 +230,20 @@ implements <a href="../../../money/zumo/zumokit/User.html" title="interface in m
 </tr>
 <tr id="i12" class="altColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../money/zumo/zumokit/User.CppProxy.html#makeModulrCustomer-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-money.zumo.zumokit.SuccessCallback-">makeModulrCustomer</a></span>(java.lang.String&nbsp;network,
-                  java.lang.String&nbsp;firstName,
-                  java.lang.String&nbsp;middleName,
-                  java.lang.String&nbsp;lastName,
-                  java.lang.String&nbsp;dateOfBirth,
-                  java.lang.String&nbsp;email,
-                  java.lang.String&nbsp;phone,
-                  java.lang.String&nbsp;addressLine1,
-                  java.lang.String&nbsp;addressLine2,
-                  java.lang.String&nbsp;country,
-                  java.lang.String&nbsp;postCode,
-                  java.lang.String&nbsp;postTown,
-                  <a href="../../../money/zumo/zumokit/SuccessCallback.html" title="interface in money.zumo.zumokit">SuccessCallback</a>&nbsp;callback)</code>
-<div class="block">Make user Modulr customer on specified network by providing user's personal details.</div>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../money/zumo/zumokit/User.CppProxy.html#makeFiatCustomer-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-money.zumo.zumokit.SuccessCallback-">makeFiatCustomer</a></span>(java.lang.String&nbsp;network,
+                java.lang.String&nbsp;firstName,
+                java.lang.String&nbsp;middleName,
+                java.lang.String&nbsp;lastName,
+                java.lang.String&nbsp;dateOfBirth,
+                java.lang.String&nbsp;email,
+                java.lang.String&nbsp;phone,
+                java.lang.String&nbsp;addressLine1,
+                java.lang.String&nbsp;addressLine2,
+                java.lang.String&nbsp;country,
+                java.lang.String&nbsp;postCode,
+                java.lang.String&nbsp;postTown,
+                <a href="../../../money/zumo/zumokit/SuccessCallback.html" title="interface in money.zumo.zumokit">SuccessCallback</a>&nbsp;callback)</code>
+<div class="block">Make user fiat customer on specified network by providing user's personal details.</div>
 </td>
 </tr>
 <tr id="i13" class="rowColor">
@@ -356,18 +356,18 @@ implements <a href="../../../money/zumo/zumokit/User.html" title="interface in m
 </dl>
 </li>
 </ul>
-<a name="isModulrCustomer-java.lang.String-">
+<a name="isFiatCustomer-java.lang.String-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>isModulrCustomer</h4>
-<pre>public&nbsp;boolean&nbsp;isModulrCustomer(java.lang.String&nbsp;network)</pre>
-<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../money/zumo/zumokit/User.html#isModulrCustomer-java.lang.String-">User</a></code></span></div>
-<div class="block">Check if user is a Modulr customer on 'MAINNET' or 'TESTNET' network.</div>
+<h4>isFiatCustomer</h4>
+<pre>public&nbsp;boolean&nbsp;isFiatCustomer(java.lang.String&nbsp;network)</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../money/zumo/zumokit/User.html#isFiatCustomer-java.lang.String-">User</a></code></span></div>
+<div class="block">Check if user is a fiat customer on 'MAINNET' or 'TESTNET' network.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="../../../money/zumo/zumokit/User.html#isModulrCustomer-java.lang.String-">isModulrCustomer</a></code>&nbsp;in interface&nbsp;<code><a href="../../../money/zumo/zumokit/User.html" title="interface in money.zumo.zumokit">User</a></code></dd>
+<dd><code><a href="../../../money/zumo/zumokit/User.html#isFiatCustomer-java.lang.String-">isFiatCustomer</a></code>&nbsp;in interface&nbsp;<code><a href="../../../money/zumo/zumokit/User.html" title="interface in money.zumo.zumokit">User</a></code></dd>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>network</code> - 'MAINNET' or 'TESTNET'</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
@@ -377,30 +377,30 @@ implements <a href="../../../money/zumo/zumokit/User.html" title="interface in m
 </dl>
 </li>
 </ul>
-<a name="makeModulrCustomer-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-money.zumo.zumokit.SuccessCallback-">
+<a name="makeFiatCustomer-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-money.zumo.zumokit.SuccessCallback-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>makeModulrCustomer</h4>
-<pre>public&nbsp;void&nbsp;makeModulrCustomer(java.lang.String&nbsp;network,
-                               java.lang.String&nbsp;firstName,
-                               java.lang.String&nbsp;middleName,
-                               java.lang.String&nbsp;lastName,
-                               java.lang.String&nbsp;dateOfBirth,
-                               java.lang.String&nbsp;email,
-                               java.lang.String&nbsp;phone,
-                               java.lang.String&nbsp;addressLine1,
-                               java.lang.String&nbsp;addressLine2,
-                               java.lang.String&nbsp;country,
-                               java.lang.String&nbsp;postCode,
-                               java.lang.String&nbsp;postTown,
-                               <a href="../../../money/zumo/zumokit/SuccessCallback.html" title="interface in money.zumo.zumokit">SuccessCallback</a>&nbsp;callback)</pre>
-<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../money/zumo/zumokit/User.html#makeModulrCustomer-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-money.zumo.zumokit.SuccessCallback-">User</a></code></span></div>
-<div class="block">Make user Modulr customer on specified network by providing user's personal details.</div>
+<h4>makeFiatCustomer</h4>
+<pre>public&nbsp;void&nbsp;makeFiatCustomer(java.lang.String&nbsp;network,
+                             java.lang.String&nbsp;firstName,
+                             java.lang.String&nbsp;middleName,
+                             java.lang.String&nbsp;lastName,
+                             java.lang.String&nbsp;dateOfBirth,
+                             java.lang.String&nbsp;email,
+                             java.lang.String&nbsp;phone,
+                             java.lang.String&nbsp;addressLine1,
+                             java.lang.String&nbsp;addressLine2,
+                             java.lang.String&nbsp;country,
+                             java.lang.String&nbsp;postCode,
+                             java.lang.String&nbsp;postTown,
+                             <a href="../../../money/zumo/zumokit/SuccessCallback.html" title="interface in money.zumo.zumokit">SuccessCallback</a>&nbsp;callback)</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../money/zumo/zumokit/User.html#makeFiatCustomer-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-money.zumo.zumokit.SuccessCallback-">User</a></code></span></div>
+<div class="block">Make user fiat customer on specified network by providing user's personal details.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="../../../money/zumo/zumokit/User.html#makeModulrCustomer-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-money.zumo.zumokit.SuccessCallback-">makeModulrCustomer</a></code>&nbsp;in interface&nbsp;<code><a href="../../../money/zumo/zumokit/User.html" title="interface in money.zumo.zumokit">User</a></code></dd>
+<dd><code><a href="../../../money/zumo/zumokit/User.html#makeFiatCustomer-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-money.zumo.zumokit.SuccessCallback-">makeFiatCustomer</a></code>&nbsp;in interface&nbsp;<code><a href="../../../money/zumo/zumokit/User.html" title="interface in money.zumo.zumokit">User</a></code></dd>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>network</code> - 'MAINNET' or 'TESTNET'</dd>
 <dd><code>firstName</code> - first name</dd>
@@ -429,7 +429,7 @@ implements <a href="../../../money/zumo/zumokit/User.html" title="interface in m
                               java.lang.String&nbsp;currencyCode,
                               <a href="../../../money/zumo/zumokit/AccountCallback.html" title="interface in money.zumo.zumokit">AccountCallback</a>&nbsp;callback)</pre>
 <div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../money/zumo/zumokit/User.html#createFiatAccount-java.lang.String-java.lang.String-money.zumo.zumokit.AccountCallback-">User</a></code></span></div>
-<div class="block">Create fiat account on specified network and currency code. User must already be Modulr customer on specified network.</div>
+<div class="block">Create fiat account on specified network and currency code. User must already be fiat customer on specified network.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../../../money/zumo/zumokit/User.html#createFiatAccount-java.lang.String-java.lang.String-money.zumo.zumokit.AccountCallback-">createFiatAccount</a></code>&nbsp;in interface&nbsp;<code><a href="../../../money/zumo/zumokit/User.html" title="interface in money.zumo.zumokit">User</a></code></dd>
