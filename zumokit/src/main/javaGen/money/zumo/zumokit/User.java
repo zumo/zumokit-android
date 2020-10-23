@@ -36,15 +36,15 @@ public interface User {
     public boolean isActiveUser();
 
     /**
-     * Check if user is a Modulr customer on 'MAINNET' or 'TESTNET' network.
+     * Check if user is a fiat customer on 'MAINNET' or 'TESTNET' network.
      * @param  network 'MAINNET' or 'TESTNET'
      * @return true if user is currenly active user.
      * @see    NetworkType
      */
-    public boolean isModulrCustomer(String network);
+    public boolean isFiatCustomer(String network);
 
     /**
-     * Make user Modulr customer on specified network by providing user's personal details.
+     * Make user fiat customer on specified network by providing user's personal details.
      * @param  network        'MAINNET' or 'TESTNET'
      * @param  firstName     first name
      * @param  middleName    middle name or null
@@ -59,10 +59,10 @@ public interface User {
      * @param callback        an interface to receive the result or error
      * @see    NetworkType
      */
-    public void makeModulrCustomer(String network, String firstName, String middleName, String lastName, String dateOfBirth, String email, String phone, String addressLine1, String addressLine2, String country, String postCode, String postTown, SuccessCallback callback);
+    public void makeFiatCustomer(String network, String firstName, String middleName, String lastName, String dateOfBirth, String email, String phone, String addressLine1, String addressLine2, String country, String postCode, String postTown, SuccessCallback callback);
 
     /**
-     * Create fiat account on specified network and currency code. User must already be Modulr customer on specified network.
+     * Create fiat account on specified network and currency code. User must already be fiat customer on specified network.
      * @param  network        'MAINNET' or 'TESTNET'
      * @param  currencyCode  country code in ISO 4217 format, e.g. 'GBP'
      * @param  callback       an interface to receive the result or error
@@ -203,20 +203,20 @@ public interface User {
         private native boolean native_isActiveUser(long _nativeRef);
 
         @Override
-        public boolean isModulrCustomer(String network)
+        public boolean isFiatCustomer(String network)
         {
             assert !this.destroyed.get() : "trying to use a destroyed object";
-            return native_isModulrCustomer(this.nativeRef, network);
+            return native_isFiatCustomer(this.nativeRef, network);
         }
-        private native boolean native_isModulrCustomer(long _nativeRef, String network);
+        private native boolean native_isFiatCustomer(long _nativeRef, String network);
 
         @Override
-        public void makeModulrCustomer(String network, String firstName, String middleName, String lastName, String dateOfBirth, String email, String phone, String addressLine1, String addressLine2, String country, String postCode, String postTown, SuccessCallback callback)
+        public void makeFiatCustomer(String network, String firstName, String middleName, String lastName, String dateOfBirth, String email, String phone, String addressLine1, String addressLine2, String country, String postCode, String postTown, SuccessCallback callback)
         {
             assert !this.destroyed.get() : "trying to use a destroyed object";
-            native_makeModulrCustomer(this.nativeRef, network, firstName, middleName, lastName, dateOfBirth, email, phone, addressLine1, addressLine2, country, postCode, postTown, callback);
+            native_makeFiatCustomer(this.nativeRef, network, firstName, middleName, lastName, dateOfBirth, email, phone, addressLine1, addressLine2, country, postCode, postTown, callback);
         }
-        private native void native_makeModulrCustomer(long _nativeRef, String network, String firstName, String middleName, String lastName, String dateOfBirth, String email, String phone, String addressLine1, String addressLine2, String country, String postCode, String postTown, SuccessCallback callback);
+        private native void native_makeFiatCustomer(long _nativeRef, String network, String firstName, String middleName, String lastName, String dateOfBirth, String email, String phone, String addressLine1, String addressLine2, String country, String postCode, String postTown, SuccessCallback callback);
 
         @Override
         public void createFiatAccount(String network, String currencyCode, AccountCallback callback)
