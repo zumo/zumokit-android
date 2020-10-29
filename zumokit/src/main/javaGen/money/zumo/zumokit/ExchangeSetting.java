@@ -5,8 +5,8 @@ package money.zumo.zumokit;
 
 import java.util.HashMap;
 
-/** Record containing Zumo exchange settings used in making exchanges. */
-public final class ExchangeSettings {
+/** Record containing Zumo exchange setting used in making exchanges. */
+public final class ExchangeSetting {
 
 
     /*package*/ final String mId;
@@ -27,7 +27,7 @@ public final class ExchangeSettings {
 
     /*package*/ final long mTimestamp;
 
-    public ExchangeSettings(
+    public ExchangeSetting(
             String id,
             HashMap<String, String> exchangeAddress,
             String fromCurrency,
@@ -97,17 +97,17 @@ public final class ExchangeSettings {
         return mReturnTransactionFee;
     }
 
-    /** Epoch timestamp when the exchange settings were last updated. */
+    /** Epoch timestamp when the exchange setting were last updated. */
     public long getTimestamp() {
         return mTimestamp;
     }
 
     @Override
     public boolean equals(Object obj) {
-        if (!(obj instanceof ExchangeSettings)) {
+        if (!(obj instanceof ExchangeSetting)) {
             return false;
         }
-        ExchangeSettings other = (ExchangeSettings) obj;
+        ExchangeSetting other = (ExchangeSetting) obj;
         return this.mId.equals(other.mId) &&
                 this.mExchangeAddress.equals(other.mExchangeAddress) &&
                 this.mFromCurrency.equals(other.mFromCurrency) &&
@@ -137,7 +137,7 @@ public final class ExchangeSettings {
 
     @Override
     public String toString() {
-        return "ExchangeSettings{" +
+        return "ExchangeSetting{" +
                 "mId=" + mId +
                 "," + "mExchangeAddress=" + mExchangeAddress +
                 "," + "mFromCurrency=" + mFromCurrency +

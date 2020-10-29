@@ -3,8 +3,8 @@
 
 package money.zumo.zumokit;
 
-/** Record containing crypto transactions fee rates. */
-public final class FeeRates {
+/** Record containing crypto transaction fee rate */
+public final class TransactionFeeRate {
 
 
     /*package*/ final java.math.BigDecimal mSlow;
@@ -21,7 +21,7 @@ public final class FeeRates {
 
     /*package*/ final String mSource;
 
-    public FeeRates(
+    public TransactionFeeRate(
             java.math.BigDecimal slow,
             java.math.BigDecimal average,
             java.math.BigDecimal fast,
@@ -75,10 +75,10 @@ public final class FeeRates {
 
     @Override
     public boolean equals(Object obj) {
-        if (!(obj instanceof FeeRates)) {
+        if (!(obj instanceof TransactionFeeRate)) {
             return false;
         }
-        FeeRates other = (FeeRates) obj;
+        TransactionFeeRate other = (TransactionFeeRate) obj;
         return this.mSlow.equals(other.mSlow) &&
                 this.mAverage.equals(other.mAverage) &&
                 this.mFast.equals(other.mFast) &&
@@ -104,7 +104,7 @@ public final class FeeRates {
 
     @Override
     public String toString() {
-        return "FeeRates{" +
+        return "TransactionFeeRate{" +
                 "mSlow=" + mSlow +
                 "," + "mAverage=" + mAverage +
                 "," + "mFast=" + mFast +

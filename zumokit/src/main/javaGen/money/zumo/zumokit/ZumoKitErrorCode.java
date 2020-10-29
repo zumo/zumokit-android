@@ -104,8 +104,8 @@ public final class ZumoKitErrorCode {
     /** Mismatch between exchange rate and selected accounts. */
     public static final String INVALID_EXCHANGE_RATE = "invalid_exchange_rate";
 
-    /** Mismatch between exchange settings and selected accounts. */
-    public static final String INVALID_EXCHANGE_SETTINGS = "invalid_exchange_settings";
+    /** Mismatch between exchange setting and selected accounts. */
+    public static final String INVALID_EXCHANGE_SETTING = "invalid_exchange_setting";
 
     /** Invalid fee rate. Fee rate should be an integer value. */
     public static final String INVALID_FEE_RATE = "invalid_fee_rate";

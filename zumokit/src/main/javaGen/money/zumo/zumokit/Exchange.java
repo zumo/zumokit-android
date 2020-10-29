@@ -37,7 +37,7 @@ public final class Exchange {
 
     /*package*/ final ExchangeRate mExchangeRate;
 
-    /*package*/ final ExchangeSettings mExchangeSettings;
+    /*package*/ final ExchangeSetting mExchangeSetting;
 
     /*package*/ final HashMap<String, HashMap<String, ExchangeRate>> mExchangeRates;
 
@@ -62,7 +62,7 @@ public final class Exchange {
             java.math.BigDecimal exchangeFee,
             java.math.BigDecimal returnTransactionFee,
             ExchangeRate exchangeRate,
-            ExchangeSettings exchangeSettings,
+            ExchangeSetting exchangeSetting,
             HashMap<String, HashMap<String, ExchangeRate>> exchangeRates,
             String nonce,
             Long submittedAt,
@@ -81,7 +81,7 @@ public final class Exchange {
         this.mExchangeFee = exchangeFee;
         this.mReturnTransactionFee = returnTransactionFee;
         this.mExchangeRate = exchangeRate;
-        this.mExchangeSettings = exchangeSettings;
+        this.mExchangeSetting = exchangeSetting;
         this.mExchangeRates = exchangeRates;
         this.mNonce = nonce;
         this.mSubmittedAt = submittedAt;
@@ -149,7 +149,7 @@ public final class Exchange {
 
     /**
      * Amount that user receives, calculated as <code>amount X exchangeRate X (1 - feeRate) - returnTransactionFee</code>.
-     * @see ExchangeSettings
+     * @see ExchangeSetting
      */
     public java.math.BigDecimal getReturnAmount() {
         return mReturnAmount;
@@ -157,7 +157,7 @@ public final class Exchange {
 
     /**
      * Exchange fee, calculated as <code>amount X exchangeRate X exchangeFeeRate</code>.
-     * @see ExchangeSettings
+     * @see ExchangeSetting
      */
     public java.math.BigDecimal getExchangeFee() {
         return mExchangeFee;
@@ -165,7 +165,7 @@ public final class Exchange {
 
     /**
      * Return transaction fee.
-     * @see ExchangeSettings
+     * @see ExchangeSetting
      */
     public java.math.BigDecimal getReturnTransactionFee() {
         return mReturnTransactionFee;
@@ -176,9 +176,9 @@ public final class Exchange {
         return mExchangeRate;
     }
 
-    /** Exchange settings used. */
-    public ExchangeSettings getExchangeSettings() {
-        return mExchangeSettings;
+    /** Exchange setting used. */
+    public ExchangeSetting getExchangeSetting() {
+        return mExchangeSetting;
     }
 
     /**
@@ -224,7 +224,7 @@ public final class Exchange {
                 this.mExchangeFee.equals(other.mExchangeFee) &&
                 this.mReturnTransactionFee.equals(other.mReturnTransactionFee) &&
                 this.mExchangeRate.equals(other.mExchangeRate) &&
-                this.mExchangeSettings.equals(other.mExchangeSettings) &&
+                this.mExchangeSetting.equals(other.mExchangeSetting) &&
                 this.mExchangeRates.equals(other.mExchangeRates) &&
                 ((this.mNonce == null && other.mNonce == null) || (this.mNonce != null && this.mNonce.equals(other.mNonce))) &&
                 ((this.mSubmittedAt == null && other.mSubmittedAt == null) || (this.mSubmittedAt != null && this.mSubmittedAt.equals(other.mSubmittedAt))) &&
@@ -249,7 +249,7 @@ public final class Exchange {
         hashCode = hashCode * 31 + (mExchangeFee.hashCode());
         hashCode = hashCode * 31 + (mReturnTransactionFee.hashCode());
         hashCode = hashCode * 31 + mExchangeRate.hashCode();
-        hashCode = hashCode * 31 + mExchangeSettings.hashCode();
+        hashCode = hashCode * 31 + mExchangeSetting.hashCode();
         hashCode = hashCode * 31 + mExchangeRates.hashCode();
         hashCode = hashCode * 31 + (mNonce == null ? 0 : mNonce.hashCode());
         hashCode = hashCode * 31 + (mSubmittedAt == null ? 0 : mSubmittedAt.hashCode());
@@ -274,7 +274,7 @@ public final class Exchange {
                 "," + "mExchangeFee=" + mExchangeFee +
                 "," + "mReturnTransactionFee=" + mReturnTransactionFee +
                 "," + "mExchangeRate=" + mExchangeRate +
-                "," + "mExchangeSettings=" + mExchangeSettings +
+                "," + "mExchangeSetting=" + mExchangeSetting +
                 "," + "mExchangeRates=" + mExchangeRates +
                 "," + "mNonce=" + mNonce +
                 "," + "mSubmittedAt=" + mSubmittedAt +

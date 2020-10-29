@@ -3,6 +3,7 @@
 
 package money.zumo.zumokit;
 
+import java.util.HashMap;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 /** Entry point to ZumoKit C++ SDK */
@@ -43,23 +44,44 @@ public interface ZumoCore {
     public ExchangeRate getExchangeRate(String fromCurrency, String toCurrency);
 
     /**
-     * Get exchange settings for selected currency pair.
+     * Get all available exchange rates.
+     *
+     * @return mapping between currency pairs and exchange rates
+     */
+    public HashMap<String, HashMap<String, ExchangeRate>> getExchangeRates();
+
+    /**
+     * Get exchange setting for selected currency pair.
      *
      * @param fromCurrency   currency code
      * @param toCurrency     currency code
      *
-     * @return exchange settings or null
+     * @return exchange setting or null
      */
-    public ExchangeSettings getExchangeSettings(String fromCurrency, String toCurrency);
+    public ExchangeSetting getExchangeSetting(String fromCurrency, String toCurrency);
 
     /**
-     * Get crypto currency fee rates for selected currency.
+     * Get all available exchange settings.
      *
-     * @param currency   currency code
-     *
-     * @return exchange settings or null
+     * @return mapping between currency pairs and exchange settings
      */
-    public FeeRates getFeeRates(String currency);
+    public HashMap<String, HashMap<String, ExchangeSetting>> getExchangeSettings();
+
+    /**
+     * Get transaction fee rates for selected crypto currency.
+     *
+     * @param currency currency code
+     *
+     * @return transaction fee rate or null
+     */
+    public TransactionFeeRate getTransactionFeeRate(String currency);
+
+    /**
+     * Get all available crypto transaction fee rates.
+     *
+     * @return mapping between cryptocurrencies and transaction fee rate
+     */
+    public HashMap<String, TransactionFeeRate> getTransactionFeeRates();
 
     /**
      * Fetch historical exchange rates for supported time intervals.
@@ -68,9 +90,21 @@ public interface ZumoCore {
      *
      * @param callback         an interface to receive the result or error
      *
-     * @see HistoricalExchangeRatesInterval
+     * @see TimeInterval
      */
     public void fetchHistoricalExchangeRates(HistoricalExchangeRatesCallback callback);
+
+    /**
+     * Listen to changes in exchange rates, exchange settings or transaction fee rates.
+     * @param listener interface to listen to changes
+     */
+    public void addChangeListener(ChangeListener listener);
+
+    /**
+     * Remove change listener.
+     * @param listener interface to listen to changes
+     */
+    public void removeChangeListener(ChangeListener listener);
 
     /**
      * Get ZumoKit SDK version.
@@ -157,20 +191,44 @@ public interface ZumoCore {
         private native ExchangeRate native_getExchangeRate(long _nativeRef, String fromCurrency, String toCurrency);
 
         @Override
-        public ExchangeSettings getExchangeSettings(String fromCurrency, String toCurrency)
+        public HashMap<String, HashMap<String, ExchangeRate>> getExchangeRates()
         {
             assert !this.destroyed.get() : "trying to use a destroyed object";
-            return native_getExchangeSettings(this.nativeRef, fromCurrency, toCurrency);
+            return native_getExchangeRates(this.nativeRef);
         }
-        private native ExchangeSettings native_getExchangeSettings(long _nativeRef, String fromCurrency, String toCurrency);
+        private native HashMap<String, HashMap<String, ExchangeRate>> native_getExchangeRates(long _nativeRef);
 
         @Override
-        public FeeRates getFeeRates(String currency)
+        public ExchangeSetting getExchangeSetting(String fromCurrency, String toCurrency)
         {
             assert !this.destroyed.get() : "trying to use a destroyed object";
-            return native_getFeeRates(this.nativeRef, currency);
+            return native_getExchangeSetting(this.nativeRef, fromCurrency, toCurrency);
         }
-        private native FeeRates native_getFeeRates(long _nativeRef, String currency);
+        private native ExchangeSetting native_getExchangeSetting(long _nativeRef, String fromCurrency, String toCurrency);
+
+        @Override
+        public HashMap<String, HashMap<String, ExchangeSetting>> getExchangeSettings()
+        {
+            assert !this.destroyed.get() : "trying to use a destroyed object";
+            return native_getExchangeSettings(this.nativeRef);
+        }
+        private native HashMap<String, HashMap<String, ExchangeSetting>> native_getExchangeSettings(long _nativeRef);
+
+        @Override
+        public TransactionFeeRate getTransactionFeeRate(String currency)
+        {
+            assert !this.destroyed.get() : "trying to use a destroyed object";
+            return native_getTransactionFeeRate(this.nativeRef, currency);
+        }
+        private native TransactionFeeRate native_getTransactionFeeRate(long _nativeRef, String currency);
+
+        @Override
+        public HashMap<String, TransactionFeeRate> getTransactionFeeRates()
+        {
+            assert !this.destroyed.get() : "trying to use a destroyed object";
+            return native_getTransactionFeeRates(this.nativeRef);
+        }
+        private native HashMap<String, TransactionFeeRate> native_getTransactionFeeRates(long _nativeRef);
 
         @Override
         public void fetchHistoricalExchangeRates(HistoricalExchangeRatesCallback callback)
@@ -179,6 +237,22 @@ public interface ZumoCore {
             native_fetchHistoricalExchangeRates(this.nativeRef, callback);
         }
         private native void native_fetchHistoricalExchangeRates(long _nativeRef, HistoricalExchangeRatesCallback callback);
+
+        @Override
+        public void addChangeListener(ChangeListener listener)
+        {
+            assert !this.destroyed.get() : "trying to use a destroyed object";
+            native_addChangeListener(this.nativeRef, listener);
+        }
+        private native void native_addChangeListener(long _nativeRef, ChangeListener listener);
+
+        @Override
+        public void removeChangeListener(ChangeListener listener)
+        {
+            assert !this.destroyed.get() : "trying to use a destroyed object";
+            native_removeChangeListener(this.nativeRef, listener);
+        }
+        private native void native_removeChangeListener(long _nativeRef, ChangeListener listener);
 
         public static native String getVersion();
 

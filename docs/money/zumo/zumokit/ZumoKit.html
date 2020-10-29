@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":9};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":9,"i12":10};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -153,53 +153,83 @@ extends java.lang.Object</pre>
 </tr>
 <tr id="i0" class="altColor">
 <td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../money/zumo/zumokit/ZumoKit.html#addChangeListener-money.zumo.zumokit.ChangeListener-">addChangeListener</a></span>(<a href="../../../money/zumo/zumokit/ChangeListener.html" title="interface in money.zumo.zumokit">ChangeListener</a>&nbsp;listener)</code>
+<div class="block">Listen to changes in exchange rates, exchange settings or transaction fee rates.</div>
+</td>
+</tr>
+<tr id="i1" class="rowColor">
+<td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../money/zumo/zumokit/ZumoKit.html#authUser-java.lang.String-money.zumo.zumokit.UserCallback-">authUser</a></span>(java.lang.String&nbsp;userTokenSet,
         <a href="../../../money/zumo/zumokit/UserCallback.html" title="interface in money.zumo.zumokit">UserCallback</a>&nbsp;callback)</code>
 <div class="block">Authenticates user token set and returns corresponding user.</div>
 </td>
 </tr>
-<tr id="i1" class="rowColor">
+<tr id="i2" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../money/zumo/zumokit/ZumoKit.html#fetchHistoricalExchangeRates-money.zumo.zumokit.HistoricalExchangeRatesCallback-">fetchHistoricalExchangeRates</a></span>(<a href="../../../money/zumo/zumokit/HistoricalExchangeRatesCallback.html" title="interface in money.zumo.zumokit">HistoricalExchangeRatesCallback</a>&nbsp;callback)</code>
 <div class="block">Fetch historical exchange rates for supported time intervals.</div>
 </td>
 </tr>
-<tr id="i2" class="altColor">
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code><a href="../../../money/zumo/zumokit/User.html" title="interface in money.zumo.zumokit">User</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../money/zumo/zumokit/ZumoKit.html#getActiveUser--">getActiveUser</a></span>()</code>
 <div class="block">Get active user if exists.</div>
 </td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i4" class="altColor">
 <td class="colFirst"><code><a href="../../../money/zumo/zumokit/ExchangeRate.html" title="class in money.zumo.zumokit">ExchangeRate</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../money/zumo/zumokit/ZumoKit.html#getExchangeRate-java.lang.String-java.lang.String-">getExchangeRate</a></span>(java.lang.String&nbsp;fromCurrency,
                java.lang.String&nbsp;toCurrency)</code>
 <div class="block">Get exchange rate for selected currency pair.</div>
 </td>
 </tr>
-<tr id="i4" class="altColor">
-<td class="colFirst"><code><a href="../../../money/zumo/zumokit/ExchangeSettings.html" title="class in money.zumo.zumokit">ExchangeSettings</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../money/zumo/zumokit/ZumoKit.html#getExchangeSettings-java.lang.String-java.lang.String-">getExchangeSettings</a></span>(java.lang.String&nbsp;fromCurrency,
-                   java.lang.String&nbsp;toCurrency)</code>
-<div class="block">Get exchange settings for selected currency pair.</div>
-</td>
-</tr>
 <tr id="i5" class="rowColor">
-<td class="colFirst"><code><a href="../../../money/zumo/zumokit/FeeRates.html" title="class in money.zumo.zumokit">FeeRates</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../money/zumo/zumokit/ZumoKit.html#getFeeRates-java.lang.String-">getFeeRates</a></span>(java.lang.String&nbsp;currency)</code>
-<div class="block">Get exchange fee rates for selected currency.</div>
+<td class="colFirst"><code>java.util.HashMap&lt;java.lang.String,java.util.HashMap&lt;java.lang.String,<a href="../../../money/zumo/zumokit/ExchangeRate.html" title="class in money.zumo.zumokit">ExchangeRate</a>&gt;&gt;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../money/zumo/zumokit/ZumoKit.html#getExchangeRates--">getExchangeRates</a></span>()</code>
+<div class="block">Get all available exchange rates.</div>
 </td>
 </tr>
 <tr id="i6" class="altColor">
+<td class="colFirst"><code><a href="../../../money/zumo/zumokit/ExchangeSetting.html" title="class in money.zumo.zumokit">ExchangeSetting</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../money/zumo/zumokit/ZumoKit.html#getExchangeSetting-java.lang.String-java.lang.String-">getExchangeSetting</a></span>(java.lang.String&nbsp;fromCurrency,
+                  java.lang.String&nbsp;toCurrency)</code>
+<div class="block">Get exchange setting for selected currency pair.</div>
+</td>
+</tr>
+<tr id="i7" class="rowColor">
+<td class="colFirst"><code>java.util.HashMap&lt;java.lang.String,java.util.HashMap&lt;java.lang.String,<a href="../../../money/zumo/zumokit/ExchangeSetting.html" title="class in money.zumo.zumokit">ExchangeSetting</a>&gt;&gt;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../money/zumo/zumokit/ZumoKit.html#getExchangeSettings--">getExchangeSettings</a></span>()</code>
+<div class="block">Get all available exchange settings.</div>
+</td>
+</tr>
+<tr id="i8" class="altColor">
+<td class="colFirst"><code><a href="../../../money/zumo/zumokit/TransactionFeeRate.html" title="class in money.zumo.zumokit">TransactionFeeRate</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../money/zumo/zumokit/ZumoKit.html#getTransactionFeeRate-java.lang.String-">getTransactionFeeRate</a></span>(java.lang.String&nbsp;currency)</code>
+<div class="block">Get transaction fee rate for selected crypto currency.</div>
+</td>
+</tr>
+<tr id="i9" class="rowColor">
+<td class="colFirst"><code>java.util.HashMap&lt;java.lang.String,<a href="../../../money/zumo/zumokit/TransactionFeeRate.html" title="class in money.zumo.zumokit">TransactionFeeRate</a>&gt;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../money/zumo/zumokit/ZumoKit.html#getTransactionFeeRates--">getTransactionFeeRates</a></span>()</code>
+<div class="block">Get all available crypto transaction fee rates.</div>
+</td>
+</tr>
+<tr id="i10" class="altColor">
 <td class="colFirst"><code><a href="../../../money/zumo/zumokit/Utils.html" title="interface in money.zumo.zumokit">Utils</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../money/zumo/zumokit/ZumoKit.html#getUtils--">getUtils</a></span>()</code>
 <div class="block">Get crypto utils.</div>
 </td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i11" class="rowColor">
 <td class="colFirst"><code>static java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../money/zumo/zumokit/ZumoKit.html#getVersion--">getVersion</a></span>()</code>
 <div class="block">Get ZumoKit SDK version.</div>
+</td>
+</tr>
+<tr id="i12" class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../money/zumo/zumokit/ZumoKit.html#removeChangeListener-money.zumo.zumokit.ChangeListener-">removeChangeListener</a></span>(<a href="../../../money/zumo/zumokit/ChangeListener.html" title="interface in money.zumo.zumokit">ChangeListener</a>&nbsp;listener)</code>
+<div class="block">Remove change listener.</div>
 </td>
 </tr>
 </table>
@@ -324,43 +354,91 @@ extends java.lang.Object</pre>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>fromCurrency</code> - currency code</dd>
 <dd><code>toCurrency</code> - currency code</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>exchange rate or null</dd>
 </dl>
 </li>
 </ul>
-<a name="getExchangeSettings-java.lang.String-java.lang.String-">
+<a name="getExchangeRates--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getExchangeRates</h4>
+<pre>public&nbsp;java.util.HashMap&lt;java.lang.String,java.util.HashMap&lt;java.lang.String,<a href="../../../money/zumo/zumokit/ExchangeRate.html" title="class in money.zumo.zumokit">ExchangeRate</a>&gt;&gt;&nbsp;getExchangeRates()</pre>
+<div class="block">Get all available exchange rates.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>mapping between currency pairs and exchange rates</dd>
+</dl>
+</li>
+</ul>
+<a name="getExchangeSetting-java.lang.String-java.lang.String-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getExchangeSetting</h4>
+<pre>public&nbsp;<a href="../../../money/zumo/zumokit/ExchangeSetting.html" title="class in money.zumo.zumokit">ExchangeSetting</a>&nbsp;getExchangeSetting(java.lang.String&nbsp;fromCurrency,
+                                          java.lang.String&nbsp;toCurrency)</pre>
+<div class="block">Get exchange setting for selected currency pair.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>fromCurrency</code> - currency code</dd>
+<dd><code>toCurrency</code> - currency code</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>exchange setting or null</dd>
+</dl>
+</li>
+</ul>
+<a name="getExchangeSettings--">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>getExchangeSettings</h4>
-<pre>public&nbsp;<a href="../../../money/zumo/zumokit/ExchangeSettings.html" title="class in money.zumo.zumokit">ExchangeSettings</a>&nbsp;getExchangeSettings(java.lang.String&nbsp;fromCurrency,
-                                            java.lang.String&nbsp;toCurrency)</pre>
-<div class="block">Get exchange settings for selected currency pair.</div>
+<pre>public&nbsp;java.util.HashMap&lt;java.lang.String,java.util.HashMap&lt;java.lang.String,<a href="../../../money/zumo/zumokit/ExchangeSetting.html" title="class in money.zumo.zumokit">ExchangeSetting</a>&gt;&gt;&nbsp;getExchangeSettings()</pre>
+<div class="block">Get all available exchange settings.</div>
 <dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>fromCurrency</code> - currency code</dd>
-<dd><code>toCurrency</code> - currency code</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>mapping between currency pairs and exchange settings</dd>
 </dl>
 </li>
 </ul>
-<a name="getFeeRates-java.lang.String-">
+<a name="getTransactionFeeRate-java.lang.String-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>getFeeRates</h4>
-<pre>public&nbsp;<a href="../../../money/zumo/zumokit/FeeRates.html" title="class in money.zumo.zumokit">FeeRates</a>&nbsp;getFeeRates(java.lang.String&nbsp;currency)</pre>
-<div class="block">Get exchange fee rates for selected currency.</div>
+<h4>getTransactionFeeRate</h4>
+<pre>public&nbsp;<a href="../../../money/zumo/zumokit/TransactionFeeRate.html" title="class in money.zumo.zumokit">TransactionFeeRate</a>&nbsp;getTransactionFeeRate(java.lang.String&nbsp;currency)</pre>
+<div class="block">Get transaction fee rate for selected crypto currency.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>currency</code> - currency code</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>transaction fee rate or null</dd>
+</dl>
+</li>
+</ul>
+<a name="getTransactionFeeRates--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getTransactionFeeRates</h4>
+<pre>public&nbsp;java.util.HashMap&lt;java.lang.String,<a href="../../../money/zumo/zumokit/TransactionFeeRate.html" title="class in money.zumo.zumokit">TransactionFeeRate</a>&gt;&nbsp;getTransactionFeeRates()</pre>
+<div class="block">Get all available crypto transaction fee rates.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>mapping between cryptocurrencies and transaction fee rate</dd>
 </dl>
 </li>
 </ul>
 <a name="fetchHistoricalExchangeRates-money.zumo.zumokit.HistoricalExchangeRatesCallback-">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>fetchHistoricalExchangeRates</h4>
 <pre>public&nbsp;void&nbsp;fetchHistoricalExchangeRates(<a href="../../../money/zumo/zumokit/HistoricalExchangeRatesCallback.html" title="interface in money.zumo.zumokit">HistoricalExchangeRatesCallback</a>&nbsp;callback)</pre>
@@ -371,7 +449,35 @@ extends java.lang.Object</pre>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>callback</code> - an interface to receive the result or error</dd>
 <dt><span class="seeLabel">See Also:</span></dt>
-<dd><code>HistoricalExchangeRatesInterval</code></dd>
+<dd><a href="../../../money/zumo/zumokit/TimeInterval.html" title="class in money.zumo.zumokit"><code>TimeInterval</code></a></dd>
+</dl>
+</li>
+</ul>
+<a name="addChangeListener-money.zumo.zumokit.ChangeListener-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>addChangeListener</h4>
+<pre>public&nbsp;void&nbsp;addChangeListener(<a href="../../../money/zumo/zumokit/ChangeListener.html" title="interface in money.zumo.zumokit">ChangeListener</a>&nbsp;listener)</pre>
+<div class="block">Listen to changes in exchange rates, exchange settings or transaction fee rates.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>listener</code> - interface to listen to changes</dd>
+</dl>
+</li>
+</ul>
+<a name="removeChangeListener-money.zumo.zumokit.ChangeListener-">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>removeChangeListener</h4>
+<pre>public&nbsp;void&nbsp;removeChangeListener(<a href="../../../money/zumo/zumokit/ChangeListener.html" title="interface in money.zumo.zumokit">ChangeListener</a>&nbsp;listener)</pre>
+<div class="block">Remove change listener.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>listener</code> - interface to listen to changes</dd>
 </dl>
 </li>
 </ul>
