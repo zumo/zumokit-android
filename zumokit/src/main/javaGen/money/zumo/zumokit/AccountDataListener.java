@@ -6,7 +6,7 @@ package money.zumo.zumokit;
 import java.util.ArrayList;
 import java.util.concurrent.atomic.AtomicBoolean;
 
-/** Callback interface used by methods in {@link  User User} class. */
+/** Callback interface used to listen for account data changes in {@link  User User} class. */
 public interface AccountDataListener {
     public void onDataChange(ArrayList<AccountDataSnapshot> snapshots);
 

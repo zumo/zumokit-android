@@ -15,7 +15,7 @@ public final class ComposedExchange {
 
     /*package*/ final ExchangeRate mExchangeRate;
 
-    /*package*/ final ExchangeSettings mExchangeSettings;
+    /*package*/ final ExchangeSetting mExchangeSetting;
 
     /*package*/ final String mExchangeAddress;
 
@@ -36,7 +36,7 @@ public final class ComposedExchange {
             Account fromAccount,
             Account toAccount,
             ExchangeRate exchangeRate,
-            ExchangeSettings exchangeSettings,
+            ExchangeSetting exchangeSetting,
             String exchangeAddress,
             java.math.BigDecimal amount,
             java.math.BigDecimal returnAmount,
@@ -48,7 +48,7 @@ public final class ComposedExchange {
         this.mFromAccount = fromAccount;
         this.mToAccount = toAccount;
         this.mExchangeRate = exchangeRate;
-        this.mExchangeSettings = exchangeSettings;
+        this.mExchangeSetting = exchangeSetting;
         this.mExchangeAddress = exchangeAddress;
         this.mAmount = amount;
         this.mReturnAmount = returnAmount;
@@ -78,9 +78,9 @@ public final class ComposedExchange {
         return mExchangeRate;
     }
 
-    /** Exchange settings used composing exchange. */
-    public ExchangeSettings getExchangeSettings() {
-        return mExchangeSettings;
+    /** Exchange setting used composing exchange. */
+    public ExchangeSetting getExchangeSetting() {
+        return mExchangeSetting;
     }
 
     /**
@@ -98,7 +98,7 @@ public final class ComposedExchange {
 
     /**
      * Amount that user receives, calculated as <code>value X exchangeRate X (1 - feeRate) - returnTransactionFee</code>.
-     * @see ExchangeSettings
+     * @see ExchangeSetting
      */
     public java.math.BigDecimal getReturnAmount() {
         return mReturnAmount;
@@ -111,7 +111,7 @@ public final class ComposedExchange {
 
     /**
      * Exchange fee, calculated as <code>value X exchangeRate X exchangeFeeRate</code>.
-     * @see ExchangeSettings
+     * @see ExchangeSetting
      */
     public java.math.BigDecimal getExchangeFee() {
         return mExchangeFee;
@@ -119,7 +119,7 @@ public final class ComposedExchange {
 
     /**
      * Return transaction fee.
-     * @see ExchangeSettings
+     * @see ExchangeSetting
      */
     public java.math.BigDecimal getReturnTransactionFee() {
         return mReturnTransactionFee;
@@ -140,7 +140,7 @@ public final class ComposedExchange {
                 this.mFromAccount.equals(other.mFromAccount) &&
                 this.mToAccount.equals(other.mToAccount) &&
                 this.mExchangeRate.equals(other.mExchangeRate) &&
-                this.mExchangeSettings.equals(other.mExchangeSettings) &&
+                this.mExchangeSetting.equals(other.mExchangeSetting) &&
                 ((this.mExchangeAddress == null && other.mExchangeAddress == null) || (this.mExchangeAddress != null && this.mExchangeAddress.equals(other.mExchangeAddress))) &&
                 this.mAmount.equals(other.mAmount) &&
                 this.mReturnAmount.equals(other.mReturnAmount) &&
@@ -158,7 +158,7 @@ public final class ComposedExchange {
         hashCode = hashCode * 31 + mFromAccount.hashCode();
         hashCode = hashCode * 31 + mToAccount.hashCode();
         hashCode = hashCode * 31 + mExchangeRate.hashCode();
-        hashCode = hashCode * 31 + mExchangeSettings.hashCode();
+        hashCode = hashCode * 31 + mExchangeSetting.hashCode();
         hashCode = hashCode * 31 + (mExchangeAddress == null ? 0 : mExchangeAddress.hashCode());
         hashCode = hashCode * 31 + (mAmount.hashCode());
         hashCode = hashCode * 31 + (mReturnAmount.hashCode());
@@ -176,7 +176,7 @@ public final class ComposedExchange {
                 "," + "mFromAccount=" + mFromAccount +
                 "," + "mToAccount=" + mToAccount +
                 "," + "mExchangeRate=" + mExchangeRate +
-                "," + "mExchangeSettings=" + mExchangeSettings +
+                "," + "mExchangeSetting=" + mExchangeSetting +
                 "," + "mExchangeAddress=" + mExchangeAddress +
                 "," + "mAmount=" + mAmount +
                 "," + "mReturnAmount=" + mReturnAmount +

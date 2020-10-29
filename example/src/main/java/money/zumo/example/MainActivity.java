@@ -15,7 +15,7 @@ import money.zumo.zumokit.ComposedExchange;
 import money.zumo.zumokit.ComposedTransaction;
 import money.zumo.zumokit.Exchange;
 import money.zumo.zumokit.ExchangeRate;
-import money.zumo.zumokit.ExchangeSettings;
+import money.zumo.zumokit.ExchangeSetting;
 import money.zumo.zumokit.HttpCallback;
 import money.zumo.zumokit.NetworkType;
 import money.zumo.zumokit.ComposeTransactionCallback;
@@ -178,7 +178,7 @@ public class MainActivity extends AppCompatActivity {
 
                                         // Display current exchange rates & exchange settings
                                         Log.i("zumokit/exchange-rates",  mZumoKit.getExchangeRate("BTC", "ETH").toString());
-                                        Log.i("zumokit/exchange-rates",  mZumoKit.getExchangeSettings("ETH", "BTC").toString());
+                                        Log.i("zumokit/exchange-rates",  mZumoKit.getExchangeSetting("ETH", "BTC").toString());
 
 //                                        composeExchange(
 //                                                ethAccount,
@@ -257,7 +257,7 @@ public class MainActivity extends AppCompatActivity {
     private void composeBtcTransaction(Account account, Boolean submit) {
         String to = "2NBQtvK3wMXs43YGt9aotsoWSS79Qmh7z1J";
         BigDecimal value = new BigDecimal("0.0002");
-        BigDecimal feeRate = mZumoKit.getFeeRates("BTC").getAverage();
+        BigDecimal feeRate = mZumoKit.getTransactionFeeRate("BTC").getAverage();
 
         mWallet.composeTransaction(account.getId(), account.getId(), to, value, feeRate, false,
                 new ComposeTransactionCallback() {
@@ -350,9 +350,9 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    private void composeExchange(Account fromAccount, Account toAccount, ExchangeRate exchangeRate, ExchangeSettings exchangeSettings, BigDecimal value, Boolean sendMax, Boolean submit) {
+    private void composeExchange(Account fromAccount, Account toAccount, ExchangeRate exchangeRate, ExchangeSetting exchangeSetting, BigDecimal value, Boolean sendMax, Boolean submit) {
         mWallet.composeExchange(
-                fromAccount.getId(), toAccount.getId(), exchangeRate, exchangeSettings, value, sendMax,
+                fromAccount.getId(), toAccount.getId(), exchangeRate, exchangeSetting, value, sendMax,
                 new ComposeExchangeCallback() {
                     @Override
                     public void onError(Exception e) {

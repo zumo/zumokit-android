@@ -2,6 +2,7 @@ package money.zumo.zumokit;
 
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.HashMap;
 
 /**
  * Entry point to ZumoKit Android SDK.
@@ -88,29 +89,62 @@ public class ZumoKit {
      *
      * @param fromCurrency   currency code
      * @param toCurrency     currency code
+     *
+     * @return exchange rate or null
      */
     public ExchangeRate getExchangeRate(String fromCurrency, String toCurrency) {
         return zumoCore.getExchangeRate(fromCurrency, toCurrency);
     }
 
     /**
-     * Get exchange settings for selected currency pair.
+     * Get all available exchange rates.
+     *
+     * @return mapping between currency pairs and exchange rates
+     */
+    public HashMap<String, HashMap<String, ExchangeRate>> getExchangeRates() {
+        return zumoCore.getExchangeRates();
+    };
+
+    /**
+     * Get exchange setting for selected currency pair.
      *
      * @param fromCurrency   currency code
      * @param toCurrency     currency code
+     *
+     * @return exchange setting or null
      */
-    public ExchangeSettings getExchangeSettings(String fromCurrency, String toCurrency) {
-        return zumoCore.getExchangeSettings(fromCurrency, toCurrency);
+    public ExchangeSetting getExchangeSetting(String fromCurrency, String toCurrency) {
+        return zumoCore.getExchangeSetting(fromCurrency, toCurrency);
     }
 
     /**
-     * Get exchange fee rates for selected currency.
+     * Get all available exchange settings.
+     *
+     * @return mapping between currency pairs and exchange settings
+     */
+    public HashMap<String, HashMap<String, ExchangeSetting>> getExchangeSettings() {
+        return zumoCore.getExchangeSettings();
+    };
+
+    /**
+     * Get transaction fee rate for selected crypto currency.
      *
      * @param currency   currency code
+     *
+     * @return transaction fee rate or null
      */
-    public FeeRates getFeeRates(String currency) {
-        return zumoCore.getFeeRates(currency);
+    public TransactionFeeRate getTransactionFeeRate(String currency) {
+        return zumoCore.getTransactionFeeRate(currency);
     }
+
+    /**
+     * Get all available crypto transaction fee rates.
+     *
+     * @return mapping between cryptocurrencies and transaction fee rate
+     */
+    public HashMap<String, TransactionFeeRate> getTransactionFeeRates() {
+        return zumoCore.getTransactionFeeRates();
+    };
 
     /**
      * Fetch historical exchange rates for supported time intervals.
@@ -119,10 +153,25 @@ public class ZumoKit {
      *
      * @param callback         an interface to receive the result or error
      *
-     * @see HistoricalExchangeRatesInterval
+     * @see TimeInterval
      */
     public void fetchHistoricalExchangeRates(HistoricalExchangeRatesCallback callback) {
         zumoCore.fetchHistoricalExchangeRates(callback);
     }
 
+    /**
+     * Listen to changes in exchange rates, exchange settings or transaction fee rates.
+     * @param listener interface to listen to changes
+     */
+    public void addChangeListener(ChangeListener listener) {
+        zumoCore.addChangeListener(listener);
+    };
+
+    /**
+     * Remove change listener.
+     * @param listener interface to listen to changes
+     */
+    public void removeChangeListener(ChangeListener listener) {
+        zumoCore.removeChangeListener(listener);
+    };
 }

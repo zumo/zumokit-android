@@ -89,13 +89,13 @@ public interface Wallet {
      *
      * @param fromAccountId     {@link  Account Account} identifier
      * @param toAccountId       {@link  Account Account} identifier
-     * @param exchangeRate       Zumo exchange rate obtained from ZumoKit state
-     * @param exchangeSettings   Zumo exchange settings obtained from ZumoKit state
+     * @param exchangeRate       Zumo exchange rate obtained from {@link  ZumoKit ZumoKit} instance
+     * @param exchangeSetting    Zumo exchange setting obtained from {@link  ZumoKit ZumoKit} instance
      * @param amount              amount in deposit account currency
      * @param sendMax            exchange maximum possible funds
      * @param callback            an interface to receive the result or error
      */
-    public void composeExchange(String fromAccountId, String toAccountId, ExchangeRate exchangeRate, ExchangeSettings exchangeSettings, java.math.BigDecimal amount, boolean sendMax, ComposeExchangeCallback callback);
+    public void composeExchange(String fromAccountId, String toAccountId, ExchangeRate exchangeRate, ExchangeSetting exchangeSetting, java.math.BigDecimal amount, boolean sendMax, ComposeExchangeCallback callback);
 
     /**
      * Submit an exchange asynchronously. <a target="_top" href="https://developers.zumo.money/docs/guides/make-exchanges#submit-exchange">Make Exchanges</a> guide for usage details.
@@ -172,12 +172,12 @@ public interface Wallet {
         private native void native_submitTransaction(long _nativeRef, ComposedTransaction composedTransaction, SubmitTransactionCallback callback);
 
         @Override
-        public void composeExchange(String fromAccountId, String toAccountId, ExchangeRate exchangeRate, ExchangeSettings exchangeSettings, java.math.BigDecimal amount, boolean sendMax, ComposeExchangeCallback callback)
+        public void composeExchange(String fromAccountId, String toAccountId, ExchangeRate exchangeRate, ExchangeSetting exchangeSetting, java.math.BigDecimal amount, boolean sendMax, ComposeExchangeCallback callback)
         {
             assert !this.destroyed.get() : "trying to use a destroyed object";
-            native_composeExchange(this.nativeRef, fromAccountId, toAccountId, exchangeRate, exchangeSettings, amount, sendMax, callback);
+            native_composeExchange(this.nativeRef, fromAccountId, toAccountId, exchangeRate, exchangeSetting, amount, sendMax, callback);
         }
-        private native void native_composeExchange(long _nativeRef, String fromAccountId, String toAccountId, ExchangeRate exchangeRate, ExchangeSettings exchangeSettings, java.math.BigDecimal amount, boolean sendMax, ComposeExchangeCallback callback);
+        private native void native_composeExchange(long _nativeRef, String fromAccountId, String toAccountId, ExchangeRate exchangeRate, ExchangeSetting exchangeSetting, java.math.BigDecimal amount, boolean sendMax, ComposeExchangeCallback callback);
 
         @Override
         public void submitExchange(ComposedExchange composedExchange, SubmitExchangeCallback callback)

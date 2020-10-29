@@ -128,7 +128,7 @@ extends java.lang.Object</pre>
 <th class="colOne" scope="col">Constructor and Description</th>
 </tr>
 <tr class="altColor">
-<td class="colOne"><code><span class="memberNameLink"><a href="../../../money/zumo/zumokit/Exchange.html#Exchange-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.math.BigDecimal-java.math.BigDecimal-java.math.BigDecimal-java.math.BigDecimal-java.math.BigDecimal-money.zumo.zumokit.ExchangeRate-money.zumo.zumokit.ExchangeSettings-java.util.HashMap-java.lang.String-java.lang.Long-java.lang.Long-">Exchange</a></span>(java.lang.String&nbsp;id,
+<td class="colOne"><code><span class="memberNameLink"><a href="../../../money/zumo/zumokit/Exchange.html#Exchange-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.math.BigDecimal-java.math.BigDecimal-java.math.BigDecimal-java.math.BigDecimal-java.math.BigDecimal-money.zumo.zumokit.ExchangeRate-money.zumo.zumokit.ExchangeSetting-java.util.HashMap-java.lang.String-java.lang.Long-java.lang.Long-">Exchange</a></span>(java.lang.String&nbsp;id,
         java.lang.String&nbsp;status,
         java.lang.String&nbsp;fromCurrency,
         java.lang.String&nbsp;fromAccountId,
@@ -142,7 +142,7 @@ extends java.lang.Object</pre>
         java.math.BigDecimal&nbsp;exchangeFee,
         java.math.BigDecimal&nbsp;returnTransactionFee,
         <a href="../../../money/zumo/zumokit/ExchangeRate.html" title="class in money.zumo.zumokit">ExchangeRate</a>&nbsp;exchangeRate,
-        <a href="../../../money/zumo/zumokit/ExchangeSettings.html" title="class in money.zumo.zumokit">ExchangeSettings</a>&nbsp;exchangeSettings,
+        <a href="../../../money/zumo/zumokit/ExchangeSetting.html" title="class in money.zumo.zumokit">ExchangeSetting</a>&nbsp;exchangeSetting,
         java.util.HashMap&lt;java.lang.String,java.util.HashMap&lt;java.lang.String,<a href="../../../money/zumo/zumokit/ExchangeRate.html" title="class in money.zumo.zumokit">ExchangeRate</a>&gt;&gt;&nbsp;exchangeRates,
         java.lang.String&nbsp;nonce,
         java.lang.Long&nbsp;submittedAt,
@@ -198,9 +198,9 @@ extends java.lang.Object</pre>
 </td>
 </tr>
 <tr id="i6" class="altColor">
-<td class="colFirst"><code><a href="../../../money/zumo/zumokit/ExchangeSettings.html" title="class in money.zumo.zumokit">ExchangeSettings</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../money/zumo/zumokit/Exchange.html#getExchangeSettings--">getExchangeSettings</a></span>()</code>
-<div class="block">Exchange settings used.</div>
+<td class="colFirst"><code><a href="../../../money/zumo/zumokit/ExchangeSetting.html" title="class in money.zumo.zumokit">ExchangeSetting</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../money/zumo/zumokit/Exchange.html#getExchangeSetting--">getExchangeSetting</a></span>()</code>
+<div class="block">Exchange setting used.</div>
 </td>
 </tr>
 <tr id="i7" class="rowColor">
@@ -311,7 +311,7 @@ extends java.lang.Object</pre>
 <!--   -->
 </a>
 <h3>Constructor Detail</h3>
-<a name="Exchange-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.math.BigDecimal-java.math.BigDecimal-java.math.BigDecimal-java.math.BigDecimal-java.math.BigDecimal-money.zumo.zumokit.ExchangeRate-money.zumo.zumokit.ExchangeSettings-java.util.HashMap-java.lang.String-java.lang.Long-java.lang.Long-">
+<a name="Exchange-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.math.BigDecimal-java.math.BigDecimal-java.math.BigDecimal-java.math.BigDecimal-java.math.BigDecimal-money.zumo.zumokit.ExchangeRate-money.zumo.zumokit.ExchangeSetting-java.util.HashMap-java.lang.String-java.lang.Long-java.lang.Long-">
 <!--   -->
 </a>
 <ul class="blockListLast">
@@ -331,7 +331,7 @@ extends java.lang.Object</pre>
                 java.math.BigDecimal&nbsp;exchangeFee,
                 java.math.BigDecimal&nbsp;returnTransactionFee,
                 <a href="../../../money/zumo/zumokit/ExchangeRate.html" title="class in money.zumo.zumokit">ExchangeRate</a>&nbsp;exchangeRate,
-                <a href="../../../money/zumo/zumokit/ExchangeSettings.html" title="class in money.zumo.zumokit">ExchangeSettings</a>&nbsp;exchangeSettings,
+                <a href="../../../money/zumo/zumokit/ExchangeSetting.html" title="class in money.zumo.zumokit">ExchangeSetting</a>&nbsp;exchangeSetting,
                 java.util.HashMap&lt;java.lang.String,java.util.HashMap&lt;java.lang.String,<a href="../../../money/zumo/zumokit/ExchangeRate.html" title="class in money.zumo.zumokit">ExchangeRate</a>&gt;&gt;&nbsp;exchangeRates,
                 java.lang.String&nbsp;nonce,
                 java.lang.Long&nbsp;submittedAt,
@@ -468,7 +468,7 @@ extends java.lang.Object</pre>
 <div class="block">Amount that user receives, calculated as <code>amount X exchangeRate X (1 - feeRate) - returnTransactionFee</code>.</div>
 <dl>
 <dt><span class="seeLabel">See Also:</span></dt>
-<dd><a href="../../../money/zumo/zumokit/ExchangeSettings.html" title="class in money.zumo.zumokit"><code>ExchangeSettings</code></a></dd>
+<dd><a href="../../../money/zumo/zumokit/ExchangeSetting.html" title="class in money.zumo.zumokit"><code>ExchangeSetting</code></a></dd>
 </dl>
 </li>
 </ul>
@@ -482,7 +482,7 @@ extends java.lang.Object</pre>
 <div class="block">Exchange fee, calculated as <code>amount X exchangeRate X exchangeFeeRate</code>.</div>
 <dl>
 <dt><span class="seeLabel">See Also:</span></dt>
-<dd><a href="../../../money/zumo/zumokit/ExchangeSettings.html" title="class in money.zumo.zumokit"><code>ExchangeSettings</code></a></dd>
+<dd><a href="../../../money/zumo/zumokit/ExchangeSetting.html" title="class in money.zumo.zumokit"><code>ExchangeSetting</code></a></dd>
 </dl>
 </li>
 </ul>
@@ -496,7 +496,7 @@ extends java.lang.Object</pre>
 <div class="block">Return transaction fee.</div>
 <dl>
 <dt><span class="seeLabel">See Also:</span></dt>
-<dd><a href="../../../money/zumo/zumokit/ExchangeSettings.html" title="class in money.zumo.zumokit"><code>ExchangeSettings</code></a></dd>
+<dd><a href="../../../money/zumo/zumokit/ExchangeSetting.html" title="class in money.zumo.zumokit"><code>ExchangeSetting</code></a></dd>
 </dl>
 </li>
 </ul>
@@ -510,14 +510,14 @@ extends java.lang.Object</pre>
 <div class="block">Exchange rate used.</div>
 </li>
 </ul>
-<a name="getExchangeSettings--">
+<a name="getExchangeSetting--">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>getExchangeSettings</h4>
-<pre>public&nbsp;<a href="../../../money/zumo/zumokit/ExchangeSettings.html" title="class in money.zumo.zumokit">ExchangeSettings</a>&nbsp;getExchangeSettings()</pre>
-<div class="block">Exchange settings used.</div>
+<h4>getExchangeSetting</h4>
+<pre>public&nbsp;<a href="../../../money/zumo/zumokit/ExchangeSetting.html" title="class in money.zumo.zumokit">ExchangeSetting</a>&nbsp;getExchangeSetting()</pre>
+<div class="block">Exchange setting used.</div>
 </li>
 </ul>
 <a name="getExchangeRates--">
