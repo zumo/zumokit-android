@@ -148,8 +148,9 @@ public class ZumoKit {
 
     /**
      * Fetch historical exchange rates for supported time intervals.
-     * On success callback returns historical exchange rates are contained in a mapping between
-     *  time interval on a top level, from currency on second level, to currency on third level and {@link  ExchangeRate ExchangeRate} objects.
+     * On success callback returns historical exchange rates are contained
+     * in a mapping between time interval on a top level, from currency on second level,
+     * to currency on third level and {@link  ExchangeRate ExchangeRate} objects.
      *
      * @param callback         an interface to receive the result or error
      *
@@ -160,7 +161,9 @@ public class ZumoKit {
     }
 
     /**
-     * Listen to changes in exchange rates, exchange settings or transaction fee rates.
+     * Listen to changes in current user’s sign in state, exchange rates, exchange
+     * settings or transaction fee rates.
+     *
      * @param listener interface to listen to changes
      */
     public void addChangeListener(ChangeListener listener) {
@@ -169,6 +172,7 @@ public class ZumoKit {
 
     /**
      * Remove change listener.
+     *
      * @param listener interface to listen to changes
      */
     public void removeChangeListener(ChangeListener listener) {
