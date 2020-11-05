@@ -30,12 +30,6 @@ public interface User {
     public boolean hasWallet();
 
     /**
-     * Check if user is currenly active user. Only one user can be active at a time.
-     * @return true if user is currenly active user
-     */
-    public boolean isActiveUser();
-
-    /**
      * Check if user is a fiat customer on 'MAINNET' or 'TESTNET' network.
      * @param  network 'MAINNET' or 'TESTNET'
      * @return true if user is currenly active user.
@@ -193,14 +187,6 @@ public interface User {
             return native_hasWallet(this.nativeRef);
         }
         private native boolean native_hasWallet(long _nativeRef);
-
-        @Override
-        public boolean isActiveUser()
-        {
-            assert !this.destroyed.get() : "trying to use a destroyed object";
-            return native_isActiveUser(this.nativeRef);
-        }
-        private native boolean native_isActiveUser(long _nativeRef);
 
         @Override
         public boolean isFiatCustomer(String network)

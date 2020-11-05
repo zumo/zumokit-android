@@ -9,7 +9,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 /** Entry point to ZumoKit C++ SDK */
 public interface ZumoCore {
     /**
-     * Authenticates user token set and returns corresponding user. On success user is set as active user.
+     * Signs in user corresponding to user token set. Sets current user to the newly signed in user.
      * Refer to <a href="https://developers.zumo.money/docs/setup/server#get-zumokit-user-token">Server</a> guide for details on how to get user token set.
      *
      * @param userTokenSet   user token set
@@ -17,14 +17,17 @@ public interface ZumoCore {
      *
      * @see User
      */
-    public void authUser(String userTokenSet, UserCallback callback);
+    public void signIn(String userTokenSet, UserCallback callback);
+
+    /** Signs out current user. */
+    public void signOut();
 
     /**
-     * Get active user if exists.
+     * Get currently signed-in user or null.
      *
-     * @return active user or null
+     * @return current user or null
      */
-    public User getActiveUser();
+    public User getCurrentUser();
 
     /**
      * Get crypto utils class.
@@ -159,20 +162,28 @@ public interface ZumoCore {
         }
 
         @Override
-        public void authUser(String userTokenSet, UserCallback callback)
+        public void signIn(String userTokenSet, UserCallback callback)
         {
             assert !this.destroyed.get() : "trying to use a destroyed object";
-            native_authUser(this.nativeRef, userTokenSet, callback);
+            native_signIn(this.nativeRef, userTokenSet, callback);
         }
-        private native void native_authUser(long _nativeRef, String userTokenSet, UserCallback callback);
+        private native void native_signIn(long _nativeRef, String userTokenSet, UserCallback callback);
 
         @Override
-        public User getActiveUser()
+        public void signOut()
         {
             assert !this.destroyed.get() : "trying to use a destroyed object";
-            return native_getActiveUser(this.nativeRef);
+            native_signOut(this.nativeRef);
         }
-        private native User native_getActiveUser(long _nativeRef);
+        private native void native_signOut(long _nativeRef);
+
+        @Override
+        public User getCurrentUser()
+        {
+            assert !this.destroyed.get() : "trying to use a destroyed object";
+            return native_getCurrentUser(this.nativeRef);
+        }
+        private native User native_getCurrentUser(long _nativeRef);
 
         @Override
         public Utils getUtils()

@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -212,23 +212,17 @@ implements <a href="../../../money/zumo/zumokit/User.html" title="interface in m
 </tr>
 <tr id="i9" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../money/zumo/zumokit/User.CppProxy.html#isActiveUser--">isActiveUser</a></span>()</code>
-<div class="block">Check if user is currenly active user.</div>
-</td>
-</tr>
-<tr id="i10" class="altColor">
-<td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../money/zumo/zumokit/User.CppProxy.html#isFiatCustomer-java.lang.String-">isFiatCustomer</a></span>(java.lang.String&nbsp;network)</code>
 <div class="block">Check if user is a fiat customer on 'MAINNET' or 'TESTNET' network.</div>
 </td>
 </tr>
-<tr id="i11" class="rowColor">
+<tr id="i10" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../money/zumo/zumokit/User.CppProxy.html#isRecoveryMnemonic-java.lang.String-">isRecoveryMnemonic</a></span>(java.lang.String&nbsp;mnemonic)</code>
 <div class="block">Check if mnemonic seed phrase corresponds to user's wallet.</div>
 </td>
 </tr>
-<tr id="i12" class="altColor">
+<tr id="i11" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../money/zumo/zumokit/User.CppProxy.html#makeFiatCustomer-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-money.zumo.zumokit.SuccessCallback-">makeFiatCustomer</a></span>(java.lang.String&nbsp;network,
                 java.lang.String&nbsp;firstName,
@@ -246,7 +240,7 @@ implements <a href="../../../money/zumo/zumokit/User.html" title="interface in m
 <div class="block">Make user fiat customer on specified network by providing user's personal details.</div>
 </td>
 </tr>
-<tr id="i13" class="rowColor">
+<tr id="i12" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../money/zumo/zumokit/User.CppProxy.html#recoverWallet-java.lang.String-java.lang.String-money.zumo.zumokit.WalletCallback-">recoverWallet</a></span>(java.lang.String&nbsp;mnemonic,
              java.lang.String&nbsp;password,
@@ -254,20 +248,20 @@ implements <a href="../../../money/zumo/zumokit/User.html" title="interface in m
 <div class="block">Recover user wallet with mnemonic seed phrase corresponding to user's wallet.</div>
 </td>
 </tr>
-<tr id="i14" class="altColor">
+<tr id="i13" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../money/zumo/zumokit/User.CppProxy.html#removeAccountDataListener-money.zumo.zumokit.AccountDataListener-">removeAccountDataListener</a></span>(<a href="../../../money/zumo/zumokit/AccountDataListener.html" title="interface in money.zumo.zumokit">AccountDataListener</a>&nbsp;listener)</code>
 <div class="block">Remove listener to account data changes.</div>
 </td>
 </tr>
-<tr id="i15" class="rowColor">
+<tr id="i14" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../money/zumo/zumokit/User.CppProxy.html#revealMnemonic-java.lang.String-money.zumo.zumokit.MnemonicCallback-">revealMnemonic</a></span>(java.lang.String&nbsp;password,
               <a href="../../../money/zumo/zumokit/MnemonicCallback.html" title="interface in money.zumo.zumokit">MnemonicCallback</a>&nbsp;callback)</code>
 <div class="block">Reveal menmonic seed phrase used to seed user wallet.</div>
 </td>
 </tr>
-<tr id="i16" class="altColor">
+<tr id="i15" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../money/zumo/zumokit/User.CppProxy.html#unlockWallet-java.lang.String-money.zumo.zumokit.WalletCallback-">unlockWallet</a></span>(java.lang.String&nbsp;password,
             <a href="../../../money/zumo/zumokit/WalletCallback.html" title="interface in money.zumo.zumokit">WalletCallback</a>&nbsp;callback)</code>
@@ -336,23 +330,6 @@ implements <a href="../../../money/zumo/zumokit/User.html" title="interface in m
 <dd><code><a href="../../../money/zumo/zumokit/User.html#hasWallet--">hasWallet</a></code>&nbsp;in interface&nbsp;<code><a href="../../../money/zumo/zumokit/User.html" title="interface in money.zumo.zumokit">User</a></code></dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>true if user has wallet</dd>
-</dl>
-</li>
-</ul>
-<a name="isActiveUser--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>isActiveUser</h4>
-<pre>public&nbsp;boolean&nbsp;isActiveUser()</pre>
-<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../money/zumo/zumokit/User.html#isActiveUser--">User</a></code></span></div>
-<div class="block">Check if user is currenly active user. Only one user can be active at a time.</div>
-<dl>
-<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="../../../money/zumo/zumokit/User.html#isActiveUser--">isActiveUser</a></code>&nbsp;in interface&nbsp;<code><a href="../../../money/zumo/zumokit/User.html" title="interface in money.zumo.zumokit">User</a></code></dd>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>true if user is currenly active user</dd>
 </dl>
 </li>
 </ul>

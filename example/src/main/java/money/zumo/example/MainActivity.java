@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.util.Log;
 
 import money.zumo.zumokit.AccountCallback;
+import money.zumo.zumokit.AccountDataListener;
+import money.zumo.zumokit.AccountDataSnapshot;
 import money.zumo.zumokit.AccountFiatProperties;
 import money.zumo.zumokit.AccountFiatPropertiesCallback;
 import money.zumo.zumokit.AccountType;
@@ -32,6 +34,7 @@ import money.zumo.zumokit.UserCallback;
 import money.zumo.zumokit.exceptions.ZumoKitException;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.io.IOException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -73,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
             public void onSuccess(short httpCode, String responseData) {
                 if (httpCode == 200) {
                     String tokenSet = responseData;
-                    mZumoKit.authUser(tokenSet, new UserCallback() {
+                    mZumoKit.signIn(tokenSet, new UserCallback() {
                         @Override
                         public void onError(Exception e) {
                             String errorType = ((ZumoKitException) e).getErrorType();
@@ -90,45 +93,13 @@ public class MainActivity extends AppCompatActivity {
                             mUser = user;
                             Log.i("zumokit/user", mUser.getId());
 
-                            Log.i("zumokit/fiat-customer", mUser.isFiatCustomer(NetworkType.TESTNET) ? "YES" : "NO");
-
-//                            user.makeFiatCustomer(
-//                                    NetworkType.TESTNET,
-//                                    "Ivan",
-//                                    null,
-//                                    "Romanovski",
-//                                    "1989-02-02",
-//                                    "ivan.romanovski@staging.zumo.money",
-//                                    "+56123456",
-//                                    "Downing st. 23",
-//                                    null,
-//                                    "GB",
-//                                    "B33 8TH",
-//                                    "London",
-//                                    new SuccessCallback() {
-//                                        @Override
-//                                        public void onError(Exception e) {
-//                                            Log.e("zumokit/fiat-customer", e.toString());
-//                                        }
-//
-//                                        @Override
-//                                        public void onSuccess() {
-//                                            Log.i("zumokit/fiat-customer", "User created!");
-//                                        }
-//                                    }
-//                            );
-
-//                            mUser.createFiatAccount(NetworkType.TESTNET, CurrencyCode.GBP, new AccountCallback() {
-//                                @Override
-//                                public void onError(Exception e) {
-//                                    Log.e("zumokit/fiat-account", e.toString());
-//                                }
-//
-//                                @Override
-//                                public void onSuccess(Account account) {
-//                                    Log.i("zumokit/fiat-account", account.toString());
-//                                }
-//                            });
+                            user.addAccountDataListener(new AccountDataListener() {
+                                @Override
+                                public void onDataChange(ArrayList<AccountDataSnapshot> snapshots) {
+                                    // Do something with account data
+                                    Log.i("zumokit/account-data", snapshots.toString());
+                                }
+                            });
 
                             if (mUser.hasWallet()) {
                                 // Ethereum account
@@ -141,23 +112,8 @@ public class MainActivity extends AppCompatActivity {
 
                                 // Fiat account
                                 Account fiatAccount = mUser.getAccount(CurrencyCode.GBP, NetworkType.TESTNET, AccountType.STANDARD);
-
                                 if (fiatAccount != null) {
                                     Log.i("zumokit/fiat-account", fiatAccount.toString());
-
-                                    if (fiatAccount.getHasNominatedAccount()) {
-                                        user.getNominatedAccountFiatProperties(fiatAccount.getId(), new AccountFiatPropertiesCallback() {
-                                            @Override
-                                            public void onError(Exception e) {
-                                                Log.e("zumokit/nominated-account", e.toString());
-                                            }
-
-                                            @Override
-                                            public void onSuccess(AccountFiatProperties account) {
-                                                Log.i("zumokit/nominated-account", account.toString());
-                                            }
-                                        });
-                                    }
                                 }
 
                                 Log.i("zumokit/user", "User has wallet. Unlocking wallet...");
@@ -173,22 +129,24 @@ public class MainActivity extends AppCompatActivity {
 
                                         // Compose ETH and BTC transactions
                                         composeEthTransaction(ethAccount, false);
-                                        //composeBtcTransaction(btcAccount, false);
-                                        //composeFiatTransaction(fiatAccount, true, false);
+                                        composeBtcTransaction(btcAccount, false);
+                                        if (fiatAccount != null) {
+                                            composeFiatTransaction(fiatAccount, true, false);
+                                        }
 
                                         // Display current exchange rates & exchange settings
                                         Log.i("zumokit/exchange-rates",  mZumoKit.getExchangeRate("BTC", "ETH").toString());
                                         Log.i("zumokit/exchange-rates",  mZumoKit.getExchangeSetting("ETH", "BTC").toString());
 
-//                                        composeExchange(
-//                                                ethAccount,
-//                                                btcAccount,
-//                                                state.getExchangeRates().get("ETH").get("BTC"),
-//                                                state.getExchangeSettings().get("ETH").get("BTC"),
-//                                                "0.08",
-//                                                false,
-//                                                false
-//                                        );
+                                        composeExchange(
+                                                ethAccount,
+                                                btcAccount,
+                                                mZumoKit.getExchangeRate("ETH", "BTC"),
+                                                mZumoKit.getExchangeSetting("ETH", "BTC"),
+                                                new BigDecimal("0.08"),
+                                                false,
+                                                false
+                                        );
                                     }
                                 });
                             } else {

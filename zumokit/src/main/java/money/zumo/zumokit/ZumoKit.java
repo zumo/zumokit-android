@@ -54,7 +54,7 @@ public class ZumoKit {
     }
 
     /**
-     * Authenticates user token set and returns corresponding user. On success user is set as active user.
+     * Signs in user corresponding to user token set. Sets current user to the newly signed in user.
      * Refer to <a href="https://developers.zumo.money/docs/setup/server#get-zumokit-user-token">Server</a> guide for details on how to get user token set.
      *
      * @param userTokenSet   user token set
@@ -62,17 +62,24 @@ public class ZumoKit {
      *
      * @see User
      */
-    public void authUser(String userTokenSet, UserCallback callback) {
-        zumoCore.authUser(userTokenSet, callback);
+    public void signIn(String userTokenSet, UserCallback callback) {
+        zumoCore.signIn(userTokenSet, callback);
     }
 
     /**
-     * Get active user if exists.
-     *
-     * @return active user or null
+     * Signs out current user.
      */
-    public User getActiveUser() {
-        return zumoCore.getActiveUser();
+    public void signOut() {
+        zumoCore.signOut();
+    }
+
+    /**
+     * Get currently signed-in user or null.
+     *
+     * @return current user or null
+     */
+    public User getCurrentUser() {
+        return zumoCore.getCurrentUser();
     }
 
     /**
