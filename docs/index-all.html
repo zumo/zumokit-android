@@ -181,10 +181,6 @@
 </dd>
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/exceptions/AuthenticationException.html#AuthenticationException-java.lang.String-java.lang.String-java.lang.String-">AuthenticationException(String, String, String)</a></span> - Constructor for exception money.zumo.zumokit.exceptions.<a href="money/zumo/zumokit/exceptions/AuthenticationException.html" title="class in money.zumo.zumokit.exceptions">AuthenticationException</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="money/zumo/zumokit/ZumoKit.html#authUser-java.lang.String-money.zumo.zumokit.UserCallback-">authUser(String, UserCallback)</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/ZumoKit.html" title="class in money.zumo.zumokit">ZumoKit</a></dt>
-<dd>
-<div class="block">Authenticates user token set and returns corresponding user.</div>
-</dd>
 </dl>
 <a name="I:B">
 <!--   -->
@@ -481,10 +477,6 @@
 <dd>
 <div class="block">Get all user accounts.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="money/zumo/zumokit/ZumoKit.html#getActiveUser--">getActiveUser()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/ZumoKit.html" title="class in money.zumo.zumokit">ZumoKit</a></dt>
-<dd>
-<div class="block">Get active user if exists.</div>
-</dd>
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/AccountCryptoProperties.html#getAddress--">getAddress()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/AccountCryptoProperties.html" title="class in money.zumo.zumokit">AccountCryptoProperties</a></dt>
 <dd>
 <div class="block">Account crypto address.</div>
@@ -548,6 +540,10 @@
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/Account.html#getCurrencyType--">getCurrencyType()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/Account.html" title="class in money.zumo.zumokit">Account</a></dt>
 <dd>
 <div class="block">Account currency type.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="money/zumo/zumokit/ZumoKit.html#getCurrentUser--">getCurrentUser()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/ZumoKit.html" title="class in money.zumo.zumokit">ZumoKit</a></dt>
+<dd>
+<div class="block">Get currently signed-in user or null.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/AccountFiatProperties.html#getCustomerName--">getCustomerName()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/AccountFiatProperties.html" title="class in money.zumo.zumokit">AccountFiatProperties</a></dt>
 <dd>
@@ -1143,12 +1139,6 @@
 </dd>
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/exceptions/InvalidRequestException.html#InvalidRequestException-java.lang.String-java.lang.String-java.lang.String-">InvalidRequestException(String, String, String)</a></span> - Constructor for exception money.zumo.zumokit.exceptions.<a href="money/zumo/zumokit/exceptions/InvalidRequestException.html" title="class in money.zumo.zumokit.exceptions">InvalidRequestException</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="money/zumo/zumokit/User.CppProxy.html#isActiveUser--">isActiveUser()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/User.CppProxy.html" title="class in money.zumo.zumokit">User.CppProxy</a></dt>
-<dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="money/zumo/zumokit/User.html#isActiveUser--">isActiveUser()</a></span> - Method in interface money.zumo.zumokit.<a href="money/zumo/zumokit/User.html" title="interface in money.zumo.zumokit">User</a></dt>
-<dd>
-<div class="block">Check if user is currenly active user.</div>
-</dd>
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/User.CppProxy.html#isFiatCustomer-java.lang.String-">isFiatCustomer(String)</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/User.CppProxy.html" title="class in money.zumo.zumokit">User.CppProxy</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/User.html#isFiatCustomer-java.lang.String-">isFiatCustomer(String)</a></span> - Method in interface money.zumo.zumokit.<a href="money/zumo/zumokit/User.html" title="interface in money.zumo.zumokit">User</a></dt>
@@ -1409,9 +1399,17 @@
 <dd>
 <div class="block">Transaction amount is too small to send after the fee has been deducted.</div>
 </dd>
+<dt><span class="memberNameLink"><a href="money/zumo/zumokit/ZumoKit.html#signIn-java.lang.String-money.zumo.zumokit.UserCallback-">signIn(String, UserCallback)</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/ZumoKit.html" title="class in money.zumo.zumokit">ZumoKit</a></dt>
+<dd>
+<div class="block">Signs in user corresponding to user token set.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/ZumoKitErrorCode.html#SIGNING_ERROR">SIGNING_ERROR</a></span> - Static variable in class money.zumo.zumokit.<a href="money/zumo/zumokit/ZumoKitErrorCode.html" title="class in money.zumo.zumokit">ZumoKitErrorCode</a></dt>
 <dd>
 <div class="block">Something went wrong signing transaction.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="money/zumo/zumokit/ZumoKit.html#signOut--">signOut()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/ZumoKit.html" title="class in money.zumo.zumokit">ZumoKit</a></dt>
+<dd>
+<div class="block">Signs out current user.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/AccountType.html#STANDARD">STANDARD</a></span> - Static variable in class money.zumo.zumokit.<a href="money/zumo/zumokit/AccountType.html" title="class in money.zumo.zumokit">AccountType</a></dt>
 <dd>
