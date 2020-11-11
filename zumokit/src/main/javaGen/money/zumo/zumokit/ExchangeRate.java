@@ -18,17 +18,17 @@ public final class ExchangeRate {
 
     /*package*/ final java.math.BigDecimal mValue;
 
-    /*package*/ final long mValidTo;
+    /*package*/ final int mValidTo;
 
-    /*package*/ final long mTimestamp;
+    /*package*/ final int mTimestamp;
 
     public ExchangeRate(
             String id,
             String fromCurrency,
             String toCurrency,
             java.math.BigDecimal value,
-            long validTo,
-            long timestamp) {
+            int validTo,
+            int timestamp) {
         this.mId = id;
         this.mFromCurrency = fromCurrency;
         this.mToCurrency = toCurrency;
@@ -64,12 +64,12 @@ public final class ExchangeRate {
     }
 
     /** Epoch timestamp representing expiration time of this exchange rate. */
-    public long getValidTo() {
+    public int getValidTo() {
         return mValidTo;
     }
 
     /** Epoch timestamp when the exchange rate was issued. */
-    public long getTimestamp() {
+    public int getTimestamp() {
         return mTimestamp;
     }
 
@@ -95,8 +95,8 @@ public final class ExchangeRate {
         hashCode = hashCode * 31 + mFromCurrency.hashCode();
         hashCode = hashCode * 31 + mToCurrency.hashCode();
         hashCode = hashCode * 31 + (mValue.hashCode());
-        hashCode = hashCode * 31 + ((int) (mValidTo ^ (mValidTo >>> 32)));
-        hashCode = hashCode * 31 + ((int) (mTimestamp ^ (mTimestamp >>> 32)));
+        hashCode = hashCode * 31 + mValidTo;
+        hashCode = hashCode * 31 + mTimestamp;
         return hashCode;
     }
 

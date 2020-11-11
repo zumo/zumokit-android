@@ -43,9 +43,9 @@ public final class Exchange {
 
     /*package*/ final String mNonce;
 
-    /*package*/ final Long mSubmittedAt;
+    /*package*/ final Integer mSubmittedAt;
 
-    /*package*/ final Long mConfirmedAt;
+    /*package*/ final Integer mConfirmedAt;
 
     public Exchange(
             String id,
@@ -65,8 +65,8 @@ public final class Exchange {
             ExchangeSetting exchangeSetting,
             HashMap<String, HashMap<String, ExchangeRate>> exchangeRates,
             String nonce,
-            Long submittedAt,
-            Long confirmedAt) {
+            Integer submittedAt,
+            Integer confirmedAt) {
         this.mId = id;
         this.mStatus = status;
         this.mFromCurrency = fromCurrency;
@@ -195,12 +195,12 @@ public final class Exchange {
     }
 
     /** Epoch timestamp when transaction was submitted. */
-    public Long getSubmittedAt() {
+    public Integer getSubmittedAt() {
         return mSubmittedAt;
     }
 
     /** Epoch timestamp when transaction was confirmed or null if not yet confirmed. */
-    public Long getConfirmedAt() {
+    public Integer getConfirmedAt() {
         return mConfirmedAt;
     }
 
