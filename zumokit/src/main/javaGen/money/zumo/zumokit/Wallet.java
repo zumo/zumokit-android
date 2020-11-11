@@ -44,7 +44,7 @@ public interface Wallet {
      * @param sendMax        send maximum possible funds to destination
      * @param callback        an interface to receive the result or error
      */
-    public void composeEthTransaction(String fromAccountId, java.math.BigDecimal gasPrice, java.math.BigDecimal gasLimit, String destination, java.math.BigDecimal amount, String data, Long nonce, boolean sendMax, ComposeTransactionCallback callback);
+    public void composeEthTransaction(String fromAccountId, java.math.BigDecimal gasPrice, int gasLimit, String destination, java.math.BigDecimal amount, String data, Integer nonce, boolean sendMax, ComposeTransactionCallback callback);
 
     /**
      * Compose fiat transaction between users in Zumo ecosystem asynchronously. Refer to <a target="_top" href="https://developers.zumo.money/docs/guides/send-transactions#internal-fiat-transaction">Send Transactions</a> guide for usage details.
@@ -140,12 +140,12 @@ public interface Wallet {
         private native void native_composeTransaction(long _nativeRef, String fromAccountId, String changeAccountId, String destination, java.math.BigDecimal amount, java.math.BigDecimal feeRate, boolean sendMax, ComposeTransactionCallback callback);
 
         @Override
-        public void composeEthTransaction(String fromAccountId, java.math.BigDecimal gasPrice, java.math.BigDecimal gasLimit, String destination, java.math.BigDecimal amount, String data, Long nonce, boolean sendMax, ComposeTransactionCallback callback)
+        public void composeEthTransaction(String fromAccountId, java.math.BigDecimal gasPrice, int gasLimit, String destination, java.math.BigDecimal amount, String data, Integer nonce, boolean sendMax, ComposeTransactionCallback callback)
         {
             assert !this.destroyed.get() : "trying to use a destroyed object";
             native_composeEthTransaction(this.nativeRef, fromAccountId, gasPrice, gasLimit, destination, amount, data, nonce, sendMax, callback);
         }
-        private native void native_composeEthTransaction(long _nativeRef, String fromAccountId, java.math.BigDecimal gasPrice, java.math.BigDecimal gasLimit, String destination, java.math.BigDecimal amount, String data, Long nonce, boolean sendMax, ComposeTransactionCallback callback);
+        private native void native_composeEthTransaction(long _nativeRef, String fromAccountId, java.math.BigDecimal gasPrice, int gasLimit, String destination, java.math.BigDecimal amount, String data, Integer nonce, boolean sendMax, ComposeTransactionCallback callback);
 
         @Override
         public void composeInternalFiatTransaction(String fromAccountId, String toAccountId, java.math.BigDecimal amount, boolean sendMax, ComposeTransactionCallback callback)

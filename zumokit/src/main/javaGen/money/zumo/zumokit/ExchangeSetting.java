@@ -25,7 +25,7 @@ public final class ExchangeSetting {
 
     /*package*/ final java.math.BigDecimal mReturnTransactionFee;
 
-    /*package*/ final long mTimestamp;
+    /*package*/ final int mTimestamp;
 
     public ExchangeSetting(
             String id,
@@ -36,7 +36,7 @@ public final class ExchangeSetting {
             java.math.BigDecimal exchangeFeeRate,
             java.math.BigDecimal outgoingTransactionFeeRate,
             java.math.BigDecimal returnTransactionFee,
-            long timestamp) {
+            int timestamp) {
         this.mId = id;
         this.mExchangeAddress = exchangeAddress;
         this.mFromCurrency = fromCurrency;
@@ -98,7 +98,7 @@ public final class ExchangeSetting {
     }
 
     /** Epoch timestamp when the exchange setting were last updated. */
-    public long getTimestamp() {
+    public int getTimestamp() {
         return mTimestamp;
     }
 
@@ -131,7 +131,7 @@ public final class ExchangeSetting {
         hashCode = hashCode * 31 + (mExchangeFeeRate.hashCode());
         hashCode = hashCode * 31 + (mOutgoingTransactionFeeRate.hashCode());
         hashCode = hashCode * 31 + (mReturnTransactionFee.hashCode());
-        hashCode = hashCode * 31 + ((int) (mTimestamp ^ (mTimestamp >>> 32)));
+        hashCode = hashCode * 31 + mTimestamp;
         return hashCode;
     }
 

@@ -157,13 +157,13 @@ implements <a href="../../../money/zumo/zumokit/Wallet.html" title="interface in
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../money/zumo/zumokit/Wallet.CppProxy.html#composeEthTransaction-java.lang.String-java.math.BigDecimal-java.math.BigDecimal-java.lang.String-java.math.BigDecimal-java.lang.String-java.lang.Long-boolean-money.zumo.zumokit.ComposeTransactionCallback-">composeEthTransaction</a></span>(java.lang.String&nbsp;fromAccountId,
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../money/zumo/zumokit/Wallet.CppProxy.html#composeEthTransaction-java.lang.String-java.math.BigDecimal-int-java.lang.String-java.math.BigDecimal-java.lang.String-java.lang.Integer-boolean-money.zumo.zumokit.ComposeTransactionCallback-">composeEthTransaction</a></span>(java.lang.String&nbsp;fromAccountId,
                      java.math.BigDecimal&nbsp;gasPrice,
-                     java.math.BigDecimal&nbsp;gasLimit,
+                     int&nbsp;gasLimit,
                      java.lang.String&nbsp;destination,
                      java.math.BigDecimal&nbsp;amount,
                      java.lang.String&nbsp;data,
-                     java.lang.Long&nbsp;nonce,
+                     java.lang.Integer&nbsp;nonce,
                      boolean&nbsp;sendMax,
                      <a href="../../../money/zumo/zumokit/ComposeTransactionCallback.html" title="interface in money.zumo.zumokit">ComposeTransactionCallback</a>&nbsp;callback)</code>
 <div class="block">Compose Ethereum transaction asynchronously.</div>
@@ -288,7 +288,7 @@ implements <a href="../../../money/zumo/zumokit/Wallet.html" title="interface in
 </dl>
 </li>
 </ul>
-<a name="composeEthTransaction-java.lang.String-java.math.BigDecimal-java.math.BigDecimal-java.lang.String-java.math.BigDecimal-java.lang.String-java.lang.Long-boolean-money.zumo.zumokit.ComposeTransactionCallback-">
+<a name="composeEthTransaction-java.lang.String-java.math.BigDecimal-int-java.lang.String-java.math.BigDecimal-java.lang.String-java.lang.Integer-boolean-money.zumo.zumokit.ComposeTransactionCallback-">
 <!--   -->
 </a>
 <ul class="blockList">
@@ -296,20 +296,20 @@ implements <a href="../../../money/zumo/zumokit/Wallet.html" title="interface in
 <h4>composeEthTransaction</h4>
 <pre>public&nbsp;void&nbsp;composeEthTransaction(java.lang.String&nbsp;fromAccountId,
                                   java.math.BigDecimal&nbsp;gasPrice,
-                                  java.math.BigDecimal&nbsp;gasLimit,
+                                  int&nbsp;gasLimit,
                                   java.lang.String&nbsp;destination,
                                   java.math.BigDecimal&nbsp;amount,
                                   java.lang.String&nbsp;data,
-                                  java.lang.Long&nbsp;nonce,
+                                  java.lang.Integer&nbsp;nonce,
                                   boolean&nbsp;sendMax,
                                   <a href="../../../money/zumo/zumokit/ComposeTransactionCallback.html" title="interface in money.zumo.zumokit">ComposeTransactionCallback</a>&nbsp;callback)</pre>
-<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../money/zumo/zumokit/Wallet.html#composeEthTransaction-java.lang.String-java.math.BigDecimal-java.math.BigDecimal-java.lang.String-java.math.BigDecimal-java.lang.String-java.lang.Long-boolean-money.zumo.zumokit.ComposeTransactionCallback-">Wallet</a></code></span></div>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../money/zumo/zumokit/Wallet.html#composeEthTransaction-java.lang.String-java.math.BigDecimal-int-java.lang.String-java.math.BigDecimal-java.lang.String-java.lang.Integer-boolean-money.zumo.zumokit.ComposeTransactionCallback-">Wallet</a></code></span></div>
 <div class="block">Compose Ethereum transaction asynchronously. Refer to <a target="_top" href="https://developers.zumo.money/docs/guides/send-transactions#ethereum">Send Transactions</a> guide for usage details.
  <p>
  On success <a href="../../../money/zumo/zumokit/ComposedTransaction.html" title="class in money.zumo.zumokit"><code>ComposedTransaction</code></a> is returned via callback.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="../../../money/zumo/zumokit/Wallet.html#composeEthTransaction-java.lang.String-java.math.BigDecimal-java.math.BigDecimal-java.lang.String-java.math.BigDecimal-java.lang.String-java.lang.Long-boolean-money.zumo.zumokit.ComposeTransactionCallback-">composeEthTransaction</a></code>&nbsp;in interface&nbsp;<code><a href="../../../money/zumo/zumokit/Wallet.html" title="interface in money.zumo.zumokit">Wallet</a></code></dd>
+<dd><code><a href="../../../money/zumo/zumokit/Wallet.html#composeEthTransaction-java.lang.String-java.math.BigDecimal-int-java.lang.String-java.math.BigDecimal-java.lang.String-java.lang.Integer-boolean-money.zumo.zumokit.ComposeTransactionCallback-">composeEthTransaction</a></code>&nbsp;in interface&nbsp;<code><a href="../../../money/zumo/zumokit/Wallet.html" title="interface in money.zumo.zumokit">Wallet</a></code></dd>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>fromAccountId</code> - <a href="../../../money/zumo/zumokit/Account.html" title="class in money.zumo.zumokit"><code>Account</code></a> identifier</dd>
 <dd><code>gasPrice</code> - gas price in gwei</dd>

@@ -132,13 +132,13 @@ extends java.lang.Object</pre>
 <th class="colOne" scope="col">Constructor and Description</th>
 </tr>
 <tr class="altColor">
-<td class="colOne"><code><span class="memberNameLink"><a href="../../../money/zumo/zumokit/TransactionCryptoProperties.html#TransactionCryptoProperties-java.lang.String-java.lang.Long-java.lang.String-java.lang.String-java.lang.String-java.math.BigDecimal-java.math.BigDecimal-java.util.HashMap-java.util.HashMap-">TransactionCryptoProperties</a></span>(java.lang.String&nbsp;txHash,
-                           java.lang.Long&nbsp;nonce,
+<td class="colOne"><code><span class="memberNameLink"><a href="../../../money/zumo/zumokit/TransactionCryptoProperties.html#TransactionCryptoProperties-java.lang.String-java.lang.Integer-java.lang.String-java.lang.String-java.lang.String-java.math.BigDecimal-java.lang.Integer-java.util.HashMap-java.util.HashMap-">TransactionCryptoProperties</a></span>(java.lang.String&nbsp;txHash,
+                           java.lang.Integer&nbsp;nonce,
                            java.lang.String&nbsp;fromAddress,
                            java.lang.String&nbsp;toAddress,
                            java.lang.String&nbsp;data,
                            java.math.BigDecimal&nbsp;gasPrice,
-                           java.math.BigDecimal&nbsp;gasLimit,
+                           java.lang.Integer&nbsp;gasLimit,
                            java.util.HashMap&lt;java.lang.String,java.math.BigDecimal&gt;&nbsp;fiatAmount,
                            java.util.HashMap&lt;java.lang.String,java.math.BigDecimal&gt;&nbsp;fiatFee)</code>&nbsp;</td>
 </tr>
@@ -186,7 +186,7 @@ extends java.lang.Object</pre>
 </td>
 </tr>
 <tr id="i5" class="rowColor">
-<td class="colFirst"><code>java.math.BigDecimal</code></td>
+<td class="colFirst"><code>java.lang.Integer</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../money/zumo/zumokit/TransactionCryptoProperties.html#getGasLimit--">getGasLimit</a></span>()</code>
 <div class="block">Ethereum gas limit if it is Ethereum transaction, otherwise null.</div>
 </td>
@@ -198,7 +198,7 @@ extends java.lang.Object</pre>
 </td>
 </tr>
 <tr id="i7" class="rowColor">
-<td class="colFirst"><code>java.lang.Long</code></td>
+<td class="colFirst"><code>java.lang.Integer</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../money/zumo/zumokit/TransactionCryptoProperties.html#getNonce--">getNonce</a></span>()</code>
 <div class="block">Ethereum transaction nonce if greater than 0 and
  it is Ethereum transaction, otherwise returns null.</div>
@@ -246,19 +246,19 @@ extends java.lang.Object</pre>
 <!--   -->
 </a>
 <h3>Constructor Detail</h3>
-<a name="TransactionCryptoProperties-java.lang.String-java.lang.Long-java.lang.String-java.lang.String-java.lang.String-java.math.BigDecimal-java.math.BigDecimal-java.util.HashMap-java.util.HashMap-">
+<a name="TransactionCryptoProperties-java.lang.String-java.lang.Integer-java.lang.String-java.lang.String-java.lang.String-java.math.BigDecimal-java.lang.Integer-java.util.HashMap-java.util.HashMap-">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>TransactionCryptoProperties</h4>
 <pre>public&nbsp;TransactionCryptoProperties(java.lang.String&nbsp;txHash,
-                                   java.lang.Long&nbsp;nonce,
+                                   java.lang.Integer&nbsp;nonce,
                                    java.lang.String&nbsp;fromAddress,
                                    java.lang.String&nbsp;toAddress,
                                    java.lang.String&nbsp;data,
                                    java.math.BigDecimal&nbsp;gasPrice,
-                                   java.math.BigDecimal&nbsp;gasLimit,
+                                   java.lang.Integer&nbsp;gasLimit,
                                    java.util.HashMap&lt;java.lang.String,java.math.BigDecimal&gt;&nbsp;fiatAmount,
                                    java.util.HashMap&lt;java.lang.String,java.math.BigDecimal&gt;&nbsp;fiatFee)</pre>
 </li>
@@ -287,7 +287,7 @@ extends java.lang.Object</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>getNonce</h4>
-<pre>public&nbsp;java.lang.Long&nbsp;getNonce()</pre>
+<pre>public&nbsp;java.lang.Integer&nbsp;getNonce()</pre>
 <div class="block">Ethereum transaction nonce if greater than 0 and
  it is Ethereum transaction, otherwise returns null.</div>
 </li>
@@ -338,7 +338,7 @@ extends java.lang.Object</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>getGasLimit</h4>
-<pre>public&nbsp;java.math.BigDecimal&nbsp;getGasLimit()</pre>
+<pre>public&nbsp;java.lang.Integer&nbsp;getGasLimit()</pre>
 <div class="block">Ethereum gas limit if it is Ethereum transaction, otherwise null.</div>
 </li>
 </ul>

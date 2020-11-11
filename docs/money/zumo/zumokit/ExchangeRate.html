@@ -129,12 +129,12 @@ extends java.lang.Object</pre>
 <th class="colOne" scope="col">Constructor and Description</th>
 </tr>
 <tr class="altColor">
-<td class="colOne"><code><span class="memberNameLink"><a href="../../../money/zumo/zumokit/ExchangeRate.html#ExchangeRate-java.lang.String-java.lang.String-java.lang.String-java.math.BigDecimal-long-long-">ExchangeRate</a></span>(java.lang.String&nbsp;id,
+<td class="colOne"><code><span class="memberNameLink"><a href="../../../money/zumo/zumokit/ExchangeRate.html#ExchangeRate-java.lang.String-java.lang.String-java.lang.String-java.math.BigDecimal-int-int-">ExchangeRate</a></span>(java.lang.String&nbsp;id,
             java.lang.String&nbsp;fromCurrency,
             java.lang.String&nbsp;toCurrency,
             java.math.BigDecimal&nbsp;value,
-            long&nbsp;validTo,
-            long&nbsp;timestamp)</code>&nbsp;</td>
+            int&nbsp;validTo,
+            int&nbsp;timestamp)</code>&nbsp;</td>
 </tr>
 </table>
 </li>
@@ -168,7 +168,7 @@ extends java.lang.Object</pre>
 </td>
 </tr>
 <tr id="i3" class="rowColor">
-<td class="colFirst"><code>long</code></td>
+<td class="colFirst"><code>int</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../money/zumo/zumokit/ExchangeRate.html#getTimestamp--">getTimestamp</a></span>()</code>
 <div class="block">Epoch timestamp when the exchange rate was issued.</div>
 </td>
@@ -180,7 +180,7 @@ extends java.lang.Object</pre>
 </td>
 </tr>
 <tr id="i5" class="rowColor">
-<td class="colFirst"><code>long</code></td>
+<td class="colFirst"><code>int</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../money/zumo/zumokit/ExchangeRate.html#getValidTo--">getValidTo</a></span>()</code>
 <div class="block">Epoch timestamp representing expiration time of this exchange rate.</div>
 </td>
@@ -221,7 +221,7 @@ extends java.lang.Object</pre>
 <!--   -->
 </a>
 <h3>Constructor Detail</h3>
-<a name="ExchangeRate-java.lang.String-java.lang.String-java.lang.String-java.math.BigDecimal-long-long-">
+<a name="ExchangeRate-java.lang.String-java.lang.String-java.lang.String-java.math.BigDecimal-int-int-">
 <!--   -->
 </a>
 <ul class="blockListLast">
@@ -231,8 +231,8 @@ extends java.lang.Object</pre>
                     java.lang.String&nbsp;fromCurrency,
                     java.lang.String&nbsp;toCurrency,
                     java.math.BigDecimal&nbsp;value,
-                    long&nbsp;validTo,
-                    long&nbsp;timestamp)</pre>
+                    int&nbsp;validTo,
+                    int&nbsp;timestamp)</pre>
 </li>
 </ul>
 </li>
@@ -297,7 +297,7 @@ extends java.lang.Object</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>getValidTo</h4>
-<pre>public&nbsp;long&nbsp;getValidTo()</pre>
+<pre>public&nbsp;int&nbsp;getValidTo()</pre>
 <div class="block">Epoch timestamp representing expiration time of this exchange rate.</div>
 </li>
 </ul>
@@ -307,7 +307,7 @@ extends java.lang.Object</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>getTimestamp</h4>
-<pre>public&nbsp;long&nbsp;getTimestamp()</pre>
+<pre>public&nbsp;int&nbsp;getTimestamp()</pre>
 <div class="block">Epoch timestamp when the exchange rate was issued.</div>
 </li>
 </ul>

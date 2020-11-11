@@ -14,12 +14,12 @@ public final class AccountCryptoProperties {
 
     /*package*/ final String mPath;
 
-    /*package*/ final Long mNonce;
+    /*package*/ final Integer mNonce;
 
     public AccountCryptoProperties(
             String address,
             String path,
-            Long nonce) {
+            Integer nonce) {
         this.mAddress = address;
         this.mPath = path;
         this.mNonce = nonce;
@@ -36,7 +36,7 @@ public final class AccountCryptoProperties {
     }
 
     /** Ethereum account nonce if greater than 0 or null otherwise. */
-    public Long getNonce() {
+    public Integer getNonce() {
         return mNonce;
     }
 

@@ -180,7 +180,7 @@ public class MainActivity extends AppCompatActivity {
     private void composeEthTransaction(Account account, Boolean submit) {
         String to = "0xDa57228C976ba133b46B26066bBac337e62D8357";
         BigDecimal gasPrice = new BigDecimal("60");
-        BigDecimal gasLimit = new BigDecimal("21000");
+        int gasLimit = 21000;
         BigDecimal value = new BigDecimal("0.02");
 
         mWallet.composeEthTransaction(account.getId(), gasPrice, gasLimit, to, value, null, null, false,

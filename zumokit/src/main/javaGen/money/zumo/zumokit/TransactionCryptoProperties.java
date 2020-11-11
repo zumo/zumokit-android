@@ -14,7 +14,7 @@ public final class TransactionCryptoProperties {
 
     /*package*/ final String mTxHash;
 
-    /*package*/ final Long mNonce;
+    /*package*/ final Integer mNonce;
 
     /*package*/ final String mFromAddress;
 
@@ -24,7 +24,7 @@ public final class TransactionCryptoProperties {
 
     /*package*/ final java.math.BigDecimal mGasPrice;
 
-    /*package*/ final java.math.BigDecimal mGasLimit;
+    /*package*/ final Integer mGasLimit;
 
     /*package*/ final HashMap<String, java.math.BigDecimal> mFiatAmount;
 
@@ -32,12 +32,12 @@ public final class TransactionCryptoProperties {
 
     public TransactionCryptoProperties(
             String txHash,
-            Long nonce,
+            Integer nonce,
             String fromAddress,
             String toAddress,
             String data,
             java.math.BigDecimal gasPrice,
-            java.math.BigDecimal gasLimit,
+            Integer gasLimit,
             HashMap<String, java.math.BigDecimal> fiatAmount,
             HashMap<String, java.math.BigDecimal> fiatFee) {
         this.mTxHash = txHash;
@@ -60,7 +60,7 @@ public final class TransactionCryptoProperties {
      * Ethereum transaction nonce if greater than 0 and
      * it is Ethereum transaction, otherwise returns null.
      */
-    public Long getNonce() {
+    public Integer getNonce() {
         return mNonce;
     }
 
@@ -85,7 +85,7 @@ public final class TransactionCryptoProperties {
     }
 
     /** Ethereum gas limit if it is Ethereum transaction, otherwise null. */
-    public java.math.BigDecimal getGasLimit() {
+    public Integer getGasLimit() {
         return mGasLimit;
     }
 

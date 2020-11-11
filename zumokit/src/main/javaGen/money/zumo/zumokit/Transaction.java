@@ -37,11 +37,11 @@ public final class Transaction {
 
     /*package*/ final Exchange mExchange;
 
-    /*package*/ final Long mSubmittedAt;
+    /*package*/ final Integer mSubmittedAt;
 
-    /*package*/ final Long mConfirmedAt;
+    /*package*/ final Integer mConfirmedAt;
 
-    /*package*/ final long mTimestamp;
+    /*package*/ final int mTimestamp;
 
     public Transaction(
             String id,
@@ -59,9 +59,9 @@ public final class Transaction {
             TransactionCryptoProperties cryptoProperties,
             TransactionFiatProperties fiatProperties,
             Exchange exchange,
-            Long submittedAt,
-            Long confirmedAt,
-            long timestamp) {
+            Integer submittedAt,
+            Integer confirmedAt,
+            int timestamp) {
         this.mId = id;
         this.mType = type;
         this.mCurrencyCode = currencyCode;
@@ -179,17 +179,17 @@ public final class Transaction {
     }
 
     /** Epoch timestamp when transaction was submitted or null for incoming transactions from outside of Zumo ecosystem. */
-    public Long getSubmittedAt() {
+    public Integer getSubmittedAt() {
         return mSubmittedAt;
     }
 
     /** Epoch timestamp when transaction was submitted or null if transaction was not confirmed yet. */
-    public Long getConfirmedAt() {
+    public Integer getConfirmedAt() {
         return mConfirmedAt;
     }
 
     /** Epoch timestamp, minimum non-null value between submitted at and confirmed at timestamps. */
-    public long getTimestamp() {
+    public int getTimestamp() {
         return mTimestamp;
     }
 
@@ -240,7 +240,7 @@ public final class Transaction {
         hashCode = hashCode * 31 + (mExchange == null ? 0 : mExchange.hashCode());
         hashCode = hashCode * 31 + (mSubmittedAt == null ? 0 : mSubmittedAt.hashCode());
         hashCode = hashCode * 31 + (mConfirmedAt == null ? 0 : mConfirmedAt.hashCode());
-        hashCode = hashCode * 31 + ((int) (mTimestamp ^ (mTimestamp >>> 32)));
+        hashCode = hashCode * 31 + mTimestamp;
         return hashCode;
     }
 
