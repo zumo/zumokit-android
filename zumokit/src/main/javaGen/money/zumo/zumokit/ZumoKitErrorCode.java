@@ -77,13 +77,10 @@ public final class ZumoKitErrorCode {
      */
     public static final String INCORRECT_CHANGE_ACCOUNT_SELECTED = "incorrect_change_account_selected";
 
-    /** Insufficient funds for transaction value and fee. */
-    public static final String INSUFFICIENT_FUNDS = "insufficient_funds";
-
-    /** Insufficient funds for exchange value. */
+    /** Insufficient funds for exchange value and network fees. */
     public static final String INSUFFICIENT_FUNDS_FOR_EXCHANGE = "insufficient_funds_for_exchange";
 
-    /** Insufficient funds for transaction value. */
+    /** Insufficient funds for transaction value and network fees. */
     public static final String INSUFFICIENT_FUNDS_FOR_TRANSACTION = "insufficient_funds_for_transaction";
 
     /** Value exceeds maximum 63 bit precision. */
