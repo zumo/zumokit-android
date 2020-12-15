@@ -18,6 +18,8 @@ public final class TimeInterval {
 
     public static final String YEAR = "year";
 
+    public static final String MAX = "max";
+
 
     public TimeInterval(
             ) {
