@@ -13,6 +13,8 @@ public final class Transaction {
 
     /*package*/ final String mCurrencyCode;
 
+    /*package*/ final String mDirection;
+
     /*package*/ final String mFromUserId;
 
     /*package*/ final String mToUserId;
@@ -47,6 +49,7 @@ public final class Transaction {
             String id,
             String type,
             String currencyCode,
+            String direction,
             String fromUserId,
             String toUserId,
             String fromAccountId,
@@ -65,6 +68,7 @@ public final class Transaction {
         this.mId = id;
         this.mType = type;
         this.mCurrencyCode = currencyCode;
+        this.mDirection = direction;
         this.mFromUserId = fromUserId;
         this.mToUserId = toUserId;
         this.mFromAccountId = fromAccountId;
@@ -101,6 +105,14 @@ public final class Transaction {
      */
     public String getCurrencyCode() {
         return mCurrencyCode;
+    }
+
+    /**
+     * Transaction direction relative to {@link  AccountSnapshot. AccountSnapshot.}
+     * @see TransactionDirection
+     */
+    public String getDirection() {
+        return mDirection;
     }
 
     /** Sender integrator user identifier or null if it is external user. */
@@ -202,6 +214,7 @@ public final class Transaction {
         return this.mId.equals(other.mId) &&
                 this.mType.equals(other.mType) &&
                 this.mCurrencyCode.equals(other.mCurrencyCode) &&
+                this.mDirection.equals(other.mDirection) &&
                 ((this.mFromUserId == null && other.mFromUserId == null) || (this.mFromUserId != null && this.mFromUserId.equals(other.mFromUserId))) &&
                 ((this.mToUserId == null && other.mToUserId == null) || (this.mToUserId != null && this.mToUserId.equals(other.mToUserId))) &&
                 ((this.mFromAccountId == null && other.mFromAccountId == null) || (this.mFromAccountId != null && this.mFromAccountId.equals(other.mFromAccountId))) &&
@@ -226,6 +239,7 @@ public final class Transaction {
         hashCode = hashCode * 31 + mId.hashCode();
         hashCode = hashCode * 31 + mType.hashCode();
         hashCode = hashCode * 31 + mCurrencyCode.hashCode();
+        hashCode = hashCode * 31 + mDirection.hashCode();
         hashCode = hashCode * 31 + (mFromUserId == null ? 0 : mFromUserId.hashCode());
         hashCode = hashCode * 31 + (mToUserId == null ? 0 : mToUserId.hashCode());
         hashCode = hashCode * 31 + (mFromAccountId == null ? 0 : mFromAccountId.hashCode());
@@ -250,6 +264,7 @@ public final class Transaction {
                 "mId=" + mId +
                 "," + "mType=" + mType +
                 "," + "mCurrencyCode=" + mCurrencyCode +
+                "," + "mDirection=" + mDirection +
                 "," + "mFromUserId=" + mFromUserId +
                 "," + "mToUserId=" + mToUserId +
                 "," + "mFromAccountId=" + mFromAccountId +
