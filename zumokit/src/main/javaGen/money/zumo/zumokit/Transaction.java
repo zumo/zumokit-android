@@ -108,7 +108,7 @@ public final class Transaction {
     }
 
     /**
-     * Transaction direction relative to {@link  AccountSnapshot. AccountSnapshot.}
+     * Transaction direction relative to {@link  AccountDataSnapshot AccountDataSnapshot} .
      * @see TransactionDirection
      */
     public String getDirection() {
