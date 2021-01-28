@@ -3,7 +3,7 @@
 
 package money.zumo.zumokit;
 
-/** Network type, such as 'MAINNET', 'TESTNET' or 'RINKEBY'. */
+/** Network type, for example 'MAINNET'. */
 public final class NetworkType {
 
     public static final String MAINNET = "MAINNET";

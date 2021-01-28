@@ -1,7 +1,5 @@
 package money.zumo.zumokit;
 
-import java.net.URI;
-import java.net.URISyntaxException;
 import java.util.HashMap;
 
 /**
@@ -28,29 +26,20 @@ public class ZumoKit {
     /**
      * Initializes ZumoKit SDK. Should only be called once.
      *
-     * @param apiKey        ZumoKit Api-Key
-     * @param apiUrl        ZumoKit API url
-     * @param txServiceUrl  ZumoKit Transaction Service url
+     * @param apiKey                 ZumoKit API Key
+     * @param apiUrl                 ZumoKit API URL
+     * @param transactionServiceUrl  ZumoKit Transaction Service URL
+     * @param cardServiceUrl         ZumoKit Card Service URL
      */
-    public ZumoKit(String apiKey, String apiUrl, String txServiceUrl) {
-        // HTTP implementation
-        HttpImpl httpImpl = new HttpService();
+    public ZumoKit(String apiKey, String apiUrl, String transactionServiceUrl, String cardServiceUrl) {
+        // Init the providers needed for the C++ core
+        HttpProvider httpProvider = new DefaultHttpProvider();
+        WebSocketFactory wsFactory = new DefaultWebSocketFactory();
 
-        // WebSocket implementation
-        URI uri;
-        try {
-            uri = new URI(txServiceUrl.replace("https", "wss"));
-        } catch (URISyntaxException e) {
-            e.printStackTrace();
-            return;
-        }
-        WebSocketService wsImpl = new WebSocketService(uri);
-
-        // initialise C++ core library
-        zumoCore = ZumoCore.init(httpImpl, wsImpl, apiKey, apiUrl, txServiceUrl);
-
-        // Connect to WebSocket
-        wsImpl.connect();
+        // Initialise C++ core library
+        zumoCore = ZumoCore.init(
+                httpProvider, wsFactory, apiKey, apiUrl, transactionServiceUrl, cardServiceUrl
+        );
     }
 
     /**

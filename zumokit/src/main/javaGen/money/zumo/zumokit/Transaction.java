@@ -37,6 +37,8 @@ public final class Transaction {
 
     /*package*/ final TransactionFiatProperties mFiatProperties;
 
+    /*package*/ final TransactionCardProperties mCardProperties;
+
     /*package*/ final Exchange mExchange;
 
     /*package*/ final Integer mSubmittedAt;
@@ -61,6 +63,7 @@ public final class Transaction {
             String nonce,
             TransactionCryptoProperties cryptoProperties,
             TransactionFiatProperties fiatProperties,
+            TransactionCardProperties cardProperties,
             Exchange exchange,
             Integer submittedAt,
             Integer confirmedAt,
@@ -80,6 +83,7 @@ public final class Transaction {
         this.mNonce = nonce;
         this.mCryptoProperties = cryptoProperties;
         this.mFiatProperties = fiatProperties;
+        this.mCardProperties = cardProperties;
         this.mExchange = exchange;
         this.mSubmittedAt = submittedAt;
         this.mConfirmedAt = confirmedAt;
@@ -183,6 +187,14 @@ public final class Transaction {
     }
 
     /**
+     * Card properties if it is a card transaction, null otherwise.
+     * @see TransactionType
+     */
+    public TransactionCardProperties getCardProperties() {
+        return mCardProperties;
+    }
+
+    /**
      * Exchange properties if it is a transaction associated with an exchange, null otherwise.
      * @see TransactionType
      */
@@ -226,6 +238,7 @@ public final class Transaction {
                 ((this.mNonce == null && other.mNonce == null) || (this.mNonce != null && this.mNonce.equals(other.mNonce))) &&
                 ((this.mCryptoProperties == null && other.mCryptoProperties == null) || (this.mCryptoProperties != null && this.mCryptoProperties.equals(other.mCryptoProperties))) &&
                 ((this.mFiatProperties == null && other.mFiatProperties == null) || (this.mFiatProperties != null && this.mFiatProperties.equals(other.mFiatProperties))) &&
+                ((this.mCardProperties == null && other.mCardProperties == null) || (this.mCardProperties != null && this.mCardProperties.equals(other.mCardProperties))) &&
                 ((this.mExchange == null && other.mExchange == null) || (this.mExchange != null && this.mExchange.equals(other.mExchange))) &&
                 ((this.mSubmittedAt == null && other.mSubmittedAt == null) || (this.mSubmittedAt != null && this.mSubmittedAt.equals(other.mSubmittedAt))) &&
                 ((this.mConfirmedAt == null && other.mConfirmedAt == null) || (this.mConfirmedAt != null && this.mConfirmedAt.equals(other.mConfirmedAt))) &&
@@ -251,6 +264,7 @@ public final class Transaction {
         hashCode = hashCode * 31 + (mNonce == null ? 0 : mNonce.hashCode());
         hashCode = hashCode * 31 + (mCryptoProperties == null ? 0 : mCryptoProperties.hashCode());
         hashCode = hashCode * 31 + (mFiatProperties == null ? 0 : mFiatProperties.hashCode());
+        hashCode = hashCode * 31 + (mCardProperties == null ? 0 : mCardProperties.hashCode());
         hashCode = hashCode * 31 + (mExchange == null ? 0 : mExchange.hashCode());
         hashCode = hashCode * 31 + (mSubmittedAt == null ? 0 : mSubmittedAt.hashCode());
         hashCode = hashCode * 31 + (mConfirmedAt == null ? 0 : mConfirmedAt.hashCode());
@@ -276,6 +290,7 @@ public final class Transaction {
                 "," + "mNonce=" + mNonce +
                 "," + "mCryptoProperties=" + mCryptoProperties +
                 "," + "mFiatProperties=" + mFiatProperties +
+                "," + "mCardProperties=" + mCardProperties +
                 "," + "mExchange=" + mExchange +
                 "," + "mSubmittedAt=" + mSubmittedAt +
                 "," + "mConfirmedAt=" + mConfirmedAt +

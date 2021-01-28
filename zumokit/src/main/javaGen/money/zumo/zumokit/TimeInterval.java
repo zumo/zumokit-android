@@ -3,7 +3,7 @@
 
 package money.zumo.zumokit;
 
-/** Time intervals, such as 'hour', 'week' or 'year' */
+/** Time intervals, for example 'hour'. */
 public final class TimeInterval {
 
     public static final String HOUR = "hour";

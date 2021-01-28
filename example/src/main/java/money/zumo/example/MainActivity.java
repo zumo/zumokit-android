@@ -4,14 +4,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 
-import money.zumo.zumokit.AccountCallback;
 import money.zumo.zumokit.AccountDataListener;
 import money.zumo.zumokit.AccountDataSnapshot;
-import money.zumo.zumokit.AccountFiatProperties;
-import money.zumo.zumokit.AccountFiatPropertiesCallback;
 import money.zumo.zumokit.AccountType;
 import money.zumo.zumokit.CurrencyCode;
-import money.zumo.zumokit.HttpService;
+import money.zumo.zumokit.HttpProvider;
+import money.zumo.zumokit.DefaultHttpProvider;
 import money.zumo.zumokit.ComposeExchangeCallback;
 import money.zumo.zumokit.ComposedExchange;
 import money.zumo.zumokit.ComposedTransaction;
@@ -23,7 +21,6 @@ import money.zumo.zumokit.NetworkType;
 import money.zumo.zumokit.ComposeTransactionCallback;
 import money.zumo.zumokit.SubmitExchangeCallback;
 import money.zumo.zumokit.SubmitTransactionCallback;
-import money.zumo.zumokit.SuccessCallback;
 import money.zumo.zumokit.Transaction;
 import money.zumo.zumokit.Wallet;
 import money.zumo.zumokit.WalletCallback;
@@ -53,10 +50,15 @@ public class MainActivity extends AppCompatActivity {
         Log.i("zumokit/version", ZumoKit.getVersion());
 
         // Initialize ZumoKit
-        mZumoKit = new ZumoKit(BuildConfig.API_KEY, BuildConfig.API_URL, BuildConfig.TX_SERVICE_URL);
+        mZumoKit = new ZumoKit(
+                BuildConfig.API_KEY,
+                BuildConfig.API_URL,
+                BuildConfig.TRANSACTION_SERVICE_URL,
+                BuildConfig.CARD_SERVICE_URL
+        );
 
         // Get ZumoKit user token from Client API
-        HttpService httpService = new HttpService();
+        HttpProvider httpProvider = new DefaultHttpProvider();
 
         HashMap<String, String> clientHeaders = new HashMap<String, String>();
         try {
@@ -66,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
             e.printStackTrace();
         }
 
-        httpService.request(BuildConfig.CLIENT_ZUMOKIT_AUTH_ENDPOINT, BuildConfig.CLIENT_METHOD, clientHeaders, BuildConfig.CLIENT_BODY, new HttpCallback() {
+        httpProvider.request(BuildConfig.CLIENT_ZUMOKIT_AUTH_ENDPOINT, BuildConfig.CLIENT_METHOD, clientHeaders, BuildConfig.CLIENT_BODY, new HttpCallback() {
             @Override
             public void onNetworkError(String message) {
                 Log.e("zumokit/auth", message);

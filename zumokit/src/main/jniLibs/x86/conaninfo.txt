@@ -15,7 +15,9 @@
 
 [options]
     coverage=False
+    enable_example=False
     enable_tests=False
+    env=None
 
 [full_settings]
     arch=x86
@@ -35,7 +37,9 @@
 
 [full_options]
     coverage=False
+    enable_example=False
     enable_tests=False
+    env=None
     bitcoin_core:shared=True
     nlohmann_json:multiple_headers=False
     secp256k1:shared=True
