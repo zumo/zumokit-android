@@ -28,6 +28,12 @@ public final class ZumoKitErrorCode {
     /** Invalid response received from ZumoKit API. */
     public static final String API_SERVICE_ERROR = "api_service_error";
 
+    /** Requested card not found. */
+    public static final String CARD_NOT_FOUND = "card_not_found";
+
+    /** Invalid response received from ZumoKit Card Service API. */
+    public static final String CARD_SERVICE_ERROR = "card_service_error";
+
     /** Requested change account not found. */
     public static final String CHANGE_ACCOUNT_NOT_FOUND = "change_account_not_found";
 
@@ -54,6 +60,9 @@ public final class ZumoKitErrorCode {
 
     /** Exchange amount too low. Fees exceed return value. */
     public static final String EXCHANGE_RETURN_VALUE_NEGATIVE = "exchange_return_value_negative";
+
+    /** Invalid account provided. Fiat accounted expected. */
+    public static final String FIAT_ACCOUNT_EXPECTED = "fiat_account_expected";
 
     /** Gas too long. Cumulative gas limit and gas price should not exceed 30 bytes. */
     public static final String GAS_OVERFLOW = "gas_overflow";
@@ -131,6 +140,9 @@ public final class ZumoKitErrorCode {
     /** Invalid transaction value. */
     public static final String INVALID_TRANSACTION_VALUE = "invalid_transaction_value";
 
+    /** Invalid user token set. User token set should be a valid stringified JSON with accessToken, refreshToken and expiresIn properties. */
+    public static final String INVALID_USER_TOKEN_SET = "invalid_user_token_set";
+
     /** Invalid response received from WebSocket. */
     public static final String INVALID_WEBSOCKET_RESPONSE = "invalid_websocket_response";
 
@@ -184,9 +196,6 @@ public final class ZumoKitErrorCode {
 
     /** Wallet could not be created. Wallet already exists. */
     public static final String WALLET_LIMIT_EXCEEDED = "wallet_limit_exceeded";
-
-    /** Invalid user token set. User token set should be a valid stringified JSON with accessToken, refreshToken and expiresIn properties. */
-    public static final String INVALID_USER_TOKEN_SET = "invalid_user_token_set";
 
 
     public ZumoKitErrorCode(

@@ -121,21 +121,23 @@ public interface ZumoCore {
     /**
      * Initializes ZumoKit SDK. Should only be called once.
      *
-     * @param httpImpl        HTTP implementation
-     * @param wsImpl          WebSocet implementation
-     * @param apiKey          ZumoKit Api-Key
-     * @param apiUrl         ZumoKit API url
-     * @param txServiceUrl  ZumoKit Transaction Service url
+     * @param httpProvider           HTTP provider
+     * @param webSocketFactory      WebSocket factory
+     * @param apiKey                 ZumoKit API Key
+     * @param apiUrl                 ZumoKit API URL
+     * @param transactionServiceUrl ZumoKit Transaction Service URL
+     * @param cardServiceUrl        ZumoKit Card Service URL
      *
      * @return ZumoKit instance
      */
-    public static ZumoCore init(HttpImpl httpImpl, WebSocketImpl wsImpl, String apiKey, String apiUrl, String txServiceUrl)
+    public static ZumoCore init(HttpProvider httpProvider, WebSocketFactory webSocketFactory, String apiKey, String apiUrl, String transactionServiceUrl, String cardServiceUrl)
     {
-        return CppProxy.init(httpImpl,
-                             wsImpl,
+        return CppProxy.init(httpProvider,
+                             webSocketFactory,
                              apiKey,
                              apiUrl,
-                             txServiceUrl);
+                             transactionServiceUrl,
+                             cardServiceUrl);
     }
 
     static final class CppProxy implements ZumoCore
@@ -267,6 +269,6 @@ public interface ZumoCore {
 
         public static native String getVersion();
 
-        public static native ZumoCore init(HttpImpl httpImpl, WebSocketImpl wsImpl, String apiKey, String apiUrl, String txServiceUrl);
+        public static native ZumoCore init(HttpProvider httpProvider, WebSocketFactory webSocketFactory, String apiKey, String apiUrl, String transactionServiceUrl, String cardServiceUrl);
     }
 }

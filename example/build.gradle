@@ -19,7 +19,8 @@ android {
         release {
             buildConfigField "String", "API_KEY", PRODUCTION_API_KEY
             buildConfigField "String", "API_URL", PRODUCTION_API_URL
-            buildConfigField "String", "TX_SERVICE_URL", PRODUCTION_TX_SERVICE_URL
+            buildConfigField "String", "TRANSACTION_SERVICE_URL", PRODUCTION_TRANSACTION_SERVICE_URL
+            buildConfigField "String", "CARD_SERVICE_URL", PRODUCTION_CARD_SERVICE_URL
             buildConfigField "String", "CLIENT_ZUMOKIT_AUTH_ENDPOINT", PRODUCTION_CLIENT_ZUMOKIT_AUTH_ENDPOINT
             buildConfigField "String", "CLIENT_HEADERS", PRODUCTION_CLIENT_HEADERS
             buildConfigField "String", "CLIENT_BODY", PRODUCTION_CLIENT_BODY
@@ -32,7 +33,8 @@ android {
         debug {
             buildConfigField "String", "API_KEY", PRODUCTION_API_KEY
             buildConfigField "String", "API_URL", PRODUCTION_API_URL
-            buildConfigField "String", "TX_SERVICE_URL", PRODUCTION_TX_SERVICE_URL
+            buildConfigField "String", "TRANSACTION_SERVICE_URL", PRODUCTION_TRANSACTION_SERVICE_URL
+            buildConfigField "String", "CARD_SERVICE_URL", PRODUCTION_CARD_SERVICE_URL
             buildConfigField "String", "CLIENT_ZUMOKIT_AUTH_ENDPOINT", PRODUCTION_CLIENT_ZUMOKIT_AUTH_ENDPOINT
             buildConfigField "String", "CLIENT_HEADERS", PRODUCTION_CLIENT_HEADERS
             buildConfigField "String", "CLIENT_BODY", PRODUCTION_CLIENT_BODY
@@ -45,7 +47,8 @@ android {
         staging {
             buildConfigField "String", "API_KEY", STAGING_API_KEY
             buildConfigField "String", "API_URL", STAGING_API_URL
-            buildConfigField "String", "TX_SERVICE_URL", STAGING_TX_SERVICE_URL
+            buildConfigField "String", "TRANSACTION_SERVICE_URL", STAGING_TRANSACTION_SERVICE_URL
+            buildConfigField "String", "CARD_SERVICE_URL", STAGING_CARD_SERVICE_URL
             buildConfigField "String", "CLIENT_ZUMOKIT_AUTH_ENDPOINT", STAGING_CLIENT_ZUMOKIT_AUTH_ENDPOINT
             buildConfigField "String", "CLIENT_HEADERS", STAGING_CLIENT_HEADERS
             buildConfigField "String", "CLIENT_BODY", STAGING_CLIENT_BODY
@@ -59,7 +62,8 @@ android {
         sandbox {
             buildConfigField "String", "API_KEY", SANDBOX_API_KEY
             buildConfigField "String", "API_URL", SANDBOX_API_URL
-            buildConfigField "String", "TX_SERVICE_URL", SANDBOX_TX_SERVICE_URL
+            buildConfigField "String", "TRANSACTION_SERVICE_URL", SANDBOX_TRANSACTION_SERVICE_URL
+            buildConfigField "String", "CARD_SERVICE_URL", SANDBOX_CARD_SERVICE_URL
             buildConfigField "String", "CLIENT_ZUMOKIT_AUTH_ENDPOINT", SANDBOX_CLIENT_ZUMOKIT_AUTH_ENDPOINT
             buildConfigField "String", "CLIENT_HEADERS", SANDBOX_CLIENT_HEADERS
             buildConfigField "String", "CLIENT_BODY", SANDBOX_CLIENT_BODY

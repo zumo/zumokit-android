@@ -4,7 +4,7 @@
 package money.zumo.zumokit;
 
 /**
- * Transaction status, such as 'PENDING' and 'CONFIRMED'.
+ * Transaction status, for example 'PENDING'.
  * <p>
  * Once transaction is submitted it has to be confirmed. This might take variable amount of time depending on the selected fee rate.
  * Once a transaction is confirmed its status will change from pending to confirmed.
@@ -36,6 +36,9 @@ public final class TransactionStatus {
      * submitted transaction and with with the same nonce as that previously submitted transaction.
      */
     public static final String CANCELLED = "CANCELLED";
+
+    /** Card transaction was reversed. */
+    public static final String REVERSED = "REVERSED";
 
 
     public TransactionStatus(

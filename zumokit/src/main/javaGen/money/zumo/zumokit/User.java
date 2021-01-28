@@ -44,16 +44,13 @@ public interface User {
      * @param  middleName    middle name or null
      * @param  lastName      last name
      * @param  dateOfBirth  date of birth in ISO 8601 format, e.g '2020-08-12'
+     * @param  email          email
      * @param  phone          phone number
-     * @param  addressLine1 address line 1
-     * @param  addressLine2 adress line 2 or null
-     * @param  country        country code in ISO 3166-1 Alpha-2 format, e.g. 'GB'
-     * @param  postCode      post code
-     * @param  postTown      post town
-     * @param callback        an interface to receive the result or error
+     * @param  address        home address
+     * @param  callback       an interface to receive the result or error
      * @see    NetworkType
      */
-    public void makeFiatCustomer(String network, String firstName, String middleName, String lastName, String dateOfBirth, String email, String phone, String addressLine1, String addressLine2, String country, String postCode, String postTown, SuccessCallback callback);
+    public void makeFiatCustomer(String network, String firstName, String middleName, String lastName, String dateOfBirth, String email, String phone, Address address, SuccessCallback callback);
 
     /**
      * Create fiat account on specified network and currency code. User must already be fiat customer on specified network.
@@ -75,6 +72,59 @@ public interface User {
      * @see AccountFiatProperties
      */
     public void getNominatedAccountFiatProperties(String accountId, AccountFiatPropertiesCallback callback);
+
+    /**
+     * Create card for a fiat account.
+     * @param  fiatAccountId fiat account id
+     * @param  cardType       'VIRTUAL' or 'PHYSICAL'
+     * @param  firstName      card holder first name
+     * @param  lastName       card holder last name
+     * @param  title           card holder title or null
+     * @param  dateOfBirth   card holder date of birth in ISO 8601 format, e.g '2020-08-12'
+     * @param  mobileNumber   card holder mobile number, starting with a '+', followed by the country code and then the mobile number
+     * @param  address         card holder address
+     * @param  callback        an interface to receive the result or error
+     * @see    Card
+     * @see    CardType
+     */
+    public void createCard(String fiatAccountId, String cardType, String firstName, String lastName, String title, String dateOfBirth, String mobileNumber, Address address, CardCallback callback);
+
+    /**
+     * Set card status to 'ACTIVE', 'BLOCKED' or 'CANCELLED'. 
+     * - To block card, set card status to 'BLOCKED'. 
+     * - To activate a physical card, set card status to 'ACTIVE' and provide PAN and CVV2 fields.
+     * - To cancel a card, set card status to 'CANCELLED'.
+     * - To unblock a card, set card status to 'ACTIVE.'. 
+     * @param  cardId         card id
+     * @param  cardStatus     new card status
+     * @param  pan             PAN when activating a physical card, null otherwise
+     * @param  cvv2            CVV2 when activating a physical card, null otherwise
+     * @param  callback        an interface to receive the result or error
+     * @see    CardStatus
+     */
+    public void setCardStatus(String cardId, String cardStatus, String pan, String cvv2, SuccessCallback callback);
+
+    /**
+     * Reveals sensitive card details.
+     * @param  cardId         card id
+     * @param  callback        an interface to receive the result or error
+     * @see    CardDetails
+     */
+    public void revealCardDetails(String cardId, CardDetailsCallback callback);
+
+    /**
+     * Reveal card PIN.
+     * @param  cardId         card id
+     * @param  callback        an interface to receive the result or error
+     */
+    public void revealPin(String cardId, PinCallback callback);
+
+    /**
+     * Unblock card PIN.
+     * @param  cardId         card id
+     * @param  callback        an interface to receive the result or error
+     */
+    public void unblockPin(String cardId, SuccessCallback callback);
 
     /**
      * Create user wallet seeded by provided mnemonic and encrypted with user's password.
@@ -197,12 +247,12 @@ public interface User {
         private native boolean native_isFiatCustomer(long _nativeRef, String network);
 
         @Override
-        public void makeFiatCustomer(String network, String firstName, String middleName, String lastName, String dateOfBirth, String email, String phone, String addressLine1, String addressLine2, String country, String postCode, String postTown, SuccessCallback callback)
+        public void makeFiatCustomer(String network, String firstName, String middleName, String lastName, String dateOfBirth, String email, String phone, Address address, SuccessCallback callback)
         {
             assert !this.destroyed.get() : "trying to use a destroyed object";
-            native_makeFiatCustomer(this.nativeRef, network, firstName, middleName, lastName, dateOfBirth, email, phone, addressLine1, addressLine2, country, postCode, postTown, callback);
+            native_makeFiatCustomer(this.nativeRef, network, firstName, middleName, lastName, dateOfBirth, email, phone, address, callback);
         }
-        private native void native_makeFiatCustomer(long _nativeRef, String network, String firstName, String middleName, String lastName, String dateOfBirth, String email, String phone, String addressLine1, String addressLine2, String country, String postCode, String postTown, SuccessCallback callback);
+        private native void native_makeFiatCustomer(long _nativeRef, String network, String firstName, String middleName, String lastName, String dateOfBirth, String email, String phone, Address address, SuccessCallback callback);
 
         @Override
         public void createFiatAccount(String network, String currencyCode, AccountCallback callback)
@@ -219,6 +269,46 @@ public interface User {
             native_getNominatedAccountFiatProperties(this.nativeRef, accountId, callback);
         }
         private native void native_getNominatedAccountFiatProperties(long _nativeRef, String accountId, AccountFiatPropertiesCallback callback);
+
+        @Override
+        public void createCard(String fiatAccountId, String cardType, String firstName, String lastName, String title, String dateOfBirth, String mobileNumber, Address address, CardCallback callback)
+        {
+            assert !this.destroyed.get() : "trying to use a destroyed object";
+            native_createCard(this.nativeRef, fiatAccountId, cardType, firstName, lastName, title, dateOfBirth, mobileNumber, address, callback);
+        }
+        private native void native_createCard(long _nativeRef, String fiatAccountId, String cardType, String firstName, String lastName, String title, String dateOfBirth, String mobileNumber, Address address, CardCallback callback);
+
+        @Override
+        public void setCardStatus(String cardId, String cardStatus, String pan, String cvv2, SuccessCallback callback)
+        {
+            assert !this.destroyed.get() : "trying to use a destroyed object";
+            native_setCardStatus(this.nativeRef, cardId, cardStatus, pan, cvv2, callback);
+        }
+        private native void native_setCardStatus(long _nativeRef, String cardId, String cardStatus, String pan, String cvv2, SuccessCallback callback);
+
+        @Override
+        public void revealCardDetails(String cardId, CardDetailsCallback callback)
+        {
+            assert !this.destroyed.get() : "trying to use a destroyed object";
+            native_revealCardDetails(this.nativeRef, cardId, callback);
+        }
+        private native void native_revealCardDetails(long _nativeRef, String cardId, CardDetailsCallback callback);
+
+        @Override
+        public void revealPin(String cardId, PinCallback callback)
+        {
+            assert !this.destroyed.get() : "trying to use a destroyed object";
+            native_revealPin(this.nativeRef, cardId, callback);
+        }
+        private native void native_revealPin(long _nativeRef, String cardId, PinCallback callback);
+
+        @Override
+        public void unblockPin(String cardId, SuccessCallback callback)
+        {
+            assert !this.destroyed.get() : "trying to use a destroyed object";
+            native_unblockPin(this.nativeRef, cardId, callback);
+        }
+        private native void native_unblockPin(long _nativeRef, String cardId, SuccessCallback callback);
 
         @Override
         public void createWallet(String mnemonic, String password, WalletCallback callback)

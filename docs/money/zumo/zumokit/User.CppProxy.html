@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10,"i19":10,"i20":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -163,13 +163,27 @@ implements <a href="../../../money/zumo/zumokit/User.html" title="interface in m
 </tr>
 <tr id="i2" class="altColor">
 <td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../money/zumo/zumokit/User.CppProxy.html#createCard-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-money.zumo.zumokit.Address-money.zumo.zumokit.CardCallback-">createCard</a></span>(java.lang.String&nbsp;fiatAccountId,
+          java.lang.String&nbsp;cardType,
+          java.lang.String&nbsp;firstName,
+          java.lang.String&nbsp;lastName,
+          java.lang.String&nbsp;title,
+          java.lang.String&nbsp;dateOfBirth,
+          java.lang.String&nbsp;mobileNumber,
+          <a href="../../../money/zumo/zumokit/Address.html" title="class in money.zumo.zumokit">Address</a>&nbsp;address,
+          <a href="../../../money/zumo/zumokit/CardCallback.html" title="interface in money.zumo.zumokit">CardCallback</a>&nbsp;callback)</code>
+<div class="block">Create card for a fiat account.</div>
+</td>
+</tr>
+<tr id="i3" class="rowColor">
+<td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../money/zumo/zumokit/User.CppProxy.html#createFiatAccount-java.lang.String-java.lang.String-money.zumo.zumokit.AccountCallback-">createFiatAccount</a></span>(java.lang.String&nbsp;network,
                  java.lang.String&nbsp;currencyCode,
                  <a href="../../../money/zumo/zumokit/AccountCallback.html" title="interface in money.zumo.zumokit">AccountCallback</a>&nbsp;callback)</code>
 <div class="block">Create fiat account on specified network and currency code.</div>
 </td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i4" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../money/zumo/zumokit/User.CppProxy.html#createWallet-java.lang.String-java.lang.String-money.zumo.zumokit.WalletCallback-">createWallet</a></span>(java.lang.String&nbsp;mnemonic,
             java.lang.String&nbsp;password,
@@ -177,7 +191,7 @@ implements <a href="../../../money/zumo/zumokit/User.html" title="interface in m
 <div class="block">Create user wallet seeded by provided mnemonic and encrypted with user's password.</div>
 </td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code><a href="../../../money/zumo/zumokit/Account.html" title="class in money.zumo.zumokit">Account</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../money/zumo/zumokit/User.CppProxy.html#getAccount-java.lang.String-java.lang.String-java.lang.String-">getAccount</a></span>(java.lang.String&nbsp;currencyCode,
           java.lang.String&nbsp;network,
@@ -185,62 +199,58 @@ implements <a href="../../../money/zumo/zumokit/User.html" title="interface in m
 <div class="block">Get account in specific currency, on specific network, with specific type.</div>
 </td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i6" class="altColor">
 <td class="colFirst"><code>java.util.ArrayList&lt;<a href="../../../money/zumo/zumokit/Account.html" title="class in money.zumo.zumokit">Account</a>&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../money/zumo/zumokit/User.CppProxy.html#getAccounts--">getAccounts</a></span>()</code>
 <div class="block">Get all user accounts.</div>
 </td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../money/zumo/zumokit/User.CppProxy.html#getId--">getId</a></span>()</code>
 <div class="block">Get user id.</div>
 </td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i8" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../money/zumo/zumokit/User.CppProxy.html#getNominatedAccountFiatProperties-java.lang.String-money.zumo.zumokit.AccountFiatPropertiesCallback-">getNominatedAccountFiatProperties</a></span>(java.lang.String&nbsp;accountId,
                                  <a href="../../../money/zumo/zumokit/AccountFiatPropertiesCallback.html" title="interface in money.zumo.zumokit">AccountFiatPropertiesCallback</a>&nbsp;callback)</code>
 <div class="block">Get nominated account details for specified account if it exists.</div>
 </td>
 </tr>
-<tr id="i8" class="altColor">
+<tr id="i9" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../money/zumo/zumokit/User.CppProxy.html#hasWallet--">hasWallet</a></span>()</code>
 <div class="block">Check if user has wallet</div>
 </td>
 </tr>
-<tr id="i9" class="rowColor">
+<tr id="i10" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../money/zumo/zumokit/User.CppProxy.html#isFiatCustomer-java.lang.String-">isFiatCustomer</a></span>(java.lang.String&nbsp;network)</code>
 <div class="block">Check if user is a fiat customer on 'MAINNET' or 'TESTNET' network.</div>
 </td>
 </tr>
-<tr id="i10" class="altColor">
+<tr id="i11" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../money/zumo/zumokit/User.CppProxy.html#isRecoveryMnemonic-java.lang.String-">isRecoveryMnemonic</a></span>(java.lang.String&nbsp;mnemonic)</code>
 <div class="block">Check if mnemonic seed phrase corresponds to user's wallet.</div>
 </td>
 </tr>
-<tr id="i11" class="rowColor">
+<tr id="i12" class="altColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../money/zumo/zumokit/User.CppProxy.html#makeFiatCustomer-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-money.zumo.zumokit.SuccessCallback-">makeFiatCustomer</a></span>(java.lang.String&nbsp;network,
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../money/zumo/zumokit/User.CppProxy.html#makeFiatCustomer-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-money.zumo.zumokit.Address-money.zumo.zumokit.SuccessCallback-">makeFiatCustomer</a></span>(java.lang.String&nbsp;network,
                 java.lang.String&nbsp;firstName,
                 java.lang.String&nbsp;middleName,
                 java.lang.String&nbsp;lastName,
                 java.lang.String&nbsp;dateOfBirth,
                 java.lang.String&nbsp;email,
                 java.lang.String&nbsp;phone,
-                java.lang.String&nbsp;addressLine1,
-                java.lang.String&nbsp;addressLine2,
-                java.lang.String&nbsp;country,
-                java.lang.String&nbsp;postCode,
-                java.lang.String&nbsp;postTown,
+                <a href="../../../money/zumo/zumokit/Address.html" title="class in money.zumo.zumokit">Address</a>&nbsp;address,
                 <a href="../../../money/zumo/zumokit/SuccessCallback.html" title="interface in money.zumo.zumokit">SuccessCallback</a>&nbsp;callback)</code>
 <div class="block">Make user fiat customer on specified network by providing user's personal details.</div>
 </td>
 </tr>
-<tr id="i12" class="altColor">
+<tr id="i13" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../money/zumo/zumokit/User.CppProxy.html#recoverWallet-java.lang.String-java.lang.String-money.zumo.zumokit.WalletCallback-">recoverWallet</a></span>(java.lang.String&nbsp;mnemonic,
              java.lang.String&nbsp;password,
@@ -248,20 +258,51 @@ implements <a href="../../../money/zumo/zumokit/User.html" title="interface in m
 <div class="block">Recover user wallet with mnemonic seed phrase corresponding to user's wallet.</div>
 </td>
 </tr>
-<tr id="i13" class="rowColor">
+<tr id="i14" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../money/zumo/zumokit/User.CppProxy.html#removeAccountDataListener-money.zumo.zumokit.AccountDataListener-">removeAccountDataListener</a></span>(<a href="../../../money/zumo/zumokit/AccountDataListener.html" title="interface in money.zumo.zumokit">AccountDataListener</a>&nbsp;listener)</code>
 <div class="block">Remove listener to account data changes.</div>
 </td>
 </tr>
-<tr id="i14" class="altColor">
+<tr id="i15" class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../money/zumo/zumokit/User.CppProxy.html#revealCardDetails-java.lang.String-money.zumo.zumokit.CardDetailsCallback-">revealCardDetails</a></span>(java.lang.String&nbsp;cardId,
+                 <a href="../../../money/zumo/zumokit/CardDetailsCallback.html" title="interface in money.zumo.zumokit">CardDetailsCallback</a>&nbsp;callback)</code>
+<div class="block">Reveals sensitive card details.</div>
+</td>
+</tr>
+<tr id="i16" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../money/zumo/zumokit/User.CppProxy.html#revealMnemonic-java.lang.String-money.zumo.zumokit.MnemonicCallback-">revealMnemonic</a></span>(java.lang.String&nbsp;password,
               <a href="../../../money/zumo/zumokit/MnemonicCallback.html" title="interface in money.zumo.zumokit">MnemonicCallback</a>&nbsp;callback)</code>
 <div class="block">Reveal menmonic seed phrase used to seed user wallet.</div>
 </td>
 </tr>
-<tr id="i15" class="rowColor">
+<tr id="i17" class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../money/zumo/zumokit/User.CppProxy.html#revealPin-java.lang.String-money.zumo.zumokit.PinCallback-">revealPin</a></span>(java.lang.String&nbsp;cardId,
+         <a href="../../../money/zumo/zumokit/PinCallback.html" title="interface in money.zumo.zumokit">PinCallback</a>&nbsp;callback)</code>
+<div class="block">Reveal card PIN.</div>
+</td>
+</tr>
+<tr id="i18" class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../money/zumo/zumokit/User.CppProxy.html#setCardStatus-java.lang.String-java.lang.String-java.lang.String-java.lang.String-money.zumo.zumokit.SuccessCallback-">setCardStatus</a></span>(java.lang.String&nbsp;cardId,
+             java.lang.String&nbsp;cardStatus,
+             java.lang.String&nbsp;pan,
+             java.lang.String&nbsp;cvv2,
+             <a href="../../../money/zumo/zumokit/SuccessCallback.html" title="interface in money.zumo.zumokit">SuccessCallback</a>&nbsp;callback)</code>
+<div class="block">Set card status to 'ACTIVE', 'BLOCKED' or 'CANCELLED'.</div>
+</td>
+</tr>
+<tr id="i19" class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../money/zumo/zumokit/User.CppProxy.html#unblockPin-java.lang.String-money.zumo.zumokit.SuccessCallback-">unblockPin</a></span>(java.lang.String&nbsp;cardId,
+          <a href="../../../money/zumo/zumokit/SuccessCallback.html" title="interface in money.zumo.zumokit">SuccessCallback</a>&nbsp;callback)</code>
+<div class="block">Unblock card PIN.</div>
+</td>
+</tr>
+<tr id="i20" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../money/zumo/zumokit/User.CppProxy.html#unlockWallet-java.lang.String-money.zumo.zumokit.WalletCallback-">unlockWallet</a></span>(java.lang.String&nbsp;password,
             <a href="../../../money/zumo/zumokit/WalletCallback.html" title="interface in money.zumo.zumokit">WalletCallback</a>&nbsp;callback)</code>
@@ -354,7 +395,7 @@ implements <a href="../../../money/zumo/zumokit/User.html" title="interface in m
 </dl>
 </li>
 </ul>
-<a name="makeFiatCustomer-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-money.zumo.zumokit.SuccessCallback-">
+<a name="makeFiatCustomer-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-money.zumo.zumokit.Address-money.zumo.zumokit.SuccessCallback-">
 <!--   -->
 </a>
 <ul class="blockList">
@@ -367,29 +408,22 @@ implements <a href="../../../money/zumo/zumokit/User.html" title="interface in m
                              java.lang.String&nbsp;dateOfBirth,
                              java.lang.String&nbsp;email,
                              java.lang.String&nbsp;phone,
-                             java.lang.String&nbsp;addressLine1,
-                             java.lang.String&nbsp;addressLine2,
-                             java.lang.String&nbsp;country,
-                             java.lang.String&nbsp;postCode,
-                             java.lang.String&nbsp;postTown,
+                             <a href="../../../money/zumo/zumokit/Address.html" title="class in money.zumo.zumokit">Address</a>&nbsp;address,
                              <a href="../../../money/zumo/zumokit/SuccessCallback.html" title="interface in money.zumo.zumokit">SuccessCallback</a>&nbsp;callback)</pre>
-<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../money/zumo/zumokit/User.html#makeFiatCustomer-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-money.zumo.zumokit.SuccessCallback-">User</a></code></span></div>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../money/zumo/zumokit/User.html#makeFiatCustomer-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-money.zumo.zumokit.Address-money.zumo.zumokit.SuccessCallback-">User</a></code></span></div>
 <div class="block">Make user fiat customer on specified network by providing user's personal details.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="../../../money/zumo/zumokit/User.html#makeFiatCustomer-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-money.zumo.zumokit.SuccessCallback-">makeFiatCustomer</a></code>&nbsp;in interface&nbsp;<code><a href="../../../money/zumo/zumokit/User.html" title="interface in money.zumo.zumokit">User</a></code></dd>
+<dd><code><a href="../../../money/zumo/zumokit/User.html#makeFiatCustomer-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-money.zumo.zumokit.Address-money.zumo.zumokit.SuccessCallback-">makeFiatCustomer</a></code>&nbsp;in interface&nbsp;<code><a href="../../../money/zumo/zumokit/User.html" title="interface in money.zumo.zumokit">User</a></code></dd>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>network</code> - 'MAINNET' or 'TESTNET'</dd>
 <dd><code>firstName</code> - first name</dd>
 <dd><code>middleName</code> - middle name or null</dd>
 <dd><code>lastName</code> - last name</dd>
 <dd><code>dateOfBirth</code> - date of birth in ISO 8601 format, e.g '2020-08-12'</dd>
+<dd><code>email</code> - email</dd>
 <dd><code>phone</code> - phone number</dd>
-<dd><code>addressLine1</code> - address line 1</dd>
-<dd><code>addressLine2</code> - adress line 2 or null</dd>
-<dd><code>country</code> - country code in ISO 3166-1 Alpha-2 format, e.g. 'GB'</dd>
-<dd><code>postCode</code> - post code</dd>
-<dd><code>postTown</code> - post town</dd>
+<dd><code>address</code> - home address</dd>
 <dd><code>callback</code> - an interface to receive the result or error</dd>
 <dt><span class="seeLabel">See Also:</span></dt>
 <dd><a href="../../../money/zumo/zumokit/NetworkType.html" title="class in money.zumo.zumokit"><code>NetworkType</code></a></dd>
@@ -441,6 +475,132 @@ implements <a href="../../../money/zumo/zumokit/User.html" title="interface in m
 <dd><code>callback</code> - an interface to receive the result or error</dd>
 <dt><span class="seeLabel">See Also:</span></dt>
 <dd><a href="../../../money/zumo/zumokit/AccountFiatProperties.html" title="class in money.zumo.zumokit"><code>AccountFiatProperties</code></a></dd>
+</dl>
+</li>
+</ul>
+<a name="createCard-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-money.zumo.zumokit.Address-money.zumo.zumokit.CardCallback-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>createCard</h4>
+<pre>public&nbsp;void&nbsp;createCard(java.lang.String&nbsp;fiatAccountId,
+                       java.lang.String&nbsp;cardType,
+                       java.lang.String&nbsp;firstName,
+                       java.lang.String&nbsp;lastName,
+                       java.lang.String&nbsp;title,
+                       java.lang.String&nbsp;dateOfBirth,
+                       java.lang.String&nbsp;mobileNumber,
+                       <a href="../../../money/zumo/zumokit/Address.html" title="class in money.zumo.zumokit">Address</a>&nbsp;address,
+                       <a href="../../../money/zumo/zumokit/CardCallback.html" title="interface in money.zumo.zumokit">CardCallback</a>&nbsp;callback)</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../money/zumo/zumokit/User.html#createCard-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-money.zumo.zumokit.Address-money.zumo.zumokit.CardCallback-">User</a></code></span></div>
+<div class="block">Create card for a fiat account.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../../money/zumo/zumokit/User.html#createCard-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-money.zumo.zumokit.Address-money.zumo.zumokit.CardCallback-">createCard</a></code>&nbsp;in interface&nbsp;<code><a href="../../../money/zumo/zumokit/User.html" title="interface in money.zumo.zumokit">User</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>fiatAccountId</code> - fiat account id</dd>
+<dd><code>cardType</code> - 'VIRTUAL' or 'PHYSICAL'</dd>
+<dd><code>firstName</code> - card holder first name</dd>
+<dd><code>lastName</code> - card holder last name</dd>
+<dd><code>title</code> - card holder title or null</dd>
+<dd><code>dateOfBirth</code> - card holder date of birth in ISO 8601 format, e.g '2020-08-12'</dd>
+<dd><code>mobileNumber</code> - card holder mobile number, starting with a '+', followed by the country code and then the mobile number</dd>
+<dd><code>address</code> - card holder address</dd>
+<dd><code>callback</code> - an interface to receive the result or error</dd>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../money/zumo/zumokit/Card.html" title="class in money.zumo.zumokit"><code>Card</code></a>, 
+<a href="../../../money/zumo/zumokit/CardType.html" title="class in money.zumo.zumokit"><code>CardType</code></a></dd>
+</dl>
+</li>
+</ul>
+<a name="setCardStatus-java.lang.String-java.lang.String-java.lang.String-java.lang.String-money.zumo.zumokit.SuccessCallback-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setCardStatus</h4>
+<pre>public&nbsp;void&nbsp;setCardStatus(java.lang.String&nbsp;cardId,
+                          java.lang.String&nbsp;cardStatus,
+                          java.lang.String&nbsp;pan,
+                          java.lang.String&nbsp;cvv2,
+                          <a href="../../../money/zumo/zumokit/SuccessCallback.html" title="interface in money.zumo.zumokit">SuccessCallback</a>&nbsp;callback)</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../money/zumo/zumokit/User.html#setCardStatus-java.lang.String-java.lang.String-java.lang.String-java.lang.String-money.zumo.zumokit.SuccessCallback-">User</a></code></span></div>
+<div class="block">Set card status to 'ACTIVE', 'BLOCKED' or 'CANCELLED'. 
+ - To block card, set card status to 'BLOCKED'. 
+ - To activate a physical card, set card status to 'ACTIVE' and provide PAN and CVV2 fields.
+ - To cancel a card, set card status to 'CANCELLED'.
+ - To unblock a card, set card status to 'ACTIVE.'.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../../money/zumo/zumokit/User.html#setCardStatus-java.lang.String-java.lang.String-java.lang.String-java.lang.String-money.zumo.zumokit.SuccessCallback-">setCardStatus</a></code>&nbsp;in interface&nbsp;<code><a href="../../../money/zumo/zumokit/User.html" title="interface in money.zumo.zumokit">User</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>cardId</code> - card id</dd>
+<dd><code>cardStatus</code> - new card status</dd>
+<dd><code>pan</code> - PAN when activating a physical card, null otherwise</dd>
+<dd><code>cvv2</code> - CVV2 when activating a physical card, null otherwise</dd>
+<dd><code>callback</code> - an interface to receive the result or error</dd>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../money/zumo/zumokit/CardStatus.html" title="class in money.zumo.zumokit"><code>CardStatus</code></a></dd>
+</dl>
+</li>
+</ul>
+<a name="revealCardDetails-java.lang.String-money.zumo.zumokit.CardDetailsCallback-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>revealCardDetails</h4>
+<pre>public&nbsp;void&nbsp;revealCardDetails(java.lang.String&nbsp;cardId,
+                              <a href="../../../money/zumo/zumokit/CardDetailsCallback.html" title="interface in money.zumo.zumokit">CardDetailsCallback</a>&nbsp;callback)</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../money/zumo/zumokit/User.html#revealCardDetails-java.lang.String-money.zumo.zumokit.CardDetailsCallback-">User</a></code></span></div>
+<div class="block">Reveals sensitive card details.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../../money/zumo/zumokit/User.html#revealCardDetails-java.lang.String-money.zumo.zumokit.CardDetailsCallback-">revealCardDetails</a></code>&nbsp;in interface&nbsp;<code><a href="../../../money/zumo/zumokit/User.html" title="interface in money.zumo.zumokit">User</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>cardId</code> - card id</dd>
+<dd><code>callback</code> - an interface to receive the result or error</dd>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../money/zumo/zumokit/CardDetails.html" title="class in money.zumo.zumokit"><code>CardDetails</code></a></dd>
+</dl>
+</li>
+</ul>
+<a name="revealPin-java.lang.String-money.zumo.zumokit.PinCallback-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>revealPin</h4>
+<pre>public&nbsp;void&nbsp;revealPin(java.lang.String&nbsp;cardId,
+                      <a href="../../../money/zumo/zumokit/PinCallback.html" title="interface in money.zumo.zumokit">PinCallback</a>&nbsp;callback)</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../money/zumo/zumokit/User.html#revealPin-java.lang.String-money.zumo.zumokit.PinCallback-">User</a></code></span></div>
+<div class="block">Reveal card PIN.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../../money/zumo/zumokit/User.html#revealPin-java.lang.String-money.zumo.zumokit.PinCallback-">revealPin</a></code>&nbsp;in interface&nbsp;<code><a href="../../../money/zumo/zumokit/User.html" title="interface in money.zumo.zumokit">User</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>cardId</code> - card id</dd>
+<dd><code>callback</code> - an interface to receive the result or error</dd>
+</dl>
+</li>
+</ul>
+<a name="unblockPin-java.lang.String-money.zumo.zumokit.SuccessCallback-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>unblockPin</h4>
+<pre>public&nbsp;void&nbsp;unblockPin(java.lang.String&nbsp;cardId,
+                       <a href="../../../money/zumo/zumokit/SuccessCallback.html" title="interface in money.zumo.zumokit">SuccessCallback</a>&nbsp;callback)</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../money/zumo/zumokit/User.html#unblockPin-java.lang.String-money.zumo.zumokit.SuccessCallback-">User</a></code></span></div>
+<div class="block">Unblock card PIN.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../../money/zumo/zumokit/User.html#unblockPin-java.lang.String-money.zumo.zumokit.SuccessCallback-">unblockPin</a></code>&nbsp;in interface&nbsp;<code><a href="../../../money/zumo/zumokit/User.html" title="interface in money.zumo.zumokit">User</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>cardId</code> - card id</dd>
+<dd><code>callback</code> - an interface to receive the result or error</dd>
 </dl>
 </li>
 </ul>

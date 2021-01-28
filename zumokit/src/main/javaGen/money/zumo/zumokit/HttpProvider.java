@@ -3,14 +3,13 @@
 
 package money.zumo.zumokit;
 
+import java.util.HashMap;
 import java.util.concurrent.atomic.AtomicBoolean;
 
-public interface WebSocketImpl {
-    public void send(String message);
+public interface HttpProvider {
+    public void request(String url, String method, HashMap<String, String> headers, String data, HttpCallback callback);
 
-    public void subscribe(WebSocketListener listener);
-
-    static final class CppProxy implements WebSocketImpl
+    static final class CppProxy implements HttpProvider
     {
         private final long nativeRef;
         private final AtomicBoolean destroyed = new AtomicBoolean(false);
@@ -34,19 +33,11 @@ public interface WebSocketImpl {
         }
 
         @Override
-        public void send(String message)
+        public void request(String url, String method, HashMap<String, String> headers, String data, HttpCallback callback)
         {
             assert !this.destroyed.get() : "trying to use a destroyed object";
-            native_send(this.nativeRef, message);
+            native_request(this.nativeRef, url, method, headers, data, callback);
         }
-        private native void native_send(long _nativeRef, String message);
-
-        @Override
-        public void subscribe(WebSocketListener listener)
-        {
-            assert !this.destroyed.get() : "trying to use a destroyed object";
-            native_subscribe(this.nativeRef, listener);
-        }
-        private native void native_subscribe(long _nativeRef, WebSocketListener listener);
+        private native void native_request(long _nativeRef, String url, String method, HashMap<String, String> headers, String data, HttpCallback callback);
     }
 }

@@ -17,10 +17,10 @@ import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
-public class HttpService implements HttpImpl {
+public class DefaultHttpProvider implements HttpProvider {
     private Executor mExecutor;
 
-    public HttpService() {
+    public DefaultHttpProvider() {
         BlockingQueue<Runnable> workQueue = new LinkedBlockingQueue<Runnable>();
         mExecutor = new ThreadPoolExecutor(1, 20, 60, TimeUnit.SECONDS, workQueue);
     }

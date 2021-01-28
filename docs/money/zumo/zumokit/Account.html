@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -128,7 +128,7 @@ extends java.lang.Object</pre>
 <th class="colOne" scope="col">Constructor and Description</th>
 </tr>
 <tr class="altColor">
-<td class="colOne"><code><span class="memberNameLink"><a href="../../../money/zumo/zumokit/Account.html#Account-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.math.BigDecimal-boolean-money.zumo.zumokit.AccountCryptoProperties-money.zumo.zumokit.AccountFiatProperties-">Account</a></span>(java.lang.String&nbsp;id,
+<td class="colOne"><code><span class="memberNameLink"><a href="../../../money/zumo/zumokit/Account.html#Account-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.math.BigDecimal-boolean-money.zumo.zumokit.AccountCryptoProperties-money.zumo.zumokit.AccountFiatProperties-java.util.ArrayList-">Account</a></span>(java.lang.String&nbsp;id,
        java.lang.String&nbsp;currencyType,
        java.lang.String&nbsp;currencyCode,
        java.lang.String&nbsp;network,
@@ -136,7 +136,8 @@ extends java.lang.Object</pre>
        java.math.BigDecimal&nbsp;balance,
        boolean&nbsp;hasNominatedAccount,
        <a href="../../../money/zumo/zumokit/AccountCryptoProperties.html" title="class in money.zumo.zumokit">AccountCryptoProperties</a>&nbsp;cryptoProperties,
-       <a href="../../../money/zumo/zumokit/AccountFiatProperties.html" title="class in money.zumo.zumokit">AccountFiatProperties</a>&nbsp;fiatProperties)</code>&nbsp;</td>
+       <a href="../../../money/zumo/zumokit/AccountFiatProperties.html" title="class in money.zumo.zumokit">AccountFiatProperties</a>&nbsp;fiatProperties,
+       java.util.ArrayList&lt;<a href="../../../money/zumo/zumokit/Card.html" title="class in money.zumo.zumokit">Card</a>&gt;&nbsp;cards)</code>&nbsp;</td>
 </tr>
 </table>
 </li>
@@ -164,58 +165,64 @@ extends java.lang.Object</pre>
 </td>
 </tr>
 <tr id="i2" class="altColor">
+<td class="colFirst"><code>java.util.ArrayList&lt;<a href="../../../money/zumo/zumokit/Card.html" title="class in money.zumo.zumokit">Card</a>&gt;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../money/zumo/zumokit/Account.html#getCards--">getCards</a></span>()</code>
+<div class="block">Cards associated with this account.</div>
+</td>
+</tr>
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code><a href="../../../money/zumo/zumokit/AccountCryptoProperties.html" title="class in money.zumo.zumokit">AccountCryptoProperties</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../money/zumo/zumokit/Account.html#getCryptoProperties--">getCryptoProperties</a></span>()</code>
 <div class="block">Account crypto properties if account is a crypto account, otherwise null.</div>
 </td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i4" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../money/zumo/zumokit/Account.html#getCurrencyCode--">getCurrencyCode</a></span>()</code>
 <div class="block">Account currency code.</div>
 </td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../money/zumo/zumokit/Account.html#getCurrencyType--">getCurrencyType</a></span>()</code>
 <div class="block">Account currency type.</div>
 </td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i6" class="altColor">
 <td class="colFirst"><code><a href="../../../money/zumo/zumokit/AccountFiatProperties.html" title="class in money.zumo.zumokit">AccountFiatProperties</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../money/zumo/zumokit/Account.html#getFiatProperties--">getFiatProperties</a></span>()</code>
 <div class="block">Account fiat properties if account is a fiat account, otherwise null.</div>
 </td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../money/zumo/zumokit/Account.html#getHasNominatedAccount--">getHasNominatedAccount</a></span>()</code>
 <div class="block">Account has associated nominated account.</div>
 </td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i8" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../money/zumo/zumokit/Account.html#getId--">getId</a></span>()</code>
 <div class="block">Unique account identifier.</div>
 </td>
 </tr>
-<tr id="i8" class="altColor">
+<tr id="i9" class="rowColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../money/zumo/zumokit/Account.html#getNetwork--">getNetwork</a></span>()</code>
 <div class="block">Account network type.</div>
 </td>
 </tr>
-<tr id="i9" class="rowColor">
+<tr id="i10" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../money/zumo/zumokit/Account.html#getType--">getType</a></span>()</code>
 <div class="block">Account type.</div>
 </td>
 </tr>
-<tr id="i10" class="altColor">
+<tr id="i11" class="rowColor">
 <td class="colFirst"><code>int</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../money/zumo/zumokit/Account.html#hashCode--">hashCode</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i11" class="rowColor">
+<tr id="i12" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../money/zumo/zumokit/Account.html#toString--">toString</a></span>()</code>&nbsp;</td>
 </tr>
@@ -241,7 +248,7 @@ extends java.lang.Object</pre>
 <!--   -->
 </a>
 <h3>Constructor Detail</h3>
-<a name="Account-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.math.BigDecimal-boolean-money.zumo.zumokit.AccountCryptoProperties-money.zumo.zumokit.AccountFiatProperties-">
+<a name="Account-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.math.BigDecimal-boolean-money.zumo.zumokit.AccountCryptoProperties-money.zumo.zumokit.AccountFiatProperties-java.util.ArrayList-">
 <!--   -->
 </a>
 <ul class="blockListLast">
@@ -255,7 +262,8 @@ extends java.lang.Object</pre>
                java.math.BigDecimal&nbsp;balance,
                boolean&nbsp;hasNominatedAccount,
                <a href="../../../money/zumo/zumokit/AccountCryptoProperties.html" title="class in money.zumo.zumokit">AccountCryptoProperties</a>&nbsp;cryptoProperties,
-               <a href="../../../money/zumo/zumokit/AccountFiatProperties.html" title="class in money.zumo.zumokit">AccountFiatProperties</a>&nbsp;fiatProperties)</pre>
+               <a href="../../../money/zumo/zumokit/AccountFiatProperties.html" title="class in money.zumo.zumokit">AccountFiatProperties</a>&nbsp;fiatProperties,
+               java.util.ArrayList&lt;<a href="../../../money/zumo/zumokit/Card.html" title="class in money.zumo.zumokit">Card</a>&gt;&nbsp;cards)</pre>
 </li>
 </ul>
 </li>
@@ -370,6 +378,16 @@ extends java.lang.Object</pre>
 <h4>getFiatProperties</h4>
 <pre>public&nbsp;<a href="../../../money/zumo/zumokit/AccountFiatProperties.html" title="class in money.zumo.zumokit">AccountFiatProperties</a>&nbsp;getFiatProperties()</pre>
 <div class="block">Account fiat properties if account is a fiat account, otherwise null.</div>
+</li>
+</ul>
+<a name="getCards--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getCards</h4>
+<pre>public&nbsp;java.util.ArrayList&lt;<a href="../../../money/zumo/zumokit/Card.html" title="class in money.zumo.zumokit">Card</a>&gt;&nbsp;getCards()</pre>
+<div class="block">Cards associated with this account.</div>
 </li>
 </ul>
 <a name="equals-java.lang.Object-">

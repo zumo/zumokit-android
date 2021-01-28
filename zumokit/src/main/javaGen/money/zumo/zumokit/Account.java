@@ -3,6 +3,8 @@
 
 package money.zumo.zumokit;
 
+import java.util.ArrayList;
+
 /** Record containing account details. */
 public final class Account {
 
@@ -25,6 +27,8 @@ public final class Account {
 
     /*package*/ final AccountFiatProperties mFiatProperties;
 
+    /*package*/ final ArrayList<Card> mCards;
+
     public Account(
             String id,
             String currencyType,
@@ -34,7 +38,8 @@ public final class Account {
             java.math.BigDecimal balance,
             boolean hasNominatedAccount,
             AccountCryptoProperties cryptoProperties,
-            AccountFiatProperties fiatProperties) {
+            AccountFiatProperties fiatProperties,
+            ArrayList<Card> cards) {
         this.mId = id;
         this.mCurrencyType = currencyType;
         this.mCurrencyCode = currencyCode;
@@ -44,6 +49,7 @@ public final class Account {
         this.mHasNominatedAccount = hasNominatedAccount;
         this.mCryptoProperties = cryptoProperties;
         this.mFiatProperties = fiatProperties;
+        this.mCards = cards;
     }
 
     /** Unique account identifier. */
@@ -103,6 +109,11 @@ public final class Account {
         return mFiatProperties;
     }
 
+    /** Cards associated with this account. */
+    public ArrayList<Card> getCards() {
+        return mCards;
+    }
+
     @Override
     public boolean equals(Object obj) {
         if (!(obj instanceof Account)) {
@@ -117,7 +128,8 @@ public final class Account {
                 this.mBalance.equals(other.mBalance) &&
                 this.mHasNominatedAccount == other.mHasNominatedAccount &&
                 ((this.mCryptoProperties == null && other.mCryptoProperties == null) || (this.mCryptoProperties != null && this.mCryptoProperties.equals(other.mCryptoProperties))) &&
-                ((this.mFiatProperties == null && other.mFiatProperties == null) || (this.mFiatProperties != null && this.mFiatProperties.equals(other.mFiatProperties)));
+                ((this.mFiatProperties == null && other.mFiatProperties == null) || (this.mFiatProperties != null && this.mFiatProperties.equals(other.mFiatProperties))) &&
+                this.mCards.equals(other.mCards);
     }
 
     @Override
@@ -133,6 +145,7 @@ public final class Account {
         hashCode = hashCode * 31 + (mHasNominatedAccount ? 1 : 0);
         hashCode = hashCode * 31 + (mCryptoProperties == null ? 0 : mCryptoProperties.hashCode());
         hashCode = hashCode * 31 + (mFiatProperties == null ? 0 : mFiatProperties.hashCode());
+        hashCode = hashCode * 31 + mCards.hashCode();
         return hashCode;
     }
 
@@ -148,6 +161,7 @@ public final class Account {
                 "," + "mHasNominatedAccount=" + mHasNominatedAccount +
                 "," + "mCryptoProperties=" + mCryptoProperties +
                 "," + "mFiatProperties=" + mFiatProperties +
+                "," + "mCards=" + mCards +
         "}";
     }
 
