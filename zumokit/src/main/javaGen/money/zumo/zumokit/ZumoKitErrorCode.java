@@ -170,6 +170,9 @@ public final class ZumoKitErrorCode {
     /** Transaction amount is too small to send after the fee has been deducted. */
     public static final String SEND_MAX_INSUFFICIENT_FUNDS_FOR_TRANSACTION = "send_max_insufficient_funds_for_transaction";
 
+    /** Exchange amount is insufficient to make a minimum exchange. */
+    public static final String SEND_MAX_INSUFFICIENT_FUNDS_FOR_EXCHANGE = "send_max_insufficient_funds_for_exchange";
+
     /** Something went wrong signing transaction. */
     public static final String SIGNING_ERROR = "signing_error";
 
