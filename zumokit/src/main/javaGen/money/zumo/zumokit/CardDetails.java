@@ -11,15 +11,11 @@ public final class CardDetails {
 
     /*package*/ final String mCvv2;
 
-    /*package*/ final String mExpiry;
-
     public CardDetails(
             String pan,
-            String cvv2,
-            String expiry) {
+            String cvv2) {
         this.mPan = pan;
         this.mCvv2 = cvv2;
-        this.mExpiry = expiry;
     }
 
     /** Card PAN, e.g 4564 6545 7997 5454. */
@@ -32,11 +28,6 @@ public final class CardDetails {
         return mCvv2;
     }
 
-    /** Card year and month of expiry, e.g. 2024-08. */
-    public String getExpiry() {
-        return mExpiry;
-    }
-
     @Override
     public boolean equals(Object obj) {
         if (!(obj instanceof CardDetails)) {
@@ -44,8 +35,7 @@ public final class CardDetails {
         }
         CardDetails other = (CardDetails) obj;
         return this.mPan.equals(other.mPan) &&
-                this.mCvv2.equals(other.mCvv2) &&
-                this.mExpiry.equals(other.mExpiry);
+                this.mCvv2.equals(other.mCvv2);
     }
 
     @Override
@@ -54,7 +44,6 @@ public final class CardDetails {
         int hashCode = 17;
         hashCode = hashCode * 31 + mPan.hashCode();
         hashCode = hashCode * 31 + mCvv2.hashCode();
-        hashCode = hashCode * 31 + mExpiry.hashCode();
         return hashCode;
     }
 
@@ -63,7 +52,6 @@ public final class CardDetails {
         return "CardDetails{" +
                 "mPan=" + mPan +
                 "," + "mCvv2=" + mCvv2 +
-                "," + "mExpiry=" + mExpiry +
         "}";
     }
 

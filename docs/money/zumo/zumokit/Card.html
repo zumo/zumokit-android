@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -128,12 +128,13 @@ extends java.lang.Object</pre>
 <th class="colOne" scope="col">Constructor and Description</th>
 </tr>
 <tr class="altColor">
-<td class="colOne"><code><span class="memberNameLink"><a href="../../../money/zumo/zumokit/Card.html#Card-java.lang.String-java.lang.String-java.lang.String-java.lang.String-int-java.lang.String-">Card</a></span>(java.lang.String&nbsp;id,
+<td class="colOne"><code><span class="memberNameLink"><a href="../../../money/zumo/zumokit/Card.html#Card-java.lang.String-java.lang.String-java.lang.String-java.lang.String-int-java.lang.String-java.lang.String-">Card</a></span>(java.lang.String&nbsp;id,
     java.lang.String&nbsp;accountId,
     java.lang.String&nbsp;cardType,
     java.lang.String&nbsp;cardStatus,
     int&nbsp;limit,
-    java.lang.String&nbsp;maskedPan)</code>&nbsp;</td>
+    java.lang.String&nbsp;maskedPan,
+    java.lang.String&nbsp;expiry)</code>&nbsp;</td>
 </tr>
 </table>
 </li>
@@ -174,27 +175,33 @@ extends java.lang.Object</pre>
 </tr>
 <tr id="i4" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../money/zumo/zumokit/Card.html#getExpiry--">getExpiry</a></span>()</code>
+<div class="block">Card year and month of expiry, e.g.</div>
+</td>
+</tr>
+<tr id="i5" class="rowColor">
+<td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../money/zumo/zumokit/Card.html#getId--">getId</a></span>()</code>
 <div class="block">Unique card identifier.</div>
 </td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i6" class="altColor">
 <td class="colFirst"><code>int</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../money/zumo/zumokit/Card.html#getLimit--">getLimit</a></span>()</code>
 <div class="block">Current card limit.</div>
 </td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../money/zumo/zumokit/Card.html#getMaskedPan--">getMaskedPan</a></span>()</code>
 <div class="block">Card masked pan, e.g **** **** **** 5454.</div>
 </td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i8" class="altColor">
 <td class="colFirst"><code>int</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../money/zumo/zumokit/Card.html#hashCode--">hashCode</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i8" class="altColor">
+<tr id="i9" class="rowColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../money/zumo/zumokit/Card.html#toString--">toString</a></span>()</code>&nbsp;</td>
 </tr>
@@ -220,7 +227,7 @@ extends java.lang.Object</pre>
 <!--   -->
 </a>
 <h3>Constructor Detail</h3>
-<a name="Card-java.lang.String-java.lang.String-java.lang.String-java.lang.String-int-java.lang.String-">
+<a name="Card-java.lang.String-java.lang.String-java.lang.String-java.lang.String-int-java.lang.String-java.lang.String-">
 <!--   -->
 </a>
 <ul class="blockListLast">
@@ -231,7 +238,8 @@ extends java.lang.Object</pre>
             java.lang.String&nbsp;cardType,
             java.lang.String&nbsp;cardStatus,
             int&nbsp;limit,
-            java.lang.String&nbsp;maskedPan)</pre>
+            java.lang.String&nbsp;maskedPan,
+            java.lang.String&nbsp;expiry)</pre>
 </li>
 </ul>
 </li>
@@ -308,6 +316,16 @@ extends java.lang.Object</pre>
 <h4>getMaskedPan</h4>
 <pre>public&nbsp;java.lang.String&nbsp;getMaskedPan()</pre>
 <div class="block">Card masked pan, e.g **** **** **** 5454.</div>
+</li>
+</ul>
+<a name="getExpiry--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getExpiry</h4>
+<pre>public&nbsp;java.lang.String&nbsp;getExpiry()</pre>
+<div class="block">Card year and month of expiry, e.g. 2024-08.</div>
 </li>
 </ul>
 <a name="equals-java.lang.Object-">

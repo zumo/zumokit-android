@@ -19,19 +19,23 @@ public final class Card {
 
     /*package*/ final String mMaskedPan;
 
+    /*package*/ final String mExpiry;
+
     public Card(
             String id,
             String accountId,
             String cardType,
             String cardStatus,
             int limit,
-            String maskedPan) {
+            String maskedPan,
+            String expiry) {
         this.mId = id;
         this.mAccountId = accountId;
         this.mCardType = cardType;
         this.mCardStatus = cardStatus;
         this.mLimit = limit;
         this.mMaskedPan = maskedPan;
+        this.mExpiry = expiry;
     }
 
     /** Unique card identifier. */
@@ -70,6 +74,11 @@ public final class Card {
         return mMaskedPan;
     }
 
+    /** Card year and month of expiry, e.g. 2024-08. */
+    public String getExpiry() {
+        return mExpiry;
+    }
+
     @Override
     public boolean equals(Object obj) {
         if (!(obj instanceof Card)) {
@@ -81,7 +90,8 @@ public final class Card {
                 this.mCardType.equals(other.mCardType) &&
                 this.mCardStatus.equals(other.mCardStatus) &&
                 this.mLimit == other.mLimit &&
-                this.mMaskedPan.equals(other.mMaskedPan);
+                this.mMaskedPan.equals(other.mMaskedPan) &&
+                this.mExpiry.equals(other.mExpiry);
     }
 
     @Override
@@ -94,6 +104,7 @@ public final class Card {
         hashCode = hashCode * 31 + mCardStatus.hashCode();
         hashCode = hashCode * 31 + mLimit;
         hashCode = hashCode * 31 + mMaskedPan.hashCode();
+        hashCode = hashCode * 31 + mExpiry.hashCode();
         return hashCode;
     }
 
@@ -106,6 +117,7 @@ public final class Card {
                 "," + "mCardStatus=" + mCardStatus +
                 "," + "mLimit=" + mLimit +
                 "," + "mMaskedPan=" + mMaskedPan +
+                "," + "mExpiry=" + mExpiry +
         "}";
     }
 

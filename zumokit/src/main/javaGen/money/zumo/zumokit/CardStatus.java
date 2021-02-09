@@ -14,6 +14,8 @@ public final class CardStatus {
 
     public static final String SUSPENDED = "SUSPENDED";
 
+    public static final String FROZEN = "FROZEN";
+
     public static final String EXPIRED = "EXPIRED";
 
     public static final String CANCELLED = "CANCELLED";
