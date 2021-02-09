@@ -88,17 +88,17 @@ public final class TransactionCardProperties {
         return mExchangeRateValue;
     }
 
-    /** The Merchant Category Code (MCC) for the card activity in ISO-18245 format. */
+    /** The Merchant Category Code (MCC) for the card activity in ISO-18245 format if available. */
     public String getMcc() {
         return mMcc;
     }
 
-    /** The merchant name. */
+    /** The merchant name if available. */
     public String getMerchantName() {
         return mMerchantName;
     }
 
-    /** The 3 letter ISO 3166 merchant country code. */
+    /** The 3 letter ISO 3166 merchant country code if available. */
     public String getMerchantCountry() {
         return mMerchantCountry;
     }
@@ -115,9 +115,9 @@ public final class TransactionCardProperties {
                 this.mBillingAmount.equals(other.mBillingAmount) &&
                 this.mBillingCurrency.equals(other.mBillingCurrency) &&
                 this.mExchangeRateValue.equals(other.mExchangeRateValue) &&
-                this.mMcc.equals(other.mMcc) &&
-                this.mMerchantName.equals(other.mMerchantName) &&
-                this.mMerchantCountry.equals(other.mMerchantCountry);
+                ((this.mMcc == null && other.mMcc == null) || (this.mMcc != null && this.mMcc.equals(other.mMcc))) &&
+                ((this.mMerchantName == null && other.mMerchantName == null) || (this.mMerchantName != null && this.mMerchantName.equals(other.mMerchantName))) &&
+                ((this.mMerchantCountry == null && other.mMerchantCountry == null) || (this.mMerchantCountry != null && this.mMerchantCountry.equals(other.mMerchantCountry)));
     }
 
     @Override
@@ -130,9 +130,9 @@ public final class TransactionCardProperties {
         hashCode = hashCode * 31 + (mBillingAmount.hashCode());
         hashCode = hashCode * 31 + mBillingCurrency.hashCode();
         hashCode = hashCode * 31 + (mExchangeRateValue.hashCode());
-        hashCode = hashCode * 31 + mMcc.hashCode();
-        hashCode = hashCode * 31 + mMerchantName.hashCode();
-        hashCode = hashCode * 31 + mMerchantCountry.hashCode();
+        hashCode = hashCode * 31 + (mMcc == null ? 0 : mMcc.hashCode());
+        hashCode = hashCode * 31 + (mMerchantName == null ? 0 : mMerchantName.hashCode());
+        hashCode = hashCode * 31 + (mMerchantCountry == null ? 0 : mMerchantCountry.hashCode());
         return hashCode;
     }
 

@@ -223,7 +223,7 @@
 <dd>
 <div class="block">Record containing basic card details.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="money/zumo/zumokit/Card.html#Card-java.lang.String-java.lang.String-java.lang.String-java.lang.String-int-java.lang.String-">Card(String, String, String, String, int, String)</a></span> - Constructor for class money.zumo.zumokit.<a href="money/zumo/zumokit/Card.html" title="class in money.zumo.zumokit">Card</a></dt>
+<dt><span class="memberNameLink"><a href="money/zumo/zumokit/Card.html#Card-java.lang.String-java.lang.String-java.lang.String-java.lang.String-int-java.lang.String-java.lang.String-">Card(String, String, String, String, int, String, String)</a></span> - Constructor for class money.zumo.zumokit.<a href="money/zumo/zumokit/Card.html" title="class in money.zumo.zumokit">Card</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/TransactionType.html#CARD">CARD</a></span> - Static variable in class money.zumo.zumokit.<a href="money/zumo/zumokit/TransactionType.html" title="class in money.zumo.zumokit">TransactionType</a></dt>
 <dd>&nbsp;</dd>
@@ -243,7 +243,7 @@
 <dd>
 <div class="block">Record containing sensitive card details.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="money/zumo/zumokit/CardDetails.html#CardDetails-java.lang.String-java.lang.String-java.lang.String-">CardDetails(String, String, String)</a></span> - Constructor for class money.zumo.zumokit.<a href="money/zumo/zumokit/CardDetails.html" title="class in money.zumo.zumokit">CardDetails</a></dt>
+<dt><span class="memberNameLink"><a href="money/zumo/zumokit/CardDetails.html#CardDetails-java.lang.String-java.lang.String-">CardDetails(String, String)</a></span> - Constructor for class money.zumo.zumokit.<a href="money/zumo/zumokit/CardDetails.html" title="class in money.zumo.zumokit">CardDetails</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="money/zumo/zumokit/CardDetailsCallback.html" title="interface in money.zumo.zumokit"><span class="typeNameLink">CardDetailsCallback</span></a> - Interface in <a href="money/zumo/zumokit/package-summary.html">money.zumo.zumokit</a></dt>
 <dd>
@@ -519,6 +519,8 @@
 <dd>
 <div class="block">Invalid account provided.</div>
 </dd>
+<dt><span class="memberNameLink"><a href="money/zumo/zumokit/CardStatus.html#FROZEN">FROZEN</a></span> - Static variable in class money.zumo.zumokit.<a href="money/zumo/zumokit/CardStatus.html" title="class in money.zumo.zumokit">CardStatus</a></dt>
+<dd>&nbsp;</dd>
 </dl>
 <a name="I:G">
 <!--   -->
@@ -775,7 +777,7 @@
 <dd>
 <div class="block">Get all available exchange settings.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="money/zumo/zumokit/CardDetails.html#getExpiry--">getExpiry()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/CardDetails.html" title="class in money.zumo.zumokit">CardDetails</a></dt>
+<dt><span class="memberNameLink"><a href="money/zumo/zumokit/Card.html#getExpiry--">getExpiry()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/Card.html" title="class in money.zumo.zumokit">Card</a></dt>
 <dd>
 <div class="block">Card year and month of expiry, e.g.</div>
 </dd>
@@ -903,15 +905,15 @@
 </dd>
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/TransactionCardProperties.html#getMcc--">getMcc()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/TransactionCardProperties.html" title="class in money.zumo.zumokit">TransactionCardProperties</a></dt>
 <dd>
-<div class="block">The Merchant Category Code (MCC) for the card activity in ISO-18245 format.</div>
+<div class="block">The Merchant Category Code (MCC) for the card activity in ISO-18245 format if available.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/TransactionCardProperties.html#getMerchantCountry--">getMerchantCountry()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/TransactionCardProperties.html" title="class in money.zumo.zumokit">TransactionCardProperties</a></dt>
 <dd>
-<div class="block">The 3 letter ISO 3166 merchant country code.</div>
+<div class="block">The 3 letter ISO 3166 merchant country code if available.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/TransactionCardProperties.html#getMerchantName--">getMerchantName()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/TransactionCardProperties.html" title="class in money.zumo.zumokit">TransactionCardProperties</a></dt>
 <dd>
-<div class="block">The merchant name.</div>
+<div class="block">The merchant name if available.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/ExchangeSetting.html#getMinExchangeAmount--">getMinExchangeAmount()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/ExchangeSetting.html" title="class in money.zumo.zumokit">ExchangeSetting</a></dt>
 <dd>
