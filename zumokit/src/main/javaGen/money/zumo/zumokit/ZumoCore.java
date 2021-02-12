@@ -121,9 +121,9 @@ public interface ZumoCore {
     /**
      * Sets log level for current logger.
      *
-     * @param logLevel log level, e.g. debug or info
+     * @param logLevel log level, 'trace', 'debug', 'info', 'warning', 'error', 'critical' or 'off'
      */
-    public static void setLogLevel(LogLevel logLevel)
+    public static void setLogLevel(String logLevel)
     {
         CppProxy.setLogLevel(logLevel);
     }
@@ -132,9 +132,9 @@ public interface ZumoCore {
      * Sets log handler for all ZumoKit related logs.
      *
      * @param logListener interface to listen to changes
-     * @param logLevel log level, e.g. debug or info
+     * @param logLevel log level, 'trace', 'debug', 'info', 'warning', 'error', 'critical' or 'off'
      */
-    public static void onLog(LogListener logListener, LogLevel logLevel)
+    public static void onLog(LogListener logListener, String logLevel)
     {
         CppProxy.onLog(logListener,
                        logLevel);
@@ -291,9 +291,9 @@ public interface ZumoCore {
 
         public static native String getVersion();
 
-        public static native void setLogLevel(LogLevel logLevel);
+        public static native void setLogLevel(String logLevel);
 
-        public static native void onLog(LogListener logListener, LogLevel logLevel);
+        public static native void onLog(LogListener logListener, String logLevel);
 
         public static native ZumoCore init(HttpProvider httpProvider, WebSocketFactory webSocketFactory, String apiKey, String apiUrl, String transactionServiceUrl, String cardServiceUrl);
     }
