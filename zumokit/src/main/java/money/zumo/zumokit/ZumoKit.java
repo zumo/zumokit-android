@@ -8,6 +8,10 @@ import java.util.HashMap;
  * See <a href="https://developers.zumo.money/docs/guides/getting-started">Getting Started</a> guide for usage details.
  * */
 public class ZumoKit {
+    static {
+        System.loadLibrary("zumocore");
+    }
+
     private ZumoCore zumoCore;
 
     /**
@@ -19,8 +23,29 @@ public class ZumoKit {
         return ZumoCore.getVersion();
     }
 
-    static {
-        System.loadLibrary("zumocore");
+    /**
+     * Sets log level for current logger.
+     *
+     * @param logLevel log level, e.g. 'debug' or 'info'
+     *
+     * @see LogLevel
+     */
+    public static void setLogLevel(String logLevel)
+    {
+        ZumoCore.setLogLevel(logLevel);
+    }
+
+    /**
+     * Sets log handler for all ZumoKit related logs.
+     *
+     * @param logListener interface to listen to changes
+     * @param logLevel log level, e.g. 'debug' or 'info'
+     *
+     * @see LogLevel
+     */
+    public static void onLog(LogListener logListener, String logLevel)
+    {
+        ZumoCore.onLog(logListener, logLevel);
     }
 
     /**

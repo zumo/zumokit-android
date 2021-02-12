@@ -11,6 +11,7 @@
     bitcoin_core/0.20.1
     boost_headers/1.Y.Z
     nlohmann_json/3.Y.Z
+    spdlog/1.Y.Z
     trezor_crypto/1.Y.Z
 
 [options]
@@ -31,8 +32,10 @@
 [full_requires]
     bitcoin_core/0.20.1@zumo/stable:9b28cc67a06814b7cdebbb60753d8be54b0b38f2
     boost_headers/1.72.0@zumo/stable:5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9
+    fmt/7.1.2:fbdbc80baadbc305bd066fa2b29c91dbae908f4b
     nlohmann_json/3.8.0:5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9
     secp256k1/1.1@zumo/stable:e7d70165f6d6fd06f7f9906456f47cd5dbb4b2c4
+    spdlog/1.8.2:e596b5652be7f9e17e369dc12d17ad65f3c3ea5d
     trezor_crypto/1.0@zumo/stable:e7d70165f6d6fd06f7f9906456f47cd5dbb4b2c4
 
 [full_options]
@@ -41,8 +44,18 @@
     enable_tests=False
     env=None
     bitcoin_core:shared=True
+    fmt:fPIC=True
+    fmt:header_only=False
+    fmt:shared=False
+    fmt:with_fmt_alias=False
     nlohmann_json:multiple_headers=False
     secp256k1:shared=True
+    spdlog:fPIC=True
+    spdlog:header_only=False
+    spdlog:no_exceptions=False
+    spdlog:shared=False
+    spdlog:wchar_filenames=False
+    spdlog:wchar_support=False
     trezor_crypto:shared=True
 
 [recipe_hash]
