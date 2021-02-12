@@ -26,9 +26,9 @@ public class ZumoKit {
     /**
      * Sets log level for current logger.
      *
-     * @param logLevel log level, e.g. debug or info
+     * @param logLevel log level, 'trace', 'debug', 'info', 'warning', 'error', 'critical' or 'off'
      */
-    public static void setLogLevel(LogLevel logLevel)
+    public static void setLogLevel(String logLevel)
     {
         ZumoCore.setLogLevel(logLevel);
     }
@@ -37,9 +37,9 @@ public class ZumoKit {
      * Sets log handler for all ZumoKit related logs.
      *
      * @param logListener interface to listen to changes
-     * @param logLevel log level, e.g. debug or info
+     * @param logLevel log level, 'trace', 'debug', 'info', 'warning', 'error', 'critical' or 'off'
      */
-    public static void onLog(LogListener logListener, LogLevel logLevel)
+    public static void onLog(LogListener logListener, String logLevel)
     {
         ZumoCore.onLog(logListener, logLevel);
     }
