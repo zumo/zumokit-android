@@ -4,31 +4,13 @@
 package money.zumo.zumokit;
 
 /** Log level, e.g. 'debug' or 'error', */
-public final class LogLevel {
-
-    public static final String TRACE = "trace";
-
-    public static final String DEBUG = "debug";
-
-    public static final String INFO = "info";
-
-    public static final String WARN = "warning";
-
-    public static final String ERROR = "error";
-
-    public static final String CRITICAL = "critical";
-
-    public static final String OFF = "off";
-
-
-    public LogLevel(
-            ) {
-    }
-
-    @Override
-    public String toString() {
-        return "LogLevel{" +
-        "}";
-    }
-
+public enum LogLevel {
+    TRACE,
+    DEBUG,
+    INFO,
+    WARNING,
+    ERROR,
+    CRITICAL,
+    OFF,
+    ;
 }

@@ -223,8 +223,8 @@ extends java.lang.Object</pre>
 </tr>
 <tr id="i11" class="rowColor">
 <td class="colFirst"><code>static void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../money/zumo/zumokit/ZumoKit.html#onLog-money.zumo.zumokit.LogListener-java.lang.String-">onLog</a></span>(<a href="../../../money/zumo/zumokit/LogListener.html" title="interface in money.zumo.zumokit">LogListener</a>&nbsp;logListener,
-     java.lang.String&nbsp;logLevel)</code>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../money/zumo/zumokit/ZumoKit.html#onLog-money.zumo.zumokit.LogListener-money.zumo.zumokit.LogLevel-">onLog</a></span>(<a href="../../../money/zumo/zumokit/LogListener.html" title="interface in money.zumo.zumokit">LogListener</a>&nbsp;logListener,
+     <a href="../../../money/zumo/zumokit/LogLevel.html" title="enum in money.zumo.zumokit">LogLevel</a>&nbsp;logLevel)</code>
 <div class="block">Sets log handler for all ZumoKit related logs.</div>
 </td>
 </tr>
@@ -236,7 +236,7 @@ extends java.lang.Object</pre>
 </tr>
 <tr id="i13" class="rowColor">
 <td class="colFirst"><code>static void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../money/zumo/zumokit/ZumoKit.html#setLogLevel-java.lang.String-">setLogLevel</a></span>(java.lang.String&nbsp;logLevel)</code>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../money/zumo/zumokit/ZumoKit.html#setLogLevel-money.zumo.zumokit.LogLevel-">setLogLevel</a></span>(<a href="../../../money/zumo/zumokit/LogLevel.html" title="enum in money.zumo.zumokit">LogLevel</a>&nbsp;logLevel)</code>
 <div class="block">Sets log level for current logger.</div>
 </td>
 </tr>
@@ -317,37 +317,33 @@ extends java.lang.Object</pre>
 </dl>
 </li>
 </ul>
-<a name="setLogLevel-java.lang.String-">
+<a name="setLogLevel-money.zumo.zumokit.LogLevel-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>setLogLevel</h4>
-<pre>public static&nbsp;void&nbsp;setLogLevel(java.lang.String&nbsp;logLevel)</pre>
+<pre>public static&nbsp;void&nbsp;setLogLevel(<a href="../../../money/zumo/zumokit/LogLevel.html" title="enum in money.zumo.zumokit">LogLevel</a>&nbsp;logLevel)</pre>
 <div class="block">Sets log level for current logger.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>logLevel</code> - log level, e.g. 'debug' or 'info'</dd>
-<dt><span class="seeLabel">See Also:</span></dt>
-<dd><a href="../../../money/zumo/zumokit/LogLevel.html" title="class in money.zumo.zumokit"><code>LogLevel</code></a></dd>
+<dd><code>logLevel</code> - log level, e.g. debug or info</dd>
 </dl>
 </li>
 </ul>
-<a name="onLog-money.zumo.zumokit.LogListener-java.lang.String-">
+<a name="onLog-money.zumo.zumokit.LogListener-money.zumo.zumokit.LogLevel-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>onLog</h4>
 <pre>public static&nbsp;void&nbsp;onLog(<a href="../../../money/zumo/zumokit/LogListener.html" title="interface in money.zumo.zumokit">LogListener</a>&nbsp;logListener,
-                         java.lang.String&nbsp;logLevel)</pre>
+                         <a href="../../../money/zumo/zumokit/LogLevel.html" title="enum in money.zumo.zumokit">LogLevel</a>&nbsp;logLevel)</pre>
 <div class="block">Sets log handler for all ZumoKit related logs.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>logListener</code> - interface to listen to changes</dd>
-<dd><code>logLevel</code> - log level, e.g. 'debug' or 'info'</dd>
-<dt><span class="seeLabel">See Also:</span></dt>
-<dd><a href="../../../money/zumo/zumokit/LogLevel.html" title="class in money.zumo.zumokit"><code>LogLevel</code></a></dd>
+<dd><code>logLevel</code> - log level, e.g. debug or info</dd>
 </dl>
 </li>
 </ul>
