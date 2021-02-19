@@ -71,10 +71,10 @@ public class DefaultHttpProvider implements HttpProvider {
 
                     try {
                         InputStream inputStream;
-                        if (httpCode != HttpURLConnection.HTTP_OK)
-                            inputStream = urlConnection.getErrorStream();
-                        else
+                        if (urlConnection.getErrorStream() == null)
                             inputStream = urlConnection.getInputStream();
+                        else
+                            inputStream = urlConnection.getErrorStream();
 
                         BufferedInputStream iStream = new BufferedInputStream(inputStream);
                         response = getString(iStream, "UTF-8");
