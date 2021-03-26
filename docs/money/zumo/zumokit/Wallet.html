@@ -213,7 +213,8 @@ var activeTableTab = "activeTableTab";
 </tr>
 <tr id="i6" class="altColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../money/zumo/zumokit/Wallet.html#submitTransaction-money.zumo.zumokit.ComposedTransaction-money.zumo.zumokit.SubmitTransactionCallback-">submitTransaction</a></span>(<a href="../../../money/zumo/zumokit/ComposedTransaction.html" title="class in money.zumo.zumokit">ComposedTransaction</a>&nbsp;composedTransaction,
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../money/zumo/zumokit/Wallet.html#submitTransaction-money.zumo.zumokit.ComposedTransaction-java.lang.String-money.zumo.zumokit.SubmitTransactionCallback-">submitTransaction</a></span>(<a href="../../../money/zumo/zumokit/ComposedTransaction.html" title="class in money.zumo.zumokit">ComposedTransaction</a>&nbsp;composedTransaction,
+                 java.lang.String&nbsp;metadata,
                  <a href="../../../money/zumo/zumokit/SubmitTransactionCallback.html" title="interface in money.zumo.zumokit">SubmitTransactionCallback</a>&nbsp;callback)</code>
 <div class="block">Submit a transaction asynchronously.</div>
 </td>
@@ -339,13 +340,14 @@ var activeTableTab = "activeTableTab";
 </dl>
 </li>
 </ul>
-<a name="submitTransaction-money.zumo.zumokit.ComposedTransaction-money.zumo.zumokit.SubmitTransactionCallback-">
+<a name="submitTransaction-money.zumo.zumokit.ComposedTransaction-java.lang.String-money.zumo.zumokit.SubmitTransactionCallback-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>submitTransaction</h4>
 <pre>void&nbsp;submitTransaction(<a href="../../../money/zumo/zumokit/ComposedTransaction.html" title="class in money.zumo.zumokit">ComposedTransaction</a>&nbsp;composedTransaction,
+                       java.lang.String&nbsp;metadata,
                        <a href="../../../money/zumo/zumokit/SubmitTransactionCallback.html" title="interface in money.zumo.zumokit">SubmitTransactionCallback</a>&nbsp;callback)</pre>
 <div class="block">Submit a transaction asynchronously. Refer to <a target="_top" href="https://developers.zumo.money/docs/guides/send-transactions#submit-transaction">Send Transactions</a> guide for usage details.
  <p>
@@ -354,6 +356,7 @@ var activeTableTab = "activeTableTab";
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>composedTransaction</code> - Composed transaction retrieved as a result
                              of one of the compose transaction methods</dd>
+<dd><code>metadata</code> - Optional metadata (stringified JSON) that will be attached to transaction</dd>
 <dd><code>callback</code> - An interface to receive the result or error</dd>
 </dl>
 </li>

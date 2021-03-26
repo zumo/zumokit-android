@@ -55,8 +55,8 @@ public final class ZumoKitErrorCode {
     /** Exchange amount too low. */
     public static final String EXCHANGE_AMOUNT_TOO_LOW = "exchange_amount_too_low";
 
-    /** Exchange currencies must be different. */
-    public static final String EXCHANGE_CURRENCIES_MUST_BE_DIFFERENT = "exchange_currencies_must_be_different";
+    /** Ethereum transaction data is not supported yet. */
+    public static final String ETHEREUM_TRANSACTION_DATA_NOT_SUPPORTED = "ethereum_transaction_data_not_supported";
 
     /** Exchange amount too low. Fees exceed return value. */
     public static final String EXCHANGE_RETURN_VALUE_NEGATIVE = "exchange_return_value_negative";
@@ -113,11 +113,11 @@ public final class ZumoKitErrorCode {
     /** Mismatch between exchange setting and selected accounts. */
     public static final String INVALID_EXCHANGE_SETTING = "invalid_exchange_setting";
 
-    /** Invalid fee rate. Fee rate should be an integer value. */
-    public static final String INVALID_FEE_RATE = "invalid_fee_rate";
-
     /** Requested private key derivation path is invalid. */
     public static final String INVALID_HD_WALLET_PATH = "invalid_hd_wallet_path";
+
+    /** Invalid metadata. Metadata must be a valid JSON. */
+    public static final String INVALID_METADATA = "invalid_metadata";
 
     /**
      * Invalid length of mnemonic phrase.
@@ -145,6 +145,9 @@ public final class ZumoKitErrorCode {
 
     /** Invalid response received from WebSocket. */
     public static final String INVALID_WEBSOCKET_RESPONSE = "invalid_websocket_response";
+
+    /** Exchange already submitted. */
+    public static final String KNOWN_EXCHANGE = "known_exchange";
 
     /** Transaction already submitted. */
     public static final String KNOWN_TRANSACTION = "known_transaction";

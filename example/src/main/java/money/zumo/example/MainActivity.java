@@ -199,7 +199,7 @@ public class MainActivity extends AppCompatActivity {
                         if (!submit)
                             return;
 
-                        mWallet.submitTransaction(ctx, new SubmitTransactionCallback() {
+                        mWallet.submitTransaction(ctx, null, new SubmitTransactionCallback() {
                             @Override
                             public void onError(Exception e) {
                                 Log.e("zumokit", e.toString());
@@ -233,7 +233,7 @@ public class MainActivity extends AppCompatActivity {
                         if (!submit)
                             return;
 
-                        mWallet.submitTransaction(ctx, new SubmitTransactionCallback() {
+                        mWallet.submitTransaction(ctx, null, new SubmitTransactionCallback() {
                             @Override
                             public void onError(Exception e) {
                                 Log.e("zumokit", e.toString());
@@ -267,7 +267,7 @@ public class MainActivity extends AppCompatActivity {
                     if (!submit)
                         return;
 
-                    mWallet.submitTransaction(composedTransaction, new SubmitTransactionCallback() {
+                    mWallet.submitTransaction(composedTransaction, null, new SubmitTransactionCallback() {
                         @Override
                         public void onError(Exception e) {
                             Log.e("zumokit", e.toString());
@@ -294,7 +294,7 @@ public class MainActivity extends AppCompatActivity {
                     if (!submit)
                         return;
 
-                    mWallet.submitTransaction(composedTransaction, new SubmitTransactionCallback() {
+                    mWallet.submitTransaction(composedTransaction, null, new SubmitTransactionCallback() {
                         @Override
                         public void onError(Exception e) {
                             Log.e("zumokit", e.toString());

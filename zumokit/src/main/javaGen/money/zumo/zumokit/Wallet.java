@@ -78,9 +78,10 @@ public interface Wallet {
      *
      * @param composedTransaction Composed transaction retrieved as a result
      *                             of one of the compose transaction methods
+     * @param metadata             Optional metadata (stringified JSON) that will be attached to transaction
      * @param callback An interface to receive the result or error
      */
-    public void submitTransaction(ComposedTransaction composedTransaction, SubmitTransactionCallback callback);
+    public void submitTransaction(ComposedTransaction composedTransaction, String metadata, SubmitTransactionCallback callback);
 
     /**
      * Compose Bitcoin transaction asynchronously. Refer to <a target="_top" href="https://developers.zumo.money/docs/guides/make-exchanges#compose-exchange">Make Exchanges</a> guide for usage details.
@@ -164,12 +165,12 @@ public interface Wallet {
         private native void native_composeTransactionToNominatedAccount(long _nativeRef, String fromAccountId, java.math.BigDecimal amount, boolean sendMax, ComposeTransactionCallback callback);
 
         @Override
-        public void submitTransaction(ComposedTransaction composedTransaction, SubmitTransactionCallback callback)
+        public void submitTransaction(ComposedTransaction composedTransaction, String metadata, SubmitTransactionCallback callback)
         {
             assert !this.destroyed.get() : "trying to use a destroyed object";
-            native_submitTransaction(this.nativeRef, composedTransaction, callback);
+            native_submitTransaction(this.nativeRef, composedTransaction, metadata, callback);
         }
-        private native void native_submitTransaction(long _nativeRef, ComposedTransaction composedTransaction, SubmitTransactionCallback callback);
+        private native void native_submitTransaction(long _nativeRef, ComposedTransaction composedTransaction, String metadata, SubmitTransactionCallback callback);
 
         @Override
         public void composeExchange(String fromAccountId, String toAccountId, ExchangeRate exchangeRate, ExchangeSetting exchangeSetting, java.math.BigDecimal amount, boolean sendMax, ComposeExchangeCallback callback)

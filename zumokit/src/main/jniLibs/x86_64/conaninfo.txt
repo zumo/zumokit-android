@@ -10,9 +10,11 @@
 [requires]
     bitcoin_core/0.20.1
     boost_headers/1.Y.Z
+    http_status_codes/1.Y.Z
     nlohmann_json/3.Y.Z
     spdlog/1.Y.Z
     trezor_crypto/1.Y.Z
+    utf8proc/2.Y.Z
 
 [options]
     coverage=False
@@ -33,10 +35,12 @@
     bitcoin_core/0.20.1@zumo/stable:68297b6438403460573c4fe9cbd801fef817b13c
     boost_headers/1.72.0@zumo/stable:5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9
     fmt/7.1.2:31903b5f824f28f6971368fd9f0cb42767d8c58c
+    http_status_codes/1.0@zumo/stable:5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9
     nlohmann_json/3.8.0:5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9
     secp256k1/1.1@zumo/stable:3a04666eaee1332ac3d60d462338fee6d2016854
     spdlog/1.8.2:18844ee463b38cba72e072ebed4735e194a31e3a
     trezor_crypto/1.0@zumo/stable:3a04666eaee1332ac3d60d462338fee6d2016854
+    utf8proc/2.6.0:3a891f9314bf3d09dca01a00a86e1fffd99aa8f1
 
 [full_options]
     coverage=False
@@ -57,6 +61,8 @@
     spdlog:wchar_filenames=False
     spdlog:wchar_support=False
     trezor_crypto:shared=True
+    utf8proc:fPIC=True
+    utf8proc:shared=False
 
 [recipe_hash]
 

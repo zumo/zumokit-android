@@ -77,17 +77,12 @@ public interface User {
      * Create card for a fiat account.
      * @param  fiatAccountId fiat account id
      * @param  cardType       'VIRTUAL' or 'PHYSICAL'
-     * @param  firstName      card holder first name
-     * @param  lastName       card holder last name
-     * @param  title           card holder title or null
-     * @param  dateOfBirth   card holder date of birth in ISO 8601 format, e.g '2020-08-12'
      * @param  mobileNumber   card holder mobile number, starting with a '+', followed by the country code and then the mobile number
-     * @param  address         card holder address
      * @param  callback        an interface to receive the result or error
      * @see    Card
      * @see    CardType
      */
-    public void createCard(String fiatAccountId, String cardType, String firstName, String lastName, String title, String dateOfBirth, String mobileNumber, Address address, CardCallback callback);
+    public void createCard(String fiatAccountId, String cardType, String mobileNumber, CardCallback callback);
 
     /**
      * Set card status to 'ACTIVE', 'BLOCKED' or 'CANCELLED'. 
@@ -271,12 +266,12 @@ public interface User {
         private native void native_getNominatedAccountFiatProperties(long _nativeRef, String accountId, AccountFiatPropertiesCallback callback);
 
         @Override
-        public void createCard(String fiatAccountId, String cardType, String firstName, String lastName, String title, String dateOfBirth, String mobileNumber, Address address, CardCallback callback)
+        public void createCard(String fiatAccountId, String cardType, String mobileNumber, CardCallback callback)
         {
             assert !this.destroyed.get() : "trying to use a destroyed object";
-            native_createCard(this.nativeRef, fiatAccountId, cardType, firstName, lastName, title, dateOfBirth, mobileNumber, address, callback);
+            native_createCard(this.nativeRef, fiatAccountId, cardType, mobileNumber, callback);
         }
-        private native void native_createCard(long _nativeRef, String fiatAccountId, String cardType, String firstName, String lastName, String title, String dateOfBirth, String mobileNumber, Address address, CardCallback callback);
+        private native void native_createCard(long _nativeRef, String fiatAccountId, String cardType, String mobileNumber, CardCallback callback);
 
         @Override
         public void setCardStatus(String cardId, String cardStatus, String pan, String cvv2, SuccessCallback callback)
