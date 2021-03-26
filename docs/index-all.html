@@ -337,9 +337,9 @@
 <dd>
 <div class="block">Transacion was confirmed and added to blockchain.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="money/zumo/zumokit/User.CppProxy.html#createCard-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-money.zumo.zumokit.Address-money.zumo.zumokit.CardCallback-">createCard(String, String, String, String, String, String, String, Address, CardCallback)</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/User.CppProxy.html" title="class in money.zumo.zumokit">User.CppProxy</a></dt>
+<dt><span class="memberNameLink"><a href="money/zumo/zumokit/User.CppProxy.html#createCard-java.lang.String-java.lang.String-java.lang.String-money.zumo.zumokit.CardCallback-">createCard(String, String, String, CardCallback)</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/User.CppProxy.html" title="class in money.zumo.zumokit">User.CppProxy</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="money/zumo/zumokit/User.html#createCard-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-money.zumo.zumokit.Address-money.zumo.zumokit.CardCallback-">createCard(String, String, String, String, String, String, String, Address, CardCallback)</a></span> - Method in interface money.zumo.zumokit.<a href="money/zumo/zumokit/User.html" title="interface in money.zumo.zumokit">User</a></dt>
+<dt><span class="memberNameLink"><a href="money/zumo/zumokit/User.html#createCard-java.lang.String-java.lang.String-java.lang.String-money.zumo.zumokit.CardCallback-">createCard(String, String, String, CardCallback)</a></span> - Method in interface money.zumo.zumokit.<a href="money/zumo/zumokit/User.html" title="interface in money.zumo.zumokit">User</a></dt>
 <dd>
 <div class="block">Create card for a fiat account.</div>
 </dd>
@@ -453,6 +453,10 @@
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/CurrencyCode.html#ETH">ETH</a></span> - Static variable in class money.zumo.zumokit.<a href="money/zumo/zumokit/CurrencyCode.html" title="class in money.zumo.zumokit">CurrencyCode</a></dt>
 <dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="money/zumo/zumokit/ZumoKitErrorCode.html#ETHEREUM_TRANSACTION_DATA_NOT_SUPPORTED">ETHEREUM_TRANSACTION_DATA_NOT_SUPPORTED</a></span> - Static variable in class money.zumo.zumokit.<a href="money/zumo/zumokit/ZumoKitErrorCode.html" title="class in money.zumo.zumokit">ZumoKitErrorCode</a></dt>
+<dd>
+<div class="block">Ethereum transaction data is not supported yet.</div>
+</dd>
 <dt><a href="money/zumo/zumokit/Exchange.html" title="class in money.zumo.zumokit"><span class="typeNameLink">Exchange</span></a> - Class in <a href="money/zumo/zumokit/package-summary.html">money.zumo.zumokit</a></dt>
 <dd>
 <div class="block">Record containing exchange details.</div>
@@ -464,10 +468,6 @@
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/ZumoKitErrorCode.html#EXCHANGE_AMOUNT_TOO_LOW">EXCHANGE_AMOUNT_TOO_LOW</a></span> - Static variable in class money.zumo.zumokit.<a href="money/zumo/zumokit/ZumoKitErrorCode.html" title="class in money.zumo.zumokit">ZumoKitErrorCode</a></dt>
 <dd>
 <div class="block">Exchange amount too low.</div>
-</dd>
-<dt><span class="memberNameLink"><a href="money/zumo/zumokit/ZumoKitErrorCode.html#EXCHANGE_CURRENCIES_MUST_BE_DIFFERENT">EXCHANGE_CURRENCIES_MUST_BE_DIFFERENT</a></span> - Static variable in class money.zumo.zumokit.<a href="money/zumo/zumokit/ZumoKitErrorCode.html" title="class in money.zumo.zumokit">ZumoKitErrorCode</a></dt>
-<dd>
-<div class="block">Exchange currencies must be different.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/ZumoKitErrorCode.html#EXCHANGE_RETURN_VALUE_NEGATIVE">EXCHANGE_RETURN_VALUE_NEGATIVE</a></span> - Static variable in class money.zumo.zumokit.<a href="money/zumo/zumokit/ZumoKitErrorCode.html" title="class in money.zumo.zumokit">ZumoKitErrorCode</a></dt>
 <dd>
@@ -915,6 +915,10 @@
 <dd>
 <div class="block">The merchant name if available.</div>
 </dd>
+<dt><span class="memberNameLink"><a href="money/zumo/zumokit/Transaction.html#getMetadata--">getMetadata()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/Transaction.html" title="class in money.zumo.zumokit">Transaction</a></dt>
+<dd>
+<div class="block">Transaction metadata if exists, null otherwise.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/ExchangeSetting.html#getMinExchangeAmount--">getMinExchangeAmount()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/ExchangeSetting.html" title="class in money.zumo.zumokit">ExchangeSetting</a></dt>
 <dd>
 <div class="block">Minimum amount that can be exchanged in outgoing transaction currency.</div>
@@ -1270,13 +1274,13 @@
 <dd>
 <div class="block">Mismatch between exchange setting and selected accounts.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="money/zumo/zumokit/ZumoKitErrorCode.html#INVALID_FEE_RATE">INVALID_FEE_RATE</a></span> - Static variable in class money.zumo.zumokit.<a href="money/zumo/zumokit/ZumoKitErrorCode.html" title="class in money.zumo.zumokit">ZumoKitErrorCode</a></dt>
-<dd>
-<div class="block">Invalid fee rate.</div>
-</dd>
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/ZumoKitErrorCode.html#INVALID_HD_WALLET_PATH">INVALID_HD_WALLET_PATH</a></span> - Static variable in class money.zumo.zumokit.<a href="money/zumo/zumokit/ZumoKitErrorCode.html" title="class in money.zumo.zumokit">ZumoKitErrorCode</a></dt>
 <dd>
 <div class="block">Requested private key derivation path is invalid.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="money/zumo/zumokit/ZumoKitErrorCode.html#INVALID_METADATA">INVALID_METADATA</a></span> - Static variable in class money.zumo.zumokit.<a href="money/zumo/zumokit/ZumoKitErrorCode.html" title="class in money.zumo.zumokit">ZumoKitErrorCode</a></dt>
+<dd>
+<div class="block">Invalid metadata.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/ZumoKitErrorCode.html#INVALID_MNEMONIC_WORD_COUNT">INVALID_MNEMONIC_WORD_COUNT</a></span> - Static variable in class money.zumo.zumokit.<a href="money/zumo/zumokit/ZumoKitErrorCode.html" title="class in money.zumo.zumokit">ZumoKitErrorCode</a></dt>
 <dd>
@@ -1357,6 +1361,10 @@
 </a>
 <h2 class="title">K</h2>
 <dl>
+<dt><span class="memberNameLink"><a href="money/zumo/zumokit/ZumoKitErrorCode.html#KNOWN_EXCHANGE">KNOWN_EXCHANGE</a></span> - Static variable in class money.zumo.zumokit.<a href="money/zumo/zumokit/ZumoKitErrorCode.html" title="class in money.zumo.zumokit">ZumoKitErrorCode</a></dt>
+<dd>
+<div class="block">Exchange already submitted.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/ZumoKitErrorCode.html#KNOWN_TRANSACTION">KNOWN_TRANSACTION</a></span> - Static variable in class money.zumo.zumokit.<a href="money/zumo/zumokit/ZumoKitErrorCode.html" title="class in money.zumo.zumokit">ZumoKitErrorCode</a></dt>
 <dd>
 <div class="block">Transaction already submitted.</div>
@@ -1697,9 +1705,9 @@
 <dd>
 <div class="block">Callback interface used by methods in <a href="money/zumo/zumokit/Wallet.html" title="interface in money.zumo.zumokit"><code>Wallet</code></a> class.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="money/zumo/zumokit/Wallet.CppProxy.html#submitTransaction-money.zumo.zumokit.ComposedTransaction-money.zumo.zumokit.SubmitTransactionCallback-">submitTransaction(ComposedTransaction, SubmitTransactionCallback)</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/Wallet.CppProxy.html" title="class in money.zumo.zumokit">Wallet.CppProxy</a></dt>
+<dt><span class="memberNameLink"><a href="money/zumo/zumokit/Wallet.CppProxy.html#submitTransaction-money.zumo.zumokit.ComposedTransaction-java.lang.String-money.zumo.zumokit.SubmitTransactionCallback-">submitTransaction(ComposedTransaction, String, SubmitTransactionCallback)</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/Wallet.CppProxy.html" title="class in money.zumo.zumokit">Wallet.CppProxy</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="money/zumo/zumokit/Wallet.html#submitTransaction-money.zumo.zumokit.ComposedTransaction-money.zumo.zumokit.SubmitTransactionCallback-">submitTransaction(ComposedTransaction, SubmitTransactionCallback)</a></span> - Method in interface money.zumo.zumokit.<a href="money/zumo/zumokit/Wallet.html" title="interface in money.zumo.zumokit">Wallet</a></dt>
+<dt><span class="memberNameLink"><a href="money/zumo/zumokit/Wallet.html#submitTransaction-money.zumo.zumokit.ComposedTransaction-java.lang.String-money.zumo.zumokit.SubmitTransactionCallback-">submitTransaction(ComposedTransaction, String, SubmitTransactionCallback)</a></span> - Method in interface money.zumo.zumokit.<a href="money/zumo/zumokit/Wallet.html" title="interface in money.zumo.zumokit">Wallet</a></dt>
 <dd>
 <div class="block">Submit a transaction asynchronously.</div>
 </dd>
@@ -1793,7 +1801,7 @@
 <dd>
 <div class="block">Record containing transaction details.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="money/zumo/zumokit/Transaction.html#Transaction-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.math.BigDecimal-java.math.BigDecimal-java.lang.String-money.zumo.zumokit.TransactionCryptoProperties-money.zumo.zumokit.TransactionFiatProperties-money.zumo.zumokit.TransactionCardProperties-money.zumo.zumokit.Exchange-java.lang.Integer-java.lang.Integer-int-">Transaction(String, String, String, String, String, String, String, String, String, String, BigDecimal, BigDecimal, String, TransactionCryptoProperties, TransactionFiatProperties, TransactionCardProperties, Exchange, Integer, Integer, int)</a></span> - Constructor for class money.zumo.zumokit.<a href="money/zumo/zumokit/Transaction.html" title="class in money.zumo.zumokit">Transaction</a></dt>
+<dt><span class="memberNameLink"><a href="money/zumo/zumokit/Transaction.html#Transaction-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.math.BigDecimal-java.math.BigDecimal-java.lang.String-money.zumo.zumokit.TransactionCryptoProperties-money.zumo.zumokit.TransactionFiatProperties-money.zumo.zumokit.TransactionCardProperties-money.zumo.zumokit.Exchange-java.lang.String-java.lang.Integer-java.lang.Integer-int-">Transaction(String, String, String, String, String, String, String, String, String, String, BigDecimal, BigDecimal, String, TransactionCryptoProperties, TransactionFiatProperties, TransactionCardProperties, Exchange, String, Integer, Integer, int)</a></span> - Constructor for class money.zumo.zumokit.<a href="money/zumo/zumokit/Transaction.html" title="class in money.zumo.zumokit">Transaction</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/ZumoKitErrorCode.html#TRANSACTION_AMOUNT_OVERFLOW">TRANSACTION_AMOUNT_OVERFLOW</a></span> - Static variable in class money.zumo.zumokit.<a href="money/zumo/zumokit/ZumoKitErrorCode.html" title="class in money.zumo.zumokit">ZumoKitErrorCode</a></dt>
 <dd>

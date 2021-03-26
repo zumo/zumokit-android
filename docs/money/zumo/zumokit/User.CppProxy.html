@@ -163,14 +163,9 @@ implements <a href="../../../money/zumo/zumokit/User.html" title="interface in m
 </tr>
 <tr id="i2" class="altColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../money/zumo/zumokit/User.CppProxy.html#createCard-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-money.zumo.zumokit.Address-money.zumo.zumokit.CardCallback-">createCard</a></span>(java.lang.String&nbsp;fiatAccountId,
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../money/zumo/zumokit/User.CppProxy.html#createCard-java.lang.String-java.lang.String-java.lang.String-money.zumo.zumokit.CardCallback-">createCard</a></span>(java.lang.String&nbsp;fiatAccountId,
           java.lang.String&nbsp;cardType,
-          java.lang.String&nbsp;firstName,
-          java.lang.String&nbsp;lastName,
-          java.lang.String&nbsp;title,
-          java.lang.String&nbsp;dateOfBirth,
           java.lang.String&nbsp;mobileNumber,
-          <a href="../../../money/zumo/zumokit/Address.html" title="class in money.zumo.zumokit">Address</a>&nbsp;address,
           <a href="../../../money/zumo/zumokit/CardCallback.html" title="interface in money.zumo.zumokit">CardCallback</a>&nbsp;callback)</code>
 <div class="block">Create card for a fiat account.</div>
 </td>
@@ -478,7 +473,7 @@ implements <a href="../../../money/zumo/zumokit/User.html" title="interface in m
 </dl>
 </li>
 </ul>
-<a name="createCard-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-money.zumo.zumokit.Address-money.zumo.zumokit.CardCallback-">
+<a name="createCard-java.lang.String-java.lang.String-java.lang.String-money.zumo.zumokit.CardCallback-">
 <!--   -->
 </a>
 <ul class="blockList">
@@ -486,27 +481,17 @@ implements <a href="../../../money/zumo/zumokit/User.html" title="interface in m
 <h4>createCard</h4>
 <pre>public&nbsp;void&nbsp;createCard(java.lang.String&nbsp;fiatAccountId,
                        java.lang.String&nbsp;cardType,
-                       java.lang.String&nbsp;firstName,
-                       java.lang.String&nbsp;lastName,
-                       java.lang.String&nbsp;title,
-                       java.lang.String&nbsp;dateOfBirth,
                        java.lang.String&nbsp;mobileNumber,
-                       <a href="../../../money/zumo/zumokit/Address.html" title="class in money.zumo.zumokit">Address</a>&nbsp;address,
                        <a href="../../../money/zumo/zumokit/CardCallback.html" title="interface in money.zumo.zumokit">CardCallback</a>&nbsp;callback)</pre>
-<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../money/zumo/zumokit/User.html#createCard-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-money.zumo.zumokit.Address-money.zumo.zumokit.CardCallback-">User</a></code></span></div>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../money/zumo/zumokit/User.html#createCard-java.lang.String-java.lang.String-java.lang.String-money.zumo.zumokit.CardCallback-">User</a></code></span></div>
 <div class="block">Create card for a fiat account.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="../../../money/zumo/zumokit/User.html#createCard-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-money.zumo.zumokit.Address-money.zumo.zumokit.CardCallback-">createCard</a></code>&nbsp;in interface&nbsp;<code><a href="../../../money/zumo/zumokit/User.html" title="interface in money.zumo.zumokit">User</a></code></dd>
+<dd><code><a href="../../../money/zumo/zumokit/User.html#createCard-java.lang.String-java.lang.String-java.lang.String-money.zumo.zumokit.CardCallback-">createCard</a></code>&nbsp;in interface&nbsp;<code><a href="../../../money/zumo/zumokit/User.html" title="interface in money.zumo.zumokit">User</a></code></dd>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>fiatAccountId</code> - fiat account id</dd>
 <dd><code>cardType</code> - 'VIRTUAL' or 'PHYSICAL'</dd>
-<dd><code>firstName</code> - card holder first name</dd>
-<dd><code>lastName</code> - card holder last name</dd>
-<dd><code>title</code> - card holder title or null</dd>
-<dd><code>dateOfBirth</code> - card holder date of birth in ISO 8601 format, e.g '2020-08-12'</dd>
 <dd><code>mobileNumber</code> - card holder mobile number, starting with a '+', followed by the country code and then the mobile number</dd>
-<dd><code>address</code> - card holder address</dd>
 <dd><code>callback</code> - an interface to receive the result or error</dd>
 <dt><span class="seeLabel">See Also:</span></dt>
 <dd><a href="../../../money/zumo/zumokit/Card.html" title="class in money.zumo.zumokit"><code>Card</code></a>, 

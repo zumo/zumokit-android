@@ -41,6 +41,8 @@ public final class Transaction {
 
     /*package*/ final Exchange mExchange;
 
+    /*package*/ final String mMetadata;
+
     /*package*/ final Integer mSubmittedAt;
 
     /*package*/ final Integer mConfirmedAt;
@@ -65,6 +67,7 @@ public final class Transaction {
             TransactionFiatProperties fiatProperties,
             TransactionCardProperties cardProperties,
             Exchange exchange,
+            String metadata,
             Integer submittedAt,
             Integer confirmedAt,
             int timestamp) {
@@ -85,6 +88,7 @@ public final class Transaction {
         this.mFiatProperties = fiatProperties;
         this.mCardProperties = cardProperties;
         this.mExchange = exchange;
+        this.mMetadata = metadata;
         this.mSubmittedAt = submittedAt;
         this.mConfirmedAt = confirmedAt;
         this.mTimestamp = timestamp;
@@ -202,6 +206,11 @@ public final class Transaction {
         return mExchange;
     }
 
+    /** Transaction metadata if exists, null otherwise. */
+    public String getMetadata() {
+        return mMetadata;
+    }
+
     /** Epoch timestamp when transaction was submitted or null for incoming transactions from outside of Zumo ecosystem. */
     public Integer getSubmittedAt() {
         return mSubmittedAt;
@@ -240,6 +249,7 @@ public final class Transaction {
                 ((this.mFiatProperties == null && other.mFiatProperties == null) || (this.mFiatProperties != null && this.mFiatProperties.equals(other.mFiatProperties))) &&
                 ((this.mCardProperties == null && other.mCardProperties == null) || (this.mCardProperties != null && this.mCardProperties.equals(other.mCardProperties))) &&
                 ((this.mExchange == null && other.mExchange == null) || (this.mExchange != null && this.mExchange.equals(other.mExchange))) &&
+                ((this.mMetadata == null && other.mMetadata == null) || (this.mMetadata != null && this.mMetadata.equals(other.mMetadata))) &&
                 ((this.mSubmittedAt == null && other.mSubmittedAt == null) || (this.mSubmittedAt != null && this.mSubmittedAt.equals(other.mSubmittedAt))) &&
                 ((this.mConfirmedAt == null && other.mConfirmedAt == null) || (this.mConfirmedAt != null && this.mConfirmedAt.equals(other.mConfirmedAt))) &&
                 this.mTimestamp == other.mTimestamp;
@@ -266,6 +276,7 @@ public final class Transaction {
         hashCode = hashCode * 31 + (mFiatProperties == null ? 0 : mFiatProperties.hashCode());
         hashCode = hashCode * 31 + (mCardProperties == null ? 0 : mCardProperties.hashCode());
         hashCode = hashCode * 31 + (mExchange == null ? 0 : mExchange.hashCode());
+        hashCode = hashCode * 31 + (mMetadata == null ? 0 : mMetadata.hashCode());
         hashCode = hashCode * 31 + (mSubmittedAt == null ? 0 : mSubmittedAt.hashCode());
         hashCode = hashCode * 31 + (mConfirmedAt == null ? 0 : mConfirmedAt.hashCode());
         hashCode = hashCode * 31 + mTimestamp;
@@ -292,6 +303,7 @@ public final class Transaction {
                 "," + "mFiatProperties=" + mFiatProperties +
                 "," + "mCardProperties=" + mCardProperties +
                 "," + "mExchange=" + mExchange +
+                "," + "mMetadata=" + mMetadata +
                 "," + "mSubmittedAt=" + mSubmittedAt +
                 "," + "mConfirmedAt=" + mConfirmedAt +
                 "," + "mTimestamp=" + mTimestamp +
