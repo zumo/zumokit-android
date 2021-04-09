@@ -37,6 +37,9 @@ public final class TransactionStatus {
      */
     public static final String CANCELLED = "CANCELLED";
 
+    /** Card transaction was authorised. */
+    public static final String AUTHORISED = "AUTHORISED";
+
     /** Card transaction was reversed. */
     public static final String REVERSED = "REVERSED";
 
