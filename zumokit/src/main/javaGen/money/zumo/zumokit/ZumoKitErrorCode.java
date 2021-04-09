@@ -119,6 +119,9 @@ public final class ZumoKitErrorCode {
     /** Invalid metadata. Metadata must be a valid JSON. */
     public static final String INVALID_METADATA = "invalid_metadata";
 
+    /** Invalid mnemonic phrase. */
+    public static final String INVALID_MNEMONIC = "invalid_mnemonic";
+
     /**
      * Invalid length of mnemonic phrase.
      * Mnemonic phrase should be 12, 15, 18, 21 or 24 words long.
