@@ -7,6 +7,8 @@ package money.zumo.zumokit;
 public final class Address {
 
 
+    /*package*/ final String mHouseNumber;
+
     /*package*/ final String mAddressLine1;
 
     /*package*/ final String mAddressLine2;
@@ -18,16 +20,23 @@ public final class Address {
     /*package*/ final String mPostTown;
 
     public Address(
+            String houseNumber,
             String addressLine1,
             String addressLine2,
             String country,
             String postCode,
             String postTown) {
+        this.mHouseNumber = houseNumber;
         this.mAddressLine1 = addressLine1;
         this.mAddressLine2 = addressLine2;
         this.mCountry = country;
         this.mPostCode = postCode;
         this.mPostTown = postTown;
+    }
+
+    /** House number. */
+    public String getHouseNumber() {
+        return mHouseNumber;
     }
 
     /** First line of address. */
@@ -61,7 +70,8 @@ public final class Address {
             return false;
         }
         Address other = (Address) obj;
-        return this.mAddressLine1.equals(other.mAddressLine1) &&
+        return this.mHouseNumber.equals(other.mHouseNumber) &&
+                this.mAddressLine1.equals(other.mAddressLine1) &&
                 ((this.mAddressLine2 == null && other.mAddressLine2 == null) || (this.mAddressLine2 != null && this.mAddressLine2.equals(other.mAddressLine2))) &&
                 this.mCountry.equals(other.mCountry) &&
                 this.mPostCode.equals(other.mPostCode) &&
@@ -72,6 +82,7 @@ public final class Address {
     public int hashCode() {
         // Pick an arbitrary non-zero starting value
         int hashCode = 17;
+        hashCode = hashCode * 31 + mHouseNumber.hashCode();
         hashCode = hashCode * 31 + mAddressLine1.hashCode();
         hashCode = hashCode * 31 + (mAddressLine2 == null ? 0 : mAddressLine2.hashCode());
         hashCode = hashCode * 31 + mCountry.hashCode();
@@ -83,7 +94,8 @@ public final class Address {
     @Override
     public String toString() {
         return "Address{" +
-                "mAddressLine1=" + mAddressLine1 +
+                "mHouseNumber=" + mHouseNumber +
+                "," + "mAddressLine1=" + mAddressLine1 +
                 "," + "mAddressLine2=" + mAddressLine2 +
                 "," + "mCountry=" + mCountry +
                 "," + "mPostCode=" + mPostCode +
