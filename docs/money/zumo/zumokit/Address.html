@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -128,7 +128,8 @@ extends java.lang.Object</pre>
 <th class="colOne" scope="col">Constructor and Description</th>
 </tr>
 <tr class="altColor">
-<td class="colOne"><code><span class="memberNameLink"><a href="../../../money/zumo/zumokit/Address.html#Address-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-">Address</a></span>(java.lang.String&nbsp;addressLine1,
+<td class="colOne"><code><span class="memberNameLink"><a href="../../../money/zumo/zumokit/Address.html#Address-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-">Address</a></span>(java.lang.String&nbsp;houseNumber,
+       java.lang.String&nbsp;addressLine1,
        java.lang.String&nbsp;addressLine2,
        java.lang.String&nbsp;country,
        java.lang.String&nbsp;postCode,
@@ -173,21 +174,27 @@ extends java.lang.Object</pre>
 </tr>
 <tr id="i4" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../money/zumo/zumokit/Address.html#getHouseNumber--">getHouseNumber</a></span>()</code>
+<div class="block">House number.</div>
+</td>
+</tr>
+<tr id="i5" class="rowColor">
+<td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../money/zumo/zumokit/Address.html#getPostCode--">getPostCode</a></span>()</code>
 <div class="block">Post code.</div>
 </td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i6" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../money/zumo/zumokit/Address.html#getPostTown--">getPostTown</a></span>()</code>
 <div class="block">Post town</div>
 </td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code>int</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../money/zumo/zumokit/Address.html#hashCode--">hashCode</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i8" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../money/zumo/zumokit/Address.html#toString--">toString</a></span>()</code>&nbsp;</td>
 </tr>
@@ -213,13 +220,14 @@ extends java.lang.Object</pre>
 <!--   -->
 </a>
 <h3>Constructor Detail</h3>
-<a name="Address-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-">
+<a name="Address-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>Address</h4>
-<pre>public&nbsp;Address(java.lang.String&nbsp;addressLine1,
+<pre>public&nbsp;Address(java.lang.String&nbsp;houseNumber,
+               java.lang.String&nbsp;addressLine1,
                java.lang.String&nbsp;addressLine2,
                java.lang.String&nbsp;country,
                java.lang.String&nbsp;postCode,
@@ -234,6 +242,16 @@ extends java.lang.Object</pre>
 <!--   -->
 </a>
 <h3>Method Detail</h3>
+<a name="getHouseNumber--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getHouseNumber</h4>
+<pre>public&nbsp;java.lang.String&nbsp;getHouseNumber()</pre>
+<div class="block">House number.</div>
+</li>
+</ul>
 <a name="getAddressLine1--">
 <!--   -->
 </a>
