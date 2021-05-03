@@ -1,2 +1,2 @@
 before_install:
-  - git lfs install && git lfs fetch && git lfs pull
+  - git lfs pull
