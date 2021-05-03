@@ -38,4 +38,5 @@ The [example project](https://github.com/zumo/zumokit-android/tree/master/exampl
 
 To run the example project, clone the repo, open  the project in Android Studio and build & run the project.
 
+NOTE: You need to install the [git-lfs client](https://git-lfs.github.com/) to be able to clone this repository.
 
