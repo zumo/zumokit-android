@@ -6,7 +6,7 @@ import java.util.HashMap;
  * Entry point to ZumoKit Android SDK.
  * <p>
  * See <a href="https://developers.zumo.money/docs/guides/getting-started">Getting Started</a> guide for usage details.
- * */
+ */
 public class ZumoKit {
     static {
         System.loadLibrary("zumocore");
@@ -16,10 +16,10 @@ public class ZumoKit {
 
     /**
      * Get ZumoKit SDK version.
+     *
      * @return semantic version tag if exists, commit hash otherwise
      */
-    public static String getVersion()
-    {
+    public static String getVersion() {
         return ZumoCore.getVersion();
     }
 
@@ -28,8 +28,7 @@ public class ZumoKit {
      *
      * @param logLevel log level, 'trace', 'debug', 'info', 'warning', 'error', 'critical' or 'off'
      */
-    public static void setLogLevel(String logLevel)
-    {
+    public static void setLogLevel(String logLevel) {
         ZumoCore.setLogLevel(logLevel);
     }
 
@@ -37,10 +36,9 @@ public class ZumoKit {
      * Sets log handler for all ZumoKit related logs.
      *
      * @param logListener interface to listen to changes
-     * @param logLevel log level, 'trace', 'debug', 'info', 'warning', 'error', 'critical' or 'off'
+     * @param logLevel    log level, 'trace', 'debug', 'info', 'warning', 'error', 'critical' or 'off'
      */
-    public static void onLog(LogListener logListener, String logLevel)
-    {
+    public static void onLog(LogListener logListener, String logLevel) {
         ZumoCore.onLog(logListener, logLevel);
     }
 
@@ -51,15 +49,27 @@ public class ZumoKit {
      * @param apiUrl                 ZumoKit API URL
      * @param transactionServiceUrl  ZumoKit Transaction Service URL
      * @param cardServiceUrl         ZumoKit Card Service URL
+     * @param notificationServiceUrl ZumoKit Notification Service URL
      */
-    public ZumoKit(String apiKey, String apiUrl, String transactionServiceUrl, String cardServiceUrl) {
+    public ZumoKit(
+            String apiKey,
+            String apiUrl,
+            String transactionServiceUrl,
+            String cardServiceUrl,
+            String notificationServiceUrl) {
         // Init the providers needed for the C++ core
         HttpProvider httpProvider = new DefaultHttpProvider();
         WebSocketFactory wsFactory = new DefaultWebSocketFactory();
 
         // Initialise C++ core library
         zumoCore = ZumoCore.init(
-                httpProvider, wsFactory, apiKey, apiUrl, transactionServiceUrl, cardServiceUrl
+                httpProvider,
+                wsFactory,
+                apiKey,
+                apiUrl,
+                transactionServiceUrl,
+                cardServiceUrl,
+                notificationServiceUrl
         );
     }
 
@@ -67,9 +77,8 @@ public class ZumoKit {
      * Signs in user corresponding to user token set. Sets current user to the newly signed in user.
      * Refer to <a href="https://developers.zumo.money/docs/setup/server#get-zumokit-user-token">Server</a> guide for details on how to get user token set.
      *
-     * @param userTokenSet   user token set
-     * @param callback       an interface to receive the result or error
-     *
+     * @param userTokenSet user token set
+     * @param callback     an interface to receive the result or error
      * @see User
      */
     public void signIn(String userTokenSet, UserCallback callback) {
@@ -104,9 +113,8 @@ public class ZumoKit {
     /**
      * Get exchange rate for selected currency pair.
      *
-     * @param fromCurrency   currency code
-     * @param toCurrency     currency code
-     *
+     * @param fromCurrency currency code
+     * @param toCurrency   currency code
      * @return exchange rate or null
      */
     public ExchangeRate getExchangeRate(String fromCurrency, String toCurrency) {
@@ -120,14 +128,13 @@ public class ZumoKit {
      */
     public HashMap<String, HashMap<String, ExchangeRate>> getExchangeRates() {
         return zumoCore.getExchangeRates();
-    };
+    }
 
     /**
      * Get exchange setting for selected currency pair.
      *
-     * @param fromCurrency   currency code
-     * @param toCurrency     currency code
-     *
+     * @param fromCurrency currency code
+     * @param toCurrency   currency code
      * @return exchange setting or null
      */
     public ExchangeSetting getExchangeSetting(String fromCurrency, String toCurrency) {
@@ -141,13 +148,12 @@ public class ZumoKit {
      */
     public HashMap<String, HashMap<String, ExchangeSetting>> getExchangeSettings() {
         return zumoCore.getExchangeSettings();
-    };
+    }
 
     /**
      * Get transaction fee rate for selected crypto currency.
      *
-     * @param currency   currency code
-     *
+     * @param currency currency code
      * @return transaction fee rate or null
      */
     public TransactionFeeRate getTransactionFeeRate(String currency) {
@@ -161,7 +167,7 @@ public class ZumoKit {
      */
     public HashMap<String, TransactionFeeRate> getTransactionFeeRates() {
         return zumoCore.getTransactionFeeRates();
-    };
+    }
 
     /**
      * Fetch historical exchange rates for supported time intervals.
@@ -169,8 +175,7 @@ public class ZumoKit {
      * in a mapping between time interval on a top level, from currency on second level,
      * to currency on third level and {@link  ExchangeRate ExchangeRate} objects.
      *
-     * @param callback         an interface to receive the result or error
-     *
+     * @param callback an interface to receive the result or error
      * @see TimeInterval
      */
     public void fetchHistoricalExchangeRates(HistoricalExchangeRatesCallback callback) {
@@ -185,7 +190,7 @@ public class ZumoKit {
      */
     public void addChangeListener(ChangeListener listener) {
         zumoCore.addChangeListener(listener);
-    };
+    }
 
     /**
      * Remove change listener.
@@ -194,5 +199,5 @@ public class ZumoKit {
      */
     public void removeChangeListener(ChangeListener listener) {
         zumoCore.removeChangeListener(listener);
-    };
+    }
 }

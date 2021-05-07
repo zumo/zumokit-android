@@ -1,6 +1,6 @@
 package money.zumo.example;
 
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 
@@ -34,6 +34,7 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.io.IOException;
+
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class MainActivity extends AppCompatActivity {
@@ -54,7 +55,8 @@ public class MainActivity extends AppCompatActivity {
                 BuildConfig.API_KEY,
                 BuildConfig.API_URL,
                 BuildConfig.TRANSACTION_SERVICE_URL,
-                BuildConfig.CARD_SERVICE_URL
+                BuildConfig.CARD_SERVICE_URL,
+                BuildConfig.NOTIFICATION_SERVICE_URL
         );
 
         // Get ZumoKit user token from Client API
@@ -105,11 +107,11 @@ public class MainActivity extends AppCompatActivity {
 
                             if (mUser.hasWallet()) {
                                 // Ethereum account
-                                Account ethAccount = user.getAccount("ETH", NetworkType.RINKEBY, AccountType.STANDARD);
+                                Account ethAccount = user.getAccount(CurrencyCode.ETH, NetworkType.RINKEBY, AccountType.STANDARD);
                                 Log.i("zumokit/eth-account", ethAccount.toString());
 
                                 // Bitcoin Testnet Compatibilty account
-                                Account btcAccount = user.getAccount("BTC", NetworkType.TESTNET, AccountType.COMPATIBILITY);
+                                Account btcAccount = user.getAccount(CurrencyCode.BTC, NetworkType.TESTNET, AccountType.COMPATIBILITY);
                                 Log.i("zumokit/btc-account", btcAccount.toString());
 
                                 // Fiat account
@@ -137,8 +139,8 @@ public class MainActivity extends AppCompatActivity {
                                         }
 
                                         // Display current exchange rates & exchange settings
-                                        Log.i("zumokit/exchange-rates",  mZumoKit.getExchangeRate("BTC", "ETH").toString());
-                                        Log.i("zumokit/exchange-rates",  mZumoKit.getExchangeSetting("ETH", "BTC").toString());
+                                        Log.i("zumokit/exchange-rates", mZumoKit.getExchangeRate("BTC", "ETH").toString());
+                                        Log.i("zumokit/exchange-rates", mZumoKit.getExchangeSetting("ETH", "BTC").toString());
 
                                         composeExchange(
                                                 ethAccount,
@@ -244,8 +246,8 @@ public class MainActivity extends AppCompatActivity {
                                 Log.i("zumokit", tx.toString());
                             }
                         });
-            }
-        });
+                    }
+                });
     }
 
 

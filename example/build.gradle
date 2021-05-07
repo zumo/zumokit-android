@@ -1,14 +1,21 @@
 apply plugin: 'com.android.application'
 
+def getProps(filename) {
+    def propsFile = rootProject.file(filename)
+    def props = new Properties()
+    props.load(new FileInputStream(propsFile))
+    return props
+}
+
 android {
-    compileSdkVersion 28
+    compileSdkVersion 30
     defaultConfig {
         applicationId "money.zumo.example"
         minSdkVersion 28
-        targetSdkVersion 28
+        targetSdkVersion 30
         versionCode 1
         versionName "1.0"
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
         signingConfig signingConfigs.debug
     }
     compileOptions {
@@ -16,73 +23,49 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
     buildTypes {
-        release {
-            buildConfigField "String", "API_KEY", PRODUCTION_API_KEY
-            buildConfigField "String", "API_URL", PRODUCTION_API_URL
-            buildConfigField "String", "TRANSACTION_SERVICE_URL", PRODUCTION_TRANSACTION_SERVICE_URL
-            buildConfigField "String", "CARD_SERVICE_URL", PRODUCTION_CARD_SERVICE_URL
-            buildConfigField "String", "CLIENT_ZUMOKIT_AUTH_ENDPOINT", PRODUCTION_CLIENT_ZUMOKIT_AUTH_ENDPOINT
-            buildConfigField "String", "CLIENT_HEADERS", PRODUCTION_CLIENT_HEADERS
-            buildConfigField "String", "CLIENT_BODY", PRODUCTION_CLIENT_BODY
-            buildConfigField "String", "CLIENT_METHOD", PRODUCTION_CLIENT_METHOD
-            buildConfigField "String", "USER_WALLET_PASSWORD", PRODUCTION_USER_WALLET_PASSWORD
-            minifyEnabled true
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-        }
-
-        debug {
-            buildConfigField "String", "API_KEY", PRODUCTION_API_KEY
-            buildConfigField "String", "API_URL", PRODUCTION_API_URL
-            buildConfigField "String", "TRANSACTION_SERVICE_URL", PRODUCTION_TRANSACTION_SERVICE_URL
-            buildConfigField "String", "CARD_SERVICE_URL", PRODUCTION_CARD_SERVICE_URL
-            buildConfigField "String", "CLIENT_ZUMOKIT_AUTH_ENDPOINT", PRODUCTION_CLIENT_ZUMOKIT_AUTH_ENDPOINT
-            buildConfigField "String", "CLIENT_HEADERS", PRODUCTION_CLIENT_HEADERS
-            buildConfigField "String", "CLIENT_BODY", PRODUCTION_CLIENT_BODY
-            buildConfigField "String", "CLIENT_METHOD", PRODUCTION_CLIENT_METHOD
-            buildConfigField "String", "USER_WALLET_PASSWORD", PRODUCTION_USER_WALLET_PASSWORD
-            applicationIdSuffix ".debug"
-            debuggable true
-        }
-
         staging {
-            buildConfigField "String", "API_KEY", STAGING_API_KEY
-            buildConfigField "String", "API_URL", STAGING_API_URL
-            buildConfigField "String", "TRANSACTION_SERVICE_URL", STAGING_TRANSACTION_SERVICE_URL
-            buildConfigField "String", "CARD_SERVICE_URL", STAGING_CARD_SERVICE_URL
-            buildConfigField "String", "CLIENT_ZUMOKIT_AUTH_ENDPOINT", STAGING_CLIENT_ZUMOKIT_AUTH_ENDPOINT
-            buildConfigField "String", "CLIENT_HEADERS", STAGING_CLIENT_HEADERS
-            buildConfigField "String", "CLIENT_BODY", STAGING_CLIENT_BODY
-            buildConfigField "String", "CLIENT_METHOD", STAGING_CLIENT_METHOD
-            buildConfigField "String", "USER_WALLET_PASSWORD", STAGING_USER_WALLET_PASSWORD
-            matchingFallbacks = ['debug']
+            getProps('staging.properties').each { p ->
+                buildConfigField 'String', p.key, p.value
+            }
             applicationIdSuffix ".debug"
+            matchingFallbacks = ['debug']
             debuggable true
         }
 
         sandbox {
-            buildConfigField "String", "API_KEY", SANDBOX_API_KEY
-            buildConfigField "String", "API_URL", SANDBOX_API_URL
-            buildConfigField "String", "TRANSACTION_SERVICE_URL", SANDBOX_TRANSACTION_SERVICE_URL
-            buildConfigField "String", "CARD_SERVICE_URL", SANDBOX_CARD_SERVICE_URL
-            buildConfigField "String", "CLIENT_ZUMOKIT_AUTH_ENDPOINT", SANDBOX_CLIENT_ZUMOKIT_AUTH_ENDPOINT
-            buildConfigField "String", "CLIENT_HEADERS", SANDBOX_CLIENT_HEADERS
-            buildConfigField "String", "CLIENT_BODY", SANDBOX_CLIENT_BODY
-            buildConfigField "String", "CLIENT_METHOD", SANDBOX_CLIENT_METHOD
-            buildConfigField "String", "USER_WALLET_PASSWORD", SANDBOX_USER_WALLET_PASSWORD
+            getProps('sandbox.properties').each { p ->
+                buildConfigField 'String', p.key, p.value
+            }
+            applicationIdSuffix ".debug"
             matchingFallbacks = ['debug']
+            debuggable true
+        }
+
+        debug {
+            getProps('production.properties').each { p ->
+                buildConfigField 'String', p.key, p.value
+            }
             applicationIdSuffix ".debug"
             debuggable true
+        }
+
+        release {
+            getProps('production.properties').each { p ->
+                buildConfigField 'String', p.key, p.value
+            }
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
 }
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    implementation 'com.android.support:appcompat-v7:28.0.0'
-    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
     testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'com.android.support.test:runner:1.0.2'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
     implementation project(':zumokit')
     implementation 'com.fasterxml.jackson.core:jackson-databind:2.10.1'
 }

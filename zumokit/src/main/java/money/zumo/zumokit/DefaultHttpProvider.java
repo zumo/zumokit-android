@@ -1,4 +1,5 @@
 package money.zumo.zumokit;
+
 import java.io.BufferedInputStream;
 import java.io.OutputStream;
 import java.io.BufferedOutputStream;
@@ -38,7 +39,7 @@ public class DefaultHttpProvider implements HttpProvider {
 
                     HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
 
-                    switch(method) {
+                    switch (method) {
                         case "GET":
                             break;
                         case "PUT":
@@ -67,7 +68,7 @@ public class DefaultHttpProvider implements HttpProvider {
                         out.close();
                     }
 
-                    httpCode = (short)urlConnection.getResponseCode();
+                    httpCode = (short) urlConnection.getResponseCode();
 
                     try {
                         InputStream inputStream;
@@ -97,8 +98,7 @@ public class DefaultHttpProvider implements HttpProvider {
         });
     }
 
-    private static String getString(InputStream stream, String charsetName) throws IOException
-    {
+    private static String getString(InputStream stream, String charsetName) throws IOException {
         int n = 0;
         char[] buffer = new char[1024 * 4];
         InputStreamReader reader = new InputStreamReader(stream, charsetName);

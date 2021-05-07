@@ -143,23 +143,25 @@ public interface ZumoCore {
     /**
      * Initializes ZumoKit SDK. Should only be called once.
      *
-     * @param httpProvider           HTTP provider
-     * @param webSocketFactory      WebSocket factory
-     * @param apiKey                 ZumoKit API Key
-     * @param apiUrl                 ZumoKit API URL
-     * @param transactionServiceUrl ZumoKit Transaction Service URL
-     * @param cardServiceUrl        ZumoKit Card Service URL
+     * @param httpProvider            HTTP provider
+     * @param webSocketFactory       WebSocket factory
+     * @param apiKey                  ZumoKit API Key
+     * @param apiUrl                  ZumoKit API URL
+     * @param transactionServiceUrl  ZumoKit Transaction Service URL
+     * @param cardServiceUrl         ZumoKit Card Service URL
+     * @param notificationServiceUrl ZumoKit Notification Service URL
      *
      * @return ZumoKit instance
      */
-    public static ZumoCore init(HttpProvider httpProvider, WebSocketFactory webSocketFactory, String apiKey, String apiUrl, String transactionServiceUrl, String cardServiceUrl)
+    public static ZumoCore init(HttpProvider httpProvider, WebSocketFactory webSocketFactory, String apiKey, String apiUrl, String transactionServiceUrl, String cardServiceUrl, String notificationServiceUrl)
     {
         return CppProxy.init(httpProvider,
                              webSocketFactory,
                              apiKey,
                              apiUrl,
                              transactionServiceUrl,
-                             cardServiceUrl);
+                             cardServiceUrl,
+                             notificationServiceUrl);
     }
 
     static final class CppProxy implements ZumoCore
@@ -295,6 +297,6 @@ public interface ZumoCore {
 
         public static native void onLog(LogListener logListener, String logLevel);
 
-        public static native ZumoCore init(HttpProvider httpProvider, WebSocketFactory webSocketFactory, String apiKey, String apiUrl, String transactionServiceUrl, String cardServiceUrl);
+        public static native ZumoCore init(HttpProvider httpProvider, WebSocketFactory webSocketFactory, String apiKey, String apiUrl, String transactionServiceUrl, String cardServiceUrl, String notificationServiceUrl);
     }
 }

@@ -1,4 +1,4 @@
-File gradleProperties = new File('./gradle.properties');
+File gradleProperties = new File('./staging.properties');
 if ( gradleProperties.isFile() ) {
   include ':example', ':zumokit'
 } else {

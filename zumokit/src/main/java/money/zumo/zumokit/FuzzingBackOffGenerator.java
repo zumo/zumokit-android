@@ -28,21 +28,31 @@ public class FuzzingBackOffGenerator {
         }
     }
 
-    /** Randomization factor. Must be between 0 and 1. */
+    /**
+     * Randomization factor. Must be between 0 and 1.
+     */
     private final double randomizationFactor;
-    /** The first time we back off. */
+    /**
+     * The first time we back off.
+     */
     private final int initialBackOff;
-    /** The max back off value, it'll be fuzzed. */
+    /**
+     * The max back off value, it'll be fuzzed.
+     */
     private final int maxBackOff;
-    /** The next time we've backed off. */
+    /**
+     * The next time we've backed off.
+     */
     private int nextBackOffTime;
-    /** The current back off time. */
+    /**
+     * The current back off time.
+     */
     private int backOffTime;
 
     /**
-     * @param initialBackOff Initial value to back off. This class does not interpret the meaning of
-     *          this value. must be > 0
-     * @param maxBackOff Max value to back off
+     * @param initialBackOff      Initial value to back off. This class does not interpret the meaning of
+     *                            this value. must be > 0
+     * @param maxBackOff          Max value to back off
      * @param randomizationFactor between 0 and 1 to control the range of randomness.
      */
     public FuzzingBackOffGenerator(int initialBackOff, int maxBackOff, double randomizationFactor) {
@@ -63,7 +73,9 @@ public class FuzzingBackOffGenerator {
         this.backOffTime = 0;
     }
 
-    /** Gets the next back off time. Until maxBackOff is reached. */
+    /**
+     * Gets the next back off time. Until maxBackOff is reached.
+     */
     public BackOffParameters next() {
         int ret = Math.min(nextBackOffTime, maxBackOff);
         nextBackOffTime += backOffTime;
