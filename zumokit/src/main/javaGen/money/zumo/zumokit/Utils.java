@@ -19,20 +19,14 @@ public interface Utils {
     public String generateMnemonic(int wordCount);
 
     /**
-     * Validates Ethereum address.
-     * @param address Ethereum address
-     * @return true if Ethereum address is valid
-     */
-    public boolean isValidEthAddress(String address);
-
-    /**
-     * Validates Bitcoin address on a given network.
-     * @param address Bitcoin address
-     * @param network network type, either 'MAINNET' or 'TESTNET'
-     * @return true if Bitcoin address is valid on a given network
+     * Validates Ethereum, Bitcoin or Bitcoin SV address.
+     * @param currencyCode 'ETH', 'BTC' or 'BSV'
+     * @param address       blockchain address
+     * @param network       network type
+     * @return true if address is valid on the given network
      * @see NetworkType
      */
-    public boolean isValidBtcAddress(String address, String network);
+    public boolean isValidAddress(String currencyCode, String address, String network);
 
     static final class CppProxy implements Utils
     {
@@ -66,19 +60,11 @@ public interface Utils {
         private native String native_generateMnemonic(long _nativeRef, int wordCount);
 
         @Override
-        public boolean isValidEthAddress(String address)
+        public boolean isValidAddress(String currencyCode, String address, String network)
         {
             assert !this.destroyed.get() : "trying to use a destroyed object";
-            return native_isValidEthAddress(this.nativeRef, address);
+            return native_isValidAddress(this.nativeRef, currencyCode, address, network);
         }
-        private native boolean native_isValidEthAddress(long _nativeRef, String address);
-
-        @Override
-        public boolean isValidBtcAddress(String address, String network)
-        {
-            assert !this.destroyed.get() : "trying to use a destroyed object";
-            return native_isValidBtcAddress(this.nativeRef, address, network);
-        }
-        private native boolean native_isValidBtcAddress(long _nativeRef, String address, String network);
+        private native boolean native_isValidAddress(long _nativeRef, String currencyCode, String address, String network);
     }
 }

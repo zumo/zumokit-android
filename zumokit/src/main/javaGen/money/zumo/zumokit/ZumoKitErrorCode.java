@@ -40,6 +40,9 @@ public final class ZumoKitErrorCode {
     /** Change output index out of range. */
     public static final String CHANGE_INDEX_OUT_OF_RANGE = "change_index_out_of_range";
 
+    /** Currency not supported. */
+    public static final String CURRENCY_NOT_SUPPORTED = "currency_not_supported";
+
     /**
      * Transaction data overflow.
      * Maximum data size supported by RLP encoding exceeds 16000000 bytes.

@@ -8,6 +8,10 @@ public final class CurrencyCode {
 
     public static final String GBP = "GBP";
 
+    public static final String EUR = "EUR";
+
+    public static final String USD = "USD";
+
     public static final String ETH = "ETH";
 
     public static final String BTC = "BTC";

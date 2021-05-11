@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10};
+var methods = {"i0":10,"i1":10,"i2":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -163,15 +163,10 @@ implements <a href="../../../money/zumo/zumokit/Utils.html" title="interface in 
 </tr>
 <tr id="i2" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../money/zumo/zumokit/Utils.CppProxy.html#isValidBtcAddress-java.lang.String-java.lang.String-">isValidBtcAddress</a></span>(java.lang.String&nbsp;address,
-                 java.lang.String&nbsp;network)</code>
-<div class="block">Validates Bitcoin address on a given network.</div>
-</td>
-</tr>
-<tr id="i3" class="rowColor">
-<td class="colFirst"><code>boolean</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../money/zumo/zumokit/Utils.CppProxy.html#isValidEthAddress-java.lang.String-">isValidEthAddress</a></span>(java.lang.String&nbsp;address)</code>
-<div class="block">Validates Ethereum address.</div>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../money/zumo/zumokit/Utils.CppProxy.html#isValidAddress-java.lang.String-java.lang.String-java.lang.String-">isValidAddress</a></span>(java.lang.String&nbsp;currencyCode,
+              java.lang.String&nbsp;address,
+              java.lang.String&nbsp;network)</code>
+<div class="block">Validates Ethereum, Bitcoin or Bitcoin SV address.</div>
 </td>
 </tr>
 </table>
@@ -222,43 +217,26 @@ implements <a href="../../../money/zumo/zumokit/Utils.html" title="interface in 
 </dl>
 </li>
 </ul>
-<a name="isValidEthAddress-java.lang.String-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>isValidEthAddress</h4>
-<pre>public&nbsp;boolean&nbsp;isValidEthAddress(java.lang.String&nbsp;address)</pre>
-<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../money/zumo/zumokit/Utils.html#isValidEthAddress-java.lang.String-">Utils</a></code></span></div>
-<div class="block">Validates Ethereum address.</div>
-<dl>
-<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="../../../money/zumo/zumokit/Utils.html#isValidEthAddress-java.lang.String-">isValidEthAddress</a></code>&nbsp;in interface&nbsp;<code><a href="../../../money/zumo/zumokit/Utils.html" title="interface in money.zumo.zumokit">Utils</a></code></dd>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>address</code> - Ethereum address</dd>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>true if Ethereum address is valid</dd>
-</dl>
-</li>
-</ul>
-<a name="isValidBtcAddress-java.lang.String-java.lang.String-">
+<a name="isValidAddress-java.lang.String-java.lang.String-java.lang.String-">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
-<h4>isValidBtcAddress</h4>
-<pre>public&nbsp;boolean&nbsp;isValidBtcAddress(java.lang.String&nbsp;address,
-                                 java.lang.String&nbsp;network)</pre>
-<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../money/zumo/zumokit/Utils.html#isValidBtcAddress-java.lang.String-java.lang.String-">Utils</a></code></span></div>
-<div class="block">Validates Bitcoin address on a given network.</div>
+<h4>isValidAddress</h4>
+<pre>public&nbsp;boolean&nbsp;isValidAddress(java.lang.String&nbsp;currencyCode,
+                              java.lang.String&nbsp;address,
+                              java.lang.String&nbsp;network)</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../money/zumo/zumokit/Utils.html#isValidAddress-java.lang.String-java.lang.String-java.lang.String-">Utils</a></code></span></div>
+<div class="block">Validates Ethereum, Bitcoin or Bitcoin SV address.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="../../../money/zumo/zumokit/Utils.html#isValidBtcAddress-java.lang.String-java.lang.String-">isValidBtcAddress</a></code>&nbsp;in interface&nbsp;<code><a href="../../../money/zumo/zumokit/Utils.html" title="interface in money.zumo.zumokit">Utils</a></code></dd>
+<dd><code><a href="../../../money/zumo/zumokit/Utils.html#isValidAddress-java.lang.String-java.lang.String-java.lang.String-">isValidAddress</a></code>&nbsp;in interface&nbsp;<code><a href="../../../money/zumo/zumokit/Utils.html" title="interface in money.zumo.zumokit">Utils</a></code></dd>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>address</code> - Bitcoin address</dd>
-<dd><code>network</code> - network type, either 'MAINNET' or 'TESTNET'</dd>
+<dd><code>currencyCode</code> - 'ETH', 'BTC' or 'BSV'</dd>
+<dd><code>address</code> - blockchain address</dd>
+<dd><code>network</code> - network type</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>true if Bitcoin address is valid on a given network</dd>
+<dd>true if address is valid on the given network</dd>
 <dt><span class="seeLabel">See Also:</span></dt>
 <dd><a href="../../../money/zumo/zumokit/NetworkType.html" title="class in money.zumo.zumokit"><code>NetworkType</code></a></dd>
 </dl>
