@@ -33,7 +33,7 @@
 
 [full_requires]
     bitcoin_core/0.20.1@zumo/stable:9b28cc67a06814b7cdebbb60753d8be54b0b38f2
-    boost_headers/1.72.0@zumo/stable:5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9
+    boost_headers/1.76.0@zumo/stable:5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9
     fmt/7.1.2:fbdbc80baadbc305bd066fa2b29c91dbae908f4b
     http_status_codes/1.0@zumo/stable:5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9
     nlohmann_json/3.8.0:5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9
