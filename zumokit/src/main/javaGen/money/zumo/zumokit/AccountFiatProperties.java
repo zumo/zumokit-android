@@ -10,6 +10,8 @@ package money.zumo.zumokit;
 public final class AccountFiatProperties {
 
 
+    /*package*/ final String mProviderId;
+
     /*package*/ final String mAccountNumber;
 
     /*package*/ final String mSortCode;
@@ -21,16 +23,23 @@ public final class AccountFiatProperties {
     /*package*/ final String mCustomerName;
 
     public AccountFiatProperties(
+            String providerId,
             String accountNumber,
             String sortCode,
             String bic,
             String iban,
             String customerName) {
+        this.mProviderId = providerId;
         this.mAccountNumber = accountNumber;
         this.mSortCode = sortCode;
         this.mBic = bic;
         this.mIban = iban;
         this.mCustomerName = customerName;
+    }
+
+    /** Fiat account provider id. */
+    public String getProviderId() {
+        return mProviderId;
     }
 
     /** Fiat account number or null. */
@@ -64,7 +73,8 @@ public final class AccountFiatProperties {
             return false;
         }
         AccountFiatProperties other = (AccountFiatProperties) obj;
-        return ((this.mAccountNumber == null && other.mAccountNumber == null) || (this.mAccountNumber != null && this.mAccountNumber.equals(other.mAccountNumber))) &&
+        return ((this.mProviderId == null && other.mProviderId == null) || (this.mProviderId != null && this.mProviderId.equals(other.mProviderId))) &&
+                ((this.mAccountNumber == null && other.mAccountNumber == null) || (this.mAccountNumber != null && this.mAccountNumber.equals(other.mAccountNumber))) &&
                 ((this.mSortCode == null && other.mSortCode == null) || (this.mSortCode != null && this.mSortCode.equals(other.mSortCode))) &&
                 ((this.mBic == null && other.mBic == null) || (this.mBic != null && this.mBic.equals(other.mBic))) &&
                 ((this.mIban == null && other.mIban == null) || (this.mIban != null && this.mIban.equals(other.mIban))) &&
@@ -75,6 +85,7 @@ public final class AccountFiatProperties {
     public int hashCode() {
         // Pick an arbitrary non-zero starting value
         int hashCode = 17;
+        hashCode = hashCode * 31 + (mProviderId == null ? 0 : mProviderId.hashCode());
         hashCode = hashCode * 31 + (mAccountNumber == null ? 0 : mAccountNumber.hashCode());
         hashCode = hashCode * 31 + (mSortCode == null ? 0 : mSortCode.hashCode());
         hashCode = hashCode * 31 + (mBic == null ? 0 : mBic.hashCode());
@@ -86,7 +97,8 @@ public final class AccountFiatProperties {
     @Override
     public String toString() {
         return "AccountFiatProperties{" +
-                "mAccountNumber=" + mAccountNumber +
+                "mProviderId=" + mProviderId +
+                "," + "mAccountNumber=" + mAccountNumber +
                 "," + "mSortCode=" + mSortCode +
                 "," + "mBic=" + mBic +
                 "," + "mIban=" + mIban +

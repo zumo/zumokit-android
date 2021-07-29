@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -132,7 +132,8 @@ extends java.lang.Object</pre>
 <th class="colOne" scope="col">Constructor and Description</th>
 </tr>
 <tr class="altColor">
-<td class="colOne"><code><span class="memberNameLink"><a href="../../../money/zumo/zumokit/AccountFiatProperties.html#AccountFiatProperties-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-">AccountFiatProperties</a></span>(java.lang.String&nbsp;accountNumber,
+<td class="colOne"><code><span class="memberNameLink"><a href="../../../money/zumo/zumokit/AccountFiatProperties.html#AccountFiatProperties-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-">AccountFiatProperties</a></span>(java.lang.String&nbsp;providerId,
+                     java.lang.String&nbsp;accountNumber,
                      java.lang.String&nbsp;sortCode,
                      java.lang.String&nbsp;bic,
                      java.lang.String&nbsp;iban,
@@ -183,15 +184,21 @@ extends java.lang.Object</pre>
 </tr>
 <tr id="i5" class="rowColor">
 <td class="colFirst"><code>java.lang.String</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../money/zumo/zumokit/AccountFiatProperties.html#getProviderId--">getProviderId</a></span>()</code>
+<div class="block">Fiat account provider id.</div>
+</td>
+</tr>
+<tr id="i6" class="altColor">
+<td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../money/zumo/zumokit/AccountFiatProperties.html#getSortCode--">getSortCode</a></span>()</code>
 <div class="block">Fiat account sort code or null.</div>
 </td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code>int</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../money/zumo/zumokit/AccountFiatProperties.html#hashCode--">hashCode</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i8" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../money/zumo/zumokit/AccountFiatProperties.html#toString--">toString</a></span>()</code>&nbsp;</td>
 </tr>
@@ -217,13 +224,14 @@ extends java.lang.Object</pre>
 <!--   -->
 </a>
 <h3>Constructor Detail</h3>
-<a name="AccountFiatProperties-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-">
+<a name="AccountFiatProperties-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>AccountFiatProperties</h4>
-<pre>public&nbsp;AccountFiatProperties(java.lang.String&nbsp;accountNumber,
+<pre>public&nbsp;AccountFiatProperties(java.lang.String&nbsp;providerId,
+                             java.lang.String&nbsp;accountNumber,
                              java.lang.String&nbsp;sortCode,
                              java.lang.String&nbsp;bic,
                              java.lang.String&nbsp;iban,
@@ -238,6 +246,16 @@ extends java.lang.Object</pre>
 <!--   -->
 </a>
 <h3>Method Detail</h3>
+<a name="getProviderId--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getProviderId</h4>
+<pre>public&nbsp;java.lang.String&nbsp;getProviderId()</pre>
+<div class="block">Fiat account provider id.</div>
+</li>
+</ul>
 <a name="getAccountNumber--">
 <!--   -->
 </a>
