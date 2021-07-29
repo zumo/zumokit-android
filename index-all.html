@@ -367,6 +367,10 @@
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/TransactionType.html#CRYPTO">CRYPTO</a></span> - Static variable in class money.zumo.zumokit.<a href="money/zumo/zumokit/TransactionType.html" title="class in money.zumo.zumokit">TransactionType</a></dt>
 <dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="money/zumo/zumokit/ZumoKitErrorCode.html#CURRENCY_NOT_SUPPORTED">CURRENCY_NOT_SUPPORTED</a></span> - Static variable in class money.zumo.zumokit.<a href="money/zumo/zumokit/ZumoKitErrorCode.html" title="class in money.zumo.zumokit">ZumoKitErrorCode</a></dt>
+<dd>
+<div class="block">Currency not supported.</div>
+</dd>
 <dt><a href="money/zumo/zumokit/CurrencyCode.html" title="class in money.zumo.zumokit"><span class="typeNameLink">CurrencyCode</span></a> - Class in <a href="money/zumo/zumokit/package-summary.html">money.zumo.zumokit</a></dt>
 <dd>
 <div class="block">Currency code, for example 'GBP'.</div>
@@ -461,6 +465,8 @@
 <dd>
 <div class="block">Ethereum transaction data is not supported yet.</div>
 </dd>
+<dt><span class="memberNameLink"><a href="money/zumo/zumokit/CurrencyCode.html#EUR">EUR</a></span> - Static variable in class money.zumo.zumokit.<a href="money/zumo/zumokit/CurrencyCode.html" title="class in money.zumo.zumokit">CurrencyCode</a></dt>
+<dd>&nbsp;</dd>
 <dt><a href="money/zumo/zumokit/Exchange.html" title="class in money.zumo.zumokit"><span class="typeNameLink">Exchange</span></a> - Class in <a href="money/zumo/zumokit/package-summary.html">money.zumo.zumokit</a></dt>
 <dd>
 <div class="block">Record containing exchange details.</div>
@@ -1355,17 +1361,11 @@
 <dd>
 <div class="block">Check if mnemonic seed phrase corresponds to user's wallet.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="money/zumo/zumokit/Utils.CppProxy.html#isValidBtcAddress-java.lang.String-java.lang.String-">isValidBtcAddress(String, String)</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/Utils.CppProxy.html" title="class in money.zumo.zumokit">Utils.CppProxy</a></dt>
+<dt><span class="memberNameLink"><a href="money/zumo/zumokit/Utils.CppProxy.html#isValidAddress-java.lang.String-java.lang.String-java.lang.String-">isValidAddress(String, String, String)</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/Utils.CppProxy.html" title="class in money.zumo.zumokit">Utils.CppProxy</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="money/zumo/zumokit/Utils.html#isValidBtcAddress-java.lang.String-java.lang.String-">isValidBtcAddress(String, String)</a></span> - Method in interface money.zumo.zumokit.<a href="money/zumo/zumokit/Utils.html" title="interface in money.zumo.zumokit">Utils</a></dt>
+<dt><span class="memberNameLink"><a href="money/zumo/zumokit/Utils.html#isValidAddress-java.lang.String-java.lang.String-java.lang.String-">isValidAddress(String, String, String)</a></span> - Method in interface money.zumo.zumokit.<a href="money/zumo/zumokit/Utils.html" title="interface in money.zumo.zumokit">Utils</a></dt>
 <dd>
-<div class="block">Validates Bitcoin address on a given network.</div>
-</dd>
-<dt><span class="memberNameLink"><a href="money/zumo/zumokit/Utils.CppProxy.html#isValidEthAddress-java.lang.String-">isValidEthAddress(String)</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/Utils.CppProxy.html" title="class in money.zumo.zumokit">Utils.CppProxy</a></dt>
-<dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="money/zumo/zumokit/Utils.html#isValidEthAddress-java.lang.String-">isValidEthAddress(String)</a></span> - Method in interface money.zumo.zumokit.<a href="money/zumo/zumokit/Utils.html" title="interface in money.zumo.zumokit">Utils</a></dt>
-<dd>
-<div class="block">Validates Ethereum address.</div>
+<div class="block">Validates Ethereum, Bitcoin or Bitcoin SV address.</div>
 </dd>
 </dl>
 <a name="I:K">
@@ -1895,6 +1895,8 @@
 <dd>
 <div class="block">Unlock user wallet with user's password.</div>
 </dd>
+<dt><span class="memberNameLink"><a href="money/zumo/zumokit/CurrencyCode.html#USD">USD</a></span> - Static variable in class money.zumo.zumokit.<a href="money/zumo/zumokit/CurrencyCode.html" title="class in money.zumo.zumokit">CurrencyCode</a></dt>
+<dd>&nbsp;</dd>
 <dt><a href="money/zumo/zumokit/User.html" title="interface in money.zumo.zumokit"><span class="typeNameLink">User</span></a> - Interface in <a href="money/zumo/zumokit/package-summary.html">money.zumo.zumokit</a></dt>
 <dd>
 <div class="block">User class provides methods for managing user wallet and accounts.</div>
@@ -1981,7 +1983,7 @@
 <dd>
 <div class="block">Entry point to ZumoKit Android SDK.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="money/zumo/zumokit/ZumoKit.html#ZumoKit-java.lang.String-java.lang.String-java.lang.String-java.lang.String-">ZumoKit(String, String, String, String)</a></span> - Constructor for class money.zumo.zumokit.<a href="money/zumo/zumokit/ZumoKit.html" title="class in money.zumo.zumokit">ZumoKit</a></dt>
+<dt><span class="memberNameLink"><a href="money/zumo/zumokit/ZumoKit.html#ZumoKit-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-">ZumoKit(String, String, String, String, String)</a></span> - Constructor for class money.zumo.zumokit.<a href="money/zumo/zumokit/ZumoKit.html" title="class in money.zumo.zumokit">ZumoKit</a></dt>
 <dd>
 <div class="block">Initializes ZumoKit SDK.</div>
 </dd>
