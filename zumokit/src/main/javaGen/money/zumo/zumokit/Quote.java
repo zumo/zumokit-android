@@ -3,39 +3,45 @@
 
 package money.zumo.zumokit;
 
-/**
- * Record containing Zumo exchange rates for information purposes only.
- * Can be used to display amounts in local currency to the user.
- */
-public final class ExchangeRate {
+/** Record containing Zumo exchange rate quote used in making exchanges. */
+public final class Quote {
 
 
     /*package*/ final String mId;
+
+    /*package*/ final int mExpireTime;
 
     /*package*/ final String mFromCurrency;
 
     /*package*/ final String mToCurrency;
 
+    /*package*/ final java.math.BigDecimal mDepositAmount;
+
     /*package*/ final java.math.BigDecimal mValue;
 
-    /*package*/ final int mTimestamp;
-
-    public ExchangeRate(
+    public Quote(
             String id,
+            int expireTime,
             String fromCurrency,
             String toCurrency,
-            java.math.BigDecimal value,
-            int timestamp) {
+            java.math.BigDecimal depositAmount,
+            java.math.BigDecimal value) {
         this.mId = id;
+        this.mExpireTime = expireTime;
         this.mFromCurrency = fromCurrency;
         this.mToCurrency = toCurrency;
+        this.mDepositAmount = depositAmount;
         this.mValue = value;
-        this.mTimestamp = timestamp;
     }
 
     /** Identifier. */
     public String getId() {
         return mId;
+    }
+
+    /** Epoch timestamp representing expiration time of this quote. */
+    public int getExpireTime() {
+        return mExpireTime;
     }
 
     /**
@@ -54,27 +60,28 @@ public final class ExchangeRate {
         return mToCurrency;
     }
 
+    /** Deposit amount to be exchanged to target currency. */
+    public java.math.BigDecimal getDepositAmount() {
+        return mDepositAmount;
+    }
+
     /** Value of 1 unit of deposit currency in target currency. */
     public java.math.BigDecimal getValue() {
         return mValue;
     }
 
-    /** Epoch timestamp when the exchange rate was issued. */
-    public int getTimestamp() {
-        return mTimestamp;
-    }
-
     @Override
     public boolean equals(Object obj) {
-        if (!(obj instanceof ExchangeRate)) {
+        if (!(obj instanceof Quote)) {
             return false;
         }
-        ExchangeRate other = (ExchangeRate) obj;
+        Quote other = (Quote) obj;
         return this.mId.equals(other.mId) &&
+                this.mExpireTime == other.mExpireTime &&
                 this.mFromCurrency.equals(other.mFromCurrency) &&
                 this.mToCurrency.equals(other.mToCurrency) &&
-                this.mValue.equals(other.mValue) &&
-                this.mTimestamp == other.mTimestamp;
+                this.mDepositAmount.equals(other.mDepositAmount) &&
+                this.mValue.equals(other.mValue);
     }
 
     @Override
@@ -82,21 +89,23 @@ public final class ExchangeRate {
         // Pick an arbitrary non-zero starting value
         int hashCode = 17;
         hashCode = hashCode * 31 + mId.hashCode();
+        hashCode = hashCode * 31 + mExpireTime;
         hashCode = hashCode * 31 + mFromCurrency.hashCode();
         hashCode = hashCode * 31 + mToCurrency.hashCode();
+        hashCode = hashCode * 31 + (mDepositAmount.hashCode());
         hashCode = hashCode * 31 + (mValue.hashCode());
-        hashCode = hashCode * 31 + mTimestamp;
         return hashCode;
     }
 
     @Override
     public String toString() {
-        return "ExchangeRate{" +
+        return "Quote{" +
                 "mId=" + mId +
+                "," + "mExpireTime=" + mExpireTime +
                 "," + "mFromCurrency=" + mFromCurrency +
                 "," + "mToCurrency=" + mToCurrency +
+                "," + "mDepositAmount=" + mDepositAmount +
                 "," + "mValue=" + mValue +
-                "," + "mTimestamp=" + mTimestamp +
         "}";
     }
 
