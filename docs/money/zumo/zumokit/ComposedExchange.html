@@ -128,10 +128,10 @@ extends java.lang.Object</pre>
 <th class="colOne" scope="col">Constructor and Description</th>
 </tr>
 <tr class="altColor">
-<td class="colOne"><code><span class="memberNameLink"><a href="../../../money/zumo/zumokit/ComposedExchange.html#ComposedExchange-java.lang.String-money.zumo.zumokit.Account-money.zumo.zumokit.Account-money.zumo.zumokit.ExchangeRate-money.zumo.zumokit.ExchangeSetting-java.lang.String-java.math.BigDecimal-java.math.BigDecimal-java.math.BigDecimal-java.math.BigDecimal-java.math.BigDecimal-java.lang.String-">ComposedExchange</a></span>(java.lang.String&nbsp;signedTransaction,
+<td class="colOne"><code><span class="memberNameLink"><a href="../../../money/zumo/zumokit/ComposedExchange.html#ComposedExchange-java.lang.String-money.zumo.zumokit.Account-money.zumo.zumokit.Account-money.zumo.zumokit.Quote-money.zumo.zumokit.ExchangeSetting-java.lang.String-java.math.BigDecimal-java.math.BigDecimal-java.math.BigDecimal-java.math.BigDecimal-java.math.BigDecimal-java.lang.String-">ComposedExchange</a></span>(java.lang.String&nbsp;signedTransaction,
                 <a href="../../../money/zumo/zumokit/Account.html" title="class in money.zumo.zumokit">Account</a>&nbsp;fromAccount,
                 <a href="../../../money/zumo/zumokit/Account.html" title="class in money.zumo.zumokit">Account</a>&nbsp;toAccount,
-                <a href="../../../money/zumo/zumokit/ExchangeRate.html" title="class in money.zumo.zumokit">ExchangeRate</a>&nbsp;exchangeRate,
+                <a href="../../../money/zumo/zumokit/Quote.html" title="class in money.zumo.zumokit">Quote</a>&nbsp;quote,
                 <a href="../../../money/zumo/zumokit/ExchangeSetting.html" title="class in money.zumo.zumokit">ExchangeSetting</a>&nbsp;exchangeSetting,
                 java.lang.String&nbsp;exchangeAddress,
                 java.math.BigDecimal&nbsp;amount,
@@ -176,43 +176,43 @@ extends java.lang.Object</pre>
 <tr id="i3" class="rowColor">
 <td class="colFirst"><code>java.math.BigDecimal</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../money/zumo/zumokit/ComposedExchange.html#getExchangeFee--">getExchangeFee</a></span>()</code>
-<div class="block">Exchange fee, calculated as <code>value X exchangeRate X exchangeFeeRate</code>.</div>
+<div class="block">Exchange fee, calculated as <code>value X quote.value X exchangeFeeRate</code>.</div>
 </td>
 </tr>
 <tr id="i4" class="altColor">
-<td class="colFirst"><code><a href="../../../money/zumo/zumokit/ExchangeRate.html" title="class in money.zumo.zumokit">ExchangeRate</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../money/zumo/zumokit/ComposedExchange.html#getExchangeRate--">getExchangeRate</a></span>()</code>
-<div class="block">Exchange rate used composing exchange.</div>
+<td class="colFirst"><code><a href="../../../money/zumo/zumokit/ExchangeSetting.html" title="class in money.zumo.zumokit">ExchangeSetting</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../money/zumo/zumokit/ComposedExchange.html#getExchangeSetting--">getExchangeSetting</a></span>()</code>
+<div class="block">Exchange setting used when composing exchange.</div>
 </td>
 </tr>
 <tr id="i5" class="rowColor">
-<td class="colFirst"><code><a href="../../../money/zumo/zumokit/ExchangeSetting.html" title="class in money.zumo.zumokit">ExchangeSetting</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../money/zumo/zumokit/ComposedExchange.html#getExchangeSetting--">getExchangeSetting</a></span>()</code>
-<div class="block">Exchange setting used composing exchange.</div>
-</td>
-</tr>
-<tr id="i6" class="altColor">
 <td class="colFirst"><code><a href="../../../money/zumo/zumokit/Account.html" title="class in money.zumo.zumokit">Account</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../money/zumo/zumokit/ComposedExchange.html#getFromAccount--">getFromAccount</a></span>()</code>
 <div class="block">Source account.</div>
 </td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i6" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../money/zumo/zumokit/ComposedExchange.html#getNonce--">getNonce</a></span>()</code>
 <div class="block">Unique nonce used to prevent double spend.</div>
 </td>
 </tr>
-<tr id="i8" class="altColor">
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code>java.math.BigDecimal</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../money/zumo/zumokit/ComposedExchange.html#getOutgoingTransactionFee--">getOutgoingTransactionFee</a></span>()</code>
 <div class="block">Outgoing transaction fee.</div>
 </td>
 </tr>
+<tr id="i8" class="altColor">
+<td class="colFirst"><code><a href="../../../money/zumo/zumokit/Quote.html" title="class in money.zumo.zumokit">Quote</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../money/zumo/zumokit/ComposedExchange.html#getQuote--">getQuote</a></span>()</code>
+<div class="block">Exchange rate quote used when composing exchange.</div>
+</td>
+</tr>
 <tr id="i9" class="rowColor">
 <td class="colFirst"><code>java.math.BigDecimal</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../money/zumo/zumokit/ComposedExchange.html#getReturnAmount--">getReturnAmount</a></span>()</code>
-<div class="block">Amount that user receives, calculated as <code>value X exchangeRate X (1 - feeRate) - returnTransactionFee</code>.</div>
+<div class="block">Amount that user receives, calculated as <code>value X quote.value X (1 - feeRate) - returnTransactionFee</code>.</div>
 </td>
 </tr>
 <tr id="i10" class="altColor">
@@ -263,7 +263,7 @@ extends java.lang.Object</pre>
 <!--   -->
 </a>
 <h3>Constructor Detail</h3>
-<a name="ComposedExchange-java.lang.String-money.zumo.zumokit.Account-money.zumo.zumokit.Account-money.zumo.zumokit.ExchangeRate-money.zumo.zumokit.ExchangeSetting-java.lang.String-java.math.BigDecimal-java.math.BigDecimal-java.math.BigDecimal-java.math.BigDecimal-java.math.BigDecimal-java.lang.String-">
+<a name="ComposedExchange-java.lang.String-money.zumo.zumokit.Account-money.zumo.zumokit.Account-money.zumo.zumokit.Quote-money.zumo.zumokit.ExchangeSetting-java.lang.String-java.math.BigDecimal-java.math.BigDecimal-java.math.BigDecimal-java.math.BigDecimal-java.math.BigDecimal-java.lang.String-">
 <!--   -->
 </a>
 <ul class="blockListLast">
@@ -272,7 +272,7 @@ extends java.lang.Object</pre>
 <pre>public&nbsp;ComposedExchange(java.lang.String&nbsp;signedTransaction,
                         <a href="../../../money/zumo/zumokit/Account.html" title="class in money.zumo.zumokit">Account</a>&nbsp;fromAccount,
                         <a href="../../../money/zumo/zumokit/Account.html" title="class in money.zumo.zumokit">Account</a>&nbsp;toAccount,
-                        <a href="../../../money/zumo/zumokit/ExchangeRate.html" title="class in money.zumo.zumokit">ExchangeRate</a>&nbsp;exchangeRate,
+                        <a href="../../../money/zumo/zumokit/Quote.html" title="class in money.zumo.zumokit">Quote</a>&nbsp;quote,
                         <a href="../../../money/zumo/zumokit/ExchangeSetting.html" title="class in money.zumo.zumokit">ExchangeSetting</a>&nbsp;exchangeSetting,
                         java.lang.String&nbsp;exchangeAddress,
                         java.math.BigDecimal&nbsp;amount,
@@ -321,14 +321,14 @@ extends java.lang.Object</pre>
 <div class="block">Target account.</div>
 </li>
 </ul>
-<a name="getExchangeRate--">
+<a name="getQuote--">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>getExchangeRate</h4>
-<pre>public&nbsp;<a href="../../../money/zumo/zumokit/ExchangeRate.html" title="class in money.zumo.zumokit">ExchangeRate</a>&nbsp;getExchangeRate()</pre>
-<div class="block">Exchange rate used composing exchange.</div>
+<h4>getQuote</h4>
+<pre>public&nbsp;<a href="../../../money/zumo/zumokit/Quote.html" title="class in money.zumo.zumokit">Quote</a>&nbsp;getQuote()</pre>
+<div class="block">Exchange rate quote used when composing exchange.</div>
 </li>
 </ul>
 <a name="getExchangeSetting--">
@@ -338,7 +338,7 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>getExchangeSetting</h4>
 <pre>public&nbsp;<a href="../../../money/zumo/zumokit/ExchangeSetting.html" title="class in money.zumo.zumokit">ExchangeSetting</a>&nbsp;getExchangeSetting()</pre>
-<div class="block">Exchange setting used composing exchange.</div>
+<div class="block">Exchange setting used when composing exchange.</div>
 </li>
 </ul>
 <a name="getExchangeAddress--">
@@ -369,7 +369,7 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>getReturnAmount</h4>
 <pre>public&nbsp;java.math.BigDecimal&nbsp;getReturnAmount()</pre>
-<div class="block">Amount that user receives, calculated as <code>value X exchangeRate X (1 - feeRate) - returnTransactionFee</code>.</div>
+<div class="block">Amount that user receives, calculated as <code>value X quote.value X (1 - feeRate) - returnTransactionFee</code>.</div>
 <dl>
 <dt><span class="seeLabel">See Also:</span></dt>
 <dd><a href="../../../money/zumo/zumokit/ExchangeSetting.html" title="class in money.zumo.zumokit"><code>ExchangeSetting</code></a></dd>
@@ -393,7 +393,7 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>getExchangeFee</h4>
 <pre>public&nbsp;java.math.BigDecimal&nbsp;getExchangeFee()</pre>
-<div class="block">Exchange fee, calculated as <code>value X exchangeRate X exchangeFeeRate</code>.</div>
+<div class="block">Exchange fee, calculated as <code>value X quote.value X exchangeFeeRate</code>.</div>
 <dl>
 <dt><span class="seeLabel">See Also:</span></dt>
 <dd><a href="../../../money/zumo/zumokit/ExchangeSetting.html" title="class in money.zumo.zumokit"><code>ExchangeSetting</code></a></dd>

@@ -107,14 +107,11 @@ public final class ZumoKitErrorCode {
     /** Invalid response received from API. */
     public static final String INVALID_API_RESPONSE = "invalid_api_response";
 
-    /** Invalid or missing Zumo Exchange Service address. */
-    public static final String INVALID_EXCHANGE_ADDRESS = "invalid_exchange_address";
+    /** Mismatch between exchange rate quote and selected accounts. */
+    public static final String INVALID_QUOTE = "invalid_quote";
 
-    /** Mismatch between exchange rate and selected accounts. */
-    public static final String INVALID_EXCHANGE_RATE = "invalid_exchange_rate";
-
-    /** Mismatch between exchange setting and selected accounts. */
-    public static final String INVALID_EXCHANGE_SETTING = "invalid_exchange_setting";
+    /** Exchange pair not supported. */
+    public static final String EXCHANGE_PAIR_NOT_SUPPORTED = "exchange_pair_not_supported";
 
     /** Requested private key derivation path is invalid. */
     public static final String INVALID_HD_WALLET_PATH = "invalid_hd_wallet_path";

@@ -163,10 +163,8 @@ var activeTableTab = "activeTableTab";
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../money/zumo/zumokit/Wallet.html#composeExchange-java.lang.String-java.lang.String-money.zumo.zumokit.ExchangeRate-money.zumo.zumokit.ExchangeSetting-java.math.BigDecimal-boolean-money.zumo.zumokit.ComposeExchangeCallback-">composeExchange</a></span>(java.lang.String&nbsp;fromAccountId,
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../money/zumo/zumokit/Wallet.html#composeExchange-java.lang.String-java.lang.String-java.math.BigDecimal-boolean-money.zumo.zumokit.ComposeExchangeCallback-">composeExchange</a></span>(java.lang.String&nbsp;fromAccountId,
                java.lang.String&nbsp;toAccountId,
-               <a href="../../../money/zumo/zumokit/ExchangeRate.html" title="class in money.zumo.zumokit">ExchangeRate</a>&nbsp;exchangeRate,
-               <a href="../../../money/zumo/zumokit/ExchangeSetting.html" title="class in money.zumo.zumokit">ExchangeSetting</a>&nbsp;exchangeSetting,
                java.math.BigDecimal&nbsp;amount,
                boolean&nbsp;sendMax,
                <a href="../../../money/zumo/zumokit/ComposeExchangeCallback.html" title="interface in money.zumo.zumokit">ComposeExchangeCallback</a>&nbsp;callback)</code>
@@ -361,7 +359,7 @@ var activeTableTab = "activeTableTab";
 </dl>
 </li>
 </ul>
-<a name="composeExchange-java.lang.String-java.lang.String-money.zumo.zumokit.ExchangeRate-money.zumo.zumokit.ExchangeSetting-java.math.BigDecimal-boolean-money.zumo.zumokit.ComposeExchangeCallback-">
+<a name="composeExchange-java.lang.String-java.lang.String-java.math.BigDecimal-boolean-money.zumo.zumokit.ComposeExchangeCallback-">
 <!--   -->
 </a>
 <ul class="blockList">
@@ -369,8 +367,6 @@ var activeTableTab = "activeTableTab";
 <h4>composeExchange</h4>
 <pre>void&nbsp;composeExchange(java.lang.String&nbsp;fromAccountId,
                      java.lang.String&nbsp;toAccountId,
-                     <a href="../../../money/zumo/zumokit/ExchangeRate.html" title="class in money.zumo.zumokit">ExchangeRate</a>&nbsp;exchangeRate,
-                     <a href="../../../money/zumo/zumokit/ExchangeSetting.html" title="class in money.zumo.zumokit">ExchangeSetting</a>&nbsp;exchangeSetting,
                      java.math.BigDecimal&nbsp;amount,
                      boolean&nbsp;sendMax,
                      <a href="../../../money/zumo/zumokit/ComposeExchangeCallback.html" title="interface in money.zumo.zumokit">ComposeExchangeCallback</a>&nbsp;callback)</pre>
@@ -381,8 +377,6 @@ var activeTableTab = "activeTableTab";
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>fromAccountId</code> - <a href="../../../money/zumo/zumokit/Account.html" title="class in money.zumo.zumokit"><code>Account</code></a> identifier</dd>
 <dd><code>toAccountId</code> - <a href="../../../money/zumo/zumokit/Account.html" title="class in money.zumo.zumokit"><code>Account</code></a> identifier</dd>
-<dd><code>exchangeRate</code> - Zumo exchange rate obtained from <a href="../../../money/zumo/zumokit/ZumoKit.html" title="class in money.zumo.zumokit"><code>ZumoKit</code></a> instance</dd>
-<dd><code>exchangeSetting</code> - Zumo exchange setting obtained from <a href="../../../money/zumo/zumokit/ZumoKit.html" title="class in money.zumo.zumokit"><code>ZumoKit</code></a> instance</dd>
 <dd><code>amount</code> - amount in deposit account currency</dd>
 <dd><code>sendMax</code> - exchange maximum possible funds</dd>
 <dd><code>callback</code> - an interface to receive the result or error</dd>

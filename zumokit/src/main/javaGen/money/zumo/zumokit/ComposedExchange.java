@@ -13,7 +13,7 @@ public final class ComposedExchange {
 
     /*package*/ final Account mToAccount;
 
-    /*package*/ final ExchangeRate mExchangeRate;
+    /*package*/ final Quote mQuote;
 
     /*package*/ final ExchangeSetting mExchangeSetting;
 
@@ -35,7 +35,7 @@ public final class ComposedExchange {
             String signedTransaction,
             Account fromAccount,
             Account toAccount,
-            ExchangeRate exchangeRate,
+            Quote quote,
             ExchangeSetting exchangeSetting,
             String exchangeAddress,
             java.math.BigDecimal amount,
@@ -47,7 +47,7 @@ public final class ComposedExchange {
         this.mSignedTransaction = signedTransaction;
         this.mFromAccount = fromAccount;
         this.mToAccount = toAccount;
-        this.mExchangeRate = exchangeRate;
+        this.mQuote = quote;
         this.mExchangeSetting = exchangeSetting;
         this.mExchangeAddress = exchangeAddress;
         this.mAmount = amount;
@@ -73,12 +73,12 @@ public final class ComposedExchange {
         return mToAccount;
     }
 
-    /** Exchange rate used composing exchange. */
-    public ExchangeRate getExchangeRate() {
-        return mExchangeRate;
+    /** Exchange rate quote used when composing exchange. */
+    public Quote getQuote() {
+        return mQuote;
     }
 
-    /** Exchange setting used composing exchange. */
+    /** Exchange setting used when composing exchange. */
     public ExchangeSetting getExchangeSetting() {
         return mExchangeSetting;
     }
@@ -97,7 +97,7 @@ public final class ComposedExchange {
     }
 
     /**
-     * Amount that user receives, calculated as <code>value X exchangeRate X (1 - feeRate) - returnTransactionFee</code>.
+     * Amount that user receives, calculated as <code>value X quote.value X (1 - feeRate) - returnTransactionFee</code>.
      * @see ExchangeSetting
      */
     public java.math.BigDecimal getReturnAmount() {
@@ -110,7 +110,7 @@ public final class ComposedExchange {
     }
 
     /**
-     * Exchange fee, calculated as <code>value X exchangeRate X exchangeFeeRate</code>.
+     * Exchange fee, calculated as <code>value X quote.value X exchangeFeeRate</code>.
      * @see ExchangeSetting
      */
     public java.math.BigDecimal getExchangeFee() {
@@ -139,7 +139,7 @@ public final class ComposedExchange {
         return ((this.mSignedTransaction == null && other.mSignedTransaction == null) || (this.mSignedTransaction != null && this.mSignedTransaction.equals(other.mSignedTransaction))) &&
                 this.mFromAccount.equals(other.mFromAccount) &&
                 this.mToAccount.equals(other.mToAccount) &&
-                this.mExchangeRate.equals(other.mExchangeRate) &&
+                this.mQuote.equals(other.mQuote) &&
                 this.mExchangeSetting.equals(other.mExchangeSetting) &&
                 ((this.mExchangeAddress == null && other.mExchangeAddress == null) || (this.mExchangeAddress != null && this.mExchangeAddress.equals(other.mExchangeAddress))) &&
                 this.mAmount.equals(other.mAmount) &&
@@ -157,7 +157,7 @@ public final class ComposedExchange {
         hashCode = hashCode * 31 + (mSignedTransaction == null ? 0 : mSignedTransaction.hashCode());
         hashCode = hashCode * 31 + mFromAccount.hashCode();
         hashCode = hashCode * 31 + mToAccount.hashCode();
-        hashCode = hashCode * 31 + mExchangeRate.hashCode();
+        hashCode = hashCode * 31 + mQuote.hashCode();
         hashCode = hashCode * 31 + mExchangeSetting.hashCode();
         hashCode = hashCode * 31 + (mExchangeAddress == null ? 0 : mExchangeAddress.hashCode());
         hashCode = hashCode * 31 + (mAmount.hashCode());
@@ -175,7 +175,7 @@ public final class ComposedExchange {
                 "mSignedTransaction=" + mSignedTransaction +
                 "," + "mFromAccount=" + mFromAccount +
                 "," + "mToAccount=" + mToAccount +
-                "," + "mExchangeRate=" + mExchangeRate +
+                "," + "mQuote=" + mQuote +
                 "," + "mExchangeSetting=" + mExchangeSetting +
                 "," + "mExchangeAddress=" + mExchangeAddress +
                 "," + "mAmount=" + mAmount +

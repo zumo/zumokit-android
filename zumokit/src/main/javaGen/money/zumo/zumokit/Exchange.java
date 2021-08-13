@@ -35,7 +35,7 @@ public final class Exchange {
 
     /*package*/ final java.math.BigDecimal mReturnTransactionFee;
 
-    /*package*/ final ExchangeRate mExchangeRate;
+    /*package*/ final Quote mQuote;
 
     /*package*/ final ExchangeSetting mExchangeSetting;
 
@@ -61,7 +61,7 @@ public final class Exchange {
             java.math.BigDecimal returnAmount,
             java.math.BigDecimal exchangeFee,
             java.math.BigDecimal returnTransactionFee,
-            ExchangeRate exchangeRate,
+            Quote quote,
             ExchangeSetting exchangeSetting,
             HashMap<String, HashMap<String, ExchangeRate>> exchangeRates,
             String nonce,
@@ -80,7 +80,7 @@ public final class Exchange {
         this.mReturnAmount = returnAmount;
         this.mExchangeFee = exchangeFee;
         this.mReturnTransactionFee = returnTransactionFee;
-        this.mExchangeRate = exchangeRate;
+        this.mQuote = quote;
         this.mExchangeSetting = exchangeSetting;
         this.mExchangeRates = exchangeRates;
         this.mNonce = nonce;
@@ -148,7 +148,7 @@ public final class Exchange {
     }
 
     /**
-     * Amount that user receives, calculated as <code>amount X exchangeRate X (1 - feeRate) - returnTransactionFee</code>.
+     * Amount that user receives, calculated as <code>amount X quote.value X (1 - feeRate) - returnTransactionFee</code>.
      * @see ExchangeSetting
      */
     public java.math.BigDecimal getReturnAmount() {
@@ -156,7 +156,7 @@ public final class Exchange {
     }
 
     /**
-     * Exchange fee, calculated as <code>amount X exchangeRate X exchangeFeeRate</code>.
+     * Exchange fee, calculated as <code>amount X quote.value X exchangeFeeRate</code>.
      * @see ExchangeSetting
      */
     public java.math.BigDecimal getExchangeFee() {
@@ -171,9 +171,9 @@ public final class Exchange {
         return mReturnTransactionFee;
     }
 
-    /** Exchange rate used. */
-    public ExchangeRate getExchangeRate() {
-        return mExchangeRate;
+    /** Exchange rate quote used. */
+    public Quote getQuote() {
+        return mQuote;
     }
 
     /** Exchange setting used. */
@@ -223,7 +223,7 @@ public final class Exchange {
                 this.mReturnAmount.equals(other.mReturnAmount) &&
                 this.mExchangeFee.equals(other.mExchangeFee) &&
                 this.mReturnTransactionFee.equals(other.mReturnTransactionFee) &&
-                this.mExchangeRate.equals(other.mExchangeRate) &&
+                this.mQuote.equals(other.mQuote) &&
                 this.mExchangeSetting.equals(other.mExchangeSetting) &&
                 this.mExchangeRates.equals(other.mExchangeRates) &&
                 ((this.mNonce == null && other.mNonce == null) || (this.mNonce != null && this.mNonce.equals(other.mNonce))) &&
@@ -248,7 +248,7 @@ public final class Exchange {
         hashCode = hashCode * 31 + (mReturnAmount.hashCode());
         hashCode = hashCode * 31 + (mExchangeFee.hashCode());
         hashCode = hashCode * 31 + (mReturnTransactionFee.hashCode());
-        hashCode = hashCode * 31 + mExchangeRate.hashCode();
+        hashCode = hashCode * 31 + mQuote.hashCode();
         hashCode = hashCode * 31 + mExchangeSetting.hashCode();
         hashCode = hashCode * 31 + mExchangeRates.hashCode();
         hashCode = hashCode * 31 + (mNonce == null ? 0 : mNonce.hashCode());
@@ -273,7 +273,7 @@ public final class Exchange {
                 "," + "mReturnAmount=" + mReturnAmount +
                 "," + "mExchangeFee=" + mExchangeFee +
                 "," + "mReturnTransactionFee=" + mReturnTransactionFee +
-                "," + "mExchangeRate=" + mExchangeRate +
+                "," + "mQuote=" + mQuote +
                 "," + "mExchangeSetting=" + mExchangeSetting +
                 "," + "mExchangeRates=" + mExchangeRates +
                 "," + "mNonce=" + mNonce +

@@ -138,15 +138,9 @@ public class MainActivity extends AppCompatActivity {
                                             composeFiatTransaction(fiatAccount, true, false);
                                         }
 
-                                        // Display current exchange rates & exchange settings
-                                        Log.i("zumokit/exchange-rates", mZumoKit.getExchangeRate("BTC", "ETH").toString());
-                                        Log.i("zumokit/exchange-rates", mZumoKit.getExchangeSetting("ETH", "BTC").toString());
-
                                         composeExchange(
                                                 ethAccount,
                                                 btcAccount,
-                                                mZumoKit.getExchangeRate("ETH", "BTC"),
-                                                mZumoKit.getExchangeSetting("ETH", "BTC"),
                                                 new BigDecimal("0.08"),
                                                 false,
                                                 false
@@ -312,10 +306,9 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    private void composeExchange(Account fromAccount, Account toAccount, ExchangeRate exchangeRate, ExchangeSetting exchangeSetting, BigDecimal value, Boolean sendMax, Boolean submit) {
+    private void composeExchange(Account fromAccount, Account toAccount, BigDecimal value, Boolean sendMax, Boolean submit) {
         mWallet.composeExchange(
-                fromAccount.getId(), toAccount.getId(), exchangeRate, exchangeSetting, value, sendMax,
-                new ComposeExchangeCallback() {
+                fromAccount.getId(), toAccount.getId(), value, sendMax, new ComposeExchangeCallback() {
                     @Override
                     public void onError(Exception e) {
                         Log.e("zumokit", e.toString());
