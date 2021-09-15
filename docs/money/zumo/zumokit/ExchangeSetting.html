@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -128,15 +128,14 @@ extends java.lang.Object</pre>
 <th class="colOne" scope="col">Constructor and Description</th>
 </tr>
 <tr class="altColor">
-<td class="colOne"><code><span class="memberNameLink"><a href="../../../money/zumo/zumokit/ExchangeSetting.html#ExchangeSetting-java.lang.String-java.util.HashMap-java.lang.String-java.lang.String-java.math.BigDecimal-java.math.BigDecimal-java.math.BigDecimal-java.math.BigDecimal-int-">ExchangeSetting</a></span>(java.lang.String&nbsp;id,
+<td class="colOne"><code><span class="memberNameLink"><a href="../../../money/zumo/zumokit/ExchangeSetting.html#ExchangeSetting-java.lang.String-java.util.HashMap-java.lang.String-java.lang.String-java.math.BigDecimal-java.math.BigDecimal-java.math.BigDecimal-java.math.BigDecimal-">ExchangeSetting</a></span>(java.lang.String&nbsp;id,
                java.util.HashMap&lt;java.lang.String,java.lang.String&gt;&nbsp;exchangeAddress,
                java.lang.String&nbsp;fromCurrency,
                java.lang.String&nbsp;toCurrency,
                java.math.BigDecimal&nbsp;minExchangeAmount,
                java.math.BigDecimal&nbsp;exchangeFeeRate,
                java.math.BigDecimal&nbsp;outgoingTransactionFeeRate,
-               java.math.BigDecimal&nbsp;returnTransactionFee,
-               int&nbsp;timestamp)</code>&nbsp;</td>
+               java.math.BigDecimal&nbsp;returnTransactionFee)</code>&nbsp;</td>
 </tr>
 </table>
 </li>
@@ -200,22 +199,16 @@ extends java.lang.Object</pre>
 </td>
 </tr>
 <tr id="i8" class="altColor">
-<td class="colFirst"><code>int</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../money/zumo/zumokit/ExchangeSetting.html#getTimestamp--">getTimestamp</a></span>()</code>
-<div class="block">Epoch timestamp when the exchange setting were last updated.</div>
-</td>
-</tr>
-<tr id="i9" class="rowColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../money/zumo/zumokit/ExchangeSetting.html#getToCurrency--">getToCurrency</a></span>()</code>
 <div class="block">Currency code of return transaction.</div>
 </td>
 </tr>
-<tr id="i10" class="altColor">
+<tr id="i9" class="rowColor">
 <td class="colFirst"><code>int</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../money/zumo/zumokit/ExchangeSetting.html#hashCode--">hashCode</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i11" class="rowColor">
+<tr id="i10" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../money/zumo/zumokit/ExchangeSetting.html#toString--">toString</a></span>()</code>&nbsp;</td>
 </tr>
@@ -241,7 +234,7 @@ extends java.lang.Object</pre>
 <!--   -->
 </a>
 <h3>Constructor Detail</h3>
-<a name="ExchangeSetting-java.lang.String-java.util.HashMap-java.lang.String-java.lang.String-java.math.BigDecimal-java.math.BigDecimal-java.math.BigDecimal-java.math.BigDecimal-int-">
+<a name="ExchangeSetting-java.lang.String-java.util.HashMap-java.lang.String-java.lang.String-java.math.BigDecimal-java.math.BigDecimal-java.math.BigDecimal-java.math.BigDecimal-">
 <!--   -->
 </a>
 <ul class="blockListLast">
@@ -254,8 +247,7 @@ extends java.lang.Object</pre>
                        java.math.BigDecimal&nbsp;minExchangeAmount,
                        java.math.BigDecimal&nbsp;exchangeFeeRate,
                        java.math.BigDecimal&nbsp;outgoingTransactionFeeRate,
-                       java.math.BigDecimal&nbsp;returnTransactionFee,
-                       int&nbsp;timestamp)</pre>
+                       java.math.BigDecimal&nbsp;returnTransactionFee)</pre>
 </li>
 </ul>
 </li>
@@ -356,16 +348,6 @@ extends java.lang.Object</pre>
 <h4>getReturnTransactionFee</h4>
 <pre>public&nbsp;java.math.BigDecimal&nbsp;getReturnTransactionFee()</pre>
 <div class="block">Fee that will charged for return transaction.</div>
-</li>
-</ul>
-<a name="getTimestamp--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getTimestamp</h4>
-<pre>public&nbsp;int&nbsp;getTimestamp()</pre>
-<div class="block">Epoch timestamp when the exchange setting were last updated.</div>
 </li>
 </ul>
 <a name="equals-java.lang.Object-">

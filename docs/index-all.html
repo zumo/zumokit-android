@@ -499,7 +499,7 @@
 <dd>
 <div class="block">Record containing Zumo exchange setting used in making exchanges.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="money/zumo/zumokit/ExchangeSetting.html#ExchangeSetting-java.lang.String-java.util.HashMap-java.lang.String-java.lang.String-java.math.BigDecimal-java.math.BigDecimal-java.math.BigDecimal-java.math.BigDecimal-int-">ExchangeSetting(String, HashMap&lt;String, String&gt;, String, String, BigDecimal, BigDecimal, BigDecimal, BigDecimal, int)</a></span> - Constructor for class money.zumo.zumokit.<a href="money/zumo/zumokit/ExchangeSetting.html" title="class in money.zumo.zumokit">ExchangeSetting</a></dt>
+<dt><span class="memberNameLink"><a href="money/zumo/zumokit/ExchangeSetting.html#ExchangeSetting-java.lang.String-java.util.HashMap-java.lang.String-java.lang.String-java.math.BigDecimal-java.math.BigDecimal-java.math.BigDecimal-java.math.BigDecimal-">ExchangeSetting(String, HashMap&lt;String, String&gt;, String, String, BigDecimal, BigDecimal, BigDecimal, BigDecimal)</a></span> - Constructor for class money.zumo.zumokit.<a href="money/zumo/zumokit/ExchangeSetting.html" title="class in money.zumo.zumokit">ExchangeSetting</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="money/zumo/zumokit/ExchangeStatus.html" title="class in money.zumo.zumokit"><span class="typeNameLink">ExchangeStatus</span></a> - Class in <a href="money/zumo/zumokit/package-summary.html">money.zumo.zumokit</a></dt>
 <dd>
@@ -789,6 +789,10 @@
 <dd>
 <div class="block">Get all available exchange settings.</div>
 </dd>
+<dt><span class="memberNameLink"><a href="money/zumo/zumokit/Quote.html#getExpiresIn--">getExpiresIn()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/Quote.html" title="class in money.zumo.zumokit">Quote</a></dt>
+<dd>
+<div class="block">Seconds until expiration time for active quotes, null for historical quotes.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/Quote.html#getExpireTime--">getExpireTime()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/Quote.html" title="class in money.zumo.zumokit">Quote</a></dt>
 <dd>
 <div class="block">Epoch timestamp representing expiration time of this quote.</div>
@@ -1034,12 +1038,6 @@
 <dd>
 <div class="block">Exchange rate quote used.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="money/zumo/zumokit/User.CppProxy.html#getQuote-java.lang.String-java.lang.String-java.math.BigDecimal-money.zumo.zumokit.QuoteCallback-">getQuote(String, String, BigDecimal, QuoteCallback)</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/User.CppProxy.html" title="class in money.zumo.zumokit">User.CppProxy</a></dt>
-<dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="money/zumo/zumokit/User.html#getQuote-java.lang.String-java.lang.String-java.math.BigDecimal-money.zumo.zumokit.QuoteCallback-">getQuote(String, String, BigDecimal, QuoteCallback)</a></span> - Method in interface money.zumo.zumokit.<a href="money/zumo/zumokit/User.html" title="interface in money.zumo.zumokit">User</a></dt>
-<dd>
-<div class="block">Get exchange rate quote.</div>
-</dd>
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/ComposedExchange.html#getReturnAmount--">getReturnAmount()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/ComposedExchange.html" title="class in money.zumo.zumokit">ComposedExchange</a></dt>
 <dd>
 <div class="block">Amount that user receives, calculated as <code>value X quote.value X (1 - feeRate) - returnTransactionFee</code>.</div>
@@ -1107,10 +1105,6 @@
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/ExchangeRate.html#getTimestamp--">getTimestamp()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/ExchangeRate.html" title="class in money.zumo.zumokit">ExchangeRate</a></dt>
 <dd>
 <div class="block">Epoch timestamp when the exchange rate was issued.</div>
-</dd>
-<dt><span class="memberNameLink"><a href="money/zumo/zumokit/ExchangeSetting.html#getTimestamp--">getTimestamp()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/ExchangeSetting.html" title="class in money.zumo.zumokit">ExchangeSetting</a></dt>
-<dd>
-<div class="block">Epoch timestamp when the exchange setting were last updated.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/Transaction.html#getTimestamp--">getTimestamp()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/Transaction.html" title="class in money.zumo.zumokit">Transaction</a></dt>
 <dd>
@@ -1521,8 +1515,6 @@
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/PinCallback.html#onError-java.lang.Exception-">onError(Exception)</a></span> - Method in interface money.zumo.zumokit.<a href="money/zumo/zumokit/PinCallback.html" title="interface in money.zumo.zumokit">PinCallback</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="money/zumo/zumokit/QuoteCallback.html#onError-java.lang.Exception-">onError(Exception)</a></span> - Method in interface money.zumo.zumokit.<a href="money/zumo/zumokit/QuoteCallback.html" title="interface in money.zumo.zumokit">QuoteCallback</a></dt>
-<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/SubmitExchangeCallback.html#onError-java.lang.Exception-">onError(Exception)</a></span> - Method in interface money.zumo.zumokit.<a href="money/zumo/zumokit/SubmitExchangeCallback.html" title="interface in money.zumo.zumokit">SubmitExchangeCallback</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/SubmitTransactionCallback.html#onError-java.lang.Exception-">onError(Exception)</a></span> - Method in interface money.zumo.zumokit.<a href="money/zumo/zumokit/SubmitTransactionCallback.html" title="interface in money.zumo.zumokit">SubmitTransactionCallback</a></dt>
@@ -1564,8 +1556,6 @@
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/MnemonicCallback.html#onSuccess-java.lang.String-">onSuccess(String)</a></span> - Method in interface money.zumo.zumokit.<a href="money/zumo/zumokit/MnemonicCallback.html" title="interface in money.zumo.zumokit">MnemonicCallback</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/PinCallback.html#onSuccess-int-">onSuccess(int)</a></span> - Method in interface money.zumo.zumokit.<a href="money/zumo/zumokit/PinCallback.html" title="interface in money.zumo.zumokit">PinCallback</a></dt>
-<dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="money/zumo/zumokit/QuoteCallback.html#onSuccess-money.zumo.zumokit.Quote-">onSuccess(Quote)</a></span> - Method in interface money.zumo.zumokit.<a href="money/zumo/zumokit/QuoteCallback.html" title="interface in money.zumo.zumokit">QuoteCallback</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/SubmitExchangeCallback.html#onSuccess-money.zumo.zumokit.Exchange-">onSuccess(Exchange)</a></span> - Method in interface money.zumo.zumokit.<a href="money/zumo/zumokit/SubmitExchangeCallback.html" title="interface in money.zumo.zumokit">SubmitExchangeCallback</a></dt>
 <dd>&nbsp;</dd>
@@ -1619,12 +1609,8 @@
 <dd>
 <div class="block">Record containing Zumo exchange rate quote used in making exchanges.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="money/zumo/zumokit/Quote.html#Quote-java.lang.String-int-java.lang.String-java.lang.String-java.math.BigDecimal-java.math.BigDecimal-">Quote(String, int, String, String, BigDecimal, BigDecimal)</a></span> - Constructor for class money.zumo.zumokit.<a href="money/zumo/zumokit/Quote.html" title="class in money.zumo.zumokit">Quote</a></dt>
+<dt><span class="memberNameLink"><a href="money/zumo/zumokit/Quote.html#Quote-java.lang.String-int-java.lang.Integer-java.lang.String-java.lang.String-java.math.BigDecimal-java.math.BigDecimal-">Quote(String, int, Integer, String, String, BigDecimal, BigDecimal)</a></span> - Constructor for class money.zumo.zumokit.<a href="money/zumo/zumokit/Quote.html" title="class in money.zumo.zumokit">Quote</a></dt>
 <dd>&nbsp;</dd>
-<dt><a href="money/zumo/zumokit/QuoteCallback.html" title="interface in money.zumo.zumokit"><span class="typeNameLink">QuoteCallback</span></a> - Interface in <a href="money/zumo/zumokit/package-summary.html">money.zumo.zumokit</a></dt>
-<dd>
-<div class="block">Callback interface used by methods in <a href="money/zumo/zumokit/User.html" title="interface in money.zumo.zumokit"><code>User</code></a> class.</div>
-</dd>
 </dl>
 <a name="I:R">
 <!--   -->

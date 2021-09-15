@@ -25,8 +25,6 @@ public final class ExchangeSetting {
 
     /*package*/ final java.math.BigDecimal mReturnTransactionFee;
 
-    /*package*/ final int mTimestamp;
-
     public ExchangeSetting(
             String id,
             HashMap<String, String> exchangeAddress,
@@ -35,8 +33,7 @@ public final class ExchangeSetting {
             java.math.BigDecimal minExchangeAmount,
             java.math.BigDecimal exchangeFeeRate,
             java.math.BigDecimal outgoingTransactionFeeRate,
-            java.math.BigDecimal returnTransactionFee,
-            int timestamp) {
+            java.math.BigDecimal returnTransactionFee) {
         this.mId = id;
         this.mExchangeAddress = exchangeAddress;
         this.mFromCurrency = fromCurrency;
@@ -45,7 +42,6 @@ public final class ExchangeSetting {
         this.mExchangeFeeRate = exchangeFeeRate;
         this.mOutgoingTransactionFeeRate = outgoingTransactionFeeRate;
         this.mReturnTransactionFee = returnTransactionFee;
-        this.mTimestamp = timestamp;
     }
 
     /** Identifier. */
@@ -97,11 +93,6 @@ public final class ExchangeSetting {
         return mReturnTransactionFee;
     }
 
-    /** Epoch timestamp when the exchange setting were last updated. */
-    public int getTimestamp() {
-        return mTimestamp;
-    }
-
     @Override
     public boolean equals(Object obj) {
         if (!(obj instanceof ExchangeSetting)) {
@@ -115,8 +106,7 @@ public final class ExchangeSetting {
                 this.mMinExchangeAmount.equals(other.mMinExchangeAmount) &&
                 this.mExchangeFeeRate.equals(other.mExchangeFeeRate) &&
                 this.mOutgoingTransactionFeeRate.equals(other.mOutgoingTransactionFeeRate) &&
-                this.mReturnTransactionFee.equals(other.mReturnTransactionFee) &&
-                this.mTimestamp == other.mTimestamp;
+                this.mReturnTransactionFee.equals(other.mReturnTransactionFee);
     }
 
     @Override
@@ -131,7 +121,6 @@ public final class ExchangeSetting {
         hashCode = hashCode * 31 + (mExchangeFeeRate.hashCode());
         hashCode = hashCode * 31 + (mOutgoingTransactionFeeRate.hashCode());
         hashCode = hashCode * 31 + (mReturnTransactionFee.hashCode());
-        hashCode = hashCode * 31 + mTimestamp;
         return hashCode;
     }
 
@@ -146,7 +135,6 @@ public final class ExchangeSetting {
                 "," + "mExchangeFeeRate=" + mExchangeFeeRate +
                 "," + "mOutgoingTransactionFeeRate=" + mOutgoingTransactionFeeRate +
                 "," + "mReturnTransactionFee=" + mReturnTransactionFee +
-                "," + "mTimestamp=" + mTimestamp +
         "}";
     }
 

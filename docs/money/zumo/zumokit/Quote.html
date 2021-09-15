@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -48,7 +48,7 @@ var activeTableTab = "activeTableTab";
 <div class="subNav">
 <ul class="navList">
 <li><a href="../../../money/zumo/zumokit/PinCallback.html" title="interface in money.zumo.zumokit"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li><a href="../../../money/zumo/zumokit/QuoteCallback.html" title="interface in money.zumo.zumokit"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../../money/zumo/zumokit/SubmitExchangeCallback.html" title="interface in money.zumo.zumokit"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../index.html?money/zumo/zumokit/Quote.html" target="_top">Frames</a></li>
@@ -128,8 +128,9 @@ extends java.lang.Object</pre>
 <th class="colOne" scope="col">Constructor and Description</th>
 </tr>
 <tr class="altColor">
-<td class="colOne"><code><span class="memberNameLink"><a href="../../../money/zumo/zumokit/Quote.html#Quote-java.lang.String-int-java.lang.String-java.lang.String-java.math.BigDecimal-java.math.BigDecimal-">Quote</a></span>(java.lang.String&nbsp;id,
+<td class="colOne"><code><span class="memberNameLink"><a href="../../../money/zumo/zumokit/Quote.html#Quote-java.lang.String-int-java.lang.Integer-java.lang.String-java.lang.String-java.math.BigDecimal-java.math.BigDecimal-">Quote</a></span>(java.lang.String&nbsp;id,
      int&nbsp;expireTime,
+     java.lang.Integer&nbsp;expiresIn,
      java.lang.String&nbsp;fromCurrency,
      java.lang.String&nbsp;toCurrency,
      java.math.BigDecimal&nbsp;depositAmount,
@@ -161,40 +162,46 @@ extends java.lang.Object</pre>
 </td>
 </tr>
 <tr id="i2" class="altColor">
+<td class="colFirst"><code>java.lang.Integer</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../money/zumo/zumokit/Quote.html#getExpiresIn--">getExpiresIn</a></span>()</code>
+<div class="block">Seconds until expiration time for active quotes, null for historical quotes.</div>
+</td>
+</tr>
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code>int</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../money/zumo/zumokit/Quote.html#getExpireTime--">getExpireTime</a></span>()</code>
 <div class="block">Epoch timestamp representing expiration time of this quote.</div>
 </td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i4" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../money/zumo/zumokit/Quote.html#getFromCurrency--">getFromCurrency</a></span>()</code>
 <div class="block">Deposit currency.</div>
 </td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../money/zumo/zumokit/Quote.html#getId--">getId</a></span>()</code>
 <div class="block">Identifier.</div>
 </td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i6" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../money/zumo/zumokit/Quote.html#getToCurrency--">getToCurrency</a></span>()</code>
 <div class="block">Target currency.</div>
 </td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code>java.math.BigDecimal</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../money/zumo/zumokit/Quote.html#getValue--">getValue</a></span>()</code>
 <div class="block">Value of 1 unit of deposit currency in target currency.</div>
 </td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i8" class="altColor">
 <td class="colFirst"><code>int</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../money/zumo/zumokit/Quote.html#hashCode--">hashCode</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i8" class="altColor">
+<tr id="i9" class="rowColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../money/zumo/zumokit/Quote.html#toString--">toString</a></span>()</code>&nbsp;</td>
 </tr>
@@ -220,7 +227,7 @@ extends java.lang.Object</pre>
 <!--   -->
 </a>
 <h3>Constructor Detail</h3>
-<a name="Quote-java.lang.String-int-java.lang.String-java.lang.String-java.math.BigDecimal-java.math.BigDecimal-">
+<a name="Quote-java.lang.String-int-java.lang.Integer-java.lang.String-java.lang.String-java.math.BigDecimal-java.math.BigDecimal-">
 <!--   -->
 </a>
 <ul class="blockListLast">
@@ -228,6 +235,7 @@ extends java.lang.Object</pre>
 <h4>Quote</h4>
 <pre>public&nbsp;Quote(java.lang.String&nbsp;id,
              int&nbsp;expireTime,
+             java.lang.Integer&nbsp;expiresIn,
              java.lang.String&nbsp;fromCurrency,
              java.lang.String&nbsp;toCurrency,
              java.math.BigDecimal&nbsp;depositAmount,
@@ -260,6 +268,16 @@ extends java.lang.Object</pre>
 <h4>getExpireTime</h4>
 <pre>public&nbsp;int&nbsp;getExpireTime()</pre>
 <div class="block">Epoch timestamp representing expiration time of this quote.</div>
+</li>
+</ul>
+<a name="getExpiresIn--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getExpiresIn</h4>
+<pre>public&nbsp;java.lang.Integer&nbsp;getExpiresIn()</pre>
+<div class="block">Seconds until expiration time for active quotes, null for historical quotes.</div>
 </li>
 </ul>
 <a name="getFromCurrency--">
@@ -377,7 +395,7 @@ extends java.lang.Object</pre>
 <div class="subNav">
 <ul class="navList">
 <li><a href="../../../money/zumo/zumokit/PinCallback.html" title="interface in money.zumo.zumokit"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li><a href="../../../money/zumo/zumokit/QuoteCallback.html" title="interface in money.zumo.zumokit"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../../money/zumo/zumokit/SubmitExchangeCallback.html" title="interface in money.zumo.zumokit"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../index.html?money/zumo/zumokit/Quote.html" target="_top">Frames</a></li>

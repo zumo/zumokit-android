@@ -165,17 +165,6 @@ public interface User {
     public void recoverWallet(String mnemonic, String password, WalletCallback callback);
 
     /**
-     * Get exchange rate quote.
-     * @param  fromCurrency  deposit currency code
-     * @param  toCurrency    target currency code
-     * @param  depositAmount deposit amount to be exchanged to target currency
-     * @param  callback       an interface to receive the result or error
-     * @see CurrencyCode
-     * @see Quote
-     */
-    public void getQuote(String fromCurrency, String toCurrency, java.math.BigDecimal depositAmount, QuoteCallback callback);
-
-    /**
      * Get account in specific currency, on specific network, with specific type.
      * @param  currencyCode       currency code, e.g. 'BTC', 'ETH' or 'GBP'
      * @param  network             network type, e.g. 'MAINNET', 'TESTNET' or 'RINKEBY'
@@ -355,14 +344,6 @@ public interface User {
             native_recoverWallet(this.nativeRef, mnemonic, password, callback);
         }
         private native void native_recoverWallet(long _nativeRef, String mnemonic, String password, WalletCallback callback);
-
-        @Override
-        public void getQuote(String fromCurrency, String toCurrency, java.math.BigDecimal depositAmount, QuoteCallback callback)
-        {
-            assert !this.destroyed.get() : "trying to use a destroyed object";
-            native_getQuote(this.nativeRef, fromCurrency, toCurrency, depositAmount, callback);
-        }
-        private native void native_getQuote(long _nativeRef, String fromCurrency, String toCurrency, java.math.BigDecimal depositAmount, QuoteCallback callback);
 
         @Override
         public Account getAccount(String currencyCode, String network, String type)

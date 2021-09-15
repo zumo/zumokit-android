@@ -11,6 +11,8 @@ public final class Quote {
 
     /*package*/ final int mExpireTime;
 
+    /*package*/ final Integer mExpiresIn;
+
     /*package*/ final String mFromCurrency;
 
     /*package*/ final String mToCurrency;
@@ -22,12 +24,14 @@ public final class Quote {
     public Quote(
             String id,
             int expireTime,
+            Integer expiresIn,
             String fromCurrency,
             String toCurrency,
             java.math.BigDecimal depositAmount,
             java.math.BigDecimal value) {
         this.mId = id;
         this.mExpireTime = expireTime;
+        this.mExpiresIn = expiresIn;
         this.mFromCurrency = fromCurrency;
         this.mToCurrency = toCurrency;
         this.mDepositAmount = depositAmount;
@@ -42,6 +46,11 @@ public final class Quote {
     /** Epoch timestamp representing expiration time of this quote. */
     public int getExpireTime() {
         return mExpireTime;
+    }
+
+    /** Seconds until expiration time for active quotes, null for historical quotes. */
+    public Integer getExpiresIn() {
+        return mExpiresIn;
     }
 
     /**
@@ -78,6 +87,7 @@ public final class Quote {
         Quote other = (Quote) obj;
         return this.mId.equals(other.mId) &&
                 this.mExpireTime == other.mExpireTime &&
+                ((this.mExpiresIn == null && other.mExpiresIn == null) || (this.mExpiresIn != null && this.mExpiresIn.equals(other.mExpiresIn))) &&
                 this.mFromCurrency.equals(other.mFromCurrency) &&
                 this.mToCurrency.equals(other.mToCurrency) &&
                 this.mDepositAmount.equals(other.mDepositAmount) &&
@@ -90,6 +100,7 @@ public final class Quote {
         int hashCode = 17;
         hashCode = hashCode * 31 + mId.hashCode();
         hashCode = hashCode * 31 + mExpireTime;
+        hashCode = hashCode * 31 + (mExpiresIn == null ? 0 : mExpiresIn.hashCode());
         hashCode = hashCode * 31 + mFromCurrency.hashCode();
         hashCode = hashCode * 31 + mToCurrency.hashCode();
         hashCode = hashCode * 31 + (mDepositAmount.hashCode());
@@ -102,6 +113,7 @@ public final class Quote {
         return "Quote{" +
                 "mId=" + mId +
                 "," + "mExpireTime=" + mExpireTime +
+                "," + "mExpiresIn=" + mExpiresIn +
                 "," + "mFromCurrency=" + mFromCurrency +
                 "," + "mToCurrency=" + mToCurrency +
                 "," + "mDepositAmount=" + mDepositAmount +
