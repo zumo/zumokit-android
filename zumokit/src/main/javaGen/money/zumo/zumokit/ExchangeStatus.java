@@ -12,32 +12,17 @@ package money.zumo.zumokit;
  */
 public final class ExchangeStatus {
 
-    /** Exchange has been paused by Transaction Service before being submitted to blockchain. */
-    public static final String PAUSED = "PAUSED";
-
-    /** Exchange has been rejected by Transaction Service before being submitted to blockchain. */
-    public static final String REJECTED = "REJECTED";
-
-    /** Deposit transaction has been submitted to blockchain. */
+    /** Outgoing transaction has been submitted. */
     public static final String PENDING = "PENDING";
 
-    /** Deposit transaction has been mined and exchange has been initiated. */
-    public static final String DEPOSITED = "DEPOSITED";
+    /** Outgoing transaction has been mined and return transaction has been initiated. */
+    public static final String WITHDRAWING = "WITHDRAWING";
 
     /** Exchange was confirmed. */
     public static final String CONFIRMED = "CONFIRMED";
 
     /** Exchange has failed. */
     public static final String FAILED = "FAILED";
-
-    /** Ethereum deposit transaction was overriden by sending the same transaction with higher gas price. */
-    public static final String RESUBMITTED = "RESUBMITTED";
-
-    /**
-     * Ethereum deposit transaction was overriden by a different transaction with higher gas price than
-     * the previously submitted transaction and with with the same nonce as that previously submitted transaction.
-     */
-    public static final String CANCELLED = "CANCELLED";
 
 
     public ExchangeStatus(

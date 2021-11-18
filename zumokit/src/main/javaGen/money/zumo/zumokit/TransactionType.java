@@ -3,12 +3,10 @@
 
 package money.zumo.zumokit;
 
-/** Tracation type, 'CRYPTO', 'EXCHANGE', 'FIAT', 'NOMINATED' or 'CARD'. */
+/** Transaction type, 'CRYPTO', 'FIAT', 'NOMINATED' or 'CARD'. */
 public final class TransactionType {
 
     public static final String CRYPTO = "CRYPTO";
-
-    public static final String EXCHANGE = "EXCHANGE";
 
     public static final String FIAT = "FIAT";
 

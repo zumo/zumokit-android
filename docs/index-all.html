@@ -213,11 +213,6 @@
 <dl>
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/CardStatus.html#CANCELLED">CANCELLED</a></span> - Static variable in class money.zumo.zumokit.<a href="money/zumo/zumokit/CardStatus.html" title="class in money.zumo.zumokit">CardStatus</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="money/zumo/zumokit/ExchangeStatus.html#CANCELLED">CANCELLED</a></span> - Static variable in class money.zumo.zumokit.<a href="money/zumo/zumokit/ExchangeStatus.html" title="class in money.zumo.zumokit">ExchangeStatus</a></dt>
-<dd>
-<div class="block">Ethereum deposit transaction was overriden by a different transaction with higher gas price than
- the previously submitted transaction and with with the same nonce as that previously submitted transaction.</div>
-</dd>
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/TransactionStatus.html#CANCELLED">CANCELLED</a></span> - Static variable in class money.zumo.zumokit.<a href="money/zumo/zumokit/TransactionStatus.html" title="class in money.zumo.zumokit">TransactionStatus</a></dt>
 <dd>
 <div class="block">Ethereum transaction was overriden by a different transaction with higher gas price than the previously
@@ -411,10 +406,6 @@
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/DefaultWebSocketFactory.html#DefaultWebSocketFactory--">DefaultWebSocketFactory()</a></span> - Constructor for class money.zumo.zumokit.<a href="money/zumo/zumokit/DefaultWebSocketFactory.html" title="class in money.zumo.zumokit">DefaultWebSocketFactory</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="money/zumo/zumokit/ExchangeStatus.html#DEPOSITED">DEPOSITED</a></span> - Static variable in class money.zumo.zumokit.<a href="money/zumo/zumokit/ExchangeStatus.html" title="class in money.zumo.zumokit">ExchangeStatus</a></dt>
-<dd>
-<div class="block">Deposit transaction has been mined and exchange has been initiated.</div>
-</dd>
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/ZumoKitErrorCode.html#DESTINATION_PROVIDED_WHEN_WITHDRAW_SET">DESTINATION_PROVIDED_WHEN_WITHDRAW_SET</a></span> - Static variable in class money.zumo.zumokit.<a href="money/zumo/zumokit/ZumoKitErrorCode.html" title="class in money.zumo.zumokit">ZumoKitErrorCode</a></dt>
 <dd>
 <div class="block">Destination cannot be set when withdrawing funds to nominated account.</div>
@@ -474,8 +465,6 @@
 <div class="block">Record containing exchange details.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/Exchange.html#Exchange-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.math.BigDecimal-java.math.BigDecimal-java.math.BigDecimal-java.math.BigDecimal-java.math.BigDecimal-money.zumo.zumokit.Quote-money.zumo.zumokit.ExchangeSetting-java.util.HashMap-java.lang.String-java.lang.Integer-java.lang.Integer-">Exchange(String, String, String, String, String, String, String, String, BigDecimal, BigDecimal, BigDecimal, BigDecimal, BigDecimal, Quote, ExchangeSetting, HashMap&lt;String, HashMap&lt;String, ExchangeRate&gt;&gt;, String, Integer, Integer)</a></span> - Constructor for class money.zumo.zumokit.<a href="money/zumo/zumokit/Exchange.html" title="class in money.zumo.zumokit">Exchange</a></dt>
-<dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="money/zumo/zumokit/TransactionType.html#EXCHANGE">EXCHANGE</a></span> - Static variable in class money.zumo.zumokit.<a href="money/zumo/zumokit/TransactionType.html" title="class in money.zumo.zumokit">TransactionType</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/ZumoKitErrorCode.html#EXCHANGE_AMOUNT_TOO_LOW">EXCHANGE_AMOUNT_TOO_LOW</a></span> - Static variable in class money.zumo.zumokit.<a href="money/zumo/zumokit/ZumoKitErrorCode.html" title="class in money.zumo.zumokit">ZumoKitErrorCode</a></dt>
 <dd>
@@ -1575,17 +1564,13 @@
 </a>
 <h2 class="title">P</h2>
 <dl>
-<dt><span class="memberNameLink"><a href="money/zumo/zumokit/ExchangeStatus.html#PAUSED">PAUSED</a></span> - Static variable in class money.zumo.zumokit.<a href="money/zumo/zumokit/ExchangeStatus.html" title="class in money.zumo.zumokit">ExchangeStatus</a></dt>
-<dd>
-<div class="block">Exchange has been paused by Transaction Service before being submitted to blockchain.</div>
-</dd>
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/TransactionStatus.html#PAUSED">PAUSED</a></span> - Static variable in class money.zumo.zumokit.<a href="money/zumo/zumokit/TransactionStatus.html" title="class in money.zumo.zumokit">TransactionStatus</a></dt>
 <dd>
 <div class="block">Transaction has been paused by Transaction Service before being submitted to blockchain.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/ExchangeStatus.html#PENDING">PENDING</a></span> - Static variable in class money.zumo.zumokit.<a href="money/zumo/zumokit/ExchangeStatus.html" title="class in money.zumo.zumokit">ExchangeStatus</a></dt>
 <dd>
-<div class="block">Deposit transaction has been submitted to blockchain.</div>
+<div class="block">Outgoing transaction has been submitted.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/TransactionStatus.html#PENDING">PENDING</a></span> - Static variable in class money.zumo.zumokit.<a href="money/zumo/zumokit/TransactionStatus.html" title="class in money.zumo.zumokit">TransactionStatus</a></dt>
 <dd>
@@ -1633,10 +1618,6 @@
 <dd>
 <div class="block">Recover user wallet with mnemonic seed phrase corresponding to user's wallet.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="money/zumo/zumokit/ExchangeStatus.html#REJECTED">REJECTED</a></span> - Static variable in class money.zumo.zumokit.<a href="money/zumo/zumokit/ExchangeStatus.html" title="class in money.zumo.zumokit">ExchangeStatus</a></dt>
-<dd>
-<div class="block">Exchange has been rejected by Transaction Service before being submitted to blockchain.</div>
-</dd>
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/TransactionStatus.html#REJECTED">REJECTED</a></span> - Static variable in class money.zumo.zumokit.<a href="money/zumo/zumokit/TransactionStatus.html" title="class in money.zumo.zumokit">TransactionStatus</a></dt>
 <dd>
 <div class="block">Transaction has been rejected by Transaction Service before being submitted to blockchain.</div>
@@ -1653,10 +1634,6 @@
 </dd>
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/DefaultHttpProvider.html#request-java.lang.String-java.lang.String-java.util.HashMap-java.lang.String-HttpCallback-">request(String, String, HashMap&lt;String, String&gt;, String, HttpCallback)</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/DefaultHttpProvider.html" title="class in money.zumo.zumokit">DefaultHttpProvider</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="money/zumo/zumokit/ExchangeStatus.html#RESUBMITTED">RESUBMITTED</a></span> - Static variable in class money.zumo.zumokit.<a href="money/zumo/zumokit/ExchangeStatus.html" title="class in money.zumo.zumokit">ExchangeStatus</a></dt>
-<dd>
-<div class="block">Ethereum deposit transaction was overriden by sending the same transaction with higher gas price.</div>
-</dd>
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/TransactionStatus.html#RESUBMITTED">RESUBMITTED</a></span> - Static variable in class money.zumo.zumokit.<a href="money/zumo/zumokit/TransactionStatus.html" title="class in money.zumo.zumokit">TransactionStatus</a></dt>
 <dd>
 <div class="block">Ethereum transaction was overriden by sending the same transaction with higher gas price.</div>
@@ -1901,7 +1878,7 @@
 <dd>&nbsp;</dd>
 <dt><a href="money/zumo/zumokit/TransactionType.html" title="class in money.zumo.zumokit"><span class="typeNameLink">TransactionType</span></a> - Class in <a href="money/zumo/zumokit/package-summary.html">money.zumo.zumokit</a></dt>
 <dd>
-<div class="block">Tracation type, 'CRYPTO', 'EXCHANGE', 'FIAT', 'NOMINATED' or 'CARD'.</div>
+<div class="block">Transaction type, 'CRYPTO', 'FIAT', 'NOMINATED' or 'CARD'.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/TransactionType.html#TransactionType--">TransactionType()</a></span> - Constructor for class money.zumo.zumokit.<a href="money/zumo/zumokit/TransactionType.html" title="class in money.zumo.zumokit">TransactionType</a></dt>
 <dd>&nbsp;</dd>
@@ -1993,6 +1970,10 @@
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/TimeInterval.html#WEEK">WEEK</a></span> - Static variable in class money.zumo.zumokit.<a href="money/zumo/zumokit/TimeInterval.html" title="class in money.zumo.zumokit">TimeInterval</a></dt>
 <dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="money/zumo/zumokit/ExchangeStatus.html#WITHDRAWING">WITHDRAWING</a></span> - Static variable in class money.zumo.zumokit.<a href="money/zumo/zumokit/ExchangeStatus.html" title="class in money.zumo.zumokit">ExchangeStatus</a></dt>
+<dd>
+<div class="block">Outgoing transaction has been mined and return transaction has been initiated.</div>
+</dd>
 </dl>
 <a name="I:Y">
 <!--   -->
