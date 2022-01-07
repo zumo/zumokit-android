@@ -34,11 +34,11 @@
 [full_requires]
     bitcoin_core/0.20.1@zumo/stable:9b28cc67a06814b7cdebbb60753d8be54b0b38f2
     boost_headers/1.76.0@zumo/stable:5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9
-    fmt/7.1.2:fbdbc80baadbc305bd066fa2b29c91dbae908f4b
+    fmt/8.0.1:2baa5a22bb96b5d91c2a56ea041d22a3e46da3f6
     http_status_codes/1.0@zumo/stable:5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9
     nlohmann_json/3.8.0:5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9
     secp256k1/1.1@zumo/stable:e7d70165f6d6fd06f7f9906456f47cd5dbb4b2c4
-    spdlog/1.8.2:e596b5652be7f9e17e369dc12d17ad65f3c3ea5d
+    spdlog/1.9.2:976fc13d2edf2f97e336ad590e82bb3deaf8bfed
     trezor_crypto/1.0@zumo/stable:e7d70165f6d6fd06f7f9906456f47cd5dbb4b2c4
     utf8proc/2.6.0:6d413274000d70c39b1513fca17dfe81194f93a8
 
@@ -52,6 +52,7 @@
     fmt:header_only=False
     fmt:shared=False
     fmt:with_fmt_alias=False
+    fmt:with_os_api=True
     nlohmann_json:multiple_headers=False
     secp256k1:shared=True
     spdlog:fPIC=True
