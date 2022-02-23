@@ -82,14 +82,18 @@ public interface User {
 
     /**
      * Create card for a fiat account.
+     * <p>
+     * At least one Knowled-Based Authentication (KBA) answer should be defined, answers are limited to 256 characters and 
+     * cannot be null or empty and only one answer per question type should be provided.
      * @param  fiatAccountId fiat account id
      * @param  cardType       'VIRTUAL' or 'PHYSICAL'
      * @param  mobileNumber   card holder mobile number, starting with a '+', followed by the country code and then the mobile number
      * @param  callback        an interface to receive the result or error
+     * @param  knowledgeBase  list of KBA answers
      * @see    Card
      * @see    CardType
      */
-    public void createCard(String fiatAccountId, String cardType, String mobileNumber, CardCallback callback);
+    public void createCard(String fiatAccountId, String cardType, String mobileNumber, ArrayList<KbaAnswer> knowledgeBase, CardCallback callback);
 
     /**
      * Set card status to 'ACTIVE', 'BLOCKED' or 'CANCELLED'. 
@@ -127,6 +131,21 @@ public interface User {
      * @param  callback        an interface to receive the result or error
      */
     public void unblockPin(String cardId, SuccessCallback callback);
+
+    /**
+     * Add KBA answers to a card without SCA.
+     * <p>
+     * This endpoint is used to set Knowledge-Based Authentication (KBA) answers to 
+     * a card without Strong Customer Authentication (SCA). Once it is set SCA flag 
+     * on corresponding card is set to true.
+     * <p>
+     * At least one answer should be defined, answers are limited to 256 characters and 
+     * cannot be null or empty and only one answer per question type should be provided.
+     * @param  cardId         card id
+     * @param  knowledgeBase  list of KBA answers
+     * @param  callback        an interface to receive the result or error
+     */
+    public void setAuthentication(String cardId, ArrayList<KbaAnswer> knowledgeBase, SuccessCallback callback);
 
     /**
      * Create user wallet seeded by provided mnemonic and encrypted with user's password.
@@ -281,12 +300,12 @@ public interface User {
         private native void native_fetchAuthenticationConfig(long _nativeRef, AuthenticationConfigCallback callback);
 
         @Override
-        public void createCard(String fiatAccountId, String cardType, String mobileNumber, CardCallback callback)
+        public void createCard(String fiatAccountId, String cardType, String mobileNumber, ArrayList<KbaAnswer> knowledgeBase, CardCallback callback)
         {
             assert !this.destroyed.get() : "trying to use a destroyed object";
-            native_createCard(this.nativeRef, fiatAccountId, cardType, mobileNumber, callback);
+            native_createCard(this.nativeRef, fiatAccountId, cardType, mobileNumber, knowledgeBase, callback);
         }
-        private native void native_createCard(long _nativeRef, String fiatAccountId, String cardType, String mobileNumber, CardCallback callback);
+        private native void native_createCard(long _nativeRef, String fiatAccountId, String cardType, String mobileNumber, ArrayList<KbaAnswer> knowledgeBase, CardCallback callback);
 
         @Override
         public void setCardStatus(String cardId, String cardStatus, String pan, String cvv2, SuccessCallback callback)
@@ -319,6 +338,14 @@ public interface User {
             native_unblockPin(this.nativeRef, cardId, callback);
         }
         private native void native_unblockPin(long _nativeRef, String cardId, SuccessCallback callback);
+
+        @Override
+        public void setAuthentication(String cardId, ArrayList<KbaAnswer> knowledgeBase, SuccessCallback callback)
+        {
+            assert !this.destroyed.get() : "trying to use a destroyed object";
+            native_setAuthentication(this.nativeRef, cardId, knowledgeBase, callback);
+        }
+        private native void native_setAuthentication(long _nativeRef, String cardId, ArrayList<KbaAnswer> knowledgeBase, SuccessCallback callback);
 
         @Override
         public void createWallet(String mnemonic, String password, WalletCallback callback)
