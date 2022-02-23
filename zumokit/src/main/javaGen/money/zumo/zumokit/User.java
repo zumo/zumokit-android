@@ -74,6 +74,13 @@ public interface User {
     public void getNominatedAccountFiatProperties(String accountId, AccountFiatPropertiesCallback callback);
 
     /**
+     * Fetch Strong Customer Authentication (SCA) config.
+     *
+     * @param callback         an interface to receive the result or error
+     */
+    public void fetchAuthenticationConfig(AuthenticationConfigCallback callback);
+
+    /**
      * Create card for a fiat account.
      * @param  fiatAccountId fiat account id
      * @param  cardType       'VIRTUAL' or 'PHYSICAL'
@@ -264,6 +271,14 @@ public interface User {
             native_getNominatedAccountFiatProperties(this.nativeRef, accountId, callback);
         }
         private native void native_getNominatedAccountFiatProperties(long _nativeRef, String accountId, AccountFiatPropertiesCallback callback);
+
+        @Override
+        public void fetchAuthenticationConfig(AuthenticationConfigCallback callback)
+        {
+            assert !this.destroyed.get() : "trying to use a destroyed object";
+            native_fetchAuthenticationConfig(this.nativeRef, callback);
+        }
+        private native void native_fetchAuthenticationConfig(long _nativeRef, AuthenticationConfigCallback callback);
 
         @Override
         public void createCard(String fiatAccountId, String cardType, String mobileNumber, CardCallback callback)

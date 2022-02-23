@@ -43,6 +43,9 @@ public final class TransactionStatus {
     /** Card transaction was reversed. */
     public static final String REVERSED = "REVERSED";
 
+    /** Transaction was refunded. */
+    public static final String REFUNDED = "REFUNDED";
+
 
     public TransactionStatus(
             ) {

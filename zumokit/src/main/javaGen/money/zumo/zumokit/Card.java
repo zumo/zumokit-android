@@ -21,6 +21,8 @@ public final class Card {
 
     /*package*/ final String mExpiry;
 
+    /*package*/ final boolean mSca;
+
     public Card(
             String id,
             String accountId,
@@ -28,7 +30,8 @@ public final class Card {
             String cardStatus,
             int limit,
             String maskedPan,
-            String expiry) {
+            String expiry,
+            boolean sca) {
         this.mId = id;
         this.mAccountId = accountId;
         this.mCardType = cardType;
@@ -36,6 +39,7 @@ public final class Card {
         this.mLimit = limit;
         this.mMaskedPan = maskedPan;
         this.mExpiry = expiry;
+        this.mSca = sca;
     }
 
     /** Unique card identifier. */
@@ -79,6 +83,11 @@ public final class Card {
         return mExpiry;
     }
 
+    /** Boolean indicating if card is SCA compliant. */
+    public boolean getSca() {
+        return mSca;
+    }
+
     @Override
     public boolean equals(Object obj) {
         if (!(obj instanceof Card)) {
@@ -91,7 +100,8 @@ public final class Card {
                 this.mCardStatus.equals(other.mCardStatus) &&
                 this.mLimit == other.mLimit &&
                 this.mMaskedPan.equals(other.mMaskedPan) &&
-                this.mExpiry.equals(other.mExpiry);
+                this.mExpiry.equals(other.mExpiry) &&
+                this.mSca == other.mSca;
     }
 
     @Override
@@ -105,6 +115,7 @@ public final class Card {
         hashCode = hashCode * 31 + mLimit;
         hashCode = hashCode * 31 + mMaskedPan.hashCode();
         hashCode = hashCode * 31 + mExpiry.hashCode();
+        hashCode = hashCode * 31 + (mSca ? 1 : 0);
         return hashCode;
     }
 
@@ -118,6 +129,7 @@ public final class Card {
                 "," + "mLimit=" + mLimit +
                 "," + "mMaskedPan=" + mMaskedPan +
                 "," + "mExpiry=" + mExpiry +
+                "," + "mSca=" + mSca +
         "}";
     }
 
