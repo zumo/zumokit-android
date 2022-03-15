@@ -14,22 +14,11 @@ Refer to ZumoKit SDK developer [documentation](https://developers.zumo.money/doc
 
 ## Installation
 
-Add the JitPack repository to your root build.gradle at the end of repositories:
-
-```java
-allprojects {
-    repositories {
-        ...
-        maven { url 'https://jitpack.io' }
-    }
-}
-```
-
-Add the dependency:
+Add ZumoKit SDK to your dependencies:
 
 ```java
 dependencies {
-    implementation 'com.github.zumo:zumokit-android:X.Y.Z'
+    implementation 'com.github.zumo:zumokit-android:3.3.0-beta.5'
 }
 ```
 
