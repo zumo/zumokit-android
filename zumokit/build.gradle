@@ -50,10 +50,14 @@ task javadoc(type: Javadoc) {
     options.setDocTitle('ZumoKit Android SDK')
     options.setWindowTitle('ZumoKit Android SDK')
     options.addStringOption('Xdoclint:none', '-quiet')
-    exclude "**/WebSocket*.java"
-    exclude "**/Http*.java"
-    exclude "**/FuzzingBackOffGenerator*.java"
-    exclude "**/ZumoCore*.java"
     destinationDir = file("../docs/")
-    failOnError false
+}
+
+// javadoc task's body is called before android.libraryVariants is filled,
+// so we have to wait until android.libraryVariants is filled
+// https://stackoverflow.com/questions/34571371/android-studio-javadoc-cannot-find-symbol
+afterEvaluate {
+    javadoc.classpath += files(android.libraryVariants.collect { variant ->
+        variant.javaCompileProvider.get().classpath.files
+    })
 }

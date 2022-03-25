@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","url":"allpackages-index.html"},{"l":"money.zumo.zumokit"},{"l":"money.zumo.zumokit.exceptions"}]
