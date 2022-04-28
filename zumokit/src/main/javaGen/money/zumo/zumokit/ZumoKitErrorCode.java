@@ -13,6 +13,9 @@ public final class ZumoKitErrorCode {
     /** Unknown error has occured. */
     public static final String UNKNOWN_ERROR = "unknown_error";
 
+    /** No internet connection.  */
+    public static final String NO_CONNECTION = "no_connection";
+
     /** New account could not be created. Account already exists. */
     public static final String ACCOUNT_LIMIT_EXCEEDED = "account_limit_exceeded";
 
