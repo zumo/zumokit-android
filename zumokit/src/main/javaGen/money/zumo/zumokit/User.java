@@ -24,6 +24,12 @@ public interface User {
     public String getId();
 
     /**
+     * Get user integrator id.
+     * @return user integrator id
+     */
+    public String getIntegratorId();
+
+    /**
      * Check if user has wallet
      * @return true if user has wallet
      */
@@ -250,6 +256,14 @@ public interface User {
             return native_getId(this.nativeRef);
         }
         private native String native_getId(long _nativeRef);
+
+        @Override
+        public String getIntegratorId()
+        {
+            assert !this.destroyed.get() : "trying to use a destroyed object";
+            return native_getIntegratorId(this.nativeRef);
+        }
+        private native String native_getIntegratorId(long _nativeRef);
 
         @Override
         public boolean hasWallet()

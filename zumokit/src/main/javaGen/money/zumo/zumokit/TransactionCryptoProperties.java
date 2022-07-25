@@ -26,9 +26,9 @@ public final class TransactionCryptoProperties {
 
     /*package*/ final Integer mGasLimit;
 
-    /*package*/ final HashMap<String, java.math.BigDecimal> mFiatAmount;
+    /*package*/ final HashMap<String, Double> mFiatAmount;
 
-    /*package*/ final HashMap<String, java.math.BigDecimal> mFiatFee;
+    /*package*/ final HashMap<String, Double> mFiatFee;
 
     public TransactionCryptoProperties(
             String txHash,
@@ -38,8 +38,8 @@ public final class TransactionCryptoProperties {
             String data,
             java.math.BigDecimal gasPrice,
             Integer gasLimit,
-            HashMap<String, java.math.BigDecimal> fiatAmount,
-            HashMap<String, java.math.BigDecimal> fiatFee) {
+            HashMap<String, Double> fiatAmount,
+            HashMap<String, Double> fiatFee) {
         this.mTxHash = txHash;
         this.mNonce = nonce;
         this.mFromAddress = fromAddress;
@@ -64,12 +64,12 @@ public final class TransactionCryptoProperties {
         return mNonce;
     }
 
-    /** Wallet address of sender, */
+    /** Ethereum wallet address of sender. */
     public String getFromAddress() {
         return mFromAddress;
     }
 
-    /** Wallet address of receiver or null, if it is Ethereum contract deploy. */
+    /** Ethereum wallet address of recipient or null, if it is Ethereum contract deploy. */
     public String getToAddress() {
         return mToAddress;
     }
@@ -90,10 +90,10 @@ public final class TransactionCryptoProperties {
     }
 
     /**
-     * Amount in fiat currencies at the time of the transaction submission.
+     * Value in fiat currencies at the time of the transaction submission.
      * @see CurrencyCode
      */
-    public HashMap<String, java.math.BigDecimal> getFiatAmount() {
+    public HashMap<String, Double> getFiatAmount() {
         return mFiatAmount;
     }
 
@@ -101,7 +101,7 @@ public final class TransactionCryptoProperties {
      * Fee in fiat currencies at the time of the transaction submission.
      * @see CurrencyCode
      */
-    public HashMap<String, java.math.BigDecimal> getFiatFee() {
+    public HashMap<String, Double> getFiatFee() {
         return mFiatFee;
     }
 
@@ -118,8 +118,8 @@ public final class TransactionCryptoProperties {
                 ((this.mData == null && other.mData == null) || (this.mData != null && this.mData.equals(other.mData))) &&
                 ((this.mGasPrice == null && other.mGasPrice == null) || (this.mGasPrice != null && this.mGasPrice.equals(other.mGasPrice))) &&
                 ((this.mGasLimit == null && other.mGasLimit == null) || (this.mGasLimit != null && this.mGasLimit.equals(other.mGasLimit))) &&
-                this.mFiatAmount.equals(other.mFiatAmount) &&
-                this.mFiatFee.equals(other.mFiatFee);
+                ((this.mFiatAmount == null && other.mFiatAmount == null) || (this.mFiatAmount != null && this.mFiatAmount.equals(other.mFiatAmount))) &&
+                ((this.mFiatFee == null && other.mFiatFee == null) || (this.mFiatFee != null && this.mFiatFee.equals(other.mFiatFee)));
     }
 
     @Override
@@ -133,8 +133,8 @@ public final class TransactionCryptoProperties {
         hashCode = hashCode * 31 + (mData == null ? 0 : mData.hashCode());
         hashCode = hashCode * 31 + (mGasPrice == null ? 0 : mGasPrice.hashCode());
         hashCode = hashCode * 31 + (mGasLimit == null ? 0 : mGasLimit.hashCode());
-        hashCode = hashCode * 31 + mFiatAmount.hashCode();
-        hashCode = hashCode * 31 + mFiatFee.hashCode();
+        hashCode = hashCode * 31 + (mFiatAmount == null ? 0 : mFiatAmount.hashCode());
+        hashCode = hashCode * 31 + (mFiatFee == null ? 0 : mFiatFee.hashCode());
         return hashCode;
     }
 

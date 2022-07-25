@@ -3,6 +3,8 @@
 
 package money.zumo.zumokit;
 
+import java.util.ArrayList;
+
 /** Record containing transaction details. */
 public final class Transaction {
 
@@ -15,14 +17,6 @@ public final class Transaction {
 
     /*package*/ final String mDirection;
 
-    /*package*/ final String mFromUserId;
-
-    /*package*/ final String mToUserId;
-
-    /*package*/ final String mFromAccountId;
-
-    /*package*/ final String mToAccountId;
-
     /*package*/ final String mNetwork;
 
     /*package*/ final String mStatus;
@@ -32,6 +26,12 @@ public final class Transaction {
     /*package*/ final java.math.BigDecimal mFee;
 
     /*package*/ final String mNonce;
+
+    /*package*/ final ArrayList<TransactionAmount> mSenders;
+
+    /*package*/ final ArrayList<TransactionAmount> mRecipients;
+
+    /*package*/ final ArrayList<InternalTransaction> mInternalTransactions;
 
     /*package*/ final TransactionCryptoProperties mCryptoProperties;
 
@@ -54,15 +54,14 @@ public final class Transaction {
             String type,
             String currencyCode,
             String direction,
-            String fromUserId,
-            String toUserId,
-            String fromAccountId,
-            String toAccountId,
             String network,
             String status,
             java.math.BigDecimal amount,
             java.math.BigDecimal fee,
             String nonce,
+            ArrayList<TransactionAmount> senders,
+            ArrayList<TransactionAmount> recipients,
+            ArrayList<InternalTransaction> internalTransactions,
             TransactionCryptoProperties cryptoProperties,
             TransactionFiatProperties fiatProperties,
             TransactionCardProperties cardProperties,
@@ -75,15 +74,14 @@ public final class Transaction {
         this.mType = type;
         this.mCurrencyCode = currencyCode;
         this.mDirection = direction;
-        this.mFromUserId = fromUserId;
-        this.mToUserId = toUserId;
-        this.mFromAccountId = fromAccountId;
-        this.mToAccountId = toAccountId;
         this.mNetwork = network;
         this.mStatus = status;
         this.mAmount = amount;
         this.mFee = fee;
         this.mNonce = nonce;
+        this.mSenders = senders;
+        this.mRecipients = recipients;
+        this.mInternalTransactions = internalTransactions;
         this.mCryptoProperties = cryptoProperties;
         this.mFiatProperties = fiatProperties;
         this.mCardProperties = cardProperties;
@@ -123,26 +121,6 @@ public final class Transaction {
         return mDirection;
     }
 
-    /** Sender integrator user identifier or null if it is external user. */
-    public String getFromUserId() {
-        return mFromUserId;
-    }
-
-    /** Recipient integrator user identifier or null if it is external user. */
-    public String getToUserId() {
-        return mToUserId;
-    }
-
-    /** Sender account identifier if it is internal transaction or null otherwise. */
-    public String getFromAccountId() {
-        return mFromAccountId;
-    }
-
-    /** Recipient account identifier if it is internal transaction or null otherwise. */
-    public String getToAccountId() {
-        return mToAccountId;
-    }
-
     /**
      * Network type.
      * @see NetworkType
@@ -159,7 +137,10 @@ public final class Transaction {
         return mStatus;
     }
 
-    /** Amount in transaction currency or null if transaction is Ethereum contract deploy. */
+    /**
+     * Amount in transaction currency or null if transaction is Ethereum contract deploy.
+     * Amount is calculated as transaction amount sent - transaction amounts received - change.
+     */
     public java.math.BigDecimal getAmount() {
         return mAmount;
     }
@@ -172,6 +153,21 @@ public final class Transaction {
     /** Transaction nonce or null. Used to prevent double spend. */
     public String getNonce() {
         return mNonce;
+    }
+
+    /** Transaction senders. */
+    public ArrayList<TransactionAmount> getSenders() {
+        return mSenders;
+    }
+
+    /** Transaction recipients. */
+    public ArrayList<TransactionAmount> getRecipients() {
+        return mRecipients;
+    }
+
+    /** Internal transactions, e.g. ETH contract interaction side effects. */
+    public ArrayList<InternalTransaction> getInternalTransactions() {
+        return mInternalTransactions;
     }
 
     /**
@@ -236,15 +232,14 @@ public final class Transaction {
                 this.mType.equals(other.mType) &&
                 this.mCurrencyCode.equals(other.mCurrencyCode) &&
                 this.mDirection.equals(other.mDirection) &&
-                ((this.mFromUserId == null && other.mFromUserId == null) || (this.mFromUserId != null && this.mFromUserId.equals(other.mFromUserId))) &&
-                ((this.mToUserId == null && other.mToUserId == null) || (this.mToUserId != null && this.mToUserId.equals(other.mToUserId))) &&
-                ((this.mFromAccountId == null && other.mFromAccountId == null) || (this.mFromAccountId != null && this.mFromAccountId.equals(other.mFromAccountId))) &&
-                ((this.mToAccountId == null && other.mToAccountId == null) || (this.mToAccountId != null && this.mToAccountId.equals(other.mToAccountId))) &&
                 this.mNetwork.equals(other.mNetwork) &&
                 this.mStatus.equals(other.mStatus) &&
                 ((this.mAmount == null && other.mAmount == null) || (this.mAmount != null && this.mAmount.equals(other.mAmount))) &&
                 ((this.mFee == null && other.mFee == null) || (this.mFee != null && this.mFee.equals(other.mFee))) &&
                 ((this.mNonce == null && other.mNonce == null) || (this.mNonce != null && this.mNonce.equals(other.mNonce))) &&
+                this.mSenders.equals(other.mSenders) &&
+                this.mRecipients.equals(other.mRecipients) &&
+                this.mInternalTransactions.equals(other.mInternalTransactions) &&
                 ((this.mCryptoProperties == null && other.mCryptoProperties == null) || (this.mCryptoProperties != null && this.mCryptoProperties.equals(other.mCryptoProperties))) &&
                 ((this.mFiatProperties == null && other.mFiatProperties == null) || (this.mFiatProperties != null && this.mFiatProperties.equals(other.mFiatProperties))) &&
                 ((this.mCardProperties == null && other.mCardProperties == null) || (this.mCardProperties != null && this.mCardProperties.equals(other.mCardProperties))) &&
@@ -263,15 +258,14 @@ public final class Transaction {
         hashCode = hashCode * 31 + mType.hashCode();
         hashCode = hashCode * 31 + mCurrencyCode.hashCode();
         hashCode = hashCode * 31 + mDirection.hashCode();
-        hashCode = hashCode * 31 + (mFromUserId == null ? 0 : mFromUserId.hashCode());
-        hashCode = hashCode * 31 + (mToUserId == null ? 0 : mToUserId.hashCode());
-        hashCode = hashCode * 31 + (mFromAccountId == null ? 0 : mFromAccountId.hashCode());
-        hashCode = hashCode * 31 + (mToAccountId == null ? 0 : mToAccountId.hashCode());
         hashCode = hashCode * 31 + mNetwork.hashCode();
         hashCode = hashCode * 31 + mStatus.hashCode();
         hashCode = hashCode * 31 + (mAmount == null ? 0 : mAmount.hashCode());
         hashCode = hashCode * 31 + (mFee == null ? 0 : mFee.hashCode());
         hashCode = hashCode * 31 + (mNonce == null ? 0 : mNonce.hashCode());
+        hashCode = hashCode * 31 + mSenders.hashCode();
+        hashCode = hashCode * 31 + mRecipients.hashCode();
+        hashCode = hashCode * 31 + mInternalTransactions.hashCode();
         hashCode = hashCode * 31 + (mCryptoProperties == null ? 0 : mCryptoProperties.hashCode());
         hashCode = hashCode * 31 + (mFiatProperties == null ? 0 : mFiatProperties.hashCode());
         hashCode = hashCode * 31 + (mCardProperties == null ? 0 : mCardProperties.hashCode());
@@ -290,15 +284,14 @@ public final class Transaction {
                 "," + "mType=" + mType +
                 "," + "mCurrencyCode=" + mCurrencyCode +
                 "," + "mDirection=" + mDirection +
-                "," + "mFromUserId=" + mFromUserId +
-                "," + "mToUserId=" + mToUserId +
-                "," + "mFromAccountId=" + mFromAccountId +
-                "," + "mToAccountId=" + mToAccountId +
                 "," + "mNetwork=" + mNetwork +
                 "," + "mStatus=" + mStatus +
                 "," + "mAmount=" + mAmount +
                 "," + "mFee=" + mFee +
                 "," + "mNonce=" + mNonce +
+                "," + "mSenders=" + mSenders +
+                "," + "mRecipients=" + mRecipients +
+                "," + "mInternalTransactions=" + mInternalTransactions +
                 "," + "mCryptoProperties=" + mCryptoProperties +
                 "," + "mFiatProperties=" + mFiatProperties +
                 "," + "mCardProperties=" + mCardProperties +

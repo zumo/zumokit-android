@@ -3,12 +3,12 @@
 
 package money.zumo.zumokit;
 
-/** Transaction direction, 'INCOMING' or 'OUTGOING'. */
+/** Transaction direction, 'SENT' or 'RECEIVED'. */
 public final class TransactionDirection {
 
-    public static final String INCOMING = "INCOMING";
+    public static final String SENT = "SENT";
 
-    public static final String OUTGOING = "OUTGOING";
+    public static final String RECEIVED = "RECEIVED";
 
 
     public TransactionDirection(
