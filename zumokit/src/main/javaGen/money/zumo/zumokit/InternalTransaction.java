@@ -3,6 +3,8 @@
 
 package money.zumo.zumokit;
 
+import java.util.HashMap;
+
 /** Record containing internal transaction details. */
 public final class InternalTransaction {
 
@@ -25,6 +27,8 @@ public final class InternalTransaction {
 
     /*package*/ final java.math.BigDecimal mAmount;
 
+    /*package*/ final HashMap<String, Double> mFiatAmount;
+
     public InternalTransaction(
             String fromUserId,
             String fromUserIntegratorId,
@@ -34,7 +38,8 @@ public final class InternalTransaction {
             String toUserIntegratorId,
             String toAccountId,
             String toAddress,
-            java.math.BigDecimal amount) {
+            java.math.BigDecimal amount,
+            HashMap<String, Double> fiatAmount) {
         this.mFromUserId = fromUserId;
         this.mFromUserIntegratorId = fromUserIntegratorId;
         this.mFromAccountId = fromAccountId;
@@ -44,6 +49,7 @@ public final class InternalTransaction {
         this.mToAccountId = toAccountId;
         this.mToAddress = toAddress;
         this.mAmount = amount;
+        this.mFiatAmount = fiatAmount;
     }
 
     /** Sender user id or null if it is external user. */
@@ -91,6 +97,14 @@ public final class InternalTransaction {
         return mAmount;
     }
 
+    /**
+     * Value in fiat currencies at the time of the transaction submission.
+     * @see CurrencyCode
+     */
+    public HashMap<String, Double> getFiatAmount() {
+        return mFiatAmount;
+    }
+
     @Override
     public boolean equals(Object obj) {
         if (!(obj instanceof InternalTransaction)) {
@@ -105,7 +119,8 @@ public final class InternalTransaction {
                 ((this.mToUserIntegratorId == null && other.mToUserIntegratorId == null) || (this.mToUserIntegratorId != null && this.mToUserIntegratorId.equals(other.mToUserIntegratorId))) &&
                 ((this.mToAccountId == null && other.mToAccountId == null) || (this.mToAccountId != null && this.mToAccountId.equals(other.mToAccountId))) &&
                 this.mToAddress.equals(other.mToAddress) &&
-                this.mAmount.equals(other.mAmount);
+                this.mAmount.equals(other.mAmount) &&
+                ((this.mFiatAmount == null && other.mFiatAmount == null) || (this.mFiatAmount != null && this.mFiatAmount.equals(other.mFiatAmount)));
     }
 
     @Override
@@ -121,6 +136,7 @@ public final class InternalTransaction {
         hashCode = hashCode * 31 + (mToAccountId == null ? 0 : mToAccountId.hashCode());
         hashCode = hashCode * 31 + mToAddress.hashCode();
         hashCode = hashCode * 31 + (mAmount.hashCode());
+        hashCode = hashCode * 31 + (mFiatAmount == null ? 0 : mFiatAmount.hashCode());
         return hashCode;
     }
 
@@ -136,6 +152,7 @@ public final class InternalTransaction {
                 "," + "mToAccountId=" + mToAccountId +
                 "," + "mToAddress=" + mToAddress +
                 "," + "mAmount=" + mAmount +
+                "," + "mFiatAmount=" + mFiatAmount +
         "}";
     }
 
