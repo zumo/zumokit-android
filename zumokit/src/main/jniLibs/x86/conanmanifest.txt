@@ -1,6 +1,6 @@
-1661262124
+1661267128
 conaninfo.txt: 7118ec3a1231f18cadb655c603d0cd90
 libbitcoin.so: 5f95ad16d764e7600c76d8c35305fb86
 libsecp256k1.so: 2742178485560d287a8d2d143ef10880
 libtrezorcrypto.so: c6c8e2983889a7bd1fad9536ad5b9e87
-libzumocore.so: 7aba81cc68f880435dfa864ec6c227a8
+libzumocore.so: 24dd7599cdc4c213b514f10c4bca6faa
