@@ -490,6 +490,8 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/ExchangeSetting.html#equals(java.lang.Object)">equals(Object)</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/ExchangeSetting.html" title="class in money.zumo.zumokit">ExchangeSetting</a></dt>
 <dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="money/zumo/zumokit/InternalTransaction.html#equals(java.lang.Object)">equals(Object)</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/InternalTransaction.html" title="class in money.zumo.zumokit">InternalTransaction</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/KbaAnswer.html#equals(java.lang.Object)">equals(Object)</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/KbaAnswer.html" title="class in money.zumo.zumokit">KbaAnswer</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/KbaQuestion.html#equals(java.lang.Object)">equals(Object)</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/KbaQuestion.html" title="class in money.zumo.zumokit">KbaQuestion</a></dt>
@@ -497,6 +499,8 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/Quote.html#equals(java.lang.Object)">equals(Object)</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/Quote.html" title="class in money.zumo.zumokit">Quote</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/Transaction.html#equals(java.lang.Object)">equals(Object)</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/Transaction.html" title="class in money.zumo.zumokit">Transaction</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="money/zumo/zumokit/TransactionAmount.html#equals(java.lang.Object)">equals(Object)</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/TransactionAmount.html" title="class in money.zumo.zumokit">TransactionAmount</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/TransactionCardProperties.html#equals(java.lang.Object)">equals(Object)</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/TransactionCardProperties.html" title="class in money.zumo.zumokit">TransactionCardProperties</a></dt>
 <dd>&nbsp;</dd>
@@ -640,7 +644,15 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dd>
 <div class="block">Associated account's identifier.</div>
 </dd>
+<dt><span class="memberNameLink"><a href="money/zumo/zumokit/TransactionAmount.html#getAccountId()">getAccountId()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/TransactionAmount.html" title="class in money.zumo.zumokit">TransactionAmount</a></dt>
+<dd>
+<div class="block">Account id or null if it is external user.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/AccountFiatProperties.html#getAccountNumber()">getAccountNumber()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/AccountFiatProperties.html" title="class in money.zumo.zumokit">AccountFiatProperties</a></dt>
+<dd>
+<div class="block">Fiat account number or null.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="money/zumo/zumokit/TransactionAmount.html#getAccountNumber()">getAccountNumber()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/TransactionAmount.html" title="class in money.zumo.zumokit">TransactionAmount</a></dt>
 <dd>
 <div class="block">Fiat account number or null.</div>
 </dd>
@@ -653,6 +665,10 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/AccountCryptoProperties.html#getAddress()">getAddress()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/AccountCryptoProperties.html" title="class in money.zumo.zumokit">AccountCryptoProperties</a></dt>
 <dd>
 <div class="block">Account crypto address.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="money/zumo/zumokit/TransactionAmount.html#getAddress()">getAddress()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/TransactionAmount.html" title="class in money.zumo.zumokit">TransactionAmount</a></dt>
+<dd>
+<div class="block">Blockchain address or null.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/Address.html#getAddressLine1()">getAddressLine1()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/Address.html" title="class in money.zumo.zumokit">Address</a></dt>
 <dd>
@@ -674,7 +690,15 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dd>
 <div class="block">Amount in deposit currency.</div>
 </dd>
+<dt><span class="memberNameLink"><a href="money/zumo/zumokit/InternalTransaction.html#getAmount()">getAmount()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/InternalTransaction.html" title="class in money.zumo.zumokit">InternalTransaction</a></dt>
+<dd>
+<div class="block">Transaction amount in transaction currency.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/Transaction.html#getAmount()">getAmount()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/Transaction.html" title="class in money.zumo.zumokit">Transaction</a></dt>
+<dd>
+<div class="block">Amount in transaction currency or null if transaction is Ethereum contract deploy.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="money/zumo/zumokit/TransactionAmount.html#getAmount()">getAmount()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/TransactionAmount.html" title="class in money.zumo.zumokit">TransactionAmount</a></dt>
 <dd>
 <div class="block">Amount in transaction currency or null if transaction is Ethereum contract deploy.</div>
 </dd>
@@ -695,6 +719,10 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <div class="block">Account balance.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/AccountFiatProperties.html#getBic()">getBic()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/AccountFiatProperties.html" title="class in money.zumo.zumokit">AccountFiatProperties</a></dt>
+<dd>
+<div class="block">Fiat account BIC or null.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="money/zumo/zumokit/TransactionAmount.html#getBic()">getBic()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/TransactionAmount.html" title="class in money.zumo.zumokit">TransactionAmount</a></dt>
 <dd>
 <div class="block">Fiat account BIC or null.</div>
 </dd>
@@ -795,6 +823,10 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/Transaction.html#getDirection()">getDirection()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/Transaction.html" title="class in money.zumo.zumokit">Transaction</a></dt>
 <dd>
 <div class="block">Transaction direction relative to <a href="money/zumo/zumokit/AccountDataSnapshot.html" title="class in money.zumo.zumokit"><code>AccountDataSnapshot</code></a> .</div>
+</dd>
+<dt><span class="memberNameLink"><a href="money/zumo/zumokit/TransactionAmount.html#getDirection()">getDirection()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/TransactionAmount.html" title="class in money.zumo.zumokit">TransactionAmount</a></dt>
+<dd>
+<div class="block">Direction, either 'SENT' or 'RECEIVED'.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/exceptions/ZumoKitException.html#getErrorCode()">getErrorCode()</a></span> - Method in exception money.zumo.zumokit.exceptions.<a href="money/zumo/zumokit/exceptions/ZumoKitException.html" title="class in money.zumo.zumokit.exceptions">ZumoKitException</a></dt>
 <dd>
@@ -914,9 +946,17 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dd>
 <div class="block">Transaction fee in transaction currency or null, if not yet available.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="money/zumo/zumokit/TransactionCryptoProperties.html#getFiatAmount()">getFiatAmount()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/TransactionCryptoProperties.html" title="class in money.zumo.zumokit">TransactionCryptoProperties</a></dt>
+<dt><span class="memberNameLink"><a href="money/zumo/zumokit/InternalTransaction.html#getFiatAmount()">getFiatAmount()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/InternalTransaction.html" title="class in money.zumo.zumokit">InternalTransaction</a></dt>
+<dd>
+<div class="block">Value in fiat currencies at the time of the transaction submission.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="money/zumo/zumokit/TransactionAmount.html#getFiatAmount()">getFiatAmount()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/TransactionAmount.html" title="class in money.zumo.zumokit">TransactionAmount</a></dt>
 <dd>
 <div class="block">Amount in fiat currencies at the time of the transaction submission.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="money/zumo/zumokit/TransactionCryptoProperties.html#getFiatAmount()">getFiatAmount()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/TransactionCryptoProperties.html" title="class in money.zumo.zumokit">TransactionCryptoProperties</a></dt>
+<dd>
+<div class="block">Value in fiat currencies at the time of the transaction submission.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/TransactionCryptoProperties.html#getFiatFee()">getFiatFee()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/TransactionCryptoProperties.html" title="class in money.zumo.zumokit">TransactionCryptoProperties</a></dt>
 <dd>
@@ -938,13 +978,17 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dd>
 <div class="block">Source <a href="money/zumo/zumokit/Account.html" title="class in money.zumo.zumokit"><code>Account</code></a> identifier.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="money/zumo/zumokit/Transaction.html#getFromAccountId()">getFromAccountId()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/Transaction.html" title="class in money.zumo.zumokit">Transaction</a></dt>
+<dt><span class="memberNameLink"><a href="money/zumo/zumokit/InternalTransaction.html#getFromAccountId()">getFromAccountId()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/InternalTransaction.html" title="class in money.zumo.zumokit">InternalTransaction</a></dt>
 <dd>
-<div class="block">Sender account identifier if it is internal transaction or null otherwise.</div>
+<div class="block">Sender account id or null if it is external user.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="money/zumo/zumokit/InternalTransaction.html#getFromAddress()">getFromAddress()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/InternalTransaction.html" title="class in money.zumo.zumokit">InternalTransaction</a></dt>
+<dd>
+<div class="block">Sender address.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/TransactionCryptoProperties.html#getFromAddress()">getFromAddress()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/TransactionCryptoProperties.html" title="class in money.zumo.zumokit">TransactionCryptoProperties</a></dt>
 <dd>
-<div class="block">Wallet address of sender,</div>
+<div class="block">Ethereum wallet address of sender.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/Exchange.html#getFromCurrency()">getFromCurrency()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/Exchange.html" title="class in money.zumo.zumokit">Exchange</a></dt>
 <dd>
@@ -966,9 +1010,13 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dd>
 <div class="block">Sender fiat account properties.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="money/zumo/zumokit/Transaction.html#getFromUserId()">getFromUserId()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/Transaction.html" title="class in money.zumo.zumokit">Transaction</a></dt>
+<dt><span class="memberNameLink"><a href="money/zumo/zumokit/InternalTransaction.html#getFromUserId()">getFromUserId()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/InternalTransaction.html" title="class in money.zumo.zumokit">InternalTransaction</a></dt>
 <dd>
-<div class="block">Sender integrator user identifier or null if it is external user.</div>
+<div class="block">Sender user id or null if it is external user.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="money/zumo/zumokit/InternalTransaction.html#getFromUserIntegratorId()">getFromUserIntegratorId()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/InternalTransaction.html" title="class in money.zumo.zumokit">InternalTransaction</a></dt>
+<dd>
+<div class="block">Sender user integrator id or null if it is external user.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/TransactionCryptoProperties.html#getGasLimit()">getGasLimit()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/TransactionCryptoProperties.html" title="class in money.zumo.zumokit">TransactionCryptoProperties</a></dt>
 <dd>
@@ -987,6 +1035,10 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <div class="block">House number.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/AccountFiatProperties.html#getIban()">getIban()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/AccountFiatProperties.html" title="class in money.zumo.zumokit">AccountFiatProperties</a></dt>
+<dd>
+<div class="block">Fiat account IBAN or null.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="money/zumo/zumokit/TransactionAmount.html#getIban()">getIban()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/TransactionAmount.html" title="class in money.zumo.zumokit">TransactionAmount</a></dt>
 <dd>
 <div class="block">Fiat account IBAN or null.</div>
 </dd>
@@ -1023,6 +1075,20 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/User.html#getId()">getId()</a></span> - Method in interface money.zumo.zumokit.<a href="money/zumo/zumokit/User.html" title="interface in money.zumo.zumokit">User</a></dt>
 <dd>
 <div class="block">Get user id.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="money/zumo/zumokit/User.CppProxy.html#getIntegratorId()">getIntegratorId()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/User.CppProxy.html" title="class in money.zumo.zumokit">User.CppProxy</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="money/zumo/zumokit/User.html#getIntegratorId()">getIntegratorId()</a></span> - Method in interface money.zumo.zumokit.<a href="money/zumo/zumokit/User.html" title="interface in money.zumo.zumokit">User</a></dt>
+<dd>
+<div class="block">Get user integrator id.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="money/zumo/zumokit/Transaction.html#getInternalTransactions()">getInternalTransactions()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/Transaction.html" title="class in money.zumo.zumokit">Transaction</a></dt>
+<dd>
+<div class="block">Internal transactions, e.g.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="money/zumo/zumokit/TransactionAmount.html#getIsChange()">getIsChange()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/TransactionAmount.html" title="class in money.zumo.zumokit">TransactionAmount</a></dt>
+<dd>
+<div class="block">Indicates if this amount represents change amount.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/AuthenticationConfig.html#getKnowledgeBase()">getKnowledgeBase()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/AuthenticationConfig.html" title="class in money.zumo.zumokit">AuthenticationConfig</a></dt>
 <dd>
@@ -1143,6 +1209,10 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dd>
 <div class="block">Exchange rate quote used.</div>
 </dd>
+<dt><span class="memberNameLink"><a href="money/zumo/zumokit/Transaction.html#getRecipients()">getRecipients()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/Transaction.html" title="class in money.zumo.zumokit">Transaction</a></dt>
+<dd>
+<div class="block">Transaction recipients.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/ComposedExchange.html#getReturnAmount()">getReturnAmount()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/ComposedExchange.html" title="class in money.zumo.zumokit">ComposedExchange</a></dt>
 <dd>
 <div class="block">Amount that user receives, calculated as <code>value X quote.value X (1 - feeRate) - returnTransactionFee</code>.</div>
@@ -1171,6 +1241,10 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dd>
 <div class="block">Boolean indicating if card is SCA compliant.</div>
 </dd>
+<dt><span class="memberNameLink"><a href="money/zumo/zumokit/Transaction.html#getSenders()">getSenders()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/Transaction.html" title="class in money.zumo.zumokit">Transaction</a></dt>
+<dd>
+<div class="block">Transaction senders.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/ComposedExchange.html#getSignedTransaction()">getSignedTransaction()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/ComposedExchange.html" title="class in money.zumo.zumokit">ComposedExchange</a></dt>
 <dd>
 <div class="block">Signed transaction for a crypto transaction, null otherwise.</div>
@@ -1188,6 +1262,10 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <div class="block">Slow confirmation time in hours.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/AccountFiatProperties.html#getSortCode()">getSortCode()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/AccountFiatProperties.html" title="class in money.zumo.zumokit">AccountFiatProperties</a></dt>
+<dd>
+<div class="block">Fiat account sort code or null.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="money/zumo/zumokit/TransactionAmount.html#getSortCode()">getSortCode()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/TransactionAmount.html" title="class in money.zumo.zumokit">TransactionAmount</a></dt>
 <dd>
 <div class="block">Fiat account sort code or null.</div>
 </dd>
@@ -1227,13 +1305,17 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dd>
 <div class="block">Target <a href="money/zumo/zumokit/Account.html" title="class in money.zumo.zumokit"><code>Account</code></a> identifier.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="money/zumo/zumokit/Transaction.html#getToAccountId()">getToAccountId()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/Transaction.html" title="class in money.zumo.zumokit">Transaction</a></dt>
+<dt><span class="memberNameLink"><a href="money/zumo/zumokit/InternalTransaction.html#getToAccountId()">getToAccountId()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/InternalTransaction.html" title="class in money.zumo.zumokit">InternalTransaction</a></dt>
 <dd>
-<div class="block">Recipient account identifier if it is internal transaction or null otherwise.</div>
+<div class="block">Recipient account id or null if it is external user.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="money/zumo/zumokit/InternalTransaction.html#getToAddress()">getToAddress()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/InternalTransaction.html" title="class in money.zumo.zumokit">InternalTransaction</a></dt>
+<dd>
+<div class="block">Recipient address.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/TransactionCryptoProperties.html#getToAddress()">getToAddress()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/TransactionCryptoProperties.html" title="class in money.zumo.zumokit">TransactionCryptoProperties</a></dt>
 <dd>
-<div class="block">Wallet address of receiver or null, if it is Ethereum contract deploy.</div>
+<div class="block">Ethereum wallet address of recipient or null, if it is Ethereum contract deploy.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/Exchange.html#getToCurrency()">getToCurrency()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/Exchange.html" title="class in money.zumo.zumokit">Exchange</a></dt>
 <dd>
@@ -1255,9 +1337,13 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dd>
 <div class="block">Recipient fiat account properties.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="money/zumo/zumokit/Transaction.html#getToUserId()">getToUserId()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/Transaction.html" title="class in money.zumo.zumokit">Transaction</a></dt>
+<dt><span class="memberNameLink"><a href="money/zumo/zumokit/InternalTransaction.html#getToUserId()">getToUserId()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/InternalTransaction.html" title="class in money.zumo.zumokit">InternalTransaction</a></dt>
 <dd>
-<div class="block">Recipient integrator user identifier or null if it is external user.</div>
+<div class="block">Recipient user id or null if it is external user.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="money/zumo/zumokit/InternalTransaction.html#getToUserIntegratorId()">getToUserIntegratorId()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/InternalTransaction.html" title="class in money.zumo.zumokit">InternalTransaction</a></dt>
+<dd>
+<div class="block">Recipient user integrator id or null if it is external user.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/TransactionCardProperties.html#getTransactionAmount()">getTransactionAmount()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/TransactionCardProperties.html" title="class in money.zumo.zumokit">TransactionCardProperties</a></dt>
 <dd>
@@ -1314,6 +1400,14 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/Transaction.html#getType()">getType()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/Transaction.html" title="class in money.zumo.zumokit">Transaction</a></dt>
 <dd>
 <div class="block">Transaction type.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="money/zumo/zumokit/TransactionAmount.html#getUserId()">getUserId()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/TransactionAmount.html" title="class in money.zumo.zumokit">TransactionAmount</a></dt>
+<dd>
+<div class="block">User id or null if it is external user.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="money/zumo/zumokit/TransactionAmount.html#getUserIntegratorId()">getUserIntegratorId()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/TransactionAmount.html" title="class in money.zumo.zumokit">TransactionAmount</a></dt>
+<dd>
+<div class="block">User integrator id or null if it is external user.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/ZumoCore.CppProxy.html#getUtils()">getUtils()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/ZumoCore.CppProxy.html" title="class in money.zumo.zumokit">ZumoCore.CppProxy</a></dt>
 <dd>&nbsp;</dd>
@@ -1377,6 +1471,8 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/ExchangeSetting.html#hashCode()">hashCode()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/ExchangeSetting.html" title="class in money.zumo.zumokit">ExchangeSetting</a></dt>
 <dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="money/zumo/zumokit/InternalTransaction.html#hashCode()">hashCode()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/InternalTransaction.html" title="class in money.zumo.zumokit">InternalTransaction</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/KbaAnswer.html#hashCode()">hashCode()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/KbaAnswer.html" title="class in money.zumo.zumokit">KbaAnswer</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/KbaQuestion.html#hashCode()">hashCode()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/KbaQuestion.html" title="class in money.zumo.zumokit">KbaQuestion</a></dt>
@@ -1384,6 +1480,8 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/Quote.html#hashCode()">hashCode()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/Quote.html" title="class in money.zumo.zumokit">Quote</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/Transaction.html#hashCode()">hashCode()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/Transaction.html" title="class in money.zumo.zumokit">Transaction</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="money/zumo/zumokit/TransactionAmount.html#hashCode()">hashCode()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/TransactionAmount.html" title="class in money.zumo.zumokit">TransactionAmount</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/TransactionCardProperties.html#hashCode()">hashCode()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/TransactionCardProperties.html" title="class in money.zumo.zumokit">TransactionCardProperties</a></dt>
 <dd>&nbsp;</dd>
@@ -1419,8 +1517,6 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 </a>
 <h2 class="title">I</h2>
 <dl>
-<dt><span class="memberNameLink"><a href="money/zumo/zumokit/TransactionDirection.html#INCOMING">INCOMING</a></span> - Static variable in class money.zumo.zumokit.<a href="money/zumo/zumokit/TransactionDirection.html" title="class in money.zumo.zumokit">TransactionDirection</a></dt>
-<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/ZumoKitErrorCode.html#INCOMPATIBLE_NETWORK_TYPES">INCOMPATIBLE_NETWORK_TYPES</a></span> - Static variable in class money.zumo.zumokit.<a href="money/zumo/zumokit/ZumoKitErrorCode.html" title="class in money.zumo.zumokit">ZumoKitErrorCode</a></dt>
 <dd>
 <div class="block">Change account and source accounts have to be on the same network.</div>
@@ -1452,6 +1548,12 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dd>
 <div class="block">Value exceeds maximum 63 bit precision.</div>
 </dd>
+<dt><a href="money/zumo/zumokit/InternalTransaction.html" title="class in money.zumo.zumokit"><span class="typeNameLink">InternalTransaction</span></a> - Class in <a href="money/zumo/zumokit/package-summary.html">money.zumo.zumokit</a></dt>
+<dd>
+<div class="block">Record containing internal transaction details.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="money/zumo/zumokit/InternalTransaction.html#%3Cinit%3E(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.math.BigDecimal,java.util.HashMap)">InternalTransaction(String, String, String, String, String, String, String, String, BigDecimal, HashMap&lt;String, Double&gt;)</a></span> - Constructor for class money.zumo.zumokit.<a href="money/zumo/zumokit/InternalTransaction.html" title="class in money.zumo.zumokit">InternalTransaction</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/ZumoKitErrorCode.html#INVALID_ACCOUNT_TYPE">INVALID_ACCOUNT_TYPE</a></span> - Static variable in class money.zumo.zumokit.<a href="money/zumo/zumokit/ZumoKitErrorCode.html" title="class in money.zumo.zumokit">ZumoKitErrorCode</a></dt>
 <dd>
 <div class="block">Account type not supported by the operation.</div>
@@ -1784,8 +1886,6 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/WalletCallback.html#onSuccess(money.zumo.zumokit.Wallet)">onSuccess(Wallet)</a></span> - Method in interface money.zumo.zumokit.<a href="money/zumo/zumokit/WalletCallback.html" title="interface in money.zumo.zumokit">WalletCallback</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="money/zumo/zumokit/TransactionDirection.html#OUTGOING">OUTGOING</a></span> - Static variable in class money.zumo.zumokit.<a href="money/zumo/zumokit/TransactionDirection.html" title="class in money.zumo.zumokit">TransactionDirection</a></dt>
-<dd>&nbsp;</dd>
 </dl>
 <a id="I:P">
 <!--   -->
@@ -1839,6 +1939,8 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <div class="block">An exception indicating that too many requests have hit the API too quickly.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/exceptions/RateLimitException.html#%3Cinit%3E(java.lang.String,java.lang.String,java.lang.String)">RateLimitException(String, String, String)</a></span> - Constructor for exception money.zumo.zumokit.exceptions.<a href="money/zumo/zumokit/exceptions/RateLimitException.html" title="class in money.zumo.zumokit.exceptions">RateLimitException</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="money/zumo/zumokit/TransactionDirection.html#RECEIVED">RECEIVED</a></span> - Static variable in class money.zumo.zumokit.<a href="money/zumo/zumokit/TransactionDirection.html" title="class in money.zumo.zumokit">TransactionDirection</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/User.CppProxy.html#recoverWallet(java.lang.String,java.lang.String,money.zumo.zumokit.WalletCallback)">recoverWallet(String, String, WalletCallback)</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/User.CppProxy.html" title="class in money.zumo.zumokit">User.CppProxy</a></dt>
 <dd>&nbsp;</dd>
@@ -1936,6 +2038,8 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dd>
 <div class="block">Transaction amount is too small to send after the fee has been deducted.</div>
 </dd>
+<dt><span class="memberNameLink"><a href="money/zumo/zumokit/TransactionDirection.html#SENT">SENT</a></span> - Static variable in class money.zumo.zumokit.<a href="money/zumo/zumokit/TransactionDirection.html" title="class in money.zumo.zumokit">TransactionDirection</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/User.CppProxy.html#setAuthentication(java.lang.String,java.util.ArrayList,money.zumo.zumokit.SuccessCallback)">setAuthentication(String, ArrayList&lt;KbaAnswer&gt;, SuccessCallback)</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/User.CppProxy.html" title="class in money.zumo.zumokit">User.CppProxy</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/User.html#setAuthentication(java.lang.String,java.util.ArrayList,money.zumo.zumokit.SuccessCallback)">setAuthentication(String, ArrayList&lt;KbaAnswer&gt;, SuccessCallback)</a></span> - Method in interface money.zumo.zumokit.<a href="money/zumo/zumokit/User.html" title="interface in money.zumo.zumokit">User</a></dt>
@@ -2074,6 +2178,8 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/ExchangeStatus.html#toString()">toString()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/ExchangeStatus.html" title="class in money.zumo.zumokit">ExchangeStatus</a></dt>
 <dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="money/zumo/zumokit/InternalTransaction.html#toString()">toString()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/InternalTransaction.html" title="class in money.zumo.zumokit">InternalTransaction</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/KbaAnswer.html#toString()">toString()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/KbaAnswer.html" title="class in money.zumo.zumokit">KbaAnswer</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/KbaQuestion.html#toString()">toString()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/KbaQuestion.html" title="class in money.zumo.zumokit">KbaQuestion</a></dt>
@@ -2085,6 +2191,8 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/TimeInterval.html#toString()">toString()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/TimeInterval.html" title="class in money.zumo.zumokit">TimeInterval</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/Transaction.html#toString()">toString()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/Transaction.html" title="class in money.zumo.zumokit">Transaction</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="money/zumo/zumokit/TransactionAmount.html#toString()">toString()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/TransactionAmount.html" title="class in money.zumo.zumokit">TransactionAmount</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/TransactionCardProperties.html#toString()">toString()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/TransactionCardProperties.html" title="class in money.zumo.zumokit">TransactionCardProperties</a></dt>
 <dd>&nbsp;</dd>
@@ -2108,7 +2216,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dd>
 <div class="block">Record containing transaction details.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="money/zumo/zumokit/Transaction.html#%3Cinit%3E(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.math.BigDecimal,java.math.BigDecimal,java.lang.String,money.zumo.zumokit.TransactionCryptoProperties,money.zumo.zumokit.TransactionFiatProperties,money.zumo.zumokit.TransactionCardProperties,money.zumo.zumokit.Exchange,java.lang.String,java.lang.Integer,java.lang.Integer,int)">Transaction(String, String, String, String, String, String, String, String, String, String, BigDecimal, BigDecimal, String, TransactionCryptoProperties, TransactionFiatProperties, TransactionCardProperties, Exchange, String, Integer, Integer, int)</a></span> - Constructor for class money.zumo.zumokit.<a href="money/zumo/zumokit/Transaction.html" title="class in money.zumo.zumokit">Transaction</a></dt>
+<dt><span class="memberNameLink"><a href="money/zumo/zumokit/Transaction.html#%3Cinit%3E(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.math.BigDecimal,java.math.BigDecimal,java.lang.String,java.util.ArrayList,java.util.ArrayList,java.util.ArrayList,money.zumo.zumokit.TransactionCryptoProperties,money.zumo.zumokit.TransactionFiatProperties,money.zumo.zumokit.TransactionCardProperties,money.zumo.zumokit.Exchange,java.lang.String,java.lang.Integer,java.lang.Integer,int)">Transaction(String, String, String, String, String, String, BigDecimal, BigDecimal, String, ArrayList&lt;TransactionAmount&gt;, ArrayList&lt;TransactionAmount&gt;, ArrayList&lt;InternalTransaction&gt;, TransactionCryptoProperties, TransactionFiatProperties, TransactionCardProperties, Exchange, String, Integer, Integer, int)</a></span> - Constructor for class money.zumo.zumokit.<a href="money/zumo/zumokit/Transaction.html" title="class in money.zumo.zumokit">Transaction</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/ZumoKitErrorCode.html#TRANSACTION_AMOUNT_OVERFLOW">TRANSACTION_AMOUNT_OVERFLOW</a></span> - Static variable in class money.zumo.zumokit.<a href="money/zumo/zumokit/ZumoKitErrorCode.html" title="class in money.zumo.zumokit">ZumoKitErrorCode</a></dt>
 <dd>
@@ -2126,6 +2234,12 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dd>
 <div class="block">Resulting transaction is too large.</div>
 </dd>
+<dt><a href="money/zumo/zumokit/TransactionAmount.html" title="class in money.zumo.zumokit"><span class="typeNameLink">TransactionAmount</span></a> - Class in <a href="money/zumo/zumokit/package-summary.html">money.zumo.zumokit</a></dt>
+<dd>
+<div class="block">Record containing transaction amount details.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="money/zumo/zumokit/TransactionAmount.html#%3Cinit%3E(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.math.BigDecimal,java.util.HashMap,java.lang.String,boolean,java.lang.String,java.lang.String,java.lang.String,java.lang.String)">TransactionAmount(String, String, String, String, BigDecimal, HashMap&lt;String, Double&gt;, String, boolean, String, String, String, String)</a></span> - Constructor for class money.zumo.zumokit.<a href="money/zumo/zumokit/TransactionAmount.html" title="class in money.zumo.zumokit">TransactionAmount</a></dt>
+<dd>&nbsp;</dd>
 <dt><a href="money/zumo/zumokit/TransactionCardProperties.html" title="class in money.zumo.zumokit"><span class="typeNameLink">TransactionCardProperties</span></a> - Class in <a href="money/zumo/zumokit/package-summary.html">money.zumo.zumokit</a></dt>
 <dd>
 <div class="block">Record containing properties associated with a card transaction.</div>
@@ -2136,11 +2250,11 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dd>
 <div class="block">Record containing transaction's crypto properties.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="money/zumo/zumokit/TransactionCryptoProperties.html#%3Cinit%3E(java.lang.String,java.lang.Integer,java.lang.String,java.lang.String,java.lang.String,java.math.BigDecimal,java.lang.Integer,java.util.HashMap,java.util.HashMap)">TransactionCryptoProperties(String, Integer, String, String, String, BigDecimal, Integer, HashMap&lt;String, BigDecimal&gt;, HashMap&lt;String, BigDecimal&gt;)</a></span> - Constructor for class money.zumo.zumokit.<a href="money/zumo/zumokit/TransactionCryptoProperties.html" title="class in money.zumo.zumokit">TransactionCryptoProperties</a></dt>
+<dt><span class="memberNameLink"><a href="money/zumo/zumokit/TransactionCryptoProperties.html#%3Cinit%3E(java.lang.String,java.lang.Integer,java.lang.String,java.lang.String,java.lang.String,java.math.BigDecimal,java.lang.Integer,java.util.HashMap,java.util.HashMap)">TransactionCryptoProperties(String, Integer, String, String, String, BigDecimal, Integer, HashMap&lt;String, Double&gt;, HashMap&lt;String, Double&gt;)</a></span> - Constructor for class money.zumo.zumokit.<a href="money/zumo/zumokit/TransactionCryptoProperties.html" title="class in money.zumo.zumokit">TransactionCryptoProperties</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="money/zumo/zumokit/TransactionDirection.html" title="class in money.zumo.zumokit"><span class="typeNameLink">TransactionDirection</span></a> - Class in <a href="money/zumo/zumokit/package-summary.html">money.zumo.zumokit</a></dt>
 <dd>
-<div class="block">Transaction direction, 'INCOMING' or 'OUTGOING'.</div>
+<div class="block">Transaction direction, 'SENT' or 'RECEIVED'.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/TransactionDirection.html#%3Cinit%3E()">TransactionDirection()</a></span> - Constructor for class money.zumo.zumokit.<a href="money/zumo/zumokit/TransactionDirection.html" title="class in money.zumo.zumokit">TransactionDirection</a></dt>
 <dd>&nbsp;</dd>
