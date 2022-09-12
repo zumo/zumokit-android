@@ -26,7 +26,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10};
+var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -153,12 +153,16 @@ extends java.lang.Object</pre>
 <th class="colLast" scope="col">Description</th>
 </tr>
 <tr class="altColor">
-<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.math.BigDecimal,boolean,money.zumo.zumokit.AccountCryptoProperties,money.zumo.zumokit.AccountFiatProperties,java.util.ArrayList)">Account</a></span>&#8203;(java.lang.String&nbsp;id,
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.math.BigDecimal,java.math.BigDecimal,java.math.BigDecimal,java.math.BigDecimal,boolean,money.zumo.zumokit.AccountCryptoProperties,money.zumo.zumokit.AccountFiatProperties,java.util.ArrayList)">Account</a></span>&#8203;(java.lang.String&nbsp;id,
        java.lang.String&nbsp;currencyType,
        java.lang.String&nbsp;currencyCode,
        java.lang.String&nbsp;network,
        java.lang.String&nbsp;type,
+       java.lang.String&nbsp;custodyType,
        java.math.BigDecimal&nbsp;balance,
+       java.math.BigDecimal&nbsp;ledgerBalance,
+       java.math.BigDecimal&nbsp;availableBalance,
+       java.math.BigDecimal&nbsp;overdraftLimit,
        boolean&nbsp;hasNominatedAccount,
        <a href="AccountCryptoProperties.html" title="class in money.zumo.zumokit">AccountCryptoProperties</a>&nbsp;cryptoProperties,
        <a href="AccountFiatProperties.html" title="class in money.zumo.zumokit">AccountFiatProperties</a>&nbsp;fiatProperties,
@@ -190,80 +194,108 @@ extends java.lang.Object</pre>
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>java.math.BigDecimal</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getAvailableBalance()">getAvailableBalance</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Account available balance, i.e.</div>
+</td>
+</tr>
+<tr id="i2" class="altColor">
+<td class="colFirst"><code>java.math.BigDecimal</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getBalance()">getBalance</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Account balance.</div>
 </td>
 </tr>
-<tr id="i2" class="altColor">
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code>java.util.ArrayList&lt;<a href="Card.html" title="class in money.zumo.zumokit">Card</a>&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getCards()">getCards</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Cards associated with this account.</div>
 </td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i4" class="altColor">
 <td class="colFirst"><code><a href="AccountCryptoProperties.html" title="class in money.zumo.zumokit">AccountCryptoProperties</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getCryptoProperties()">getCryptoProperties</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Account crypto properties if account is a crypto account, otherwise null.</div>
 </td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getCurrencyCode()">getCurrencyCode</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Account currency code.</div>
 </td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i6" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getCurrencyType()">getCurrencyType</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Account currency type.</div>
 </td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i7" class="rowColor">
+<td class="colFirst"><code>java.lang.String</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getCustodyType()">getCustodyType</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Custody type.</div>
+</td>
+</tr>
+<tr id="i8" class="altColor">
 <td class="colFirst"><code><a href="AccountFiatProperties.html" title="class in money.zumo.zumokit">AccountFiatProperties</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getFiatProperties()">getFiatProperties</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Account fiat properties if account is a fiat account, otherwise null.</div>
 </td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i9" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getHasNominatedAccount()">getHasNominatedAccount</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Account has associated nominated account.</div>
 </td>
 </tr>
-<tr id="i8" class="altColor">
+<tr id="i10" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getId()">getId</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Unique account identifier.</div>
 </td>
 </tr>
-<tr id="i9" class="rowColor">
+<tr id="i11" class="rowColor">
+<td class="colFirst"><code>java.math.BigDecimal</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getLedgerBalance()">getLedgerBalance</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Account ledger balance.</div>
+</td>
+</tr>
+<tr id="i12" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getNetwork()">getNetwork</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Account network type.</div>
 </td>
 </tr>
-<tr id="i10" class="altColor">
+<tr id="i13" class="rowColor">
+<td class="colFirst"><code>java.math.BigDecimal</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getOverdraftLimit()">getOverdraftLimit</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Overdraft limit.</div>
+</td>
+</tr>
+<tr id="i14" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getType()">getType</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Account type.</div>
 </td>
 </tr>
-<tr id="i11" class="rowColor">
+<tr id="i15" class="rowColor">
 <td class="colFirst"><code>int</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#hashCode()">hashCode</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i12" class="altColor">
+<tr id="i16" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#toString()">toString</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
@@ -292,7 +324,7 @@ extends java.lang.Object</pre>
 <!--   -->
 </a>
 <h3>Constructor Detail</h3>
-<a id="&lt;init&gt;(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.math.BigDecimal,boolean,money.zumo.zumokit.AccountCryptoProperties,money.zumo.zumokit.AccountFiatProperties,java.util.ArrayList)">
+<a id="&lt;init&gt;(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.math.BigDecimal,java.math.BigDecimal,java.math.BigDecimal,java.math.BigDecimal,boolean,money.zumo.zumokit.AccountCryptoProperties,money.zumo.zumokit.AccountFiatProperties,java.util.ArrayList)">
 <!--   -->
 </a>
 <ul class="blockListLast">
@@ -303,7 +335,11 @@ extends java.lang.Object</pre>
                java.lang.String&nbsp;currencyCode,
                java.lang.String&nbsp;network,
                java.lang.String&nbsp;type,
+               java.lang.String&nbsp;custodyType,
                java.math.BigDecimal&nbsp;balance,
+               java.math.BigDecimal&nbsp;ledgerBalance,
+               java.math.BigDecimal&nbsp;availableBalance,
+               java.math.BigDecimal&nbsp;overdraftLimit,
                boolean&nbsp;hasNominatedAccount,
                <a href="AccountCryptoProperties.html" title="class in money.zumo.zumokit">AccountCryptoProperties</a>&nbsp;cryptoProperties,
                <a href="AccountFiatProperties.html" title="class in money.zumo.zumokit">AccountFiatProperties</a>&nbsp;fiatProperties,
@@ -386,6 +422,20 @@ extends java.lang.Object</pre>
 </dl>
 </li>
 </ul>
+<a id="getCustodyType()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getCustodyType</h4>
+<pre class="methodSignature">public&nbsp;java.lang.String&nbsp;getCustodyType()</pre>
+<div class="block">Custody type.</div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="CustodyType.html" title="class in money.zumo.zumokit"><code>CustodyType</code></a></dd>
+</dl>
+</li>
+</ul>
 <a id="getBalance()">
 <!--   -->
 </a>
@@ -394,6 +444,36 @@ extends java.lang.Object</pre>
 <h4>getBalance</h4>
 <pre class="methodSignature">public&nbsp;java.math.BigDecimal&nbsp;getBalance()</pre>
 <div class="block">Account balance.</div>
+</li>
+</ul>
+<a id="getLedgerBalance()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getLedgerBalance</h4>
+<pre class="methodSignature">public&nbsp;java.math.BigDecimal&nbsp;getLedgerBalance()</pre>
+<div class="block">Account ledger balance.</div>
+</li>
+</ul>
+<a id="getAvailableBalance()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getAvailableBalance</h4>
+<pre class="methodSignature">public&nbsp;java.math.BigDecimal&nbsp;getAvailableBalance()</pre>
+<div class="block">Account available balance, i.e. ledger balance minus pending transactions.</div>
+</li>
+</ul>
+<a id="getOverdraftLimit()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getOverdraftLimit</h4>
+<pre class="methodSignature">public&nbsp;java.math.BigDecimal&nbsp;getOverdraftLimit()</pre>
+<div class="block">Overdraft limit.</div>
 </li>
 </ul>
 <a id="getHasNominatedAccount()">

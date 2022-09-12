@@ -100,7 +100,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dd>
 <div class="block">Record containing account details.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="money/zumo/zumokit/Account.html#%3Cinit%3E(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.math.BigDecimal,boolean,money.zumo.zumokit.AccountCryptoProperties,money.zumo.zumokit.AccountFiatProperties,java.util.ArrayList)">Account(String, String, String, String, String, BigDecimal, boolean, AccountCryptoProperties, AccountFiatProperties, ArrayList&lt;Card&gt;)</a></span> - Constructor for class money.zumo.zumokit.<a href="money/zumo/zumokit/Account.html" title="class in money.zumo.zumokit">Account</a></dt>
+<dt><span class="memberNameLink"><a href="money/zumo/zumokit/Account.html#%3Cinit%3E(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.math.BigDecimal,java.math.BigDecimal,java.math.BigDecimal,java.math.BigDecimal,boolean,money.zumo.zumokit.AccountCryptoProperties,money.zumo.zumokit.AccountFiatProperties,java.util.ArrayList)">Account(String, String, String, String, String, String, BigDecimal, BigDecimal, BigDecimal, BigDecimal, boolean, AccountCryptoProperties, AccountFiatProperties, ArrayList&lt;Card&gt;)</a></span> - Constructor for class money.zumo.zumokit.<a href="money/zumo/zumokit/Account.html" title="class in money.zumo.zumokit">Account</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/ZumoKitErrorCode.html#ACCOUNT_LIMIT_EXCEEDED">ACCOUNT_LIMIT_EXCEEDED</a></span> - Static variable in class money.zumo.zumokit.<a href="money/zumo/zumokit/ZumoKitErrorCode.html" title="class in money.zumo.zumokit">ZumoKitErrorCode</a></dt>
 <dd>
@@ -173,10 +173,6 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 </dd>
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/Address.html#%3Cinit%3E(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)">Address(String, String, String, String, String, String)</a></span> - Constructor for class money.zumo.zumokit.<a href="money/zumo/zumokit/Address.html" title="class in money.zumo.zumokit">Address</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="money/zumo/zumokit/ZumoKitErrorCode.html#ALREADY_FIAT_CUSTOMER">ALREADY_FIAT_CUSTOMER</a></span> - Static variable in class money.zumo.zumokit.<a href="money/zumo/zumokit/ZumoKitErrorCode.html" title="class in money.zumo.zumokit">ZumoKitErrorCode</a></dt>
-<dd>
-<div class="block">Could not make user fiat customer.</div>
-</dd>
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/ZumoKitErrorCode.html#AMOUNT_NOT_SET">AMOUNT_NOT_SET</a></span> - Static variable in class money.zumo.zumokit.<a href="money/zumo/zumokit/ZumoKitErrorCode.html" title="class in money.zumo.zumokit">ZumoKitErrorCode</a></dt>
 <dd>
 <div class="block">Amount not set.</div>
@@ -318,6 +314,12 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dd>
 <div class="block">Corresponds to compatibilty Bitcoin account <a target="_top" href="https://github.com/bitcoin/bips/blob/master/bip-0049.mediawiki">P2WPKH-nested-in-P2SH</a>.</div>
 </dd>
+<dt><span class="memberNameLink"><a href="money/zumo/zumokit/User.html#composeCustodyWithdrawTransaction(java.lang.String,java.lang.String,java.math.BigDecimal,boolean,money.zumo.zumokit.ComposeTransactionCallback)">composeCustodyWithdrawTransaction(String, String, BigDecimal, boolean, ComposeTransactionCallback)</a></span> - Method in interface money.zumo.zumokit.<a href="money/zumo/zumokit/User.html" title="interface in money.zumo.zumokit">User</a></dt>
+<dd>
+<div class="block">Compose custody withdraw transaction from custody account.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="money/zumo/zumokit/User.CppProxy.html#composeCustodyWithdrawTransaction(java.lang.String,java.lang.String,java.math.BigDecimal,boolean,money.zumo.zumokit.ComposeTransactionCallback)">composeCustodyWithdrawTransaction(String, String, BigDecimal, boolean, ComposeTransactionCallback)</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/User.CppProxy.html" title="class in money.zumo.zumokit">User.CppProxy</a></dt>
+<dd>&nbsp;</dd>
 <dt><a href="money/zumo/zumokit/ComposedExchange.html" title="class in money.zumo.zumokit"><span class="typeNameLink">ComposedExchange</span></a> - Class in <a href="money/zumo/zumokit/package-summary.html">money.zumo.zumokit</a></dt>
 <dd>
 <div class="block">Record containing result of the compose exchange method on <a href="money/zumo/zumokit/Wallet.html" title="interface in money.zumo.zumokit"><code>Wallet</code></a> object.</div>
@@ -332,42 +334,42 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/Wallet.html#composeEthTransaction(java.lang.String,java.math.BigDecimal,int,java.lang.String,java.math.BigDecimal,java.lang.String,java.lang.Integer,boolean,money.zumo.zumokit.ComposeTransactionCallback)">composeEthTransaction(String, BigDecimal, int, String, BigDecimal, String, Integer, boolean, ComposeTransactionCallback)</a></span> - Method in interface money.zumo.zumokit.<a href="money/zumo/zumokit/Wallet.html" title="interface in money.zumo.zumokit">Wallet</a></dt>
 <dd>
-<div class="block">Compose Ethereum transaction asynchronously.</div>
+<div class="block">Compose Ethereum transaction.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/Wallet.CppProxy.html#composeEthTransaction(java.lang.String,java.math.BigDecimal,int,java.lang.String,java.math.BigDecimal,java.lang.String,java.lang.Integer,boolean,money.zumo.zumokit.ComposeTransactionCallback)">composeEthTransaction(String, BigDecimal, int, String, BigDecimal, String, Integer, boolean, ComposeTransactionCallback)</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/Wallet.CppProxy.html" title="class in money.zumo.zumokit">Wallet.CppProxy</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="money/zumo/zumokit/Wallet.html#composeExchange(java.lang.String,java.lang.String,java.math.BigDecimal,boolean,money.zumo.zumokit.ComposeExchangeCallback)">composeExchange(String, String, BigDecimal, boolean, ComposeExchangeCallback)</a></span> - Method in interface money.zumo.zumokit.<a href="money/zumo/zumokit/Wallet.html" title="interface in money.zumo.zumokit">Wallet</a></dt>
+<dt><span class="memberNameLink"><a href="money/zumo/zumokit/User.html#composeExchange(java.lang.String,java.lang.String,java.math.BigDecimal,boolean,money.zumo.zumokit.ComposeExchangeCallback)">composeExchange(String, String, BigDecimal, boolean, ComposeExchangeCallback)</a></span> - Method in interface money.zumo.zumokit.<a href="money/zumo/zumokit/User.html" title="interface in money.zumo.zumokit">User</a></dt>
 <dd>
-<div class="block">Compose Bitcoin transaction asynchronously.</div>
+<div class="block">Compose exchange.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="money/zumo/zumokit/Wallet.CppProxy.html#composeExchange(java.lang.String,java.lang.String,java.math.BigDecimal,boolean,money.zumo.zumokit.ComposeExchangeCallback)">composeExchange(String, String, BigDecimal, boolean, ComposeExchangeCallback)</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/Wallet.CppProxy.html" title="class in money.zumo.zumokit">Wallet.CppProxy</a></dt>
+<dt><span class="memberNameLink"><a href="money/zumo/zumokit/User.CppProxy.html#composeExchange(java.lang.String,java.lang.String,java.math.BigDecimal,boolean,money.zumo.zumokit.ComposeExchangeCallback)">composeExchange(String, String, BigDecimal, boolean, ComposeExchangeCallback)</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/User.CppProxy.html" title="class in money.zumo.zumokit">User.CppProxy</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="money/zumo/zumokit/ComposeExchangeCallback.html" title="interface in money.zumo.zumokit"><span class="typeNameLink">ComposeExchangeCallback</span></a> - Interface in <a href="money/zumo/zumokit/package-summary.html">money.zumo.zumokit</a></dt>
 <dd>
 <div class="block">Callback interface used by methods in <a href="money/zumo/zumokit/Wallet.html" title="interface in money.zumo.zumokit"><code>Wallet</code></a> class.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="money/zumo/zumokit/Wallet.html#composeInternalFiatTransaction(java.lang.String,java.lang.String,java.math.BigDecimal,boolean,money.zumo.zumokit.ComposeTransactionCallback)">composeInternalFiatTransaction(String, String, BigDecimal, boolean, ComposeTransactionCallback)</a></span> - Method in interface money.zumo.zumokit.<a href="money/zumo/zumokit/Wallet.html" title="interface in money.zumo.zumokit">Wallet</a></dt>
+<dt><span class="memberNameLink"><a href="money/zumo/zumokit/User.html#composeNominatedTransaction(java.lang.String,java.math.BigDecimal,boolean,money.zumo.zumokit.ComposeTransactionCallback)">composeNominatedTransaction(String, BigDecimal, boolean, ComposeTransactionCallback)</a></span> - Method in interface money.zumo.zumokit.<a href="money/zumo/zumokit/User.html" title="interface in money.zumo.zumokit">User</a></dt>
 <dd>
-<div class="block">Compose fiat transaction between users in Zumo ecosystem asynchronously.</div>
+<div class="block">Compose transaction from user fiat account to user's nominated account.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="money/zumo/zumokit/Wallet.CppProxy.html#composeInternalFiatTransaction(java.lang.String,java.lang.String,java.math.BigDecimal,boolean,money.zumo.zumokit.ComposeTransactionCallback)">composeInternalFiatTransaction(String, String, BigDecimal, boolean, ComposeTransactionCallback)</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/Wallet.CppProxy.html" title="class in money.zumo.zumokit">Wallet.CppProxy</a></dt>
+<dt><span class="memberNameLink"><a href="money/zumo/zumokit/User.CppProxy.html#composeNominatedTransaction(java.lang.String,java.math.BigDecimal,boolean,money.zumo.zumokit.ComposeTransactionCallback)">composeNominatedTransaction(String, BigDecimal, boolean, ComposeTransactionCallback)</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/User.CppProxy.html" title="class in money.zumo.zumokit">User.CppProxy</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/Wallet.html#composeTransaction(java.lang.String,java.lang.String,java.lang.String,java.math.BigDecimal,java.math.BigDecimal,boolean,money.zumo.zumokit.ComposeTransactionCallback)">composeTransaction(String, String, String, BigDecimal, BigDecimal, boolean, ComposeTransactionCallback)</a></span> - Method in interface money.zumo.zumokit.<a href="money/zumo/zumokit/Wallet.html" title="interface in money.zumo.zumokit">Wallet</a></dt>
 <dd>
-<div class="block">Compose BTC or BSV transaction asynchronously.</div>
+<div class="block">Compose BTC or BSV transaction.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/Wallet.CppProxy.html#composeTransaction(java.lang.String,java.lang.String,java.lang.String,java.math.BigDecimal,java.math.BigDecimal,boolean,money.zumo.zumokit.ComposeTransactionCallback)">composeTransaction(String, String, String, BigDecimal, BigDecimal, boolean, ComposeTransactionCallback)</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/Wallet.CppProxy.html" title="class in money.zumo.zumokit">Wallet.CppProxy</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="money/zumo/zumokit/User.html#composeTransaction(java.lang.String,java.lang.String,java.math.BigDecimal,boolean,money.zumo.zumokit.ComposeTransactionCallback)">composeTransaction(String, String, BigDecimal, boolean, ComposeTransactionCallback)</a></span> - Method in interface money.zumo.zumokit.<a href="money/zumo/zumokit/User.html" title="interface in money.zumo.zumokit">User</a></dt>
+<dd>
+<div class="block">Compose transaction between custody or fiat accounts in Zumo ecosystem.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="money/zumo/zumokit/User.CppProxy.html#composeTransaction(java.lang.String,java.lang.String,java.math.BigDecimal,boolean,money.zumo.zumokit.ComposeTransactionCallback)">composeTransaction(String, String, BigDecimal, boolean, ComposeTransactionCallback)</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/User.CppProxy.html" title="class in money.zumo.zumokit">User.CppProxy</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="money/zumo/zumokit/ComposeTransactionCallback.html" title="interface in money.zumo.zumokit"><span class="typeNameLink">ComposeTransactionCallback</span></a> - Interface in <a href="money/zumo/zumokit/package-summary.html">money.zumo.zumokit</a></dt>
 <dd>
 <div class="block">Callback interface used by methods in <a href="money/zumo/zumokit/Wallet.html" title="interface in money.zumo.zumokit"><code>Wallet</code></a> class.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="money/zumo/zumokit/Wallet.html#composeTransactionToNominatedAccount(java.lang.String,java.math.BigDecimal,boolean,money.zumo.zumokit.ComposeTransactionCallback)">composeTransactionToNominatedAccount(String, BigDecimal, boolean, ComposeTransactionCallback)</a></span> - Method in interface money.zumo.zumokit.<a href="money/zumo/zumokit/Wallet.html" title="interface in money.zumo.zumokit">Wallet</a></dt>
-<dd>
-<div class="block">Compose transaction to nominated account asynchronously.</div>
-</dd>
-<dt><span class="memberNameLink"><a href="money/zumo/zumokit/Wallet.CppProxy.html#composeTransactionToNominatedAccount(java.lang.String,java.math.BigDecimal,boolean,money.zumo.zumokit.ComposeTransactionCallback)">composeTransactionToNominatedAccount(String, BigDecimal, boolean, ComposeTransactionCallback)</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/Wallet.CppProxy.html" title="class in money.zumo.zumokit">Wallet.CppProxy</a></dt>
-<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/ExchangeStatus.html#CONFIRMED">CONFIRMED</a></span> - Static variable in class money.zumo.zumokit.<a href="money/zumo/zumokit/ExchangeStatus.html" title="class in money.zumo.zumokit">ExchangeStatus</a></dt>
 <dd>
 <div class="block">Exchange was confirmed.</div>
@@ -380,6 +382,12 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/WebSocket.CppProxy.html#connect()">connect()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/WebSocket.CppProxy.html" title="class in money.zumo.zumokit">WebSocket.CppProxy</a></dt>
 <dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="money/zumo/zumokit/User.CppProxy.html#createAccount(java.lang.String,money.zumo.zumokit.AccountCallback)">createAccount(String, AccountCallback)</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/User.CppProxy.html" title="class in money.zumo.zumokit">User.CppProxy</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="money/zumo/zumokit/User.html#createAccount(java.lang.String,money.zumo.zumokit.AccountCallback)">createAccount(String, AccountCallback)</a></span> - Method in interface money.zumo.zumokit.<a href="money/zumo/zumokit/User.html" title="interface in money.zumo.zumokit">User</a></dt>
+<dd>
+<div class="block">Create custody or fiat account for specified currency.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/User.CppProxy.html#createCard(java.lang.String,java.lang.String,java.lang.String,java.util.ArrayList,money.zumo.zumokit.CardCallback)">createCard(String, String, String, ArrayList&lt;KbaAnswer&gt;, CardCallback)</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/User.CppProxy.html" title="class in money.zumo.zumokit">User.CppProxy</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/User.html#createCard(java.lang.String,java.lang.String,java.lang.String,java.util.ArrayList,money.zumo.zumokit.CardCallback)">createCard(String, String, String, ArrayList&lt;KbaAnswer&gt;, CardCallback)</a></span> - Method in interface money.zumo.zumokit.<a href="money/zumo/zumokit/User.html" title="interface in money.zumo.zumokit">User</a></dt>
@@ -388,12 +396,6 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 </dd>
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/CardStatus.html#CREATED">CREATED</a></span> - Static variable in class money.zumo.zumokit.<a href="money/zumo/zumokit/CardStatus.html" title="class in money.zumo.zumokit">CardStatus</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="money/zumo/zumokit/User.CppProxy.html#createFiatAccount(java.lang.String,java.lang.String,money.zumo.zumokit.AccountCallback)">createFiatAccount(String, String, AccountCallback)</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/User.CppProxy.html" title="class in money.zumo.zumokit">User.CppProxy</a></dt>
-<dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="money/zumo/zumokit/User.html#createFiatAccount(java.lang.String,java.lang.String,money.zumo.zumokit.AccountCallback)">createFiatAccount(String, String, AccountCallback)</a></span> - Method in interface money.zumo.zumokit.<a href="money/zumo/zumokit/User.html" title="interface in money.zumo.zumokit">User</a></dt>
-<dd>
-<div class="block">Create fiat account on specified network and currency code.</div>
-</dd>
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/User.CppProxy.html#createWallet(java.lang.String,java.lang.String,money.zumo.zumokit.WalletCallback)">createWallet(String, String, WalletCallback)</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/User.CppProxy.html" title="class in money.zumo.zumokit">User.CppProxy</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/User.html#createWallet(java.lang.String,java.lang.String,money.zumo.zumokit.WalletCallback)">createWallet(String, String, WalletCallback)</a></span> - Method in interface money.zumo.zumokit.<a href="money/zumo/zumokit/User.html" title="interface in money.zumo.zumokit">User</a></dt>
@@ -425,6 +427,22 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <div class="block">Curency type, 'FIAT' or 'CRYPTO'.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/CurrencyType.html#%3Cinit%3E()">CurrencyType()</a></span> - Constructor for class money.zumo.zumokit.<a href="money/zumo/zumokit/CurrencyType.html" title="class in money.zumo.zumokit">CurrencyType</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="money/zumo/zumokit/CustodyType.html#CUSTODY">CUSTODY</a></span> - Static variable in class money.zumo.zumokit.<a href="money/zumo/zumokit/CustodyType.html" title="class in money.zumo.zumokit">CustodyType</a></dt>
+<dd>
+<div class="block">Funds on custody accounts are managed by Zumo.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="money/zumo/zumokit/TransactionType.html#CUSTODY">CUSTODY</a></span> - Static variable in class money.zumo.zumokit.<a href="money/zumo/zumokit/TransactionType.html" title="class in money.zumo.zumokit">TransactionType</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="money/zumo/zumokit/TransactionType.html#CUSTODY_DEPOSIT">CUSTODY_DEPOSIT</a></span> - Static variable in class money.zumo.zumokit.<a href="money/zumo/zumokit/TransactionType.html" title="class in money.zumo.zumokit">TransactionType</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="money/zumo/zumokit/TransactionType.html#CUSTODY_WITHDRAW">CUSTODY_WITHDRAW</a></span> - Static variable in class money.zumo.zumokit.<a href="money/zumo/zumokit/TransactionType.html" title="class in money.zumo.zumokit">TransactionType</a></dt>
+<dd>&nbsp;</dd>
+<dt><a href="money/zumo/zumokit/CustodyType.html" title="class in money.zumo.zumokit"><span class="typeNameLink">CustodyType</span></a> - Class in <a href="money/zumo/zumokit/package-summary.html">money.zumo.zumokit</a></dt>
+<dd>
+<div class="block">Account custody type, 'CUSTODY' or 'NON-CUSTODY'.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="money/zumo/zumokit/CustodyType.html#%3Cinit%3E()">CustodyType()</a></span> - Constructor for class money.zumo.zumokit.<a href="money/zumo/zumokit/CustodyType.html" title="class in money.zumo.zumokit">CustodyType</a></dt>
 <dd>&nbsp;</dd>
 </dl>
 <a id="I:D">
@@ -634,9 +652,9 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dd>
 <div class="block">Account the composed transaction belongs to.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="money/zumo/zumokit/User.CppProxy.html#getAccount(java.lang.String,java.lang.String,java.lang.String)">getAccount(String, String, String)</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/User.CppProxy.html" title="class in money.zumo.zumokit">User.CppProxy</a></dt>
+<dt><span class="memberNameLink"><a href="money/zumo/zumokit/User.CppProxy.html#getAccount(java.lang.String,java.lang.String,java.lang.String,java.lang.String)">getAccount(String, String, String, String)</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/User.CppProxy.html" title="class in money.zumo.zumokit">User.CppProxy</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="money/zumo/zumokit/User.html#getAccount(java.lang.String,java.lang.String,java.lang.String)">getAccount(String, String, String)</a></span> - Method in interface money.zumo.zumokit.<a href="money/zumo/zumokit/User.html" title="interface in money.zumo.zumokit">User</a></dt>
+<dt><span class="memberNameLink"><a href="money/zumo/zumokit/User.html#getAccount(java.lang.String,java.lang.String,java.lang.String,java.lang.String)">getAccount(String, String, String, String)</a></span> - Method in interface money.zumo.zumokit.<a href="money/zumo/zumokit/User.html" title="interface in money.zumo.zumokit">User</a></dt>
 <dd>
 <div class="block">Get account in specific currency, on specific network, with specific type.</div>
 </dd>
@@ -705,6 +723,10 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/KbaAnswer.html#getAnswer()">getAnswer()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/KbaAnswer.html" title="class in money.zumo.zumokit">KbaAnswer</a></dt>
 <dd>
 <div class="block">KBA answer, e.g.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="money/zumo/zumokit/Account.html#getAvailableBalance()">getAvailableBalance()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/Account.html" title="class in money.zumo.zumokit">Account</a></dt>
+<dd>
+<div class="block">Account available balance, i.e.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/TransactionFeeRate.html#getAverage()">getAverage()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/TransactionFeeRate.html" title="class in money.zumo.zumokit">TransactionFeeRate</a></dt>
 <dd>
@@ -795,6 +817,10 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/ZumoKit.html#getCurrentUser()">getCurrentUser()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/ZumoKit.html" title="class in money.zumo.zumokit">ZumoKit</a></dt>
 <dd>
 <div class="block">Get currently signed-in user or null.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="money/zumo/zumokit/Account.html#getCustodyType()">getCustodyType()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/Account.html" title="class in money.zumo.zumokit">Account</a></dt>
+<dd>
+<div class="block">Custody type.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/AccountFiatProperties.html#getCustomerName()">getCustomerName()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/AccountFiatProperties.html" title="class in money.zumo.zumokit">AccountFiatProperties</a></dt>
 <dd>
@@ -1094,6 +1120,10 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dd>
 <div class="block">Knowledge-Based Authentication (KBA) questions.</div>
 </dd>
+<dt><span class="memberNameLink"><a href="money/zumo/zumokit/Account.html#getLedgerBalance()">getLedgerBalance()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/Account.html" title="class in money.zumo.zumokit">Account</a></dt>
+<dd>
+<div class="block">Account ledger balance.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/Card.html#getLimit()">getLimit()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/Card.html" title="class in money.zumo.zumokit">Card</a></dt>
 <dd>
 <div class="block">Current card limit.</div>
@@ -1176,6 +1206,10 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/Exchange.html#getOutgoingTransactionId()">getOutgoingTransactionId()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/Exchange.html" title="class in money.zumo.zumokit">Exchange</a></dt>
 <dd>
 <div class="block">Outgoing <a href="money/zumo/zumokit/Transaction.html" title="class in money.zumo.zumokit"><code>Transaction</code></a> identifier.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="money/zumo/zumokit/Account.html#getOverdraftLimit()">getOverdraftLimit()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/Account.html" title="class in money.zumo.zumokit">Account</a></dt>
+<dd>
+<div class="block">Overdraft limit.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/CardDetails.html#getPan()">getPan()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/CardDetails.html" title="class in money.zumo.zumokit">CardDetails</a></dt>
 <dd>
@@ -1523,8 +1557,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 </dd>
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/ZumoKitErrorCode.html#INCORRECT_ACCOUNT_SELECTED">INCORRECT_ACCOUNT_SELECTED</a></span> - Static variable in class money.zumo.zumokit.<a href="money/zumo/zumokit/ZumoKitErrorCode.html" title="class in money.zumo.zumokit">ZumoKitErrorCode</a></dt>
 <dd>
-<div class="block">Unknown error has occured
- Incorrect account selected.</div>
+<div class="block">Incorrect account selected.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/ZumoKitErrorCode.html#INCORRECT_CHANGE_ACCOUNT_SELECTED">INCORRECT_CHANGE_ACCOUNT_SELECTED</a></span> - Static variable in class money.zumo.zumokit.<a href="money/zumo/zumokit/ZumoKitErrorCode.html" title="class in money.zumo.zumokit">ZumoKitErrorCode</a></dt>
 <dd>
@@ -1636,11 +1669,11 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 </dd>
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/exceptions/InvalidRequestException.html#%3Cinit%3E(java.lang.String,java.lang.String,java.lang.String)">InvalidRequestException(String, String, String)</a></span> - Constructor for exception money.zumo.zumokit.exceptions.<a href="money/zumo/zumokit/exceptions/InvalidRequestException.html" title="class in money.zumo.zumokit.exceptions">InvalidRequestException</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="money/zumo/zumokit/User.CppProxy.html#isFiatCustomer(java.lang.String)">isFiatCustomer(String)</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/User.CppProxy.html" title="class in money.zumo.zumokit">User.CppProxy</a></dt>
+<dt><span class="memberNameLink"><a href="money/zumo/zumokit/User.CppProxy.html#isFiatCustomer()">isFiatCustomer()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/User.CppProxy.html" title="class in money.zumo.zumokit">User.CppProxy</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="money/zumo/zumokit/User.html#isFiatCustomer(java.lang.String)">isFiatCustomer(String)</a></span> - Method in interface money.zumo.zumokit.<a href="money/zumo/zumokit/User.html" title="interface in money.zumo.zumokit">User</a></dt>
+<dt><span class="memberNameLink"><a href="money/zumo/zumokit/User.html#isFiatCustomer()">isFiatCustomer()</a></span> - Method in interface money.zumo.zumokit.<a href="money/zumo/zumokit/User.html" title="interface in money.zumo.zumokit">User</a></dt>
 <dd>
-<div class="block">Check if user is a fiat customer on 'MAINNET' or 'TESTNET' network.</div>
+<div class="block">Check if user is a registered fiat customer.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/User.CppProxy.html#isRecoveryMnemonic(java.lang.String)">isRecoveryMnemonic(String)</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/User.CppProxy.html" title="class in money.zumo.zumokit">User.CppProxy</a></dt>
 <dd>&nbsp;</dd>
@@ -1702,11 +1735,11 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dl>
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/NetworkType.html#MAINNET">MAINNET</a></span> - Static variable in class money.zumo.zumokit.<a href="money/zumo/zumokit/NetworkType.html" title="class in money.zumo.zumokit">NetworkType</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="money/zumo/zumokit/User.CppProxy.html#makeFiatCustomer(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,money.zumo.zumokit.Address,money.zumo.zumokit.SuccessCallback)">makeFiatCustomer(String, String, String, String, String, String, String, Address, SuccessCallback)</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/User.CppProxy.html" title="class in money.zumo.zumokit">User.CppProxy</a></dt>
+<dt><span class="memberNameLink"><a href="money/zumo/zumokit/User.CppProxy.html#makeFiatCustomer(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,money.zumo.zumokit.Address,money.zumo.zumokit.SuccessCallback)">makeFiatCustomer(String, String, String, String, String, String, Address, SuccessCallback)</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/User.CppProxy.html" title="class in money.zumo.zumokit">User.CppProxy</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="money/zumo/zumokit/User.html#makeFiatCustomer(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,money.zumo.zumokit.Address,money.zumo.zumokit.SuccessCallback)">makeFiatCustomer(String, String, String, String, String, String, String, Address, SuccessCallback)</a></span> - Method in interface money.zumo.zumokit.<a href="money/zumo/zumokit/User.html" title="interface in money.zumo.zumokit">User</a></dt>
+<dt><span class="memberNameLink"><a href="money/zumo/zumokit/User.html#makeFiatCustomer(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,money.zumo.zumokit.Address,money.zumo.zumokit.SuccessCallback)">makeFiatCustomer(String, String, String, String, String, String, Address, SuccessCallback)</a></span> - Method in interface money.zumo.zumokit.<a href="money/zumo/zumokit/User.html" title="interface in money.zumo.zumokit">User</a></dt>
 <dd>
-<div class="block">Make user fiat customer on specified network by providing user's personal details.</div>
+<div class="block">Make user fiat customer by providing user's personal details.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/TimeInterval.html#MAX">MAX</a></span> - Static variable in class money.zumo.zumokit.<a href="money/zumo/zumokit/TimeInterval.html" title="class in money.zumo.zumokit">TimeInterval</a></dt>
 <dd>&nbsp;</dd>
@@ -1756,6 +1789,10 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 </dd>
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/TransactionType.html#NOMINATED">NOMINATED</a></span> - Static variable in class money.zumo.zumokit.<a href="money/zumo/zumokit/TransactionType.html" title="class in money.zumo.zumokit">TransactionType</a></dt>
 <dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="money/zumo/zumokit/CustodyType.html#NON_CUSTODY">NON_CUSTODY</a></span> - Static variable in class money.zumo.zumokit.<a href="money/zumo/zumokit/CustodyType.html" title="class in money.zumo.zumokit">CustodyType</a></dt>
+<dd>
+<div class="block">Funds on non-custody accounts are managed by the end user.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/ZumoKitErrorCode.html#NONCE_OVERFLOW">NONCE_OVERFLOW</a></span> - Static variable in class money.zumo.zumokit.<a href="money/zumo/zumokit/ZumoKitErrorCode.html" title="class in money.zumo.zumokit">ZumoKitErrorCode</a></dt>
 <dd>
 <div class="block">Nonce too long.</div>
@@ -2092,21 +2129,21 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dd>
 <div class="block">Corresponds to standard Ethereum account type and Bitcoin non-segwit account type <a target="_top" href="https://github.com/bitcoin/bips/blob/master/bip-0044.mediawiki">P2PKH</a>.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="money/zumo/zumokit/Wallet.CppProxy.html#submitExchange(money.zumo.zumokit.ComposedExchange,money.zumo.zumokit.SubmitExchangeCallback)">submitExchange(ComposedExchange, SubmitExchangeCallback)</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/Wallet.CppProxy.html" title="class in money.zumo.zumokit">Wallet.CppProxy</a></dt>
+<dt><span class="memberNameLink"><a href="money/zumo/zumokit/User.CppProxy.html#submitExchange(money.zumo.zumokit.ComposedExchange,money.zumo.zumokit.SubmitExchangeCallback)">submitExchange(ComposedExchange, SubmitExchangeCallback)</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/User.CppProxy.html" title="class in money.zumo.zumokit">User.CppProxy</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="money/zumo/zumokit/Wallet.html#submitExchange(money.zumo.zumokit.ComposedExchange,money.zumo.zumokit.SubmitExchangeCallback)">submitExchange(ComposedExchange, SubmitExchangeCallback)</a></span> - Method in interface money.zumo.zumokit.<a href="money/zumo/zumokit/Wallet.html" title="interface in money.zumo.zumokit">Wallet</a></dt>
+<dt><span class="memberNameLink"><a href="money/zumo/zumokit/User.html#submitExchange(money.zumo.zumokit.ComposedExchange,money.zumo.zumokit.SubmitExchangeCallback)">submitExchange(ComposedExchange, SubmitExchangeCallback)</a></span> - Method in interface money.zumo.zumokit.<a href="money/zumo/zumokit/User.html" title="interface in money.zumo.zumokit">User</a></dt>
 <dd>
-<div class="block">Submit an exchange asynchronously.</div>
+<div class="block">Submit an exchange.</div>
 </dd>
 <dt><a href="money/zumo/zumokit/SubmitExchangeCallback.html" title="interface in money.zumo.zumokit"><span class="typeNameLink">SubmitExchangeCallback</span></a> - Interface in <a href="money/zumo/zumokit/package-summary.html">money.zumo.zumokit</a></dt>
 <dd>
 <div class="block">Callback interface used by methods in <a href="money/zumo/zumokit/Wallet.html" title="interface in money.zumo.zumokit"><code>Wallet</code></a> class.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="money/zumo/zumokit/Wallet.CppProxy.html#submitTransaction(money.zumo.zumokit.ComposedTransaction,java.lang.String,money.zumo.zumokit.SubmitTransactionCallback)">submitTransaction(ComposedTransaction, String, SubmitTransactionCallback)</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/Wallet.CppProxy.html" title="class in money.zumo.zumokit">Wallet.CppProxy</a></dt>
+<dt><span class="memberNameLink"><a href="money/zumo/zumokit/User.CppProxy.html#submitTransaction(money.zumo.zumokit.ComposedTransaction,java.lang.String,money.zumo.zumokit.SubmitTransactionCallback)">submitTransaction(ComposedTransaction, String, SubmitTransactionCallback)</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/User.CppProxy.html" title="class in money.zumo.zumokit">User.CppProxy</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="money/zumo/zumokit/Wallet.html#submitTransaction(money.zumo.zumokit.ComposedTransaction,java.lang.String,money.zumo.zumokit.SubmitTransactionCallback)">submitTransaction(ComposedTransaction, String, SubmitTransactionCallback)</a></span> - Method in interface money.zumo.zumokit.<a href="money/zumo/zumokit/Wallet.html" title="interface in money.zumo.zumokit">Wallet</a></dt>
+<dt><span class="memberNameLink"><a href="money/zumo/zumokit/User.html#submitTransaction(money.zumo.zumokit.ComposedTransaction,java.lang.String,money.zumo.zumokit.SubmitTransactionCallback)">submitTransaction(ComposedTransaction, String, SubmitTransactionCallback)</a></span> - Method in interface money.zumo.zumokit.<a href="money/zumo/zumokit/User.html" title="interface in money.zumo.zumokit">User</a></dt>
 <dd>
-<div class="block">Submit a transaction asynchronously.</div>
+<div class="block">Submit a transaction.</div>
 </dd>
 <dt><a href="money/zumo/zumokit/SubmitTransactionCallback.html" title="interface in money.zumo.zumokit"><span class="typeNameLink">SubmitTransactionCallback</span></a> - Interface in <a href="money/zumo/zumokit/package-summary.html">money.zumo.zumokit</a></dt>
 <dd>
@@ -2169,6 +2206,8 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/CurrencyCode.html#toString()">toString()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/CurrencyCode.html" title="class in money.zumo.zumokit">CurrencyCode</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/CurrencyType.html#toString()">toString()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/CurrencyType.html" title="class in money.zumo.zumokit">CurrencyType</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="money/zumo/zumokit/CustodyType.html#toString()">toString()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/CustodyType.html" title="class in money.zumo.zumokit">CustodyType</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/Exchange.html#toString()">toString()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/Exchange.html" title="class in money.zumo.zumokit">Exchange</a></dt>
 <dd>&nbsp;</dd>
@@ -2278,7 +2317,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dd>&nbsp;</dd>
 <dt><a href="money/zumo/zumokit/TransactionType.html" title="class in money.zumo.zumokit"><span class="typeNameLink">TransactionType</span></a> - Class in <a href="money/zumo/zumokit/package-summary.html">money.zumo.zumokit</a></dt>
 <dd>
-<div class="block">Transaction type, 'CRYPTO', 'FIAT', 'NOMINATED' or 'CARD'.</div>
+<div class="block">Transaction type, 'CUSTODY', 'CUSTODY_DEPOSIT', 'CUSTODY-WITHDRAW', 'CRYPTO', 'FIAT', 'NOMINATED' or 'CARD'.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/TransactionType.html#%3Cinit%3E()">TransactionType()</a></span> - Constructor for class money.zumo.zumokit.<a href="money/zumo/zumokit/TransactionType.html" title="class in money.zumo.zumokit">TransactionType</a></dt>
 <dd>&nbsp;</dd>
@@ -2309,10 +2348,6 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dt><a href="money/zumo/zumokit/User.html" title="interface in money.zumo.zumokit"><span class="typeNameLink">User</span></a> - Interface in <a href="money/zumo/zumokit/package-summary.html">money.zumo.zumokit</a></dt>
 <dd>
 <div class="block">User class provides methods for managing user wallet and accounts.</div>
-</dd>
-<dt><span class="memberNameLink"><a href="money/zumo/zumokit/ZumoKitErrorCode.html#USER_NOT_FIAT_CUSTOMER">USER_NOT_FIAT_CUSTOMER</a></span> - Static variable in class money.zumo.zumokit.<a href="money/zumo/zumokit/ZumoKitErrorCode.html" title="class in money.zumo.zumokit">ZumoKitErrorCode</a></dt>
-<dd>
-<div class="block">Fiat account could no be created.</div>
 </dd>
 <dt><a href="money/zumo/zumokit/User.CppProxy.html" title="class in money.zumo.zumokit"><span class="typeNameLink">User.CppProxy</span></a> - Class in <a href="money/zumo/zumokit/package-summary.html">money.zumo.zumokit</a></dt>
 <dd>&nbsp;</dd>

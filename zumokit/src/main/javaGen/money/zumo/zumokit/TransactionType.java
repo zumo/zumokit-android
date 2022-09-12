@@ -3,8 +3,14 @@
 
 package money.zumo.zumokit;
 
-/** Transaction type, 'CRYPTO', 'FIAT', 'NOMINATED' or 'CARD'. */
+/** Transaction type, 'CUSTODY', 'CUSTODY_DEPOSIT', 'CUSTODY-WITHDRAW', 'CRYPTO', 'FIAT', 'NOMINATED' or 'CARD'. */
 public final class TransactionType {
+
+    public static final String CUSTODY = "CUSTODY";
+
+    public static final String CUSTODY_DEPOSIT = "CUSTODY-DEPOSIT";
+
+    public static final String CUSTODY_WITHDRAW = "CUSTODY-WITHDRAW";
 
     public static final String CRYPTO = "CRYPTO";
 

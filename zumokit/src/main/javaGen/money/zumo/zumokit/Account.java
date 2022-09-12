@@ -19,7 +19,15 @@ public final class Account {
 
     /*package*/ final String mType;
 
+    /*package*/ final String mCustodyType;
+
     /*package*/ final java.math.BigDecimal mBalance;
+
+    /*package*/ final java.math.BigDecimal mLedgerBalance;
+
+    /*package*/ final java.math.BigDecimal mAvailableBalance;
+
+    /*package*/ final java.math.BigDecimal mOverdraftLimit;
 
     /*package*/ final boolean mHasNominatedAccount;
 
@@ -35,7 +43,11 @@ public final class Account {
             String currencyCode,
             String network,
             String type,
+            String custodyType,
             java.math.BigDecimal balance,
+            java.math.BigDecimal ledgerBalance,
+            java.math.BigDecimal availableBalance,
+            java.math.BigDecimal overdraftLimit,
             boolean hasNominatedAccount,
             AccountCryptoProperties cryptoProperties,
             AccountFiatProperties fiatProperties,
@@ -45,7 +57,11 @@ public final class Account {
         this.mCurrencyCode = currencyCode;
         this.mNetwork = network;
         this.mType = type;
+        this.mCustodyType = custodyType;
         this.mBalance = balance;
+        this.mLedgerBalance = ledgerBalance;
+        this.mAvailableBalance = availableBalance;
+        this.mOverdraftLimit = overdraftLimit;
         this.mHasNominatedAccount = hasNominatedAccount;
         this.mCryptoProperties = cryptoProperties;
         this.mFiatProperties = fiatProperties;
@@ -89,9 +105,32 @@ public final class Account {
         return mType;
     }
 
+    /**
+     * Custody type.
+     * @see CustodyType
+     */
+    public String getCustodyType() {
+        return mCustodyType;
+    }
+
     /** Account balance. */
     public java.math.BigDecimal getBalance() {
         return mBalance;
+    }
+
+    /** Account ledger balance. */
+    public java.math.BigDecimal getLedgerBalance() {
+        return mLedgerBalance;
+    }
+
+    /** Account available balance, i.e. ledger balance minus pending transactions. */
+    public java.math.BigDecimal getAvailableBalance() {
+        return mAvailableBalance;
+    }
+
+    /** Overdraft limit. */
+    public java.math.BigDecimal getOverdraftLimit() {
+        return mOverdraftLimit;
     }
 
     /** Account has associated nominated account. */
@@ -125,7 +164,11 @@ public final class Account {
                 this.mCurrencyCode.equals(other.mCurrencyCode) &&
                 this.mNetwork.equals(other.mNetwork) &&
                 this.mType.equals(other.mType) &&
+                this.mCustodyType.equals(other.mCustodyType) &&
                 this.mBalance.equals(other.mBalance) &&
+                this.mLedgerBalance.equals(other.mLedgerBalance) &&
+                this.mAvailableBalance.equals(other.mAvailableBalance) &&
+                this.mOverdraftLimit.equals(other.mOverdraftLimit) &&
                 this.mHasNominatedAccount == other.mHasNominatedAccount &&
                 ((this.mCryptoProperties == null && other.mCryptoProperties == null) || (this.mCryptoProperties != null && this.mCryptoProperties.equals(other.mCryptoProperties))) &&
                 ((this.mFiatProperties == null && other.mFiatProperties == null) || (this.mFiatProperties != null && this.mFiatProperties.equals(other.mFiatProperties))) &&
@@ -141,7 +184,11 @@ public final class Account {
         hashCode = hashCode * 31 + mCurrencyCode.hashCode();
         hashCode = hashCode * 31 + mNetwork.hashCode();
         hashCode = hashCode * 31 + mType.hashCode();
+        hashCode = hashCode * 31 + mCustodyType.hashCode();
         hashCode = hashCode * 31 + (mBalance.hashCode());
+        hashCode = hashCode * 31 + (mLedgerBalance.hashCode());
+        hashCode = hashCode * 31 + (mAvailableBalance.hashCode());
+        hashCode = hashCode * 31 + (mOverdraftLimit.hashCode());
         hashCode = hashCode * 31 + (mHasNominatedAccount ? 1 : 0);
         hashCode = hashCode * 31 + (mCryptoProperties == null ? 0 : mCryptoProperties.hashCode());
         hashCode = hashCode * 31 + (mFiatProperties == null ? 0 : mFiatProperties.hashCode());
@@ -157,7 +204,11 @@ public final class Account {
                 "," + "mCurrencyCode=" + mCurrencyCode +
                 "," + "mNetwork=" + mNetwork +
                 "," + "mType=" + mType +
+                "," + "mCustodyType=" + mCustodyType +
                 "," + "mBalance=" + mBalance +
+                "," + "mLedgerBalance=" + mLedgerBalance +
+                "," + "mAvailableBalance=" + mAvailableBalance +
+                "," + "mOverdraftLimit=" + mOverdraftLimit +
                 "," + "mHasNominatedAccount=" + mHasNominatedAccount +
                 "," + "mCryptoProperties=" + mCryptoProperties +
                 "," + "mFiatProperties=" + mFiatProperties +

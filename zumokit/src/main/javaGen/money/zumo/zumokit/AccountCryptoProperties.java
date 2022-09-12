@@ -47,7 +47,7 @@ public final class AccountCryptoProperties {
         }
         AccountCryptoProperties other = (AccountCryptoProperties) obj;
         return this.mAddress.equals(other.mAddress) &&
-                this.mPath.equals(other.mPath) &&
+                ((this.mPath == null && other.mPath == null) || (this.mPath != null && this.mPath.equals(other.mPath))) &&
                 ((this.mNonce == null && other.mNonce == null) || (this.mNonce != null && this.mNonce.equals(other.mNonce)));
     }
 
@@ -56,7 +56,7 @@ public final class AccountCryptoProperties {
         // Pick an arbitrary non-zero starting value
         int hashCode = 17;
         hashCode = hashCode * 31 + mAddress.hashCode();
-        hashCode = hashCode * 31 + mPath.hashCode();
+        hashCode = hashCode * 31 + (mPath == null ? 0 : mPath.hashCode());
         hashCode = hashCode * 31 + (mNonce == null ? 0 : mNonce.hashCode());
         return hashCode;
     }

@@ -8,6 +8,7 @@ import money.zumo.zumokit.AccountDataListener;
 import money.zumo.zumokit.AccountDataSnapshot;
 import money.zumo.zumokit.AccountType;
 import money.zumo.zumokit.CurrencyCode;
+import money.zumo.zumokit.CustodyType;
 import money.zumo.zumokit.HttpProvider;
 import money.zumo.zumokit.DefaultHttpProvider;
 import money.zumo.zumokit.ComposeExchangeCallback;
@@ -107,15 +108,15 @@ public class MainActivity extends AppCompatActivity {
 
                             if (mUser.hasWallet()) {
                                 // Ethereum account
-                                Account ethAccount = user.getAccount(CurrencyCode.ETH, NetworkType.RINKEBY, AccountType.STANDARD);
+                                Account ethAccount = user.getAccount(CurrencyCode.ETH, NetworkType.RINKEBY, AccountType.STANDARD, CustodyType.NON_CUSTODY);
                                 Log.i("zumokit/eth-account", ethAccount.toString());
 
                                 // Bitcoin Testnet Compatibilty account
-                                Account btcAccount = user.getAccount(CurrencyCode.BTC, NetworkType.TESTNET, AccountType.COMPATIBILITY);
+                                Account btcAccount = user.getAccount(CurrencyCode.BTC, NetworkType.TESTNET, AccountType.COMPATIBILITY, CustodyType.NON_CUSTODY);
                                 Log.i("zumokit/btc-account", btcAccount.toString());
 
                                 // Fiat account
-                                Account fiatAccount = mUser.getAccount(CurrencyCode.GBP, NetworkType.TESTNET, AccountType.STANDARD);
+                                Account fiatAccount = mUser.getAccount(CurrencyCode.GBP, NetworkType.TESTNET, AccountType.STANDARD, CustodyType.NON_CUSTODY);
                                 if (fiatAccount != null) {
                                     Log.i("zumokit/fiat-account", fiatAccount.toString());
                                 }
@@ -195,7 +196,7 @@ public class MainActivity extends AppCompatActivity {
                         if (!submit)
                             return;
 
-                        mWallet.submitTransaction(ctx, null, new SubmitTransactionCallback() {
+                        mUser.submitTransaction(ctx, null, new SubmitTransactionCallback() {
                             @Override
                             public void onError(Exception e) {
                                 Log.e("zumokit", e.toString());
@@ -229,7 +230,7 @@ public class MainActivity extends AppCompatActivity {
                         if (!submit)
                             return;
 
-                        mWallet.submitTransaction(ctx, null, new SubmitTransactionCallback() {
+                        mUser.submitTransaction(ctx, null, new SubmitTransactionCallback() {
                             @Override
                             public void onError(Exception e) {
                                 Log.e("zumokit", e.toString());
@@ -250,7 +251,7 @@ public class MainActivity extends AppCompatActivity {
         BigDecimal value = new BigDecimal("50.2");
 
         if (toNominated) {
-            mWallet.composeTransactionToNominatedAccount(account.getId(), value, false, new ComposeTransactionCallback() {
+            mUser.composeNominatedTransaction(account.getId(), value, false, new ComposeTransactionCallback() {
                 @Override
                 public void onError(Exception e) {
                     Log.e("zumokit", e.toString());
@@ -263,7 +264,7 @@ public class MainActivity extends AppCompatActivity {
                     if (!submit)
                         return;
 
-                    mWallet.submitTransaction(composedTransaction, null, new SubmitTransactionCallback() {
+                    mUser.submitTransaction(composedTransaction, null, new SubmitTransactionCallback() {
                         @Override
                         public void onError(Exception e) {
                             Log.e("zumokit", e.toString());
@@ -277,7 +278,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             });
         } else {
-            mWallet.composeInternalFiatTransaction(account.getId(), destination, value, false, new ComposeTransactionCallback() {
+            mUser.composeTransaction(account.getId(), destination, value, false, new ComposeTransactionCallback() {
                 @Override
                 public void onError(Exception e) {
                     Log.e("zumokit", e.toString());
@@ -290,7 +291,7 @@ public class MainActivity extends AppCompatActivity {
                     if (!submit)
                         return;
 
-                    mWallet.submitTransaction(composedTransaction, null, new SubmitTransactionCallback() {
+                    mUser.submitTransaction(composedTransaction, null, new SubmitTransactionCallback() {
                         @Override
                         public void onError(Exception e) {
                             Log.e("zumokit", e.toString());
@@ -307,7 +308,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void composeExchange(Account fromAccount, Account toAccount, BigDecimal value, Boolean sendMax, Boolean submit) {
-        mWallet.composeExchange(
+        mUser.composeExchange(
                 fromAccount.getId(), toAccount.getId(), value, sendMax, new ComposeExchangeCallback() {
                     @Override
                     public void onError(Exception e) {
@@ -321,7 +322,7 @@ public class MainActivity extends AppCompatActivity {
                         if (!submit)
                             return;
 
-                        mWallet.submitExchange(composedExchange, new SubmitExchangeCallback() {
+                        mUser.submitExchange(composedExchange, new SubmitExchangeCallback() {
                             @Override
                             public void onError(Exception e) {
                                 Log.e("zumokit", e.toString());

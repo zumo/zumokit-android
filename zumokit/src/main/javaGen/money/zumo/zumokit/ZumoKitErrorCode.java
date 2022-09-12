@@ -19,9 +19,6 @@ public final class ZumoKitErrorCode {
     /** New account could not be created. Account already exists. */
     public static final String ACCOUNT_LIMIT_EXCEEDED = "account_limit_exceeded";
 
-    /** Could not make user fiat customer. User is already fiat customer. */
-    public static final String ALREADY_FIAT_CUSTOMER = "already_fiat_customer";
-
     /** Requested account not found. */
     public static final String ACCOUNT_NOT_FOUND = "account_not_found";
 
@@ -79,11 +76,7 @@ public final class ZumoKitErrorCode {
     /** Change account and source accounts have to be on the same network. */
     public static final String INCOMPATIBLE_NETWORK_TYPES = "incompatible_network_types";
 
-    /**
-     * Unknown error has occured
-     * Incorrect account selected.
-     * Account currency does not match the requeirements of requested operation.
-     */
+    /** Incorrect account selected. Account does not match the requirements of requested operation. */
     public static final String INCORRECT_ACCOUNT_SELECTED = "incorrect_account_selected";
 
     /**
@@ -196,9 +189,6 @@ public final class ZumoKitErrorCode {
 
     /** Resulting transaction is too large. */
     public static final String TRANSACTION_TOO_LARGE = "transaction_too_large";
-
-    /** Fiat account could no be created. User is not yet a fiat customer on selected network. */
-    public static final String USER_NOT_FIAT_CUSTOMER = "user_not_fiat_customer";
 
     /** Unspent transaction output could not be signed. */
     public static final String UTXO_SIGNING_ERROR = "utxo_signing_error";

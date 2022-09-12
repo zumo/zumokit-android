@@ -36,16 +36,13 @@ public interface User {
     public boolean hasWallet();
 
     /**
-     * Check if user is a fiat customer on 'MAINNET' or 'TESTNET' network.
-     * @param  network 'MAINNET' or 'TESTNET'
-     * @return true if user is currenly active user.
-     * @see    NetworkType
+     * Check if user is a registered fiat customer.
+     * @return true if user is a registered fiat customer.
      */
-    public boolean isFiatCustomer(String network);
+    public boolean isFiatCustomer();
 
     /**
-     * Make user fiat customer on specified network by providing user's personal details.
-     * @param  network        'MAINNET' or 'TESTNET'
+     * Make user fiat customer by providing user's personal details.
      * @param  firstName     first name
      * @param  middleName    middle name or null
      * @param  lastName      last name
@@ -54,19 +51,91 @@ public interface User {
      * @param  phone          phone number
      * @param  address        home address
      * @param  callback       an interface to receive the result or error
-     * @see    NetworkType
      */
-    public void makeFiatCustomer(String network, String firstName, String middleName, String lastName, String dateOfBirth, String email, String phone, Address address, SuccessCallback callback);
+    public void makeFiatCustomer(String firstName, String middleName, String lastName, String dateOfBirth, String email, String phone, Address address, SuccessCallback callback);
 
     /**
-     * Create fiat account on specified network and currency code. User must already be fiat customer on specified network.
-     * @param  network        'MAINNET' or 'TESTNET'
-     * @param  currencyCode  country code in ISO 4217 format, e.g. 'GBP'
+     * Create custody or fiat account for specified currency. When creating a fiat account, 
+     * user must already be fiat customer.
+     * @param  currencyCode  country code, e.g. 'GBP', 'BTC', 'ETH'
      * @param  callback       an interface to receive the result or error
      * @see    Account
-     * @see    NetworkType
      */
-    public void createFiatAccount(String network, String currencyCode, AccountCallback callback);
+    public void createAccount(String currencyCode, AccountCallback callback);
+
+    /**
+     * Compose transaction between custody or fiat accounts in Zumo ecosystem. Refer to <a target="_top" href="https://developers.zumo.money/docs/guides/send-transactions#internal-transaction">Send Transactions</a> guide for usage details.
+     * <p>
+     * On success {@link  ComposedTransaction ComposedTransaction} is returned via callback.
+     *
+     * @param fromAccountId custody or fiat {@link  Account Account} identifier
+     * @param toAccountId   custody or fiat {@link  Account Account} identifier 
+     * @param amount          amount in source account currency
+     * @param sendMax        send maximum possible funds to destination
+     * @param callback        an interface to receive the result or error
+     */
+    public void composeTransaction(String fromAccountId, String toAccountId, java.math.BigDecimal amount, boolean sendMax, ComposeTransactionCallback callback);
+
+    /**
+     * Compose custody withdraw transaction from custody account. Refer to <a target="_top" href="https://developers.zumo.money/docs/guides/send-transactions#custody-withdraw-transaction">Send Transactions</a> guide for usage details.
+     * <p>
+     * On success {@link  ComposedTransaction ComposedTransaction} is returned via callback.
+     *
+     * @param fromAccountId custody {@link  Account Account} identifier
+     * @param destination     destination address or non-custodial account identifier
+     * @param amount          amount in source account currency
+     * @param sendMax        send maximum possible funds to destination
+     * @param callback        an interface to receive the result or error
+     */
+    public void composeCustodyWithdrawTransaction(String fromAccountId, String destination, java.math.BigDecimal amount, boolean sendMax, ComposeTransactionCallback callback);
+
+    /**
+     * Compose transaction from user fiat account to user's nominated account. Refer to <a target="_top" href="https://developers.zumo.money/docs/guides/send-transactions#nominated-transaction">Send Transactions</a> guide for usage details.
+     * <p>
+     * On success {@link  ComposedTransaction ComposedTransaction} object is returned via callback.
+     *
+     * @param fromAccountId {@link  Account Account} identifier
+     * @param amount          amount in source account currency
+     * @param sendMax        send maximum possible funds to destination
+     * @param callback        an interface to receive the result or error
+     */
+    public void composeNominatedTransaction(String fromAccountId, java.math.BigDecimal amount, boolean sendMax, ComposeTransactionCallback callback);
+
+    /**
+     * Submit a transaction. Refer to <a target="_top" href="https://developers.zumo.money/docs/guides/send-transactions#submit-transaction">Send Transactions</a> guide for usage details.
+     * <p>
+     * On success {@link  Transaction Transaction} object is returned via callback.
+     *
+     * @param composedTransaction Composed transaction retrieved as a result
+     *                             of one of the compose transaction methods
+     * @param metadata             Optional metadata (stringified JSON) that will be attached to transaction
+     * @param callback An interface to receive the result or error
+     */
+    public void submitTransaction(ComposedTransaction composedTransaction, String metadata, SubmitTransactionCallback callback);
+
+    /**
+     * Compose exchange. Refer to <a target="_top" href="https://developers.zumo.money/docs/guides/make-exchanges#compose-exchange">Make Exchanges</a> guide for usage details.
+     * <p>
+     * On success {@link  ComposedExchange ComposedExchange}  is returned via callback.
+     *
+     * @param fromAccountId     {@link  Account Account} identifier
+     * @param toAccountId       {@link  Account Account} identifier
+     * @param amount              amount in deposit account currency
+     * @param sendMax            exchange maximum possible funds
+     * @param callback            an interface to receive the result or error
+     */
+    public void composeExchange(String fromAccountId, String toAccountId, java.math.BigDecimal amount, boolean sendMax, ComposeExchangeCallback callback);
+
+    /**
+     * Submit an exchange. <a target="_top" href="https://developers.zumo.money/docs/guides/make-exchanges#submit-exchange">Make Exchanges</a> guide for usage details.
+     * <p>
+     * On success {@link  Exchange Exchange} object is returned via callback.
+     *
+     * @param composedExchange Composed exchange retrieved as the result
+     *                          of <code>composeExchange</code> method
+     * @param callback An interface to receive the result or error
+     */
+    public void submitExchange(ComposedExchange composedExchange, SubmitExchangeCallback callback);
 
     /**
      * Get nominated account details for specified account if it exists.
@@ -201,12 +270,14 @@ public interface User {
      * @param  currencyCode       currency code, e.g. 'BTC', 'ETH' or 'GBP'
      * @param  network             network type, e.g. 'MAINNET', 'TESTNET' or 'RINKEBY'
      * @param  type                account type, e.g. 'STANDARD', 'COMPATIBILITY' or 'SEGWIT'
+     * @param  custodyType        custdoy type, i.e. 'CUSTODY' or 'NON-CUSTODY'
      * @return account with selected parameters if it exists, null otherwise
      * @see CurrencyCode
      * @see NetworkType
      * @see AccountType
+     * @see CustodyType
      */
-    public Account getAccount(String currencyCode, String network, String type);
+    public Account getAccount(String currencyCode, String network, String type, String custodyType);
 
     /**
      * Get all user accounts.
@@ -274,28 +345,76 @@ public interface User {
         private native boolean native_hasWallet(long _nativeRef);
 
         @Override
-        public boolean isFiatCustomer(String network)
+        public boolean isFiatCustomer()
         {
             assert !this.destroyed.get() : "trying to use a destroyed object";
-            return native_isFiatCustomer(this.nativeRef, network);
+            return native_isFiatCustomer(this.nativeRef);
         }
-        private native boolean native_isFiatCustomer(long _nativeRef, String network);
+        private native boolean native_isFiatCustomer(long _nativeRef);
 
         @Override
-        public void makeFiatCustomer(String network, String firstName, String middleName, String lastName, String dateOfBirth, String email, String phone, Address address, SuccessCallback callback)
+        public void makeFiatCustomer(String firstName, String middleName, String lastName, String dateOfBirth, String email, String phone, Address address, SuccessCallback callback)
         {
             assert !this.destroyed.get() : "trying to use a destroyed object";
-            native_makeFiatCustomer(this.nativeRef, network, firstName, middleName, lastName, dateOfBirth, email, phone, address, callback);
+            native_makeFiatCustomer(this.nativeRef, firstName, middleName, lastName, dateOfBirth, email, phone, address, callback);
         }
-        private native void native_makeFiatCustomer(long _nativeRef, String network, String firstName, String middleName, String lastName, String dateOfBirth, String email, String phone, Address address, SuccessCallback callback);
+        private native void native_makeFiatCustomer(long _nativeRef, String firstName, String middleName, String lastName, String dateOfBirth, String email, String phone, Address address, SuccessCallback callback);
 
         @Override
-        public void createFiatAccount(String network, String currencyCode, AccountCallback callback)
+        public void createAccount(String currencyCode, AccountCallback callback)
         {
             assert !this.destroyed.get() : "trying to use a destroyed object";
-            native_createFiatAccount(this.nativeRef, network, currencyCode, callback);
+            native_createAccount(this.nativeRef, currencyCode, callback);
         }
-        private native void native_createFiatAccount(long _nativeRef, String network, String currencyCode, AccountCallback callback);
+        private native void native_createAccount(long _nativeRef, String currencyCode, AccountCallback callback);
+
+        @Override
+        public void composeTransaction(String fromAccountId, String toAccountId, java.math.BigDecimal amount, boolean sendMax, ComposeTransactionCallback callback)
+        {
+            assert !this.destroyed.get() : "trying to use a destroyed object";
+            native_composeTransaction(this.nativeRef, fromAccountId, toAccountId, amount, sendMax, callback);
+        }
+        private native void native_composeTransaction(long _nativeRef, String fromAccountId, String toAccountId, java.math.BigDecimal amount, boolean sendMax, ComposeTransactionCallback callback);
+
+        @Override
+        public void composeCustodyWithdrawTransaction(String fromAccountId, String destination, java.math.BigDecimal amount, boolean sendMax, ComposeTransactionCallback callback)
+        {
+            assert !this.destroyed.get() : "trying to use a destroyed object";
+            native_composeCustodyWithdrawTransaction(this.nativeRef, fromAccountId, destination, amount, sendMax, callback);
+        }
+        private native void native_composeCustodyWithdrawTransaction(long _nativeRef, String fromAccountId, String destination, java.math.BigDecimal amount, boolean sendMax, ComposeTransactionCallback callback);
+
+        @Override
+        public void composeNominatedTransaction(String fromAccountId, java.math.BigDecimal amount, boolean sendMax, ComposeTransactionCallback callback)
+        {
+            assert !this.destroyed.get() : "trying to use a destroyed object";
+            native_composeNominatedTransaction(this.nativeRef, fromAccountId, amount, sendMax, callback);
+        }
+        private native void native_composeNominatedTransaction(long _nativeRef, String fromAccountId, java.math.BigDecimal amount, boolean sendMax, ComposeTransactionCallback callback);
+
+        @Override
+        public void submitTransaction(ComposedTransaction composedTransaction, String metadata, SubmitTransactionCallback callback)
+        {
+            assert !this.destroyed.get() : "trying to use a destroyed object";
+            native_submitTransaction(this.nativeRef, composedTransaction, metadata, callback);
+        }
+        private native void native_submitTransaction(long _nativeRef, ComposedTransaction composedTransaction, String metadata, SubmitTransactionCallback callback);
+
+        @Override
+        public void composeExchange(String fromAccountId, String toAccountId, java.math.BigDecimal amount, boolean sendMax, ComposeExchangeCallback callback)
+        {
+            assert !this.destroyed.get() : "trying to use a destroyed object";
+            native_composeExchange(this.nativeRef, fromAccountId, toAccountId, amount, sendMax, callback);
+        }
+        private native void native_composeExchange(long _nativeRef, String fromAccountId, String toAccountId, java.math.BigDecimal amount, boolean sendMax, ComposeExchangeCallback callback);
+
+        @Override
+        public void submitExchange(ComposedExchange composedExchange, SubmitExchangeCallback callback)
+        {
+            assert !this.destroyed.get() : "trying to use a destroyed object";
+            native_submitExchange(this.nativeRef, composedExchange, callback);
+        }
+        private native void native_submitExchange(long _nativeRef, ComposedExchange composedExchange, SubmitExchangeCallback callback);
 
         @Override
         public void getNominatedAccountFiatProperties(String accountId, AccountFiatPropertiesCallback callback)
@@ -402,12 +521,12 @@ public interface User {
         private native void native_recoverWallet(long _nativeRef, String mnemonic, String password, WalletCallback callback);
 
         @Override
-        public Account getAccount(String currencyCode, String network, String type)
+        public Account getAccount(String currencyCode, String network, String type, String custodyType)
         {
             assert !this.destroyed.get() : "trying to use a destroyed object";
-            return native_getAccount(this.nativeRef, currencyCode, network, type);
+            return native_getAccount(this.nativeRef, currencyCode, network, type, custodyType);
         }
-        private native Account native_getAccount(long _nativeRef, String currencyCode, String network, String type);
+        private native Account native_getAccount(long _nativeRef, String currencyCode, String network, String type, String custodyType);
 
         @Override
         public ArrayList<Account> getAccounts()

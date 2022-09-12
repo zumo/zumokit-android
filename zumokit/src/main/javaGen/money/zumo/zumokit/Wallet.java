@@ -15,7 +15,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
  */
 public interface Wallet {
     /**
-     * Compose BTC or BSV transaction asynchronously. Refer to <a target="_top" href="https://developers.zumo.money/docs/guides/send-transactions#crypto">Send Transactions</a> guide for usage details.
+     * Compose BTC or BSV transaction. Refer to <a target="_top" href="https://developers.zumo.money/docs/guides/send-transactions#crypto">Send Transactions</a> guide for usage details.
      * <p>
      * On success {@link  ComposedTransaction ComposedTransaction}  is returned via callback.
      *
@@ -30,7 +30,7 @@ public interface Wallet {
     public void composeTransaction(String fromAccountId, String changeAccountId, String destination, java.math.BigDecimal amount, java.math.BigDecimal feeRate, boolean sendMax, ComposeTransactionCallback callback);
 
     /**
-     * Compose Ethereum transaction asynchronously. Refer to <a target="_top" href="https://developers.zumo.money/docs/guides/send-transactions#ethereum">Send Transactions</a> guide for usage details.
+     * Compose Ethereum transaction. Refer to <a target="_top" href="https://developers.zumo.money/docs/guides/send-transactions#ethereum">Send Transactions</a> guide for usage details.
      * <p>
      * On success {@link  ComposedTransaction ComposedTransaction} is returned via callback.
      *
@@ -45,67 +45,6 @@ public interface Wallet {
      * @param callback        an interface to receive the result or error
      */
     public void composeEthTransaction(String fromAccountId, java.math.BigDecimal gasPrice, int gasLimit, String destination, java.math.BigDecimal amount, String data, Integer nonce, boolean sendMax, ComposeTransactionCallback callback);
-
-    /**
-     * Compose fiat transaction between users in Zumo ecosystem asynchronously. Refer to <a target="_top" href="https://developers.zumo.money/docs/guides/send-transactions#internal-fiat-transaction">Send Transactions</a> guide for usage details.
-     * <p>
-     * On success {@link  ComposedTransaction ComposedTransaction} is returned via callback.
-     *
-     * @param fromAccountId {@link  Account Account} identifier
-     * @param toAccountId   {@link  Account Account} identifier
-     * @param amount          amount in source account currency
-     * @param sendMax        send maximum possible funds to destination
-     * @param callback        an interface to receive the result or error
-     */
-    public void composeInternalFiatTransaction(String fromAccountId, String toAccountId, java.math.BigDecimal amount, boolean sendMax, ComposeTransactionCallback callback);
-
-    /**
-     * Compose transaction to nominated account asynchronously. Refer to <a target="_top" href="https://developers.zumo.money/docs/guides/send-transactions#external-fiat-transaction">Send Transactions</a> guide for usage details.
-     * <p>
-     * On success {@link  ComposedTransaction ComposedTransaction} object is returned via callback.
-     *
-     * @param fromAccountId {@link  Account Account} identifier
-     * @param amount          amount in source account currency
-     * @param sendMax        send maximum possible funds to destination
-     * @param callback        an interface to receive the result or error
-     */
-    public void composeTransactionToNominatedAccount(String fromAccountId, java.math.BigDecimal amount, boolean sendMax, ComposeTransactionCallback callback);
-
-    /**
-     * Submit a transaction asynchronously. Refer to <a target="_top" href="https://developers.zumo.money/docs/guides/send-transactions#submit-transaction">Send Transactions</a> guide for usage details.
-     * <p>
-     * On success {@link  Transaction Transaction} object is returned via callback.
-     *
-     * @param composedTransaction Composed transaction retrieved as a result
-     *                             of one of the compose transaction methods
-     * @param metadata             Optional metadata (stringified JSON) that will be attached to transaction
-     * @param callback An interface to receive the result or error
-     */
-    public void submitTransaction(ComposedTransaction composedTransaction, String metadata, SubmitTransactionCallback callback);
-
-    /**
-     * Compose Bitcoin transaction asynchronously. Refer to <a target="_top" href="https://developers.zumo.money/docs/guides/make-exchanges#compose-exchange">Make Exchanges</a> guide for usage details.
-     * <p>
-     * On success {@link  ComposedExchange ComposedExchange}  is returned via callback.
-     *
-     * @param fromAccountId     {@link  Account Account} identifier
-     * @param toAccountId       {@link  Account Account} identifier
-     * @param amount              amount in deposit account currency
-     * @param sendMax            exchange maximum possible funds
-     * @param callback            an interface to receive the result or error
-     */
-    public void composeExchange(String fromAccountId, String toAccountId, java.math.BigDecimal amount, boolean sendMax, ComposeExchangeCallback callback);
-
-    /**
-     * Submit an exchange asynchronously. <a target="_top" href="https://developers.zumo.money/docs/guides/make-exchanges#submit-exchange">Make Exchanges</a> guide for usage details.
-     * <p>
-     * On success {@link  Exchange Exchange} object is returned via callback.
-     *
-     * @param composedExchange Composed exchange retrieved as the result
-     *                          of <code>composeExchange</code> method
-     * @param callback An interface to receive the result or error
-     */
-    public void submitExchange(ComposedExchange composedExchange, SubmitExchangeCallback callback);
 
     static final class CppProxy implements Wallet
     {
@@ -145,45 +84,5 @@ public interface Wallet {
             native_composeEthTransaction(this.nativeRef, fromAccountId, gasPrice, gasLimit, destination, amount, data, nonce, sendMax, callback);
         }
         private native void native_composeEthTransaction(long _nativeRef, String fromAccountId, java.math.BigDecimal gasPrice, int gasLimit, String destination, java.math.BigDecimal amount, String data, Integer nonce, boolean sendMax, ComposeTransactionCallback callback);
-
-        @Override
-        public void composeInternalFiatTransaction(String fromAccountId, String toAccountId, java.math.BigDecimal amount, boolean sendMax, ComposeTransactionCallback callback)
-        {
-            assert !this.destroyed.get() : "trying to use a destroyed object";
-            native_composeInternalFiatTransaction(this.nativeRef, fromAccountId, toAccountId, amount, sendMax, callback);
-        }
-        private native void native_composeInternalFiatTransaction(long _nativeRef, String fromAccountId, String toAccountId, java.math.BigDecimal amount, boolean sendMax, ComposeTransactionCallback callback);
-
-        @Override
-        public void composeTransactionToNominatedAccount(String fromAccountId, java.math.BigDecimal amount, boolean sendMax, ComposeTransactionCallback callback)
-        {
-            assert !this.destroyed.get() : "trying to use a destroyed object";
-            native_composeTransactionToNominatedAccount(this.nativeRef, fromAccountId, amount, sendMax, callback);
-        }
-        private native void native_composeTransactionToNominatedAccount(long _nativeRef, String fromAccountId, java.math.BigDecimal amount, boolean sendMax, ComposeTransactionCallback callback);
-
-        @Override
-        public void submitTransaction(ComposedTransaction composedTransaction, String metadata, SubmitTransactionCallback callback)
-        {
-            assert !this.destroyed.get() : "trying to use a destroyed object";
-            native_submitTransaction(this.nativeRef, composedTransaction, metadata, callback);
-        }
-        private native void native_submitTransaction(long _nativeRef, ComposedTransaction composedTransaction, String metadata, SubmitTransactionCallback callback);
-
-        @Override
-        public void composeExchange(String fromAccountId, String toAccountId, java.math.BigDecimal amount, boolean sendMax, ComposeExchangeCallback callback)
-        {
-            assert !this.destroyed.get() : "trying to use a destroyed object";
-            native_composeExchange(this.nativeRef, fromAccountId, toAccountId, amount, sendMax, callback);
-        }
-        private native void native_composeExchange(long _nativeRef, String fromAccountId, String toAccountId, java.math.BigDecimal amount, boolean sendMax, ComposeExchangeCallback callback);
-
-        @Override
-        public void submitExchange(ComposedExchange composedExchange, SubmitExchangeCallback callback)
-        {
-            assert !this.destroyed.get() : "trying to use a destroyed object";
-            native_submitExchange(this.nativeRef, composedExchange, callback);
-        }
-        private native void native_submitExchange(long _nativeRef, ComposedExchange composedExchange, SubmitExchangeCallback callback);
     }
 }
