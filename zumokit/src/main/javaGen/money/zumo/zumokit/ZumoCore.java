@@ -54,23 +54,6 @@ public interface ZumoCore {
     public HashMap<String, HashMap<String, ExchangeRate>> getExchangeRates();
 
     /**
-     * Get exchange setting for selected currency pair.
-     *
-     * @param fromCurrency   currency code
-     * @param toCurrency     currency code
-     *
-     * @return exchange setting or null
-     */
-    public ExchangeSetting getExchangeSetting(String fromCurrency, String toCurrency);
-
-    /**
-     * Get all available exchange settings.
-     *
-     * @return mapping between currency pairs and exchange settings
-     */
-    public HashMap<String, HashMap<String, ExchangeSetting>> getExchangeSettings();
-
-    /**
      * Get transaction fee rates for selected crypto currency.
      *
      * @param currency currency code
@@ -153,7 +136,7 @@ public interface ZumoCore {
      *
      * @return ZumoKit instance
      */
-    public static ZumoCore init(HttpProvider httpProvider, WebSocketFactory webSocketFactory, String apiKey, String apiUrl, String transactionServiceUrl, String cardServiceUrl, String notificationServiceUrl)
+    public static ZumoCore init(HttpProvider httpProvider, WebSocketFactory webSocketFactory, String apiKey, String apiUrl, String transactionServiceUrl, String cardServiceUrl, String notificationServiceUrl, String exchangeServiceUrl)
     {
         return CppProxy.init(httpProvider,
                              webSocketFactory,
@@ -161,7 +144,8 @@ public interface ZumoCore {
                              apiUrl,
                              transactionServiceUrl,
                              cardServiceUrl,
-                             notificationServiceUrl);
+                             notificationServiceUrl,
+                             exchangeServiceUrl);
     }
 
     static final class CppProxy implements ZumoCore
@@ -236,22 +220,6 @@ public interface ZumoCore {
         private native HashMap<String, HashMap<String, ExchangeRate>> native_getExchangeRates(long _nativeRef);
 
         @Override
-        public ExchangeSetting getExchangeSetting(String fromCurrency, String toCurrency)
-        {
-            assert !this.destroyed.get() : "trying to use a destroyed object";
-            return native_getExchangeSetting(this.nativeRef, fromCurrency, toCurrency);
-        }
-        private native ExchangeSetting native_getExchangeSetting(long _nativeRef, String fromCurrency, String toCurrency);
-
-        @Override
-        public HashMap<String, HashMap<String, ExchangeSetting>> getExchangeSettings()
-        {
-            assert !this.destroyed.get() : "trying to use a destroyed object";
-            return native_getExchangeSettings(this.nativeRef);
-        }
-        private native HashMap<String, HashMap<String, ExchangeSetting>> native_getExchangeSettings(long _nativeRef);
-
-        @Override
         public TransactionFeeRate getTransactionFeeRate(String currency)
         {
             assert !this.destroyed.get() : "trying to use a destroyed object";
@@ -297,6 +265,6 @@ public interface ZumoCore {
 
         public static native void onLog(LogListener logListener, String logLevel);
 
-        public static native ZumoCore init(HttpProvider httpProvider, WebSocketFactory webSocketFactory, String apiKey, String apiUrl, String transactionServiceUrl, String cardServiceUrl, String notificationServiceUrl);
+        public static native ZumoCore init(HttpProvider httpProvider, WebSocketFactory webSocketFactory, String apiKey, String apiUrl, String transactionServiceUrl, String cardServiceUrl, String notificationServiceUrl, String exchangeServiceUrl);
     }
 }

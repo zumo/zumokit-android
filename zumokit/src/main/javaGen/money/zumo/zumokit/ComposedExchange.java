@@ -7,127 +7,34 @@ package money.zumo.zumokit;
 public final class ComposedExchange {
 
 
-    /*package*/ final String mSignedTransaction;
+    /*package*/ final Account mDebitAccount;
 
-    /*package*/ final Account mFromAccount;
-
-    /*package*/ final Account mToAccount;
+    /*package*/ final Account mCreditAccount;
 
     /*package*/ final Quote mQuote;
 
-    /*package*/ final ExchangeSetting mExchangeSetting;
-
-    /*package*/ final String mExchangeAddress;
-
-    /*package*/ final java.math.BigDecimal mAmount;
-
-    /*package*/ final java.math.BigDecimal mReturnAmount;
-
-    /*package*/ final java.math.BigDecimal mOutgoingTransactionFee;
-
-    /*package*/ final java.math.BigDecimal mExchangeFee;
-
-    /*package*/ final java.math.BigDecimal mReturnTransactionFee;
-
-    /*package*/ final String mNonce;
-
     public ComposedExchange(
-            String signedTransaction,
-            Account fromAccount,
-            Account toAccount,
-            Quote quote,
-            ExchangeSetting exchangeSetting,
-            String exchangeAddress,
-            java.math.BigDecimal amount,
-            java.math.BigDecimal returnAmount,
-            java.math.BigDecimal outgoingTransactionFee,
-            java.math.BigDecimal exchangeFee,
-            java.math.BigDecimal returnTransactionFee,
-            String nonce) {
-        this.mSignedTransaction = signedTransaction;
-        this.mFromAccount = fromAccount;
-        this.mToAccount = toAccount;
+            Account debitAccount,
+            Account creditAccount,
+            Quote quote) {
+        this.mDebitAccount = debitAccount;
+        this.mCreditAccount = creditAccount;
         this.mQuote = quote;
-        this.mExchangeSetting = exchangeSetting;
-        this.mExchangeAddress = exchangeAddress;
-        this.mAmount = amount;
-        this.mReturnAmount = returnAmount;
-        this.mOutgoingTransactionFee = outgoingTransactionFee;
-        this.mExchangeFee = exchangeFee;
-        this.mReturnTransactionFee = returnTransactionFee;
-        this.mNonce = nonce;
     }
 
-    /** Signed transaction for a crypto transaction, null otherwise. */
-    public String getSignedTransaction() {
-        return mSignedTransaction;
+    /** Debit account. */
+    public Account getDebitAccount() {
+        return mDebitAccount;
     }
 
-    /** Source account. */
-    public Account getFromAccount() {
-        return mFromAccount;
-    }
-
-    /** Target account. */
-    public Account getToAccount() {
-        return mToAccount;
+    /** Credit account. */
+    public Account getCreditAccount() {
+        return mCreditAccount;
     }
 
     /** Exchange rate quote used when composing exchange. */
     public Quote getQuote() {
         return mQuote;
-    }
-
-    /** Exchange setting used when composing exchange. */
-    public ExchangeSetting getExchangeSetting() {
-        return mExchangeSetting;
-    }
-
-    /**
-     * Zumo Exchange Service wallet address where outgoing crypto funds were deposited,
-     * null for exchanges from fiat currencies.
-     */
-    public String getExchangeAddress() {
-        return mExchangeAddress;
-    }
-
-    /** Exchange amount in source account currency. */
-    public java.math.BigDecimal getAmount() {
-        return mAmount;
-    }
-
-    /**
-     * Amount that user receives, calculated as <code>value X quote.value X (1 - feeRate) - returnTransactionFee</code>.
-     * @see ExchangeSetting
-     */
-    public java.math.BigDecimal getReturnAmount() {
-        return mReturnAmount;
-    }
-
-    /** Outgoing transaction fee. */
-    public java.math.BigDecimal getOutgoingTransactionFee() {
-        return mOutgoingTransactionFee;
-    }
-
-    /**
-     * Exchange fee, calculated as <code>value X quote.value X exchangeFeeRate</code>.
-     * @see ExchangeSetting
-     */
-    public java.math.BigDecimal getExchangeFee() {
-        return mExchangeFee;
-    }
-
-    /**
-     * Return transaction fee.
-     * @see ExchangeSetting
-     */
-    public java.math.BigDecimal getReturnTransactionFee() {
-        return mReturnTransactionFee;
-    }
-
-    /** Unique nonce used to prevent double spend. */
-    public String getNonce() {
-        return mNonce;
     }
 
     @Override
@@ -136,54 +43,27 @@ public final class ComposedExchange {
             return false;
         }
         ComposedExchange other = (ComposedExchange) obj;
-        return ((this.mSignedTransaction == null && other.mSignedTransaction == null) || (this.mSignedTransaction != null && this.mSignedTransaction.equals(other.mSignedTransaction))) &&
-                this.mFromAccount.equals(other.mFromAccount) &&
-                this.mToAccount.equals(other.mToAccount) &&
-                this.mQuote.equals(other.mQuote) &&
-                this.mExchangeSetting.equals(other.mExchangeSetting) &&
-                ((this.mExchangeAddress == null && other.mExchangeAddress == null) || (this.mExchangeAddress != null && this.mExchangeAddress.equals(other.mExchangeAddress))) &&
-                this.mAmount.equals(other.mAmount) &&
-                this.mReturnAmount.equals(other.mReturnAmount) &&
-                this.mOutgoingTransactionFee.equals(other.mOutgoingTransactionFee) &&
-                this.mExchangeFee.equals(other.mExchangeFee) &&
-                this.mReturnTransactionFee.equals(other.mReturnTransactionFee) &&
-                this.mNonce.equals(other.mNonce);
+        return this.mDebitAccount.equals(other.mDebitAccount) &&
+                this.mCreditAccount.equals(other.mCreditAccount) &&
+                this.mQuote.equals(other.mQuote);
     }
 
     @Override
     public int hashCode() {
         // Pick an arbitrary non-zero starting value
         int hashCode = 17;
-        hashCode = hashCode * 31 + (mSignedTransaction == null ? 0 : mSignedTransaction.hashCode());
-        hashCode = hashCode * 31 + mFromAccount.hashCode();
-        hashCode = hashCode * 31 + mToAccount.hashCode();
+        hashCode = hashCode * 31 + mDebitAccount.hashCode();
+        hashCode = hashCode * 31 + mCreditAccount.hashCode();
         hashCode = hashCode * 31 + mQuote.hashCode();
-        hashCode = hashCode * 31 + mExchangeSetting.hashCode();
-        hashCode = hashCode * 31 + (mExchangeAddress == null ? 0 : mExchangeAddress.hashCode());
-        hashCode = hashCode * 31 + (mAmount.hashCode());
-        hashCode = hashCode * 31 + (mReturnAmount.hashCode());
-        hashCode = hashCode * 31 + (mOutgoingTransactionFee.hashCode());
-        hashCode = hashCode * 31 + (mExchangeFee.hashCode());
-        hashCode = hashCode * 31 + (mReturnTransactionFee.hashCode());
-        hashCode = hashCode * 31 + mNonce.hashCode();
         return hashCode;
     }
 
     @Override
     public String toString() {
         return "ComposedExchange{" +
-                "mSignedTransaction=" + mSignedTransaction +
-                "," + "mFromAccount=" + mFromAccount +
-                "," + "mToAccount=" + mToAccount +
+                "mDebitAccount=" + mDebitAccount +
+                "," + "mCreditAccount=" + mCreditAccount +
                 "," + "mQuote=" + mQuote +
-                "," + "mExchangeSetting=" + mExchangeSetting +
-                "," + "mExchangeAddress=" + mExchangeAddress +
-                "," + "mAmount=" + mAmount +
-                "," + "mReturnAmount=" + mReturnAmount +
-                "," + "mOutgoingTransactionFee=" + mOutgoingTransactionFee +
-                "," + "mExchangeFee=" + mExchangeFee +
-                "," + "mReturnTransactionFee=" + mReturnTransactionFee +
-                "," + "mNonce=" + mNonce +
         "}";
     }
 

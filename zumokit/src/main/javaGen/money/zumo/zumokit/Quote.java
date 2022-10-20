@@ -9,33 +9,49 @@ public final class Quote {
 
     /*package*/ final String mId;
 
-    /*package*/ final int mExpireTime;
+    /*package*/ final int mTtl;
 
-    /*package*/ final Integer mExpiresIn;
+    /*package*/ final String mCreatedAt;
 
-    /*package*/ final String mFromCurrency;
+    /*package*/ final String mExpiresAt;
 
-    /*package*/ final String mToCurrency;
+    /*package*/ final String mFrom;
 
-    /*package*/ final java.math.BigDecimal mDepositAmount;
+    /*package*/ final String mTo;
 
-    /*package*/ final java.math.BigDecimal mValue;
+    /*package*/ final java.math.BigDecimal mPrice;
+
+    /*package*/ final java.math.BigDecimal mFeeRate;
+
+    /*package*/ final java.math.BigDecimal mDebitAmount;
+
+    /*package*/ final java.math.BigDecimal mFeeAmount;
+
+    /*package*/ final java.math.BigDecimal mCreditAmount;
 
     public Quote(
             String id,
-            int expireTime,
-            Integer expiresIn,
-            String fromCurrency,
-            String toCurrency,
-            java.math.BigDecimal depositAmount,
-            java.math.BigDecimal value) {
+            int ttl,
+            String createdAt,
+            String expiresAt,
+            String from,
+            String to,
+            java.math.BigDecimal price,
+            java.math.BigDecimal feeRate,
+            java.math.BigDecimal debitAmount,
+            java.math.BigDecimal feeAmount,
+            java.math.BigDecimal creditAmount) {
         this.mId = id;
-        this.mExpireTime = expireTime;
-        this.mExpiresIn = expiresIn;
-        this.mFromCurrency = fromCurrency;
-        this.mToCurrency = toCurrency;
-        this.mDepositAmount = depositAmount;
-        this.mValue = value;
+        this.mTtl = ttl;
+        this.mCreatedAt = createdAt;
+        this.mExpiresAt = expiresAt;
+        this.mFrom = from;
+        this.mTo = to;
+        this.mPrice = price;
+        this.mFeeRate = feeRate;
+        this.mDebitAmount = debitAmount;
+        this.mFeeAmount = feeAmount;
+        this.mCreditAmount = creditAmount;
     }
 
     /** Identifier. */
@@ -43,40 +59,60 @@ public final class Quote {
         return mId;
     }
 
-    /** Epoch timestamp representing expiration time of this quote. */
-    public int getExpireTime() {
-        return mExpireTime;
+    /** Expiration in seconds at the time of quote creation, e.g. 60. */
+    public int getTtl() {
+        return mTtl;
     }
 
-    /** Seconds until expiration time for active quotes, null for historical quotes. */
-    public Integer getExpiresIn() {
-        return mExpiresIn;
+    /** Timestamp when quote was created, e.g.  "2022-10-13T12:39:59.056Z". */
+    public String getCreatedAt() {
+        return mCreatedAt;
     }
 
-    /**
-     * Deposit currency.
-     * @see CurrencyCode
-     */
-    public String getFromCurrency() {
-        return mFromCurrency;
+    /** Timestamp representing expiration time of this quote, e.g. "2022-10-13T12:40:58.871Z". */
+    public String getExpiresAt() {
+        return mExpiresAt;
     }
 
     /**
-     * Target currency.
+     * Debit currency.
      * @see CurrencyCode
      */
-    public String getToCurrency() {
-        return mToCurrency;
+    public String getFrom() {
+        return mFrom;
     }
 
-    /** Deposit amount to be exchanged to target currency. */
-    public java.math.BigDecimal getDepositAmount() {
-        return mDepositAmount;
+    /**
+     * Credit currency.
+     * @see CurrencyCode
+     */
+    public String getTo() {
+        return mTo;
     }
 
-    /** Value of 1 unit of deposit currency in target currency. */
-    public java.math.BigDecimal getValue() {
-        return mValue;
+    /** Value of 1 unit of debit currency in credit currency. */
+    public java.math.BigDecimal getPrice() {
+        return mPrice;
+    }
+
+    /** Fee rate in points of a percentage, e.g. "0.1" representing 0.1% */
+    public java.math.BigDecimal getFeeRate() {
+        return mFeeRate;
+    }
+
+    /** Amount to be debited from debit account. */
+    public java.math.BigDecimal getDebitAmount() {
+        return mDebitAmount;
+    }
+
+    /** Amount that will be paid in fees. */
+    public java.math.BigDecimal getFeeAmount() {
+        return mFeeAmount;
+    }
+
+    /** Amount to be credited to credit account. */
+    public java.math.BigDecimal getCreditAmount() {
+        return mCreditAmount;
     }
 
     @Override
@@ -86,12 +122,16 @@ public final class Quote {
         }
         Quote other = (Quote) obj;
         return this.mId.equals(other.mId) &&
-                this.mExpireTime == other.mExpireTime &&
-                ((this.mExpiresIn == null && other.mExpiresIn == null) || (this.mExpiresIn != null && this.mExpiresIn.equals(other.mExpiresIn))) &&
-                this.mFromCurrency.equals(other.mFromCurrency) &&
-                this.mToCurrency.equals(other.mToCurrency) &&
-                this.mDepositAmount.equals(other.mDepositAmount) &&
-                this.mValue.equals(other.mValue);
+                this.mTtl == other.mTtl &&
+                this.mCreatedAt.equals(other.mCreatedAt) &&
+                this.mExpiresAt.equals(other.mExpiresAt) &&
+                this.mFrom.equals(other.mFrom) &&
+                this.mTo.equals(other.mTo) &&
+                this.mPrice.equals(other.mPrice) &&
+                this.mFeeRate.equals(other.mFeeRate) &&
+                this.mDebitAmount.equals(other.mDebitAmount) &&
+                this.mFeeAmount.equals(other.mFeeAmount) &&
+                this.mCreditAmount.equals(other.mCreditAmount);
     }
 
     @Override
@@ -99,12 +139,16 @@ public final class Quote {
         // Pick an arbitrary non-zero starting value
         int hashCode = 17;
         hashCode = hashCode * 31 + mId.hashCode();
-        hashCode = hashCode * 31 + mExpireTime;
-        hashCode = hashCode * 31 + (mExpiresIn == null ? 0 : mExpiresIn.hashCode());
-        hashCode = hashCode * 31 + mFromCurrency.hashCode();
-        hashCode = hashCode * 31 + mToCurrency.hashCode();
-        hashCode = hashCode * 31 + (mDepositAmount.hashCode());
-        hashCode = hashCode * 31 + (mValue.hashCode());
+        hashCode = hashCode * 31 + mTtl;
+        hashCode = hashCode * 31 + mCreatedAt.hashCode();
+        hashCode = hashCode * 31 + mExpiresAt.hashCode();
+        hashCode = hashCode * 31 + mFrom.hashCode();
+        hashCode = hashCode * 31 + mTo.hashCode();
+        hashCode = hashCode * 31 + (mPrice.hashCode());
+        hashCode = hashCode * 31 + (mFeeRate.hashCode());
+        hashCode = hashCode * 31 + (mDebitAmount.hashCode());
+        hashCode = hashCode * 31 + (mFeeAmount.hashCode());
+        hashCode = hashCode * 31 + (mCreditAmount.hashCode());
         return hashCode;
     }
 
@@ -112,12 +156,16 @@ public final class Quote {
     public String toString() {
         return "Quote{" +
                 "mId=" + mId +
-                "," + "mExpireTime=" + mExpireTime +
-                "," + "mExpiresIn=" + mExpiresIn +
-                "," + "mFromCurrency=" + mFromCurrency +
-                "," + "mToCurrency=" + mToCurrency +
-                "," + "mDepositAmount=" + mDepositAmount +
-                "," + "mValue=" + mValue +
+                "," + "mTtl=" + mTtl +
+                "," + "mCreatedAt=" + mCreatedAt +
+                "," + "mExpiresAt=" + mExpiresAt +
+                "," + "mFrom=" + mFrom +
+                "," + "mTo=" + mTo +
+                "," + "mPrice=" + mPrice +
+                "," + "mFeeRate=" + mFeeRate +
+                "," + "mDebitAmount=" + mDebitAmount +
+                "," + "mFeeAmount=" + mFeeAmount +
+                "," + "mCreditAmount=" + mCreditAmount +
         "}";
     }
 

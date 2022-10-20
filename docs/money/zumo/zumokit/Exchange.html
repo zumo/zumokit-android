@@ -26,7 +26,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10,"i19":10,"i20":10,"i21":10};
+var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -153,25 +153,21 @@ extends java.lang.Object</pre>
 <th class="colLast" scope="col">Description</th>
 </tr>
 <tr class="altColor">
-<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.math.BigDecimal,java.math.BigDecimal,java.math.BigDecimal,java.math.BigDecimal,java.math.BigDecimal,money.zumo.zumokit.Quote,money.zumo.zumokit.ExchangeSetting,java.util.HashMap,java.lang.String,java.lang.Integer,java.lang.Integer)">Exchange</a></span>&#8203;(java.lang.String&nbsp;id,
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.math.BigDecimal,java.math.BigDecimal,java.lang.String,java.lang.String,java.lang.String,java.lang.String,money.zumo.zumokit.Quote,java.util.HashMap,java.lang.String,java.lang.String,java.lang.String)">Exchange</a></span>&#8203;(java.lang.String&nbsp;id,
         java.lang.String&nbsp;status,
-        java.lang.String&nbsp;fromCurrency,
-        java.lang.String&nbsp;fromAccountId,
-        java.lang.String&nbsp;outgoingTransactionId,
-        java.lang.String&nbsp;toCurrency,
-        java.lang.String&nbsp;toAccountId,
-        java.lang.String&nbsp;returnTransactionId,
+        java.lang.String&nbsp;pair,
+        java.lang.String&nbsp;side,
+        java.math.BigDecimal&nbsp;price,
         java.math.BigDecimal&nbsp;amount,
-        java.math.BigDecimal&nbsp;outgoingTransactionFee,
-        java.math.BigDecimal&nbsp;returnAmount,
-        java.math.BigDecimal&nbsp;exchangeFee,
-        java.math.BigDecimal&nbsp;returnTransactionFee,
+        java.lang.String&nbsp;debitAccountId,
+        java.lang.String&nbsp;debitTransactionId,
+        java.lang.String&nbsp;creditAccountId,
+        java.lang.String&nbsp;creditTransactionId,
         <a href="Quote.html" title="class in money.zumo.zumokit">Quote</a>&nbsp;quote,
-        <a href="ExchangeSetting.html" title="class in money.zumo.zumokit">ExchangeSetting</a>&nbsp;exchangeSetting,
-        java.util.HashMap&lt;java.lang.String,&#8203;java.util.HashMap&lt;java.lang.String,&#8203;<a href="ExchangeRate.html" title="class in money.zumo.zumokit">ExchangeRate</a>&gt;&gt;&nbsp;exchangeRates,
+        java.util.HashMap&lt;java.lang.String,&#8203;java.util.HashMap&lt;java.lang.String,&#8203;java.math.BigDecimal&gt;&gt;&nbsp;rates,
         java.lang.String&nbsp;nonce,
-        java.lang.Integer&nbsp;submittedAt,
-        java.lang.Integer&nbsp;confirmedAt)</code></th>
+        java.lang.String&nbsp;createdAt,
+        java.lang.String&nbsp;updatedAt)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 </table>
@@ -201,141 +197,113 @@ extends java.lang.Object</pre>
 <td class="colFirst"><code>java.math.BigDecimal</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getAmount()">getAmount</a></span>()</code></th>
 <td class="colLast">
-<div class="block">Amount in deposit currency.</div>
+<div class="block">Amount in base currency.</div>
 </td>
 </tr>
 <tr id="i2" class="altColor">
-<td class="colFirst"><code>java.lang.Integer</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getConfirmedAt()">getConfirmedAt</a></span>()</code></th>
+<td class="colFirst"><code>java.lang.String</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getCreatedAt()">getCreatedAt</a></span>()</code></th>
 <td class="colLast">
-<div class="block">Epoch timestamp when transaction was confirmed or null if not yet confirmed.</div>
+<div class="block">Timestamp when exchange was created, e.g.</div>
 </td>
 </tr>
 <tr id="i3" class="rowColor">
-<td class="colFirst"><code>java.math.BigDecimal</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getExchangeFee()">getExchangeFee</a></span>()</code></th>
+<td class="colFirst"><code>java.lang.String</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getCreditAccountId()">getCreditAccountId</a></span>()</code></th>
 <td class="colLast">
-<div class="block">Exchange fee, calculated as <code>amount X quote.value X exchangeFeeRate</code>.</div>
+<div class="block">Credit <a href="Account.html" title="class in money.zumo.zumokit"><code>Account</code></a> identifier.</div>
 </td>
 </tr>
 <tr id="i4" class="altColor">
-<td class="colFirst"><code>java.util.HashMap&lt;java.lang.String,&#8203;java.util.HashMap&lt;java.lang.String,&#8203;<a href="ExchangeRate.html" title="class in money.zumo.zumokit">ExchangeRate</a>&gt;&gt;</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getExchangeRates()">getExchangeRates</a></span>()</code></th>
+<td class="colFirst"><code>java.lang.String</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getCreditTransactionId()">getCreditTransactionId</a></span>()</code></th>
 <td class="colLast">
-<div class="block">Exchange rates at the time exchange was made.</div>
+<div class="block">Credit <a href="Transaction.html" title="class in money.zumo.zumokit"><code>Transaction</code></a> identifier.</div>
 </td>
 </tr>
 <tr id="i5" class="rowColor">
-<td class="colFirst"><code><a href="ExchangeSetting.html" title="class in money.zumo.zumokit">ExchangeSetting</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getExchangeSetting()">getExchangeSetting</a></span>()</code></th>
+<td class="colFirst"><code>java.lang.String</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getDebitAccountId()">getDebitAccountId</a></span>()</code></th>
 <td class="colLast">
-<div class="block">Exchange setting used.</div>
+<div class="block">Debit <a href="Account.html" title="class in money.zumo.zumokit"><code>Account</code></a> identifier.</div>
 </td>
 </tr>
 <tr id="i6" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getFromAccountId()">getFromAccountId</a></span>()</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getDebitTransactionId()">getDebitTransactionId</a></span>()</code></th>
 <td class="colLast">
-<div class="block">Source <a href="Account.html" title="class in money.zumo.zumokit"><code>Account</code></a> identifier.</div>
+<div class="block">Debit <a href="Transaction.html" title="class in money.zumo.zumokit"><code>Transaction</code></a> identifier.</div>
 </td>
 </tr>
 <tr id="i7" class="rowColor">
-<td class="colFirst"><code>java.lang.String</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getFromCurrency()">getFromCurrency</a></span>()</code></th>
-<td class="colLast">
-<div class="block">Currency from which exchange was made.</div>
-</td>
-</tr>
-<tr id="i8" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getId()">getId</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Identifier</div>
 </td>
 </tr>
-<tr id="i9" class="rowColor">
+<tr id="i8" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getNonce()">getNonce</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Exchange nonce or null.</div>
 </td>
 </tr>
+<tr id="i9" class="rowColor">
+<td class="colFirst"><code>java.lang.String</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getPair()">getPair</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Exchange pair, e.g.</div>
+</td>
+</tr>
 <tr id="i10" class="altColor">
 <td class="colFirst"><code>java.math.BigDecimal</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getOutgoingTransactionFee()">getOutgoingTransactionFee</a></span>()</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getPrice()">getPrice</a></span>()</code></th>
 <td class="colLast">
-<div class="block">Outgoing transaction fee.</div>
+<div class="block">Exchange quote price.</div>
 </td>
 </tr>
 <tr id="i11" class="rowColor">
-<td class="colFirst"><code>java.lang.String</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getOutgoingTransactionId()">getOutgoingTransactionId</a></span>()</code></th>
-<td class="colLast">
-<div class="block">Outgoing <a href="Transaction.html" title="class in money.zumo.zumokit"><code>Transaction</code></a> identifier.</div>
-</td>
-</tr>
-<tr id="i12" class="altColor">
 <td class="colFirst"><code><a href="Quote.html" title="class in money.zumo.zumokit">Quote</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getQuote()">getQuote</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Exchange rate quote used.</div>
 </td>
 </tr>
-<tr id="i13" class="rowColor">
-<td class="colFirst"><code>java.math.BigDecimal</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getReturnAmount()">getReturnAmount</a></span>()</code></th>
+<tr id="i12" class="altColor">
+<td class="colFirst"><code>java.util.HashMap&lt;java.lang.String,&#8203;java.util.HashMap&lt;java.lang.String,&#8203;java.math.BigDecimal&gt;&gt;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getRates()">getRates</a></span>()</code></th>
 <td class="colLast">
-<div class="block">Amount that user receives, calculated as <code>amount X quote.value X (1 - feeRate) - returnTransactionFee</code>.</div>
+<div class="block">Exchange rates at the time exchange was made.</div>
+</td>
+</tr>
+<tr id="i13" class="rowColor">
+<td class="colFirst"><code>java.lang.String</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getSide()">getSide</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Exchange side, "BUY" or "SELL".</div>
 </td>
 </tr>
 <tr id="i14" class="altColor">
-<td class="colFirst"><code>java.math.BigDecimal</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getReturnTransactionFee()">getReturnTransactionFee</a></span>()</code></th>
-<td class="colLast">
-<div class="block">Return transaction fee.</div>
-</td>
-</tr>
-<tr id="i15" class="rowColor">
-<td class="colFirst"><code>java.lang.String</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getReturnTransactionId()">getReturnTransactionId</a></span>()</code></th>
-<td class="colLast">
-<div class="block">Return <a href="Transaction.html" title="class in money.zumo.zumokit"><code>Transaction</code></a> identifier.</div>
-</td>
-</tr>
-<tr id="i16" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getStatus()">getStatus</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Exchange status.</div>
 </td>
 </tr>
-<tr id="i17" class="rowColor">
-<td class="colFirst"><code>java.lang.Integer</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getSubmittedAt()">getSubmittedAt</a></span>()</code></th>
-<td class="colLast">
-<div class="block">Epoch timestamp when transaction was submitted.</div>
-</td>
-</tr>
-<tr id="i18" class="altColor">
+<tr id="i15" class="rowColor">
 <td class="colFirst"><code>java.lang.String</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getToAccountId()">getToAccountId</a></span>()</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getUpdatedAt()">getUpdatedAt</a></span>()</code></th>
 <td class="colLast">
-<div class="block">Target <a href="Account.html" title="class in money.zumo.zumokit"><code>Account</code></a> identifier.</div>
+<div class="block">Timestamp when exchange was updated, e.g.</div>
 </td>
 </tr>
-<tr id="i19" class="rowColor">
-<td class="colFirst"><code>java.lang.String</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getToCurrency()">getToCurrency</a></span>()</code></th>
-<td class="colLast">
-<div class="block">Currency to which exchange was made.</div>
-</td>
-</tr>
-<tr id="i20" class="altColor">
+<tr id="i16" class="altColor">
 <td class="colFirst"><code>int</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#hashCode()">hashCode</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i21" class="rowColor">
+<tr id="i17" class="rowColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#toString()">toString</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
@@ -364,7 +332,7 @@ extends java.lang.Object</pre>
 <!--   -->
 </a>
 <h3>Constructor Detail</h3>
-<a id="&lt;init&gt;(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.math.BigDecimal,java.math.BigDecimal,java.math.BigDecimal,java.math.BigDecimal,java.math.BigDecimal,money.zumo.zumokit.Quote,money.zumo.zumokit.ExchangeSetting,java.util.HashMap,java.lang.String,java.lang.Integer,java.lang.Integer)">
+<a id="&lt;init&gt;(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.math.BigDecimal,java.math.BigDecimal,java.lang.String,java.lang.String,java.lang.String,java.lang.String,money.zumo.zumokit.Quote,java.util.HashMap,java.lang.String,java.lang.String,java.lang.String)">
 <!--   -->
 </a>
 <ul class="blockListLast">
@@ -372,23 +340,19 @@ extends java.lang.Object</pre>
 <h4>Exchange</h4>
 <pre>public&nbsp;Exchange&#8203;(java.lang.String&nbsp;id,
                 java.lang.String&nbsp;status,
-                java.lang.String&nbsp;fromCurrency,
-                java.lang.String&nbsp;fromAccountId,
-                java.lang.String&nbsp;outgoingTransactionId,
-                java.lang.String&nbsp;toCurrency,
-                java.lang.String&nbsp;toAccountId,
-                java.lang.String&nbsp;returnTransactionId,
+                java.lang.String&nbsp;pair,
+                java.lang.String&nbsp;side,
+                java.math.BigDecimal&nbsp;price,
                 java.math.BigDecimal&nbsp;amount,
-                java.math.BigDecimal&nbsp;outgoingTransactionFee,
-                java.math.BigDecimal&nbsp;returnAmount,
-                java.math.BigDecimal&nbsp;exchangeFee,
-                java.math.BigDecimal&nbsp;returnTransactionFee,
+                java.lang.String&nbsp;debitAccountId,
+                java.lang.String&nbsp;debitTransactionId,
+                java.lang.String&nbsp;creditAccountId,
+                java.lang.String&nbsp;creditTransactionId,
                 <a href="Quote.html" title="class in money.zumo.zumokit">Quote</a>&nbsp;quote,
-                <a href="ExchangeSetting.html" title="class in money.zumo.zumokit">ExchangeSetting</a>&nbsp;exchangeSetting,
-                java.util.HashMap&lt;java.lang.String,&#8203;java.util.HashMap&lt;java.lang.String,&#8203;<a href="ExchangeRate.html" title="class in money.zumo.zumokit">ExchangeRate</a>&gt;&gt;&nbsp;exchangeRates,
+                java.util.HashMap&lt;java.lang.String,&#8203;java.util.HashMap&lt;java.lang.String,&#8203;java.math.BigDecimal&gt;&gt;&nbsp;rates,
                 java.lang.String&nbsp;nonce,
-                java.lang.Integer&nbsp;submittedAt,
-                java.lang.Integer&nbsp;confirmedAt)</pre>
+                java.lang.String&nbsp;createdAt,
+                java.lang.String&nbsp;updatedAt)</pre>
 </li>
 </ul>
 </li>
@@ -425,72 +389,38 @@ extends java.lang.Object</pre>
 </dl>
 </li>
 </ul>
-<a id="getFromCurrency()">
+<a id="getPair()">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>getFromCurrency</h4>
-<pre class="methodSignature">public&nbsp;java.lang.String&nbsp;getFromCurrency()</pre>
-<div class="block">Currency from which exchange was made.</div>
+<h4>getPair</h4>
+<pre class="methodSignature">public&nbsp;java.lang.String&nbsp;getPair()</pre>
+<div class="block">Exchange pair, e.g. "ETH-GBP".</div>
+</li>
+</ul>
+<a id="getSide()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getSide</h4>
+<pre class="methodSignature">public&nbsp;java.lang.String&nbsp;getSide()</pre>
+<div class="block">Exchange side, "BUY" or "SELL".</div>
 <dl>
 <dt><span class="seeLabel">See Also:</span></dt>
-<dd><a href="CurrencyCode.html" title="class in money.zumo.zumokit"><code>CurrencyCode</code></a></dd>
+<dd><a href="ExchangeSide.html" title="class in money.zumo.zumokit"><code>ExchangeSide</code></a></dd>
 </dl>
 </li>
 </ul>
-<a id="getFromAccountId()">
+<a id="getPrice()">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>getFromAccountId</h4>
-<pre class="methodSignature">public&nbsp;java.lang.String&nbsp;getFromAccountId()</pre>
-<div class="block">Source <a href="Account.html" title="class in money.zumo.zumokit"><code>Account</code></a> identifier.</div>
-</li>
-</ul>
-<a id="getOutgoingTransactionId()">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getOutgoingTransactionId</h4>
-<pre class="methodSignature">public&nbsp;java.lang.String&nbsp;getOutgoingTransactionId()</pre>
-<div class="block">Outgoing <a href="Transaction.html" title="class in money.zumo.zumokit"><code>Transaction</code></a> identifier.</div>
-</li>
-</ul>
-<a id="getToCurrency()">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getToCurrency</h4>
-<pre class="methodSignature">public&nbsp;java.lang.String&nbsp;getToCurrency()</pre>
-<div class="block">Currency to which exchange was made.</div>
-<dl>
-<dt><span class="seeLabel">See Also:</span></dt>
-<dd><a href="CurrencyCode.html" title="class in money.zumo.zumokit"><code>CurrencyCode</code></a></dd>
-</dl>
-</li>
-</ul>
-<a id="getToAccountId()">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getToAccountId</h4>
-<pre class="methodSignature">public&nbsp;java.lang.String&nbsp;getToAccountId()</pre>
-<div class="block">Target <a href="Account.html" title="class in money.zumo.zumokit"><code>Account</code></a> identifier.</div>
-</li>
-</ul>
-<a id="getReturnTransactionId()">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getReturnTransactionId</h4>
-<pre class="methodSignature">public&nbsp;java.lang.String&nbsp;getReturnTransactionId()</pre>
-<div class="block">Return <a href="Transaction.html" title="class in money.zumo.zumokit"><code>Transaction</code></a> identifier.</div>
+<h4>getPrice</h4>
+<pre class="methodSignature">public&nbsp;java.math.BigDecimal&nbsp;getPrice()</pre>
+<div class="block">Exchange quote price.</div>
 </li>
 </ul>
 <a id="getAmount()">
@@ -500,59 +430,47 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>getAmount</h4>
 <pre class="methodSignature">public&nbsp;java.math.BigDecimal&nbsp;getAmount()</pre>
-<div class="block">Amount in deposit currency.</div>
+<div class="block">Amount in base currency.</div>
 </li>
 </ul>
-<a id="getOutgoingTransactionFee()">
+<a id="getDebitAccountId()">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>getOutgoingTransactionFee</h4>
-<pre class="methodSignature">public&nbsp;java.math.BigDecimal&nbsp;getOutgoingTransactionFee()</pre>
-<div class="block">Outgoing transaction fee.</div>
+<h4>getDebitAccountId</h4>
+<pre class="methodSignature">public&nbsp;java.lang.String&nbsp;getDebitAccountId()</pre>
+<div class="block">Debit <a href="Account.html" title="class in money.zumo.zumokit"><code>Account</code></a> identifier.</div>
 </li>
 </ul>
-<a id="getReturnAmount()">
+<a id="getDebitTransactionId()">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>getReturnAmount</h4>
-<pre class="methodSignature">public&nbsp;java.math.BigDecimal&nbsp;getReturnAmount()</pre>
-<div class="block">Amount that user receives, calculated as <code>amount X quote.value X (1 - feeRate) - returnTransactionFee</code>.</div>
-<dl>
-<dt><span class="seeLabel">See Also:</span></dt>
-<dd><a href="ExchangeSetting.html" title="class in money.zumo.zumokit"><code>ExchangeSetting</code></a></dd>
-</dl>
+<h4>getDebitTransactionId</h4>
+<pre class="methodSignature">public&nbsp;java.lang.String&nbsp;getDebitTransactionId()</pre>
+<div class="block">Debit <a href="Transaction.html" title="class in money.zumo.zumokit"><code>Transaction</code></a> identifier.</div>
 </li>
 </ul>
-<a id="getExchangeFee()">
+<a id="getCreditAccountId()">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>getExchangeFee</h4>
-<pre class="methodSignature">public&nbsp;java.math.BigDecimal&nbsp;getExchangeFee()</pre>
-<div class="block">Exchange fee, calculated as <code>amount X quote.value X exchangeFeeRate</code>.</div>
-<dl>
-<dt><span class="seeLabel">See Also:</span></dt>
-<dd><a href="ExchangeSetting.html" title="class in money.zumo.zumokit"><code>ExchangeSetting</code></a></dd>
-</dl>
+<h4>getCreditAccountId</h4>
+<pre class="methodSignature">public&nbsp;java.lang.String&nbsp;getCreditAccountId()</pre>
+<div class="block">Credit <a href="Account.html" title="class in money.zumo.zumokit"><code>Account</code></a> identifier.</div>
 </li>
 </ul>
-<a id="getReturnTransactionFee()">
+<a id="getCreditTransactionId()">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>getReturnTransactionFee</h4>
-<pre class="methodSignature">public&nbsp;java.math.BigDecimal&nbsp;getReturnTransactionFee()</pre>
-<div class="block">Return transaction fee.</div>
-<dl>
-<dt><span class="seeLabel">See Also:</span></dt>
-<dd><a href="ExchangeSetting.html" title="class in money.zumo.zumokit"><code>ExchangeSetting</code></a></dd>
-</dl>
+<h4>getCreditTransactionId</h4>
+<pre class="methodSignature">public&nbsp;java.lang.String&nbsp;getCreditTransactionId()</pre>
+<div class="block">Credit <a href="Transaction.html" title="class in money.zumo.zumokit"><code>Transaction</code></a> identifier.</div>
 </li>
 </ul>
 <a id="getQuote()">
@@ -565,23 +483,13 @@ extends java.lang.Object</pre>
 <div class="block">Exchange rate quote used.</div>
 </li>
 </ul>
-<a id="getExchangeSetting()">
+<a id="getRates()">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>getExchangeSetting</h4>
-<pre class="methodSignature">public&nbsp;<a href="ExchangeSetting.html" title="class in money.zumo.zumokit">ExchangeSetting</a>&nbsp;getExchangeSetting()</pre>
-<div class="block">Exchange setting used.</div>
-</li>
-</ul>
-<a id="getExchangeRates()">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getExchangeRates</h4>
-<pre class="methodSignature">public&nbsp;java.util.HashMap&lt;java.lang.String,&#8203;java.util.HashMap&lt;java.lang.String,&#8203;<a href="ExchangeRate.html" title="class in money.zumo.zumokit">ExchangeRate</a>&gt;&gt;&nbsp;getExchangeRates()</pre>
+<h4>getRates</h4>
+<pre class="methodSignature">public&nbsp;java.util.HashMap&lt;java.lang.String,&#8203;java.util.HashMap&lt;java.lang.String,&#8203;java.math.BigDecimal&gt;&gt;&nbsp;getRates()</pre>
 <div class="block">Exchange rates at the time exchange was made.
  This can be used to display amounts in local currency to the user.</div>
 </li>
@@ -596,24 +504,24 @@ extends java.lang.Object</pre>
 <div class="block">Exchange nonce or null. Used to prevent double spend.</div>
 </li>
 </ul>
-<a id="getSubmittedAt()">
+<a id="getCreatedAt()">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>getSubmittedAt</h4>
-<pre class="methodSignature">public&nbsp;java.lang.Integer&nbsp;getSubmittedAt()</pre>
-<div class="block">Epoch timestamp when transaction was submitted.</div>
+<h4>getCreatedAt</h4>
+<pre class="methodSignature">public&nbsp;java.lang.String&nbsp;getCreatedAt()</pre>
+<div class="block">Timestamp when exchange was created, e.g. "2020-07-29T09:46:34.288Z".</div>
 </li>
 </ul>
-<a id="getConfirmedAt()">
+<a id="getUpdatedAt()">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>getConfirmedAt</h4>
-<pre class="methodSignature">public&nbsp;java.lang.Integer&nbsp;getConfirmedAt()</pre>
-<div class="block">Epoch timestamp when transaction was confirmed or null if not yet confirmed.</div>
+<h4>getUpdatedAt</h4>
+<pre class="methodSignature">public&nbsp;java.lang.String&nbsp;getUpdatedAt()</pre>
+<div class="block">Timestamp when exchange was updated, e.g. "2020-07-29T09:46:34.288Z".</div>
 </li>
 </ul>
 <a id="equals(java.lang.Object)">

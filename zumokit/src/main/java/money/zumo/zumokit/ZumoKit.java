@@ -50,13 +50,15 @@ public class ZumoKit {
      * @param transactionServiceUrl  ZumoKit Transaction Service URL
      * @param cardServiceUrl         ZumoKit Card Service URL
      * @param notificationServiceUrl ZumoKit Notification Service URL
+     * @param exchangeServiceUrl     ZumoKit Exchange Service URL
      */
     public ZumoKit(
             String apiKey,
             String apiUrl,
             String transactionServiceUrl,
             String cardServiceUrl,
-            String notificationServiceUrl) {
+            String notificationServiceUrl,
+            String exchangeServiceUrl) {
         // Init the providers needed for the C++ core
         HttpProvider httpProvider = new DefaultHttpProvider();
         WebSocketFactory wsFactory = new DefaultWebSocketFactory();
@@ -69,7 +71,8 @@ public class ZumoKit {
                 apiUrl,
                 transactionServiceUrl,
                 cardServiceUrl,
-                notificationServiceUrl
+                notificationServiceUrl,
+                exchangeServiceUrl
         );
     }
 
@@ -128,26 +131,6 @@ public class ZumoKit {
      */
     public HashMap<String, HashMap<String, ExchangeRate>> getExchangeRates() {
         return zumoCore.getExchangeRates();
-    }
-
-    /**
-     * Get exchange setting for selected currency pair.
-     *
-     * @param fromCurrency currency code
-     * @param toCurrency   currency code
-     * @return exchange setting or null
-     */
-    public ExchangeSetting getExchangeSetting(String fromCurrency, String toCurrency) {
-        return zumoCore.getExchangeSetting(fromCurrency, toCurrency);
-    }
-
-    /**
-     * Get all available exchange settings.
-     *
-     * @return mapping between currency pairs and exchange settings
-     */
-    public HashMap<String, HashMap<String, ExchangeSetting>> getExchangeSettings() {
-        return zumoCore.getExchangeSettings();
     }
 
     /**

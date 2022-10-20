@@ -13,79 +13,63 @@ public final class Exchange {
 
     /*package*/ final String mStatus;
 
-    /*package*/ final String mFromCurrency;
+    /*package*/ final String mPair;
 
-    /*package*/ final String mFromAccountId;
+    /*package*/ final String mSide;
 
-    /*package*/ final String mOutgoingTransactionId;
-
-    /*package*/ final String mToCurrency;
-
-    /*package*/ final String mToAccountId;
-
-    /*package*/ final String mReturnTransactionId;
+    /*package*/ final java.math.BigDecimal mPrice;
 
     /*package*/ final java.math.BigDecimal mAmount;
 
-    /*package*/ final java.math.BigDecimal mOutgoingTransactionFee;
+    /*package*/ final String mDebitAccountId;
 
-    /*package*/ final java.math.BigDecimal mReturnAmount;
+    /*package*/ final String mDebitTransactionId;
 
-    /*package*/ final java.math.BigDecimal mExchangeFee;
+    /*package*/ final String mCreditAccountId;
 
-    /*package*/ final java.math.BigDecimal mReturnTransactionFee;
+    /*package*/ final String mCreditTransactionId;
 
     /*package*/ final Quote mQuote;
 
-    /*package*/ final ExchangeSetting mExchangeSetting;
-
-    /*package*/ final HashMap<String, HashMap<String, ExchangeRate>> mExchangeRates;
+    /*package*/ final HashMap<String, HashMap<String, java.math.BigDecimal>> mRates;
 
     /*package*/ final String mNonce;
 
-    /*package*/ final Integer mSubmittedAt;
+    /*package*/ final String mCreatedAt;
 
-    /*package*/ final Integer mConfirmedAt;
+    /*package*/ final String mUpdatedAt;
 
     public Exchange(
             String id,
             String status,
-            String fromCurrency,
-            String fromAccountId,
-            String outgoingTransactionId,
-            String toCurrency,
-            String toAccountId,
-            String returnTransactionId,
+            String pair,
+            String side,
+            java.math.BigDecimal price,
             java.math.BigDecimal amount,
-            java.math.BigDecimal outgoingTransactionFee,
-            java.math.BigDecimal returnAmount,
-            java.math.BigDecimal exchangeFee,
-            java.math.BigDecimal returnTransactionFee,
+            String debitAccountId,
+            String debitTransactionId,
+            String creditAccountId,
+            String creditTransactionId,
             Quote quote,
-            ExchangeSetting exchangeSetting,
-            HashMap<String, HashMap<String, ExchangeRate>> exchangeRates,
+            HashMap<String, HashMap<String, java.math.BigDecimal>> rates,
             String nonce,
-            Integer submittedAt,
-            Integer confirmedAt) {
+            String createdAt,
+            String updatedAt) {
         this.mId = id;
         this.mStatus = status;
-        this.mFromCurrency = fromCurrency;
-        this.mFromAccountId = fromAccountId;
-        this.mOutgoingTransactionId = outgoingTransactionId;
-        this.mToCurrency = toCurrency;
-        this.mToAccountId = toAccountId;
-        this.mReturnTransactionId = returnTransactionId;
+        this.mPair = pair;
+        this.mSide = side;
+        this.mPrice = price;
         this.mAmount = amount;
-        this.mOutgoingTransactionFee = outgoingTransactionFee;
-        this.mReturnAmount = returnAmount;
-        this.mExchangeFee = exchangeFee;
-        this.mReturnTransactionFee = returnTransactionFee;
+        this.mDebitAccountId = debitAccountId;
+        this.mDebitTransactionId = debitTransactionId;
+        this.mCreditAccountId = creditAccountId;
+        this.mCreditTransactionId = creditTransactionId;
         this.mQuote = quote;
-        this.mExchangeSetting = exchangeSetting;
-        this.mExchangeRates = exchangeRates;
+        this.mRates = rates;
         this.mNonce = nonce;
-        this.mSubmittedAt = submittedAt;
-        this.mConfirmedAt = confirmedAt;
+        this.mCreatedAt = createdAt;
+        this.mUpdatedAt = updatedAt;
     }
 
     /** Identifier */
@@ -101,74 +85,47 @@ public final class Exchange {
         return mStatus;
     }
 
-    /**
-     * Currency from which exchange was made.
-     * @see CurrencyCode
-     */
-    public String getFromCurrency() {
-        return mFromCurrency;
-    }
-
-    /** Source {@link  Account Account} identifier. */
-    public String getFromAccountId() {
-        return mFromAccountId;
-    }
-
-    /** Outgoing {@link  Transaction Transaction} identifier. */
-    public String getOutgoingTransactionId() {
-        return mOutgoingTransactionId;
+    /** Exchange pair, e.g. "ETH-GBP". */
+    public String getPair() {
+        return mPair;
     }
 
     /**
-     * Currency to which exchange was made.
-     * @see CurrencyCode
+     * Exchange side, "BUY" or "SELL".
+     * @see ExchangeSide
      */
-    public String getToCurrency() {
-        return mToCurrency;
+    public String getSide() {
+        return mSide;
     }
 
-    /** Target {@link  Account Account} identifier. */
-    public String getToAccountId() {
-        return mToAccountId;
+    /** Exchange quote price. */
+    public java.math.BigDecimal getPrice() {
+        return mPrice;
     }
 
-    /** Return {@link  Transaction Transaction} identifier. */
-    public String getReturnTransactionId() {
-        return mReturnTransactionId;
-    }
-
-    /** Amount in deposit currency. */
+    /** Amount in base currency. */
     public java.math.BigDecimal getAmount() {
         return mAmount;
     }
 
-    /** Outgoing transaction fee. */
-    public java.math.BigDecimal getOutgoingTransactionFee() {
-        return mOutgoingTransactionFee;
+    /** Debit {@link  Account Account} identifier. */
+    public String getDebitAccountId() {
+        return mDebitAccountId;
     }
 
-    /**
-     * Amount that user receives, calculated as <code>amount X quote.value X (1 - feeRate) - returnTransactionFee</code>.
-     * @see ExchangeSetting
-     */
-    public java.math.BigDecimal getReturnAmount() {
-        return mReturnAmount;
+    /** Debit {@link  Transaction Transaction} identifier. */
+    public String getDebitTransactionId() {
+        return mDebitTransactionId;
     }
 
-    /**
-     * Exchange fee, calculated as <code>amount X quote.value X exchangeFeeRate</code>.
-     * @see ExchangeSetting
-     */
-    public java.math.BigDecimal getExchangeFee() {
-        return mExchangeFee;
+    /** Credit {@link  Account Account} identifier. */
+    public String getCreditAccountId() {
+        return mCreditAccountId;
     }
 
-    /**
-     * Return transaction fee.
-     * @see ExchangeSetting
-     */
-    public java.math.BigDecimal getReturnTransactionFee() {
-        return mReturnTransactionFee;
+    /** Credit {@link  Transaction Transaction} identifier. */
+    public String getCreditTransactionId() {
+        return mCreditTransactionId;
     }
 
     /** Exchange rate quote used. */
@@ -176,17 +133,12 @@ public final class Exchange {
         return mQuote;
     }
 
-    /** Exchange setting used. */
-    public ExchangeSetting getExchangeSetting() {
-        return mExchangeSetting;
-    }
-
     /**
      * Exchange rates at the time exchange was made.
      * This can be used to display amounts in local currency to the user.
      */
-    public HashMap<String, HashMap<String, ExchangeRate>> getExchangeRates() {
-        return mExchangeRates;
+    public HashMap<String, HashMap<String, java.math.BigDecimal>> getRates() {
+        return mRates;
     }
 
     /** Exchange nonce or null. Used to prevent double spend. */
@@ -194,14 +146,14 @@ public final class Exchange {
         return mNonce;
     }
 
-    /** Epoch timestamp when transaction was submitted. */
-    public Integer getSubmittedAt() {
-        return mSubmittedAt;
+    /** Timestamp when exchange was created, e.g. "2020-07-29T09:46:34.288Z". */
+    public String getCreatedAt() {
+        return mCreatedAt;
     }
 
-    /** Epoch timestamp when transaction was confirmed or null if not yet confirmed. */
-    public Integer getConfirmedAt() {
-        return mConfirmedAt;
+    /** Timestamp when exchange was updated, e.g. "2020-07-29T09:46:34.288Z". */
+    public String getUpdatedAt() {
+        return mUpdatedAt;
     }
 
     @Override
@@ -212,23 +164,19 @@ public final class Exchange {
         Exchange other = (Exchange) obj;
         return this.mId.equals(other.mId) &&
                 this.mStatus.equals(other.mStatus) &&
-                this.mFromCurrency.equals(other.mFromCurrency) &&
-                this.mFromAccountId.equals(other.mFromAccountId) &&
-                ((this.mOutgoingTransactionId == null && other.mOutgoingTransactionId == null) || (this.mOutgoingTransactionId != null && this.mOutgoingTransactionId.equals(other.mOutgoingTransactionId))) &&
-                this.mToCurrency.equals(other.mToCurrency) &&
-                this.mToAccountId.equals(other.mToAccountId) &&
-                ((this.mReturnTransactionId == null && other.mReturnTransactionId == null) || (this.mReturnTransactionId != null && this.mReturnTransactionId.equals(other.mReturnTransactionId))) &&
+                this.mPair.equals(other.mPair) &&
+                this.mSide.equals(other.mSide) &&
+                this.mPrice.equals(other.mPrice) &&
                 this.mAmount.equals(other.mAmount) &&
-                ((this.mOutgoingTransactionFee == null && other.mOutgoingTransactionFee == null) || (this.mOutgoingTransactionFee != null && this.mOutgoingTransactionFee.equals(other.mOutgoingTransactionFee))) &&
-                this.mReturnAmount.equals(other.mReturnAmount) &&
-                this.mExchangeFee.equals(other.mExchangeFee) &&
-                this.mReturnTransactionFee.equals(other.mReturnTransactionFee) &&
+                this.mDebitAccountId.equals(other.mDebitAccountId) &&
+                this.mDebitTransactionId.equals(other.mDebitTransactionId) &&
+                this.mCreditAccountId.equals(other.mCreditAccountId) &&
+                ((this.mCreditTransactionId == null && other.mCreditTransactionId == null) || (this.mCreditTransactionId != null && this.mCreditTransactionId.equals(other.mCreditTransactionId))) &&
                 this.mQuote.equals(other.mQuote) &&
-                this.mExchangeSetting.equals(other.mExchangeSetting) &&
-                this.mExchangeRates.equals(other.mExchangeRates) &&
+                this.mRates.equals(other.mRates) &&
                 ((this.mNonce == null && other.mNonce == null) || (this.mNonce != null && this.mNonce.equals(other.mNonce))) &&
-                ((this.mSubmittedAt == null && other.mSubmittedAt == null) || (this.mSubmittedAt != null && this.mSubmittedAt.equals(other.mSubmittedAt))) &&
-                ((this.mConfirmedAt == null && other.mConfirmedAt == null) || (this.mConfirmedAt != null && this.mConfirmedAt.equals(other.mConfirmedAt)));
+                this.mCreatedAt.equals(other.mCreatedAt) &&
+                this.mUpdatedAt.equals(other.mUpdatedAt);
     }
 
     @Override
@@ -237,23 +185,19 @@ public final class Exchange {
         int hashCode = 17;
         hashCode = hashCode * 31 + mId.hashCode();
         hashCode = hashCode * 31 + mStatus.hashCode();
-        hashCode = hashCode * 31 + mFromCurrency.hashCode();
-        hashCode = hashCode * 31 + mFromAccountId.hashCode();
-        hashCode = hashCode * 31 + (mOutgoingTransactionId == null ? 0 : mOutgoingTransactionId.hashCode());
-        hashCode = hashCode * 31 + mToCurrency.hashCode();
-        hashCode = hashCode * 31 + mToAccountId.hashCode();
-        hashCode = hashCode * 31 + (mReturnTransactionId == null ? 0 : mReturnTransactionId.hashCode());
+        hashCode = hashCode * 31 + mPair.hashCode();
+        hashCode = hashCode * 31 + mSide.hashCode();
+        hashCode = hashCode * 31 + (mPrice.hashCode());
         hashCode = hashCode * 31 + (mAmount.hashCode());
-        hashCode = hashCode * 31 + (mOutgoingTransactionFee == null ? 0 : mOutgoingTransactionFee.hashCode());
-        hashCode = hashCode * 31 + (mReturnAmount.hashCode());
-        hashCode = hashCode * 31 + (mExchangeFee.hashCode());
-        hashCode = hashCode * 31 + (mReturnTransactionFee.hashCode());
+        hashCode = hashCode * 31 + mDebitAccountId.hashCode();
+        hashCode = hashCode * 31 + mDebitTransactionId.hashCode();
+        hashCode = hashCode * 31 + mCreditAccountId.hashCode();
+        hashCode = hashCode * 31 + (mCreditTransactionId == null ? 0 : mCreditTransactionId.hashCode());
         hashCode = hashCode * 31 + mQuote.hashCode();
-        hashCode = hashCode * 31 + mExchangeSetting.hashCode();
-        hashCode = hashCode * 31 + mExchangeRates.hashCode();
+        hashCode = hashCode * 31 + mRates.hashCode();
         hashCode = hashCode * 31 + (mNonce == null ? 0 : mNonce.hashCode());
-        hashCode = hashCode * 31 + (mSubmittedAt == null ? 0 : mSubmittedAt.hashCode());
-        hashCode = hashCode * 31 + (mConfirmedAt == null ? 0 : mConfirmedAt.hashCode());
+        hashCode = hashCode * 31 + mCreatedAt.hashCode();
+        hashCode = hashCode * 31 + mUpdatedAt.hashCode();
         return hashCode;
     }
 
@@ -262,23 +206,19 @@ public final class Exchange {
         return "Exchange{" +
                 "mId=" + mId +
                 "," + "mStatus=" + mStatus +
-                "," + "mFromCurrency=" + mFromCurrency +
-                "," + "mFromAccountId=" + mFromAccountId +
-                "," + "mOutgoingTransactionId=" + mOutgoingTransactionId +
-                "," + "mToCurrency=" + mToCurrency +
-                "," + "mToAccountId=" + mToAccountId +
-                "," + "mReturnTransactionId=" + mReturnTransactionId +
+                "," + "mPair=" + mPair +
+                "," + "mSide=" + mSide +
+                "," + "mPrice=" + mPrice +
                 "," + "mAmount=" + mAmount +
-                "," + "mOutgoingTransactionFee=" + mOutgoingTransactionFee +
-                "," + "mReturnAmount=" + mReturnAmount +
-                "," + "mExchangeFee=" + mExchangeFee +
-                "," + "mReturnTransactionFee=" + mReturnTransactionFee +
+                "," + "mDebitAccountId=" + mDebitAccountId +
+                "," + "mDebitTransactionId=" + mDebitTransactionId +
+                "," + "mCreditAccountId=" + mCreditAccountId +
+                "," + "mCreditTransactionId=" + mCreditTransactionId +
                 "," + "mQuote=" + mQuote +
-                "," + "mExchangeSetting=" + mExchangeSetting +
-                "," + "mExchangeRates=" + mExchangeRates +
+                "," + "mRates=" + mRates +
                 "," + "mNonce=" + mNonce +
-                "," + "mSubmittedAt=" + mSubmittedAt +
-                "," + "mConfirmedAt=" + mConfirmedAt +
+                "," + "mCreatedAt=" + mCreatedAt +
+                "," + "mUpdatedAt=" + mUpdatedAt +
         "}";
     }
 

@@ -16,9 +16,6 @@ public final class ZumoKitErrorCode {
     /** No internet connection.  */
     public static final String NO_CONNECTION = "no_connection";
 
-    /** New account could not be created. Account already exists. */
-    public static final String ACCOUNT_LIMIT_EXCEEDED = "account_limit_exceeded";
-
     /** Requested account not found. */
     public static final String ACCOUNT_NOT_FOUND = "account_not_found";
 
@@ -52,17 +49,8 @@ public final class ZumoKitErrorCode {
     /** Cannot set data when send max enabled. */
     public static final String DATA_PROVIDED_WHEN_SEND_MAX_SET = "data_provided_when_send_max_set";
 
-    /** Destination cannot be set when withdrawing funds to nominated account. */
-    public static final String DESTINATION_PROVIDED_WHEN_WITHDRAW_SET = "destination_provided_when_withdraw_set";
-
-    /** Exchange amount too low. */
-    public static final String EXCHANGE_AMOUNT_TOO_LOW = "exchange_amount_too_low";
-
     /** Ethereum transaction data is not supported yet. */
     public static final String ETHEREUM_TRANSACTION_DATA_NOT_SUPPORTED = "ethereum_transaction_data_not_supported";
-
-    /** Exchange amount too low. Fees exceed return value. */
-    public static final String EXCHANGE_RETURN_VALUE_NEGATIVE = "exchange_return_value_negative";
 
     /** Invalid account provided. Fiat accounted expected. */
     public static final String FIAT_ACCOUNT_EXPECTED = "fiat_account_expected";
@@ -85,9 +73,6 @@ public final class ZumoKitErrorCode {
      */
     public static final String INCORRECT_CHANGE_ACCOUNT_SELECTED = "incorrect_change_account_selected";
 
-    /** Insufficient funds for exchange value and network fees. */
-    public static final String INSUFFICIENT_FUNDS_FOR_EXCHANGE = "insufficient_funds_for_exchange";
-
     /** Insufficient funds for transaction value and network fees. */
     public static final String INSUFFICIENT_FUNDS_FOR_TRANSACTION = "insufficient_funds_for_transaction";
 
@@ -102,12 +87,6 @@ public final class ZumoKitErrorCode {
 
     /** Invalid response received from API. */
     public static final String INVALID_API_RESPONSE = "invalid_api_response";
-
-    /** Mismatch between exchange rate quote and selected accounts. */
-    public static final String INVALID_QUOTE = "invalid_quote";
-
-    /** Exchange pair not supported. */
-    public static final String EXCHANGE_PAIR_NOT_SUPPORTED = "exchange_pair_not_supported";
 
     /** Requested private key derivation path is invalid. */
     public static final String INVALID_HD_WALLET_PATH = "invalid_hd_wallet_path";
@@ -145,9 +124,6 @@ public final class ZumoKitErrorCode {
     /** Invalid response received from WebSocket. */
     public static final String INVALID_WEBSOCKET_RESPONSE = "invalid_websocket_response";
 
-    /** Exchange already submitted. */
-    public static final String KNOWN_EXCHANGE = "known_exchange";
-
     /** Transaction already submitted. */
     public static final String KNOWN_TRANSACTION = "known_transaction";
 
@@ -171,9 +147,6 @@ public final class ZumoKitErrorCode {
 
     /** Transaction amount is too small to send after the fee has been deducted. */
     public static final String SEND_MAX_INSUFFICIENT_FUNDS_FOR_TRANSACTION = "send_max_insufficient_funds_for_transaction";
-
-    /** Exchange amount is insufficient to make a minimum exchange. */
-    public static final String SEND_MAX_INSUFFICIENT_FUNDS_FOR_EXCHANGE = "send_max_insufficient_funds_for_exchange";
 
     /** Something went wrong signing transaction. */
     public static final String SIGNING_ERROR = "signing_error";

@@ -16,7 +16,6 @@ import money.zumo.zumokit.ComposedExchange;
 import money.zumo.zumokit.ComposedTransaction;
 import money.zumo.zumokit.Exchange;
 import money.zumo.zumokit.ExchangeRate;
-import money.zumo.zumokit.ExchangeSetting;
 import money.zumo.zumokit.HttpCallback;
 import money.zumo.zumokit.NetworkType;
 import money.zumo.zumokit.ComposeTransactionCallback;
@@ -57,7 +56,8 @@ public class MainActivity extends AppCompatActivity {
                 BuildConfig.API_URL,
                 BuildConfig.TRANSACTION_SERVICE_URL,
                 BuildConfig.CARD_SERVICE_URL,
-                BuildConfig.NOTIFICATION_SERVICE_URL
+                BuildConfig.NOTIFICATION_SERVICE_URL,
+                BuildConfig.EXCHANGE_SERVICE_URL
         );
 
         // Get ZumoKit user token from Client API
