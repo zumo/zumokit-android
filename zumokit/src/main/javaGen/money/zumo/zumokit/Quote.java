@@ -15,9 +15,9 @@ public final class Quote {
 
     /*package*/ final String mExpiresAt;
 
-    /*package*/ final String mFrom;
+    /*package*/ final String mDebitCurrency;
 
-    /*package*/ final String mTo;
+    /*package*/ final String mCreditCurrency;
 
     /*package*/ final java.math.BigDecimal mPrice;
 
@@ -34,8 +34,8 @@ public final class Quote {
             int ttl,
             String createdAt,
             String expiresAt,
-            String from,
-            String to,
+            String debitCurrency,
+            String creditCurrency,
             java.math.BigDecimal price,
             java.math.BigDecimal feeRate,
             java.math.BigDecimal debitAmount,
@@ -45,8 +45,8 @@ public final class Quote {
         this.mTtl = ttl;
         this.mCreatedAt = createdAt;
         this.mExpiresAt = expiresAt;
-        this.mFrom = from;
-        this.mTo = to;
+        this.mDebitCurrency = debitCurrency;
+        this.mCreditCurrency = creditCurrency;
         this.mPrice = price;
         this.mFeeRate = feeRate;
         this.mDebitAmount = debitAmount;
@@ -78,16 +78,16 @@ public final class Quote {
      * Debit currency.
      * @see CurrencyCode
      */
-    public String getFrom() {
-        return mFrom;
+    public String getDebitCurrency() {
+        return mDebitCurrency;
     }
 
     /**
      * Credit currency.
      * @see CurrencyCode
      */
-    public String getTo() {
-        return mTo;
+    public String getCreditCurrency() {
+        return mCreditCurrency;
     }
 
     /** Value of 1 unit of debit currency in credit currency. */
@@ -125,8 +125,8 @@ public final class Quote {
                 this.mTtl == other.mTtl &&
                 this.mCreatedAt.equals(other.mCreatedAt) &&
                 this.mExpiresAt.equals(other.mExpiresAt) &&
-                this.mFrom.equals(other.mFrom) &&
-                this.mTo.equals(other.mTo) &&
+                this.mDebitCurrency.equals(other.mDebitCurrency) &&
+                this.mCreditCurrency.equals(other.mCreditCurrency) &&
                 this.mPrice.equals(other.mPrice) &&
                 this.mFeeRate.equals(other.mFeeRate) &&
                 this.mDebitAmount.equals(other.mDebitAmount) &&
@@ -142,8 +142,8 @@ public final class Quote {
         hashCode = hashCode * 31 + mTtl;
         hashCode = hashCode * 31 + mCreatedAt.hashCode();
         hashCode = hashCode * 31 + mExpiresAt.hashCode();
-        hashCode = hashCode * 31 + mFrom.hashCode();
-        hashCode = hashCode * 31 + mTo.hashCode();
+        hashCode = hashCode * 31 + mDebitCurrency.hashCode();
+        hashCode = hashCode * 31 + mCreditCurrency.hashCode();
         hashCode = hashCode * 31 + (mPrice.hashCode());
         hashCode = hashCode * 31 + (mFeeRate.hashCode());
         hashCode = hashCode * 31 + (mDebitAmount.hashCode());
@@ -159,8 +159,8 @@ public final class Quote {
                 "," + "mTtl=" + mTtl +
                 "," + "mCreatedAt=" + mCreatedAt +
                 "," + "mExpiresAt=" + mExpiresAt +
-                "," + "mFrom=" + mFrom +
-                "," + "mTo=" + mTo +
+                "," + "mDebitCurrency=" + mDebitCurrency +
+                "," + "mCreditCurrency=" + mCreditCurrency +
                 "," + "mPrice=" + mPrice +
                 "," + "mFeeRate=" + mFeeRate +
                 "," + "mDebitAmount=" + mDebitAmount +
