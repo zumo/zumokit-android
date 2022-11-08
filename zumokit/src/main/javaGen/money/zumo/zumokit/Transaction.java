@@ -33,6 +33,8 @@ public final class Transaction {
 
     /*package*/ final ArrayList<InternalTransaction> mInternalTransactions;
 
+    /*package*/ final String mCustodyOrder;
+
     /*package*/ final TransactionCryptoProperties mCryptoProperties;
 
     /*package*/ final TransactionFiatProperties mFiatProperties;
@@ -62,6 +64,7 @@ public final class Transaction {
             ArrayList<TransactionAmount> senders,
             ArrayList<TransactionAmount> recipients,
             ArrayList<InternalTransaction> internalTransactions,
+            String custodyOrder,
             TransactionCryptoProperties cryptoProperties,
             TransactionFiatProperties fiatProperties,
             TransactionCardProperties cardProperties,
@@ -82,6 +85,7 @@ public final class Transaction {
         this.mSenders = senders;
         this.mRecipients = recipients;
         this.mInternalTransactions = internalTransactions;
+        this.mCustodyOrder = custodyOrder;
         this.mCryptoProperties = cryptoProperties;
         this.mFiatProperties = fiatProperties;
         this.mCardProperties = cardProperties;
@@ -170,6 +174,11 @@ public final class Transaction {
         return mInternalTransactions;
     }
 
+    /** Custody order properties if it is a transaction associated with a custody order, null otherwise. */
+    public String getCustodyOrder() {
+        return mCustodyOrder;
+    }
+
     /**
      * Crypto properties if it is a crypto transaction, null otherwise.
      * @see TransactionType
@@ -194,10 +203,7 @@ public final class Transaction {
         return mCardProperties;
     }
 
-    /**
-     * Exchange properties if it is a transaction associated with an exchange, null otherwise.
-     * @see TransactionType
-     */
+    /** Exchange properties if it is a transaction associated with an exchange, null otherwise. */
     public Exchange getExchange() {
         return mExchange;
     }
@@ -240,6 +246,7 @@ public final class Transaction {
                 this.mSenders.equals(other.mSenders) &&
                 this.mRecipients.equals(other.mRecipients) &&
                 this.mInternalTransactions.equals(other.mInternalTransactions) &&
+                ((this.mCustodyOrder == null && other.mCustodyOrder == null) || (this.mCustodyOrder != null && this.mCustodyOrder.equals(other.mCustodyOrder))) &&
                 ((this.mCryptoProperties == null && other.mCryptoProperties == null) || (this.mCryptoProperties != null && this.mCryptoProperties.equals(other.mCryptoProperties))) &&
                 ((this.mFiatProperties == null && other.mFiatProperties == null) || (this.mFiatProperties != null && this.mFiatProperties.equals(other.mFiatProperties))) &&
                 ((this.mCardProperties == null && other.mCardProperties == null) || (this.mCardProperties != null && this.mCardProperties.equals(other.mCardProperties))) &&
@@ -266,6 +273,7 @@ public final class Transaction {
         hashCode = hashCode * 31 + mSenders.hashCode();
         hashCode = hashCode * 31 + mRecipients.hashCode();
         hashCode = hashCode * 31 + mInternalTransactions.hashCode();
+        hashCode = hashCode * 31 + (mCustodyOrder == null ? 0 : mCustodyOrder.hashCode());
         hashCode = hashCode * 31 + (mCryptoProperties == null ? 0 : mCryptoProperties.hashCode());
         hashCode = hashCode * 31 + (mFiatProperties == null ? 0 : mFiatProperties.hashCode());
         hashCode = hashCode * 31 + (mCardProperties == null ? 0 : mCardProperties.hashCode());
@@ -292,6 +300,7 @@ public final class Transaction {
                 "," + "mSenders=" + mSenders +
                 "," + "mRecipients=" + mRecipients +
                 "," + "mInternalTransactions=" + mInternalTransactions +
+                "," + "mCustodyOrder=" + mCustodyOrder +
                 "," + "mCryptoProperties=" + mCryptoProperties +
                 "," + "mFiatProperties=" + mFiatProperties +
                 "," + "mCardProperties=" + mCardProperties +
