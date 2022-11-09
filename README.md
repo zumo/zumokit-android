@@ -18,7 +18,7 @@ Add ZumoKit SDK to your dependencies:
 
 ```java
 dependencies {
-    implementation 'com.github.zumo:zumokit-android:4.3.0-alpha.1'
+    implementation 'com.github.zumo:zumokit-android:4.3.1-alpha.1'
 }
 ```
 
