@@ -169,7 +169,7 @@ public final class Exchange {
                 this.mPrice.equals(other.mPrice) &&
                 this.mAmount.equals(other.mAmount) &&
                 this.mDebitAccountId.equals(other.mDebitAccountId) &&
-                this.mDebitTransactionId.equals(other.mDebitTransactionId) &&
+                ((this.mDebitTransactionId == null && other.mDebitTransactionId == null) || (this.mDebitTransactionId != null && this.mDebitTransactionId.equals(other.mDebitTransactionId))) &&
                 this.mCreditAccountId.equals(other.mCreditAccountId) &&
                 ((this.mCreditTransactionId == null && other.mCreditTransactionId == null) || (this.mCreditTransactionId != null && this.mCreditTransactionId.equals(other.mCreditTransactionId))) &&
                 this.mQuote.equals(other.mQuote) &&
@@ -190,7 +190,7 @@ public final class Exchange {
         hashCode = hashCode * 31 + (mPrice.hashCode());
         hashCode = hashCode * 31 + (mAmount.hashCode());
         hashCode = hashCode * 31 + mDebitAccountId.hashCode();
-        hashCode = hashCode * 31 + mDebitTransactionId.hashCode();
+        hashCode = hashCode * 31 + (mDebitTransactionId == null ? 0 : mDebitTransactionId.hashCode());
         hashCode = hashCode * 31 + mCreditAccountId.hashCode();
         hashCode = hashCode * 31 + (mCreditTransactionId == null ? 0 : mCreditTransactionId.hashCode());
         hashCode = hashCode * 31 + mQuote.hashCode();
