@@ -26,7 +26,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10,"i19":10,"i20":10,"i21":10,"i22":10,"i23":10};
+var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10,"i19":10,"i20":10,"i21":10,"i22":10,"i23":10,"i24":10,"i25":10,"i26":10,"i27":10,"i28":10,"i29":10,"i30":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -192,6 +192,57 @@ implements <a href="User.html" title="interface in money.zumo.zumokit">User</a><
 </tr>
 <tr id="i2" class="altColor">
 <td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#composeCustodyWithdrawTransaction(java.lang.String,java.lang.String,java.math.BigDecimal,boolean,money.zumo.zumokit.ComposeTransactionCallback)">composeCustodyWithdrawTransaction</a></span>&#8203;(java.lang.String&nbsp;fromAccountId,
+                                 java.lang.String&nbsp;destination,
+                                 java.math.BigDecimal&nbsp;amount,
+                                 boolean&nbsp;sendMax,
+                                 <a href="ComposeTransactionCallback.html" title="interface in money.zumo.zumokit">ComposeTransactionCallback</a>&nbsp;callback)</code></th>
+<td class="colLast">
+<div class="block">Compose custody withdraw transaction from custody account.</div>
+</td>
+</tr>
+<tr id="i3" class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#composeExchange(java.lang.String,java.lang.String,java.math.BigDecimal,boolean,money.zumo.zumokit.ComposeExchangeCallback)">composeExchange</a></span>&#8203;(java.lang.String&nbsp;debitAccountId,
+               java.lang.String&nbsp;creditAccountId,
+               java.math.BigDecimal&nbsp;amount,
+               boolean&nbsp;sendMax,
+               <a href="ComposeExchangeCallback.html" title="interface in money.zumo.zumokit">ComposeExchangeCallback</a>&nbsp;callback)</code></th>
+<td class="colLast">
+<div class="block">Compose exchange.</div>
+</td>
+</tr>
+<tr id="i4" class="altColor">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#composeNominatedTransaction(java.lang.String,java.math.BigDecimal,boolean,money.zumo.zumokit.ComposeTransactionCallback)">composeNominatedTransaction</a></span>&#8203;(java.lang.String&nbsp;fromAccountId,
+                           java.math.BigDecimal&nbsp;amount,
+                           boolean&nbsp;sendMax,
+                           <a href="ComposeTransactionCallback.html" title="interface in money.zumo.zumokit">ComposeTransactionCallback</a>&nbsp;callback)</code></th>
+<td class="colLast">
+<div class="block">Compose transaction from user fiat account to user's nominated account.</div>
+</td>
+</tr>
+<tr id="i5" class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#composeTransaction(java.lang.String,java.lang.String,java.math.BigDecimal,boolean,money.zumo.zumokit.ComposeTransactionCallback)">composeTransaction</a></span>&#8203;(java.lang.String&nbsp;fromAccountId,
+                  java.lang.String&nbsp;toAccountId,
+                  java.math.BigDecimal&nbsp;amount,
+                  boolean&nbsp;sendMax,
+                  <a href="ComposeTransactionCallback.html" title="interface in money.zumo.zumokit">ComposeTransactionCallback</a>&nbsp;callback)</code></th>
+<td class="colLast">
+<div class="block">Compose transaction between custody or fiat accounts in Zumo ecosystem.</div>
+</td>
+</tr>
+<tr id="i6" class="altColor">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#createAccount(java.lang.String,money.zumo.zumokit.AccountCallback)">createAccount</a></span>&#8203;(java.lang.String&nbsp;currencyCode,
+             <a href="AccountCallback.html" title="interface in money.zumo.zumokit">AccountCallback</a>&nbsp;callback)</code></th>
+<td class="colLast">
+<div class="block">Create custody or fiat account for specified currency.</div>
+</td>
+</tr>
+<tr id="i7" class="rowColor">
+<td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#createCard(java.lang.String,java.lang.String,java.lang.String,java.util.ArrayList,money.zumo.zumokit.CardCallback)">createCard</a></span>&#8203;(java.lang.String&nbsp;fiatAccountId,
           java.lang.String&nbsp;cardType,
           java.lang.String&nbsp;mobileNumber,
@@ -201,16 +252,7 @@ implements <a href="User.html" title="interface in money.zumo.zumokit">User</a><
 <div class="block">Create card for a fiat account.</div>
 </td>
 </tr>
-<tr id="i3" class="rowColor">
-<td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#createFiatAccount(java.lang.String,java.lang.String,money.zumo.zumokit.AccountCallback)">createFiatAccount</a></span>&#8203;(java.lang.String&nbsp;network,
-                 java.lang.String&nbsp;currencyCode,
-                 <a href="AccountCallback.html" title="interface in money.zumo.zumokit">AccountCallback</a>&nbsp;callback)</code></th>
-<td class="colLast">
-<div class="block">Create fiat account on specified network and currency code.</div>
-</td>
-</tr>
-<tr id="i4" class="altColor">
+<tr id="i8" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#createWallet(java.lang.String,java.lang.String,money.zumo.zumokit.WalletCallback)">createWallet</a></span>&#8203;(java.lang.String&nbsp;mnemonic,
             java.lang.String&nbsp;password,
@@ -219,44 +261,52 @@ implements <a href="User.html" title="interface in money.zumo.zumokit">User</a><
 <div class="block">Create user wallet seeded by provided mnemonic and encrypted with user's password.</div>
 </td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i9" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#fetchAuthenticationConfig(money.zumo.zumokit.AuthenticationConfigCallback)">fetchAuthenticationConfig</a></span>&#8203;(<a href="AuthenticationConfigCallback.html" title="interface in money.zumo.zumokit">AuthenticationConfigCallback</a>&nbsp;callback)</code></th>
 <td class="colLast">
 <div class="block">Fetch Strong Customer Authentication (SCA) config.</div>
 </td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i10" class="altColor">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#fetchTradingPairs(money.zumo.zumokit.StringifiedJsonCallback)">fetchTradingPairs</a></span>&#8203;(<a href="StringifiedJsonCallback.html" title="interface in money.zumo.zumokit">StringifiedJsonCallback</a>&nbsp;callback)</code></th>
+<td class="colLast">
+<div class="block">Fetch trading pairs that are currently supported.</div>
+</td>
+</tr>
+<tr id="i11" class="rowColor">
 <td class="colFirst"><code><a href="Account.html" title="class in money.zumo.zumokit">Account</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getAccount(java.lang.String,java.lang.String,java.lang.String)">getAccount</a></span>&#8203;(java.lang.String&nbsp;currencyCode,
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getAccount(java.lang.String,java.lang.String,java.lang.String,java.lang.String)">getAccount</a></span>&#8203;(java.lang.String&nbsp;currencyCode,
           java.lang.String&nbsp;network,
-          java.lang.String&nbsp;type)</code></th>
+          java.lang.String&nbsp;type,
+          java.lang.String&nbsp;custodyType)</code></th>
 <td class="colLast">
 <div class="block">Get account in specific currency, on specific network, with specific type.</div>
 </td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i12" class="altColor">
 <td class="colFirst"><code>java.util.ArrayList&lt;<a href="Account.html" title="class in money.zumo.zumokit">Account</a>&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getAccounts()">getAccounts</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Get all user accounts.</div>
 </td>
 </tr>
-<tr id="i8" class="altColor">
+<tr id="i13" class="rowColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getId()">getId</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Get user id.</div>
 </td>
 </tr>
-<tr id="i9" class="rowColor">
+<tr id="i14" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getIntegratorId()">getIntegratorId</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Get user integrator id.</div>
 </td>
 </tr>
-<tr id="i10" class="altColor">
+<tr id="i15" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getNominatedAccountFiatProperties(java.lang.String,money.zumo.zumokit.AccountFiatPropertiesCallback)">getNominatedAccountFiatProperties</a></span>&#8203;(java.lang.String&nbsp;accountId,
                                  <a href="AccountFiatPropertiesCallback.html" title="interface in money.zumo.zumokit">AccountFiatPropertiesCallback</a>&nbsp;callback)</code></th>
@@ -264,31 +314,30 @@ implements <a href="User.html" title="interface in money.zumo.zumokit">User</a><
 <div class="block">Get nominated account details for specified account if it exists.</div>
 </td>
 </tr>
-<tr id="i11" class="rowColor">
+<tr id="i16" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#hasWallet()">hasWallet</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Check if user has wallet</div>
 </td>
 </tr>
-<tr id="i12" class="altColor">
+<tr id="i17" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#isFiatCustomer(java.lang.String)">isFiatCustomer</a></span>&#8203;(java.lang.String&nbsp;network)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#isFiatCustomer()">isFiatCustomer</a></span>()</code></th>
 <td class="colLast">
-<div class="block">Check if user is a fiat customer on 'MAINNET' or 'TESTNET' network.</div>
+<div class="block">Check if user is a registered fiat customer.</div>
 </td>
 </tr>
-<tr id="i13" class="rowColor">
+<tr id="i18" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#isRecoveryMnemonic(java.lang.String)">isRecoveryMnemonic</a></span>&#8203;(java.lang.String&nbsp;mnemonic)</code></th>
 <td class="colLast">
 <div class="block">Check if mnemonic seed phrase corresponds to user's wallet.</div>
 </td>
 </tr>
-<tr id="i14" class="altColor">
+<tr id="i19" class="rowColor">
 <td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#makeFiatCustomer(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,money.zumo.zumokit.Address,money.zumo.zumokit.SuccessCallback)">makeFiatCustomer</a></span>&#8203;(java.lang.String&nbsp;network,
-                java.lang.String&nbsp;firstName,
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#makeFiatCustomer(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,money.zumo.zumokit.Address,money.zumo.zumokit.SuccessCallback)">makeFiatCustomer</a></span>&#8203;(java.lang.String&nbsp;firstName,
                 java.lang.String&nbsp;middleName,
                 java.lang.String&nbsp;lastName,
                 java.lang.String&nbsp;dateOfBirth,
@@ -297,10 +346,10 @@ implements <a href="User.html" title="interface in money.zumo.zumokit">User</a><
                 <a href="Address.html" title="class in money.zumo.zumokit">Address</a>&nbsp;address,
                 <a href="SuccessCallback.html" title="interface in money.zumo.zumokit">SuccessCallback</a>&nbsp;callback)</code></th>
 <td class="colLast">
-<div class="block">Make user fiat customer on specified network by providing user's personal details.</div>
+<div class="block">Make user fiat customer by providing user's personal details.</div>
 </td>
 </tr>
-<tr id="i15" class="rowColor">
+<tr id="i20" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#recoverWallet(java.lang.String,java.lang.String,money.zumo.zumokit.WalletCallback)">recoverWallet</a></span>&#8203;(java.lang.String&nbsp;mnemonic,
              java.lang.String&nbsp;password,
@@ -309,14 +358,14 @@ implements <a href="User.html" title="interface in money.zumo.zumokit">User</a><
 <div class="block">Recover user wallet with mnemonic seed phrase corresponding to user's wallet.</div>
 </td>
 </tr>
-<tr id="i16" class="altColor">
+<tr id="i21" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#removeAccountDataListener(money.zumo.zumokit.AccountDataListener)">removeAccountDataListener</a></span>&#8203;(<a href="AccountDataListener.html" title="interface in money.zumo.zumokit">AccountDataListener</a>&nbsp;listener)</code></th>
 <td class="colLast">
 <div class="block">Remove listener to account data changes.</div>
 </td>
 </tr>
-<tr id="i17" class="rowColor">
+<tr id="i22" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#revealCardDetails(java.lang.String,money.zumo.zumokit.CardDetailsCallback)">revealCardDetails</a></span>&#8203;(java.lang.String&nbsp;cardId,
                  <a href="CardDetailsCallback.html" title="interface in money.zumo.zumokit">CardDetailsCallback</a>&nbsp;callback)</code></th>
@@ -324,7 +373,7 @@ implements <a href="User.html" title="interface in money.zumo.zumokit">User</a><
 <div class="block">Reveals sensitive card details.</div>
 </td>
 </tr>
-<tr id="i18" class="altColor">
+<tr id="i23" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#revealMnemonic(java.lang.String,money.zumo.zumokit.MnemonicCallback)">revealMnemonic</a></span>&#8203;(java.lang.String&nbsp;password,
               <a href="MnemonicCallback.html" title="interface in money.zumo.zumokit">MnemonicCallback</a>&nbsp;callback)</code></th>
@@ -332,7 +381,7 @@ implements <a href="User.html" title="interface in money.zumo.zumokit">User</a><
 <div class="block">Reveal menmonic seed phrase used to seed user wallet.</div>
 </td>
 </tr>
-<tr id="i19" class="rowColor">
+<tr id="i24" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#revealPin(java.lang.String,money.zumo.zumokit.PinCallback)">revealPin</a></span>&#8203;(java.lang.String&nbsp;cardId,
          <a href="PinCallback.html" title="interface in money.zumo.zumokit">PinCallback</a>&nbsp;callback)</code></th>
@@ -340,7 +389,7 @@ implements <a href="User.html" title="interface in money.zumo.zumokit">User</a><
 <div class="block">Reveal card PIN.</div>
 </td>
 </tr>
-<tr id="i20" class="altColor">
+<tr id="i25" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setAuthentication(java.lang.String,java.util.ArrayList,money.zumo.zumokit.SuccessCallback)">setAuthentication</a></span>&#8203;(java.lang.String&nbsp;cardId,
                  java.util.ArrayList&lt;<a href="KbaAnswer.html" title="class in money.zumo.zumokit">KbaAnswer</a>&gt;&nbsp;knowledgeBase,
@@ -349,7 +398,7 @@ implements <a href="User.html" title="interface in money.zumo.zumokit">User</a><
 <div class="block">Add KBA answers to a card without SCA.</div>
 </td>
 </tr>
-<tr id="i21" class="rowColor">
+<tr id="i26" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setCardStatus(java.lang.String,java.lang.String,java.lang.String,java.lang.String,money.zumo.zumokit.SuccessCallback)">setCardStatus</a></span>&#8203;(java.lang.String&nbsp;cardId,
              java.lang.String&nbsp;cardStatus,
@@ -360,7 +409,24 @@ implements <a href="User.html" title="interface in money.zumo.zumokit">User</a><
 <div class="block">Set card status to 'ACTIVE', 'BLOCKED' or 'CANCELLED'.</div>
 </td>
 </tr>
-<tr id="i22" class="altColor">
+<tr id="i27" class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#submitExchange(money.zumo.zumokit.ComposedExchange,money.zumo.zumokit.SubmitExchangeCallback)">submitExchange</a></span>&#8203;(<a href="ComposedExchange.html" title="class in money.zumo.zumokit">ComposedExchange</a>&nbsp;composedExchange,
+              <a href="SubmitExchangeCallback.html" title="interface in money.zumo.zumokit">SubmitExchangeCallback</a>&nbsp;callback)</code></th>
+<td class="colLast">
+<div class="block">Submit an exchange.</div>
+</td>
+</tr>
+<tr id="i28" class="altColor">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#submitTransaction(money.zumo.zumokit.ComposedTransaction,java.lang.String,money.zumo.zumokit.SubmitTransactionCallback)">submitTransaction</a></span>&#8203;(<a href="ComposedTransaction.html" title="class in money.zumo.zumokit">ComposedTransaction</a>&nbsp;composedTransaction,
+                 java.lang.String&nbsp;metadata,
+                 <a href="SubmitTransactionCallback.html" title="interface in money.zumo.zumokit">SubmitTransactionCallback</a>&nbsp;callback)</code></th>
+<td class="colLast">
+<div class="block">Submit a transaction.</div>
+</td>
+</tr>
+<tr id="i29" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#unblockPin(java.lang.String,money.zumo.zumokit.SuccessCallback)">unblockPin</a></span>&#8203;(java.lang.String&nbsp;cardId,
           <a href="SuccessCallback.html" title="interface in money.zumo.zumokit">SuccessCallback</a>&nbsp;callback)</code></th>
@@ -368,7 +434,7 @@ implements <a href="User.html" title="interface in money.zumo.zumokit">User</a><
 <div class="block">Unblock card PIN.</div>
 </td>
 </tr>
-<tr id="i23" class="rowColor">
+<tr id="i30" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#unlockWallet(java.lang.String,money.zumo.zumokit.WalletCallback)">unlockWallet</a></span>&#8203;(java.lang.String&nbsp;password,
             <a href="WalletCallback.html" title="interface in money.zumo.zumokit">WalletCallback</a>&nbsp;callback)</code></th>
@@ -460,35 +526,30 @@ implements <a href="User.html" title="interface in money.zumo.zumokit">User</a><
 </dl>
 </li>
 </ul>
-<a id="isFiatCustomer(java.lang.String)">
+<a id="isFiatCustomer()">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>isFiatCustomer</h4>
-<pre class="methodSignature">public&nbsp;boolean&nbsp;isFiatCustomer&#8203;(java.lang.String&nbsp;network)</pre>
-<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="User.html#isFiatCustomer(java.lang.String)">User</a></code></span></div>
-<div class="block">Check if user is a fiat customer on 'MAINNET' or 'TESTNET' network.</div>
+<pre class="methodSignature">public&nbsp;boolean&nbsp;isFiatCustomer()</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="User.html#isFiatCustomer()">User</a></code></span></div>
+<div class="block">Check if user is a registered fiat customer.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="User.html#isFiatCustomer(java.lang.String)">isFiatCustomer</a></code>&nbsp;in interface&nbsp;<code><a href="User.html" title="interface in money.zumo.zumokit">User</a></code></dd>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>network</code> - 'MAINNET' or 'TESTNET'</dd>
+<dd><code><a href="User.html#isFiatCustomer()">isFiatCustomer</a></code>&nbsp;in interface&nbsp;<code><a href="User.html" title="interface in money.zumo.zumokit">User</a></code></dd>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>true if user is currenly active user.</dd>
-<dt><span class="seeLabel">See Also:</span></dt>
-<dd><a href="NetworkType.html" title="class in money.zumo.zumokit"><code>NetworkType</code></a></dd>
+<dd>true if user is a registered fiat customer.</dd>
 </dl>
 </li>
 </ul>
-<a id="makeFiatCustomer(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,money.zumo.zumokit.Address,money.zumo.zumokit.SuccessCallback)">
+<a id="makeFiatCustomer(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,money.zumo.zumokit.Address,money.zumo.zumokit.SuccessCallback)">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>makeFiatCustomer</h4>
-<pre class="methodSignature">public&nbsp;void&nbsp;makeFiatCustomer&#8203;(java.lang.String&nbsp;network,
-                             java.lang.String&nbsp;firstName,
+<pre class="methodSignature">public&nbsp;void&nbsp;makeFiatCustomer&#8203;(java.lang.String&nbsp;firstName,
                              java.lang.String&nbsp;middleName,
                              java.lang.String&nbsp;lastName,
                              java.lang.String&nbsp;dateOfBirth,
@@ -496,13 +557,12 @@ implements <a href="User.html" title="interface in money.zumo.zumokit">User</a><
                              java.lang.String&nbsp;phone,
                              <a href="Address.html" title="class in money.zumo.zumokit">Address</a>&nbsp;address,
                              <a href="SuccessCallback.html" title="interface in money.zumo.zumokit">SuccessCallback</a>&nbsp;callback)</pre>
-<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="User.html#makeFiatCustomer(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,money.zumo.zumokit.Address,money.zumo.zumokit.SuccessCallback)">User</a></code></span></div>
-<div class="block">Make user fiat customer on specified network by providing user's personal details.</div>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="User.html#makeFiatCustomer(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,money.zumo.zumokit.Address,money.zumo.zumokit.SuccessCallback)">User</a></code></span></div>
+<div class="block">Make user fiat customer by providing user's personal details.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="User.html#makeFiatCustomer(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,money.zumo.zumokit.Address,money.zumo.zumokit.SuccessCallback)">makeFiatCustomer</a></code>&nbsp;in interface&nbsp;<code><a href="User.html" title="interface in money.zumo.zumokit">User</a></code></dd>
+<dd><code><a href="User.html#makeFiatCustomer(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,money.zumo.zumokit.Address,money.zumo.zumokit.SuccessCallback)">makeFiatCustomer</a></code>&nbsp;in interface&nbsp;<code><a href="User.html" title="interface in money.zumo.zumokit">User</a></code></dd>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>network</code> - 'MAINNET' or 'TESTNET'</dd>
 <dd><code>firstName</code> - first name</dd>
 <dd><code>middleName</code> - middle name or null</dd>
 <dd><code>lastName</code> - last name</dd>
@@ -511,32 +571,197 @@ implements <a href="User.html" title="interface in money.zumo.zumokit">User</a><
 <dd><code>phone</code> - phone number</dd>
 <dd><code>address</code> - home address</dd>
 <dd><code>callback</code> - an interface to receive the result or error</dd>
-<dt><span class="seeLabel">See Also:</span></dt>
-<dd><a href="NetworkType.html" title="class in money.zumo.zumokit"><code>NetworkType</code></a></dd>
 </dl>
 </li>
 </ul>
-<a id="createFiatAccount(java.lang.String,java.lang.String,money.zumo.zumokit.AccountCallback)">
+<a id="createAccount(java.lang.String,money.zumo.zumokit.AccountCallback)">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>createFiatAccount</h4>
-<pre class="methodSignature">public&nbsp;void&nbsp;createFiatAccount&#8203;(java.lang.String&nbsp;network,
-                              java.lang.String&nbsp;currencyCode,
-                              <a href="AccountCallback.html" title="interface in money.zumo.zumokit">AccountCallback</a>&nbsp;callback)</pre>
-<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="User.html#createFiatAccount(java.lang.String,java.lang.String,money.zumo.zumokit.AccountCallback)">User</a></code></span></div>
-<div class="block">Create fiat account on specified network and currency code. User must already be fiat customer on specified network.</div>
+<h4>createAccount</h4>
+<pre class="methodSignature">public&nbsp;void&nbsp;createAccount&#8203;(java.lang.String&nbsp;currencyCode,
+                          <a href="AccountCallback.html" title="interface in money.zumo.zumokit">AccountCallback</a>&nbsp;callback)</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="User.html#createAccount(java.lang.String,money.zumo.zumokit.AccountCallback)">User</a></code></span></div>
+<div class="block">Create custody or fiat account for specified currency. When creating a fiat account, 
+ user must already be fiat customer.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="User.html#createFiatAccount(java.lang.String,java.lang.String,money.zumo.zumokit.AccountCallback)">createFiatAccount</a></code>&nbsp;in interface&nbsp;<code><a href="User.html" title="interface in money.zumo.zumokit">User</a></code></dd>
+<dd><code><a href="User.html#createAccount(java.lang.String,money.zumo.zumokit.AccountCallback)">createAccount</a></code>&nbsp;in interface&nbsp;<code><a href="User.html" title="interface in money.zumo.zumokit">User</a></code></dd>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>network</code> - 'MAINNET' or 'TESTNET'</dd>
-<dd><code>currencyCode</code> - country code in ISO 4217 format, e.g. 'GBP'</dd>
+<dd><code>currencyCode</code> - country code, e.g. 'GBP', 'BTC', 'ETH'</dd>
 <dd><code>callback</code> - an interface to receive the result or error</dd>
 <dt><span class="seeLabel">See Also:</span></dt>
-<dd><a href="Account.html" title="class in money.zumo.zumokit"><code>Account</code></a>, 
-<a href="NetworkType.html" title="class in money.zumo.zumokit"><code>NetworkType</code></a></dd>
+<dd><a href="Account.html" title="class in money.zumo.zumokit"><code>Account</code></a></dd>
+</dl>
+</li>
+</ul>
+<a id="composeTransaction(java.lang.String,java.lang.String,java.math.BigDecimal,boolean,money.zumo.zumokit.ComposeTransactionCallback)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>composeTransaction</h4>
+<pre class="methodSignature">public&nbsp;void&nbsp;composeTransaction&#8203;(java.lang.String&nbsp;fromAccountId,
+                               java.lang.String&nbsp;toAccountId,
+                               java.math.BigDecimal&nbsp;amount,
+                               boolean&nbsp;sendMax,
+                               <a href="ComposeTransactionCallback.html" title="interface in money.zumo.zumokit">ComposeTransactionCallback</a>&nbsp;callback)</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="User.html#composeTransaction(java.lang.String,java.lang.String,java.math.BigDecimal,boolean,money.zumo.zumokit.ComposeTransactionCallback)">User</a></code></span></div>
+<div class="block">Compose transaction between custody or fiat accounts in Zumo ecosystem. Refer to <a target="_top" href="https://developers.zumo.money/docs/guides/send-transactions#internal-transaction">Send Transactions</a> guide for usage details.
+ <p>
+ On success <a href="ComposedTransaction.html" title="class in money.zumo.zumokit"><code>ComposedTransaction</code></a> is returned via callback.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="User.html#composeTransaction(java.lang.String,java.lang.String,java.math.BigDecimal,boolean,money.zumo.zumokit.ComposeTransactionCallback)">composeTransaction</a></code>&nbsp;in interface&nbsp;<code><a href="User.html" title="interface in money.zumo.zumokit">User</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>fromAccountId</code> - custody or fiat <a href="Account.html" title="class in money.zumo.zumokit"><code>Account</code></a> identifier</dd>
+<dd><code>toAccountId</code> - custody or fiat <a href="Account.html" title="class in money.zumo.zumokit"><code>Account</code></a> identifier</dd>
+<dd><code>amount</code> - amount in source account currency</dd>
+<dd><code>sendMax</code> - send maximum possible funds to destination</dd>
+<dd><code>callback</code> - an interface to receive the result or error</dd>
+</dl>
+</li>
+</ul>
+<a id="composeCustodyWithdrawTransaction(java.lang.String,java.lang.String,java.math.BigDecimal,boolean,money.zumo.zumokit.ComposeTransactionCallback)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>composeCustodyWithdrawTransaction</h4>
+<pre class="methodSignature">public&nbsp;void&nbsp;composeCustodyWithdrawTransaction&#8203;(java.lang.String&nbsp;fromAccountId,
+                                              java.lang.String&nbsp;destination,
+                                              java.math.BigDecimal&nbsp;amount,
+                                              boolean&nbsp;sendMax,
+                                              <a href="ComposeTransactionCallback.html" title="interface in money.zumo.zumokit">ComposeTransactionCallback</a>&nbsp;callback)</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="User.html#composeCustodyWithdrawTransaction(java.lang.String,java.lang.String,java.math.BigDecimal,boolean,money.zumo.zumokit.ComposeTransactionCallback)">User</a></code></span></div>
+<div class="block">Compose custody withdraw transaction from custody account. Refer to <a target="_top" href="https://developers.zumo.money/docs/guides/send-transactions#custody-withdraw-transaction">Send Transactions</a> guide for usage details.
+ <p>
+ On success <a href="ComposedTransaction.html" title="class in money.zumo.zumokit"><code>ComposedTransaction</code></a> is returned via callback.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="User.html#composeCustodyWithdrawTransaction(java.lang.String,java.lang.String,java.math.BigDecimal,boolean,money.zumo.zumokit.ComposeTransactionCallback)">composeCustodyWithdrawTransaction</a></code>&nbsp;in interface&nbsp;<code><a href="User.html" title="interface in money.zumo.zumokit">User</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>fromAccountId</code> - custody <a href="Account.html" title="class in money.zumo.zumokit"><code>Account</code></a> identifier</dd>
+<dd><code>destination</code> - destination address or non-custodial account identifier</dd>
+<dd><code>amount</code> - amount in source account currency</dd>
+<dd><code>sendMax</code> - send maximum possible funds to destination</dd>
+<dd><code>callback</code> - an interface to receive the result or error</dd>
+</dl>
+</li>
+</ul>
+<a id="composeNominatedTransaction(java.lang.String,java.math.BigDecimal,boolean,money.zumo.zumokit.ComposeTransactionCallback)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>composeNominatedTransaction</h4>
+<pre class="methodSignature">public&nbsp;void&nbsp;composeNominatedTransaction&#8203;(java.lang.String&nbsp;fromAccountId,
+                                        java.math.BigDecimal&nbsp;amount,
+                                        boolean&nbsp;sendMax,
+                                        <a href="ComposeTransactionCallback.html" title="interface in money.zumo.zumokit">ComposeTransactionCallback</a>&nbsp;callback)</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="User.html#composeNominatedTransaction(java.lang.String,java.math.BigDecimal,boolean,money.zumo.zumokit.ComposeTransactionCallback)">User</a></code></span></div>
+<div class="block">Compose transaction from user fiat account to user's nominated account. Refer to <a target="_top" href="https://developers.zumo.money/docs/guides/send-transactions#nominated-transaction">Send Transactions</a> guide for usage details.
+ <p>
+ On success <a href="ComposedTransaction.html" title="class in money.zumo.zumokit"><code>ComposedTransaction</code></a> object is returned via callback.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="User.html#composeNominatedTransaction(java.lang.String,java.math.BigDecimal,boolean,money.zumo.zumokit.ComposeTransactionCallback)">composeNominatedTransaction</a></code>&nbsp;in interface&nbsp;<code><a href="User.html" title="interface in money.zumo.zumokit">User</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>fromAccountId</code> - <a href="Account.html" title="class in money.zumo.zumokit"><code>Account</code></a> identifier</dd>
+<dd><code>amount</code> - amount in source account currency</dd>
+<dd><code>sendMax</code> - send maximum possible funds to destination</dd>
+<dd><code>callback</code> - an interface to receive the result or error</dd>
+</dl>
+</li>
+</ul>
+<a id="submitTransaction(money.zumo.zumokit.ComposedTransaction,java.lang.String,money.zumo.zumokit.SubmitTransactionCallback)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>submitTransaction</h4>
+<pre class="methodSignature">public&nbsp;void&nbsp;submitTransaction&#8203;(<a href="ComposedTransaction.html" title="class in money.zumo.zumokit">ComposedTransaction</a>&nbsp;composedTransaction,
+                              java.lang.String&nbsp;metadata,
+                              <a href="SubmitTransactionCallback.html" title="interface in money.zumo.zumokit">SubmitTransactionCallback</a>&nbsp;callback)</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="User.html#submitTransaction(money.zumo.zumokit.ComposedTransaction,java.lang.String,money.zumo.zumokit.SubmitTransactionCallback)">User</a></code></span></div>
+<div class="block">Submit a transaction. Refer to <a target="_top" href="https://developers.zumo.money/docs/guides/send-transactions#submit-transaction">Send Transactions</a> guide for usage details.
+ <p>
+ On success <a href="Transaction.html" title="class in money.zumo.zumokit"><code>Transaction</code></a> object is returned via callback.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="User.html#submitTransaction(money.zumo.zumokit.ComposedTransaction,java.lang.String,money.zumo.zumokit.SubmitTransactionCallback)">submitTransaction</a></code>&nbsp;in interface&nbsp;<code><a href="User.html" title="interface in money.zumo.zumokit">User</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>composedTransaction</code> - Composed transaction retrieved as a result
+                             of one of the compose transaction methods</dd>
+<dd><code>metadata</code> - Optional metadata (stringified JSON) that will be attached to transaction</dd>
+<dd><code>callback</code> - An interface to receive the result or error</dd>
+</dl>
+</li>
+</ul>
+<a id="fetchTradingPairs(money.zumo.zumokit.StringifiedJsonCallback)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>fetchTradingPairs</h4>
+<pre class="methodSignature">public&nbsp;void&nbsp;fetchTradingPairs&#8203;(<a href="StringifiedJsonCallback.html" title="interface in money.zumo.zumokit">StringifiedJsonCallback</a>&nbsp;callback)</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="User.html#fetchTradingPairs(money.zumo.zumokit.StringifiedJsonCallback)">User</a></code></span></div>
+<div class="block">Fetch trading pairs that are currently supported. 
+ <p>
+ On success stringified JSON containing supported pairs and other details is returned via callback.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="User.html#fetchTradingPairs(money.zumo.zumokit.StringifiedJsonCallback)">fetchTradingPairs</a></code>&nbsp;in interface&nbsp;<code><a href="User.html" title="interface in money.zumo.zumokit">User</a></code></dd>
+</dl>
+</li>
+</ul>
+<a id="composeExchange(java.lang.String,java.lang.String,java.math.BigDecimal,boolean,money.zumo.zumokit.ComposeExchangeCallback)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>composeExchange</h4>
+<pre class="methodSignature">public&nbsp;void&nbsp;composeExchange&#8203;(java.lang.String&nbsp;debitAccountId,
+                            java.lang.String&nbsp;creditAccountId,
+                            java.math.BigDecimal&nbsp;amount,
+                            boolean&nbsp;sendMax,
+                            <a href="ComposeExchangeCallback.html" title="interface in money.zumo.zumokit">ComposeExchangeCallback</a>&nbsp;callback)</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="User.html#composeExchange(java.lang.String,java.lang.String,java.math.BigDecimal,boolean,money.zumo.zumokit.ComposeExchangeCallback)">User</a></code></span></div>
+<div class="block">Compose exchange. Refer to <a target="_top" href="https://developers.zumo.money/docs/guides/make-exchanges#compose-exchange">Make Exchanges</a> guide for usage details.
+ <p>
+ On success <a href="ComposedExchange.html" title="class in money.zumo.zumokit"><code>ComposedExchange</code></a>  is returned via callback.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="User.html#composeExchange(java.lang.String,java.lang.String,java.math.BigDecimal,boolean,money.zumo.zumokit.ComposeExchangeCallback)">composeExchange</a></code>&nbsp;in interface&nbsp;<code><a href="User.html" title="interface in money.zumo.zumokit">User</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>debitAccountId</code> - <a href="Account.html" title="class in money.zumo.zumokit"><code>Account</code></a> identifier</dd>
+<dd><code>creditAccountId</code> - <a href="Account.html" title="class in money.zumo.zumokit"><code>Account</code></a> identifier</dd>
+<dd><code>amount</code> - amount in deposit account currency</dd>
+<dd><code>sendMax</code> - exchange maximum possible funds</dd>
+<dd><code>callback</code> - an interface to receive the result or error</dd>
+</dl>
+</li>
+</ul>
+<a id="submitExchange(money.zumo.zumokit.ComposedExchange,money.zumo.zumokit.SubmitExchangeCallback)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>submitExchange</h4>
+<pre class="methodSignature">public&nbsp;void&nbsp;submitExchange&#8203;(<a href="ComposedExchange.html" title="class in money.zumo.zumokit">ComposedExchange</a>&nbsp;composedExchange,
+                           <a href="SubmitExchangeCallback.html" title="interface in money.zumo.zumokit">SubmitExchangeCallback</a>&nbsp;callback)</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="User.html#submitExchange(money.zumo.zumokit.ComposedExchange,money.zumo.zumokit.SubmitExchangeCallback)">User</a></code></span></div>
+<div class="block">Submit an exchange. <a target="_top" href="https://developers.zumo.money/docs/guides/make-exchanges#submit-exchange">Make Exchanges</a> guide for usage details.
+ <p>
+ On success <a href="Exchange.html" title="class in money.zumo.zumokit"><code>Exchange</code></a> object is returned via callback.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="User.html#submitExchange(money.zumo.zumokit.ComposedExchange,money.zumo.zumokit.SubmitExchangeCallback)">submitExchange</a></code>&nbsp;in interface&nbsp;<code><a href="User.html" title="interface in money.zumo.zumokit">User</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>composedExchange</code> - Composed exchange retrieved as the result
+                          of <code>composeExchange</code> method</dd>
+<dd><code>callback</code> - An interface to receive the result or error</dd>
 </dl>
 </li>
 </ul>
@@ -837,7 +1062,7 @@ implements <a href="User.html" title="interface in money.zumo.zumokit">User</a><
 </dl>
 </li>
 </ul>
-<a id="getAccount(java.lang.String,java.lang.String,java.lang.String)">
+<a id="getAccount(java.lang.String,java.lang.String,java.lang.String,java.lang.String)">
 <!--   -->
 </a>
 <ul class="blockList">
@@ -845,22 +1070,25 @@ implements <a href="User.html" title="interface in money.zumo.zumokit">User</a><
 <h4>getAccount</h4>
 <pre class="methodSignature">public&nbsp;<a href="Account.html" title="class in money.zumo.zumokit">Account</a>&nbsp;getAccount&#8203;(java.lang.String&nbsp;currencyCode,
                           java.lang.String&nbsp;network,
-                          java.lang.String&nbsp;type)</pre>
-<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="User.html#getAccount(java.lang.String,java.lang.String,java.lang.String)">User</a></code></span></div>
+                          java.lang.String&nbsp;type,
+                          java.lang.String&nbsp;custodyType)</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="User.html#getAccount(java.lang.String,java.lang.String,java.lang.String,java.lang.String)">User</a></code></span></div>
 <div class="block">Get account in specific currency, on specific network, with specific type.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="User.html#getAccount(java.lang.String,java.lang.String,java.lang.String)">getAccount</a></code>&nbsp;in interface&nbsp;<code><a href="User.html" title="interface in money.zumo.zumokit">User</a></code></dd>
+<dd><code><a href="User.html#getAccount(java.lang.String,java.lang.String,java.lang.String,java.lang.String)">getAccount</a></code>&nbsp;in interface&nbsp;<code><a href="User.html" title="interface in money.zumo.zumokit">User</a></code></dd>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>currencyCode</code> - currency code, e.g. 'BTC', 'ETH' or 'GBP'</dd>
 <dd><code>network</code> - network type, e.g. 'MAINNET', 'TESTNET' or 'RINKEBY'</dd>
 <dd><code>type</code> - account type, e.g. 'STANDARD', 'COMPATIBILITY' or 'SEGWIT'</dd>
+<dd><code>custodyType</code> - custdoy type, i.e. 'CUSTODY' or 'NON-CUSTODY'</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>account with selected parameters if it exists, null otherwise</dd>
 <dt><span class="seeLabel">See Also:</span></dt>
 <dd><a href="CurrencyCode.html" title="class in money.zumo.zumokit"><code>CurrencyCode</code></a>, 
 <a href="NetworkType.html" title="class in money.zumo.zumokit"><code>NetworkType</code></a>, 
-<a href="AccountType.html" title="class in money.zumo.zumokit"><code>AccountType</code></a></dd>
+<a href="AccountType.html" title="class in money.zumo.zumokit"><code>AccountType</code></a>, 
+<a href="CustodyType.html" title="class in money.zumo.zumokit"><code>CustodyType</code></a></dd>
 </dl>
 </li>
 </ul>

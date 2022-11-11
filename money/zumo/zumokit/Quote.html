@@ -26,7 +26,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10};
+var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -153,13 +153,17 @@ extends java.lang.Object</pre>
 <th class="colLast" scope="col">Description</th>
 </tr>
 <tr class="altColor">
-<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(java.lang.String,int,java.lang.Integer,java.lang.String,java.lang.String,java.math.BigDecimal,java.math.BigDecimal)">Quote</a></span>&#8203;(java.lang.String&nbsp;id,
-     int&nbsp;expireTime,
-     java.lang.Integer&nbsp;expiresIn,
-     java.lang.String&nbsp;fromCurrency,
-     java.lang.String&nbsp;toCurrency,
-     java.math.BigDecimal&nbsp;depositAmount,
-     java.math.BigDecimal&nbsp;value)</code></th>
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(java.lang.String,int,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.math.BigDecimal,java.math.BigDecimal,java.math.BigDecimal,java.math.BigDecimal,java.math.BigDecimal)">Quote</a></span>&#8203;(java.lang.String&nbsp;id,
+     int&nbsp;ttl,
+     java.lang.String&nbsp;createdAt,
+     java.lang.String&nbsp;expiresAt,
+     java.lang.String&nbsp;debitCurrency,
+     java.lang.String&nbsp;creditCurrency,
+     java.math.BigDecimal&nbsp;price,
+     java.math.BigDecimal&nbsp;feeRate,
+     java.math.BigDecimal&nbsp;debitAmount,
+     java.math.BigDecimal&nbsp;feeAmount,
+     java.math.BigDecimal&nbsp;creditAmount)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 </table>
@@ -186,60 +190,88 @@ extends java.lang.Object</pre>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i1" class="rowColor">
-<td class="colFirst"><code>java.math.BigDecimal</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getDepositAmount()">getDepositAmount</a></span>()</code></th>
+<td class="colFirst"><code>java.lang.String</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getCreatedAt()">getCreatedAt</a></span>()</code></th>
 <td class="colLast">
-<div class="block">Deposit amount to be exchanged to target currency.</div>
+<div class="block">Timestamp when quote was created, e.g.</div>
 </td>
 </tr>
 <tr id="i2" class="altColor">
-<td class="colFirst"><code>java.lang.Integer</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getExpiresIn()">getExpiresIn</a></span>()</code></th>
+<td class="colFirst"><code>java.math.BigDecimal</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getCreditAmount()">getCreditAmount</a></span>()</code></th>
 <td class="colLast">
-<div class="block">Seconds until expiration time for active quotes, null for historical quotes.</div>
+<div class="block">Amount to be credited to credit account.</div>
 </td>
 </tr>
 <tr id="i3" class="rowColor">
-<td class="colFirst"><code>int</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getExpireTime()">getExpireTime</a></span>()</code></th>
+<td class="colFirst"><code>java.lang.String</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getCreditCurrency()">getCreditCurrency</a></span>()</code></th>
 <td class="colLast">
-<div class="block">Epoch timestamp representing expiration time of this quote.</div>
+<div class="block">Credit currency.</div>
 </td>
 </tr>
 <tr id="i4" class="altColor">
-<td class="colFirst"><code>java.lang.String</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getFromCurrency()">getFromCurrency</a></span>()</code></th>
+<td class="colFirst"><code>java.math.BigDecimal</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getDebitAmount()">getDebitAmount</a></span>()</code></th>
 <td class="colLast">
-<div class="block">Deposit currency.</div>
+<div class="block">Amount to be debited from debit account.</div>
 </td>
 </tr>
 <tr id="i5" class="rowColor">
+<td class="colFirst"><code>java.lang.String</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getDebitCurrency()">getDebitCurrency</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Debit currency.</div>
+</td>
+</tr>
+<tr id="i6" class="altColor">
+<td class="colFirst"><code>java.lang.String</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getExpiresAt()">getExpiresAt</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Timestamp representing expiration time of this quote, e.g.</div>
+</td>
+</tr>
+<tr id="i7" class="rowColor">
+<td class="colFirst"><code>java.math.BigDecimal</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getFeeAmount()">getFeeAmount</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Amount that will be paid in fees.</div>
+</td>
+</tr>
+<tr id="i8" class="altColor">
+<td class="colFirst"><code>java.math.BigDecimal</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getFeeRate()">getFeeRate</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Fee rate in points of a percentage, e.g.</div>
+</td>
+</tr>
+<tr id="i9" class="rowColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getId()">getId</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Identifier.</div>
 </td>
 </tr>
-<tr id="i6" class="altColor">
-<td class="colFirst"><code>java.lang.String</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getToCurrency()">getToCurrency</a></span>()</code></th>
-<td class="colLast">
-<div class="block">Target currency.</div>
-</td>
-</tr>
-<tr id="i7" class="rowColor">
+<tr id="i10" class="altColor">
 <td class="colFirst"><code>java.math.BigDecimal</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getValue()">getValue</a></span>()</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getPrice()">getPrice</a></span>()</code></th>
 <td class="colLast">
-<div class="block">Value of 1 unit of deposit currency in target currency.</div>
+<div class="block">Value of 1 unit of debit currency in credit currency.</div>
 </td>
 </tr>
-<tr id="i8" class="altColor">
+<tr id="i11" class="rowColor">
+<td class="colFirst"><code>int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getTtl()">getTtl</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Expiration in seconds at the time of quote creation, e.g.</div>
+</td>
+</tr>
+<tr id="i12" class="altColor">
 <td class="colFirst"><code>int</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#hashCode()">hashCode</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i9" class="rowColor">
+<tr id="i13" class="rowColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#toString()">toString</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
@@ -268,19 +300,23 @@ extends java.lang.Object</pre>
 <!--   -->
 </a>
 <h3>Constructor Detail</h3>
-<a id="&lt;init&gt;(java.lang.String,int,java.lang.Integer,java.lang.String,java.lang.String,java.math.BigDecimal,java.math.BigDecimal)">
+<a id="&lt;init&gt;(java.lang.String,int,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.math.BigDecimal,java.math.BigDecimal,java.math.BigDecimal,java.math.BigDecimal,java.math.BigDecimal)">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>Quote</h4>
 <pre>public&nbsp;Quote&#8203;(java.lang.String&nbsp;id,
-             int&nbsp;expireTime,
-             java.lang.Integer&nbsp;expiresIn,
-             java.lang.String&nbsp;fromCurrency,
-             java.lang.String&nbsp;toCurrency,
-             java.math.BigDecimal&nbsp;depositAmount,
-             java.math.BigDecimal&nbsp;value)</pre>
+             int&nbsp;ttl,
+             java.lang.String&nbsp;createdAt,
+             java.lang.String&nbsp;expiresAt,
+             java.lang.String&nbsp;debitCurrency,
+             java.lang.String&nbsp;creditCurrency,
+             java.math.BigDecimal&nbsp;price,
+             java.math.BigDecimal&nbsp;feeRate,
+             java.math.BigDecimal&nbsp;debitAmount,
+             java.math.BigDecimal&nbsp;feeAmount,
+             java.math.BigDecimal&nbsp;creditAmount)</pre>
 </li>
 </ul>
 </li>
@@ -303,72 +339,112 @@ extends java.lang.Object</pre>
 <div class="block">Identifier.</div>
 </li>
 </ul>
-<a id="getExpireTime()">
+<a id="getTtl()">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>getExpireTime</h4>
-<pre class="methodSignature">public&nbsp;int&nbsp;getExpireTime()</pre>
-<div class="block">Epoch timestamp representing expiration time of this quote.</div>
+<h4>getTtl</h4>
+<pre class="methodSignature">public&nbsp;int&nbsp;getTtl()</pre>
+<div class="block">Expiration in seconds at the time of quote creation, e.g. 60.</div>
 </li>
 </ul>
-<a id="getExpiresIn()">
+<a id="getCreatedAt()">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>getExpiresIn</h4>
-<pre class="methodSignature">public&nbsp;java.lang.Integer&nbsp;getExpiresIn()</pre>
-<div class="block">Seconds until expiration time for active quotes, null for historical quotes.</div>
+<h4>getCreatedAt</h4>
+<pre class="methodSignature">public&nbsp;java.lang.String&nbsp;getCreatedAt()</pre>
+<div class="block">Timestamp when quote was created, e.g.  "2022-10-13T12:39:59.056Z".</div>
 </li>
 </ul>
-<a id="getFromCurrency()">
+<a id="getExpiresAt()">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>getFromCurrency</h4>
-<pre class="methodSignature">public&nbsp;java.lang.String&nbsp;getFromCurrency()</pre>
-<div class="block">Deposit currency.</div>
+<h4>getExpiresAt</h4>
+<pre class="methodSignature">public&nbsp;java.lang.String&nbsp;getExpiresAt()</pre>
+<div class="block">Timestamp representing expiration time of this quote, e.g. "2022-10-13T12:40:58.871Z".</div>
+</li>
+</ul>
+<a id="getDebitCurrency()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getDebitCurrency</h4>
+<pre class="methodSignature">public&nbsp;java.lang.String&nbsp;getDebitCurrency()</pre>
+<div class="block">Debit currency.</div>
 <dl>
 <dt><span class="seeLabel">See Also:</span></dt>
 <dd><a href="CurrencyCode.html" title="class in money.zumo.zumokit"><code>CurrencyCode</code></a></dd>
 </dl>
 </li>
 </ul>
-<a id="getToCurrency()">
+<a id="getCreditCurrency()">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>getToCurrency</h4>
-<pre class="methodSignature">public&nbsp;java.lang.String&nbsp;getToCurrency()</pre>
-<div class="block">Target currency.</div>
+<h4>getCreditCurrency</h4>
+<pre class="methodSignature">public&nbsp;java.lang.String&nbsp;getCreditCurrency()</pre>
+<div class="block">Credit currency.</div>
 <dl>
 <dt><span class="seeLabel">See Also:</span></dt>
 <dd><a href="CurrencyCode.html" title="class in money.zumo.zumokit"><code>CurrencyCode</code></a></dd>
 </dl>
 </li>
 </ul>
-<a id="getDepositAmount()">
+<a id="getPrice()">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>getDepositAmount</h4>
-<pre class="methodSignature">public&nbsp;java.math.BigDecimal&nbsp;getDepositAmount()</pre>
-<div class="block">Deposit amount to be exchanged to target currency.</div>
+<h4>getPrice</h4>
+<pre class="methodSignature">public&nbsp;java.math.BigDecimal&nbsp;getPrice()</pre>
+<div class="block">Value of 1 unit of debit currency in credit currency.</div>
 </li>
 </ul>
-<a id="getValue()">
+<a id="getFeeRate()">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>getValue</h4>
-<pre class="methodSignature">public&nbsp;java.math.BigDecimal&nbsp;getValue()</pre>
-<div class="block">Value of 1 unit of deposit currency in target currency.</div>
+<h4>getFeeRate</h4>
+<pre class="methodSignature">public&nbsp;java.math.BigDecimal&nbsp;getFeeRate()</pre>
+<div class="block">Fee rate in points of a percentage, e.g. "0.1" representing 0.1%</div>
+</li>
+</ul>
+<a id="getDebitAmount()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getDebitAmount</h4>
+<pre class="methodSignature">public&nbsp;java.math.BigDecimal&nbsp;getDebitAmount()</pre>
+<div class="block">Amount to be debited from debit account.</div>
+</li>
+</ul>
+<a id="getFeeAmount()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getFeeAmount</h4>
+<pre class="methodSignature">public&nbsp;java.math.BigDecimal&nbsp;getFeeAmount()</pre>
+<div class="block">Amount that will be paid in fees.</div>
+</li>
+</ul>
+<a id="getCreditAmount()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getCreditAmount</h4>
+<pre class="methodSignature">public&nbsp;java.math.BigDecimal&nbsp;getCreditAmount()</pre>
+<div class="block">Amount to be credited to credit account.</div>
 </li>
 </ul>
 <a id="equals(java.lang.Object)">
