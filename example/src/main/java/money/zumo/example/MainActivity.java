@@ -57,7 +57,8 @@ public class MainActivity extends AppCompatActivity {
                 BuildConfig.TRANSACTION_SERVICE_URL,
                 BuildConfig.CARD_SERVICE_URL,
                 BuildConfig.NOTIFICATION_SERVICE_URL,
-                BuildConfig.EXCHANGE_SERVICE_URL
+                BuildConfig.EXCHANGE_SERVICE_URL,
+                BuildConfig.CUSTODY_SERVICE_URL
         );
 
         // Get ZumoKit user token from Client API

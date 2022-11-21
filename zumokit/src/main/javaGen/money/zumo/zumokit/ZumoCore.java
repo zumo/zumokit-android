@@ -133,10 +133,12 @@ public interface ZumoCore {
      * @param transactionServiceUrl  ZumoKit Transaction Service URL
      * @param cardServiceUrl         ZumoKit Card Service URL
      * @param notificationServiceUrl ZumoKit Notification Service URL
+     * @param exchangeServiceUrl     ZumoKit Exchange Service URL
+     * @param custodyServiceUrl      ZumoKit Custody Service URL
      *
      * @return ZumoKit instance
      */
-    public static ZumoCore init(HttpProvider httpProvider, WebSocketFactory webSocketFactory, String apiKey, String apiUrl, String transactionServiceUrl, String cardServiceUrl, String notificationServiceUrl, String exchangeServiceUrl)
+    public static ZumoCore init(HttpProvider httpProvider, WebSocketFactory webSocketFactory, String apiKey, String apiUrl, String transactionServiceUrl, String cardServiceUrl, String notificationServiceUrl, String exchangeServiceUrl, String custodyServiceUrl)
     {
         return CppProxy.init(httpProvider,
                              webSocketFactory,
@@ -145,7 +147,8 @@ public interface ZumoCore {
                              transactionServiceUrl,
                              cardServiceUrl,
                              notificationServiceUrl,
-                             exchangeServiceUrl);
+                             exchangeServiceUrl,
+                             custodyServiceUrl);
     }
 
     static final class CppProxy implements ZumoCore
@@ -265,6 +268,6 @@ public interface ZumoCore {
 
         public static native void onLog(LogListener logListener, String logLevel);
 
-        public static native ZumoCore init(HttpProvider httpProvider, WebSocketFactory webSocketFactory, String apiKey, String apiUrl, String transactionServiceUrl, String cardServiceUrl, String notificationServiceUrl, String exchangeServiceUrl);
+        public static native ZumoCore init(HttpProvider httpProvider, WebSocketFactory webSocketFactory, String apiKey, String apiUrl, String transactionServiceUrl, String cardServiceUrl, String notificationServiceUrl, String exchangeServiceUrl, String custodyServiceUrl);
     }
 }

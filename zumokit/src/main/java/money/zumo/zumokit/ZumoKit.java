@@ -51,6 +51,7 @@ public class ZumoKit {
      * @param cardServiceUrl         ZumoKit Card Service URL
      * @param notificationServiceUrl ZumoKit Notification Service URL
      * @param exchangeServiceUrl     ZumoKit Exchange Service URL
+     * @param custodyServiceUrl      ZumoKit Custody Service URL
      */
     public ZumoKit(
             String apiKey,
@@ -58,7 +59,8 @@ public class ZumoKit {
             String transactionServiceUrl,
             String cardServiceUrl,
             String notificationServiceUrl,
-            String exchangeServiceUrl) {
+            String exchangeServiceUrl,
+            String custodyServiceUrl) {
         // Init the providers needed for the C++ core
         HttpProvider httpProvider = new DefaultHttpProvider();
         WebSocketFactory wsFactory = new DefaultWebSocketFactory();
@@ -72,7 +74,8 @@ public class ZumoKit {
                 transactionServiceUrl,
                 cardServiceUrl,
                 notificationServiceUrl,
-                exchangeServiceUrl
+                exchangeServiceUrl,
+                custodyServiceUrl
         );
     }
 

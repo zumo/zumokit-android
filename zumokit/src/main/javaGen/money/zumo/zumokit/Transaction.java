@@ -33,7 +33,7 @@ public final class Transaction {
 
     /*package*/ final ArrayList<InternalTransaction> mInternalTransactions;
 
-    /*package*/ final String mCustodyOrder;
+    /*package*/ final CustodyOrder mCustodyOrder;
 
     /*package*/ final TransactionCryptoProperties mCryptoProperties;
 
@@ -64,7 +64,7 @@ public final class Transaction {
             ArrayList<TransactionAmount> senders,
             ArrayList<TransactionAmount> recipients,
             ArrayList<InternalTransaction> internalTransactions,
-            String custodyOrder,
+            CustodyOrder custodyOrder,
             TransactionCryptoProperties cryptoProperties,
             TransactionFiatProperties fiatProperties,
             TransactionCardProperties cardProperties,
@@ -175,7 +175,7 @@ public final class Transaction {
     }
 
     /** Custody order properties if it is a transaction associated with a custody order, null otherwise. */
-    public String getCustodyOrder() {
+    public CustodyOrder getCustodyOrder() {
         return mCustodyOrder;
     }
 

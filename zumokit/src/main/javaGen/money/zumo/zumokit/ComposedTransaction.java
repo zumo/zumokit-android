@@ -12,50 +12,49 @@ public final class ComposedTransaction {
 
     /*package*/ final String mType;
 
-    /*package*/ final String mSignedTransaction;
-
     /*package*/ final Account mAccount;
 
     /*package*/ final String mDestination;
 
     /*package*/ final java.math.BigDecimal mAmount;
 
-    /*package*/ final String mData;
-
     /*package*/ final java.math.BigDecimal mFee;
 
     /*package*/ final String mNonce;
 
+    /*package*/ final String mSignedTransaction;
+
+    /*package*/ final String mCustodyOrderId;
+
+    /*package*/ final String mData;
+
     public ComposedTransaction(
             String type,
-            String signedTransaction,
             Account account,
             String destination,
             java.math.BigDecimal amount,
-            String data,
             java.math.BigDecimal fee,
-            String nonce) {
+            String nonce,
+            String signedTransaction,
+            String custodyOrderId,
+            String data) {
         this.mType = type;
-        this.mSignedTransaction = signedTransaction;
         this.mAccount = account;
         this.mDestination = destination;
         this.mAmount = amount;
-        this.mData = data;
         this.mFee = fee;
         this.mNonce = nonce;
+        this.mSignedTransaction = signedTransaction;
+        this.mCustodyOrderId = custodyOrderId;
+        this.mData = data;
     }
 
     /**
-     * Transaction type, 'FIAT', 'CRYPTO' or 'NOMINATED'.
+     * Transaction type, 'FIAT', 'CRYPTO', 'NOMINATED' or 'CUSTODY-WITHDRAW'.
      * @see TransactionType
      */
     public String getType() {
         return mType;
-    }
-
-    /** Signed transaction for a crypto transaction, null otherwise. */
-    public String getSignedTransaction() {
-        return mSignedTransaction;
     }
 
     /** Account the composed transaction belongs to. */
@@ -73,11 +72,6 @@ public final class ComposedTransaction {
         return mAmount;
     }
 
-    /** Optional transaction data if available. */
-    public String getData() {
-        return mData;
-    }
-
     /** Maximum transaction fee. */
     public java.math.BigDecimal getFee() {
         return mFee;
@@ -88,6 +82,21 @@ public final class ComposedTransaction {
         return mNonce;
     }
 
+    /** Signed transaction for a crypto transaction, null otherwise. */
+    public String getSignedTransaction() {
+        return mSignedTransaction;
+    }
+
+    /** Custody order id for custody withdraw transaction, null otherwise. */
+    public String getCustodyOrderId() {
+        return mCustodyOrderId;
+    }
+
+    /** Optional transaction data if available. */
+    public String getData() {
+        return mData;
+    }
+
     @Override
     public boolean equals(Object obj) {
         if (!(obj instanceof ComposedTransaction)) {
@@ -95,13 +104,14 @@ public final class ComposedTransaction {
         }
         ComposedTransaction other = (ComposedTransaction) obj;
         return this.mType.equals(other.mType) &&
-                ((this.mSignedTransaction == null && other.mSignedTransaction == null) || (this.mSignedTransaction != null && this.mSignedTransaction.equals(other.mSignedTransaction))) &&
                 this.mAccount.equals(other.mAccount) &&
                 ((this.mDestination == null && other.mDestination == null) || (this.mDestination != null && this.mDestination.equals(other.mDestination))) &&
                 ((this.mAmount == null && other.mAmount == null) || (this.mAmount != null && this.mAmount.equals(other.mAmount))) &&
-                ((this.mData == null && other.mData == null) || (this.mData != null && this.mData.equals(other.mData))) &&
                 this.mFee.equals(other.mFee) &&
-                this.mNonce.equals(other.mNonce);
+                this.mNonce.equals(other.mNonce) &&
+                ((this.mSignedTransaction == null && other.mSignedTransaction == null) || (this.mSignedTransaction != null && this.mSignedTransaction.equals(other.mSignedTransaction))) &&
+                ((this.mCustodyOrderId == null && other.mCustodyOrderId == null) || (this.mCustodyOrderId != null && this.mCustodyOrderId.equals(other.mCustodyOrderId))) &&
+                ((this.mData == null && other.mData == null) || (this.mData != null && this.mData.equals(other.mData)));
     }
 
     @Override
@@ -109,13 +119,14 @@ public final class ComposedTransaction {
         // Pick an arbitrary non-zero starting value
         int hashCode = 17;
         hashCode = hashCode * 31 + mType.hashCode();
-        hashCode = hashCode * 31 + (mSignedTransaction == null ? 0 : mSignedTransaction.hashCode());
         hashCode = hashCode * 31 + mAccount.hashCode();
         hashCode = hashCode * 31 + (mDestination == null ? 0 : mDestination.hashCode());
         hashCode = hashCode * 31 + (mAmount == null ? 0 : mAmount.hashCode());
-        hashCode = hashCode * 31 + (mData == null ? 0 : mData.hashCode());
         hashCode = hashCode * 31 + (mFee.hashCode());
         hashCode = hashCode * 31 + mNonce.hashCode();
+        hashCode = hashCode * 31 + (mSignedTransaction == null ? 0 : mSignedTransaction.hashCode());
+        hashCode = hashCode * 31 + (mCustodyOrderId == null ? 0 : mCustodyOrderId.hashCode());
+        hashCode = hashCode * 31 + (mData == null ? 0 : mData.hashCode());
         return hashCode;
     }
 
@@ -123,13 +134,14 @@ public final class ComposedTransaction {
     public String toString() {
         return "ComposedTransaction{" +
                 "mType=" + mType +
-                "," + "mSignedTransaction=" + mSignedTransaction +
                 "," + "mAccount=" + mAccount +
                 "," + "mDestination=" + mDestination +
                 "," + "mAmount=" + mAmount +
-                "," + "mData=" + mData +
                 "," + "mFee=" + mFee +
                 "," + "mNonce=" + mNonce +
+                "," + "mSignedTransaction=" + mSignedTransaction +
+                "," + "mCustodyOrderId=" + mCustodyOrderId +
+                "," + "mData=" + mData +
         "}";
     }
 
