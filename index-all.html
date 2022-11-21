@@ -328,7 +328,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dd>
 <div class="block">Record containing result of one of the transaction compose methods on <a href="money/zumo/zumokit/Wallet.html" title="interface in money.zumo.zumokit"><code>Wallet</code></a> object.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="money/zumo/zumokit/ComposedTransaction.html#%3Cinit%3E(java.lang.String,java.lang.String,money.zumo.zumokit.Account,java.lang.String,java.math.BigDecimal,java.lang.String,java.math.BigDecimal,java.lang.String)">ComposedTransaction(String, String, Account, String, BigDecimal, String, BigDecimal, String)</a></span> - Constructor for class money.zumo.zumokit.<a href="money/zumo/zumokit/ComposedTransaction.html" title="class in money.zumo.zumokit">ComposedTransaction</a></dt>
+<dt><span class="memberNameLink"><a href="money/zumo/zumokit/ComposedTransaction.html#%3Cinit%3E(java.lang.String,money.zumo.zumokit.Account,java.lang.String,java.math.BigDecimal,java.math.BigDecimal,java.lang.String,java.lang.String,java.lang.String,java.lang.String)">ComposedTransaction(String, Account, String, BigDecimal, BigDecimal, String, String, String, String)</a></span> - Constructor for class money.zumo.zumokit.<a href="money/zumo/zumokit/ComposedTransaction.html" title="class in money.zumo.zumokit">ComposedTransaction</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/Wallet.html#composeEthTransaction(java.lang.String,java.math.BigDecimal,int,java.lang.String,java.math.BigDecimal,java.lang.String,java.lang.Integer,boolean,money.zumo.zumokit.ComposeTransactionCallback)">composeEthTransaction(String, BigDecimal, int, String, BigDecimal, String, Integer, boolean, ComposeTransactionCallback)</a></span> - Method in interface money.zumo.zumokit.<a href="money/zumo/zumokit/Wallet.html" title="interface in money.zumo.zumokit">Wallet</a></dt>
 <dd>
@@ -367,6 +367,10 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dt><a href="money/zumo/zumokit/ComposeTransactionCallback.html" title="interface in money.zumo.zumokit"><span class="typeNameLink">ComposeTransactionCallback</span></a> - Interface in <a href="money/zumo/zumokit/package-summary.html">money.zumo.zumokit</a></dt>
 <dd>
 <div class="block">Callback interface used by methods in <a href="money/zumo/zumokit/Wallet.html" title="interface in money.zumo.zumokit"><code>Wallet</code></a> class.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="money/zumo/zumokit/CustodyOrderStatus.html#CONFIRMED">CONFIRMED</a></span> - Static variable in class money.zumo.zumokit.<a href="money/zumo/zumokit/CustodyOrderStatus.html" title="class in money.zumo.zumokit">CustodyOrderStatus</a></dt>
+<dd>
+<div class="block">Custody order was confirmed and added to blockchain.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/ExchangeStatus.html#CONFIRMED">CONFIRMED</a></span> - Static variable in class money.zumo.zumokit.<a href="money/zumo/zumokit/ExchangeStatus.html" title="class in money.zumo.zumokit">ExchangeStatus</a></dt>
 <dd>
@@ -436,6 +440,24 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/TransactionType.html#CUSTODY_WITHDRAW">CUSTODY_WITHDRAW</a></span> - Static variable in class money.zumo.zumokit.<a href="money/zumo/zumokit/TransactionType.html" title="class in money.zumo.zumokit">TransactionType</a></dt>
 <dd>&nbsp;</dd>
+<dt><a href="money/zumo/zumokit/CustodyOrder.html" title="class in money.zumo.zumokit"><span class="typeNameLink">CustodyOrder</span></a> - Class in <a href="money/zumo/zumokit/package-summary.html">money.zumo.zumokit</a></dt>
+<dd>
+<div class="block">Record containing custody order.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="money/zumo/zumokit/CustodyOrder.html#%3Cinit%3E(java.lang.String,java.lang.String,java.lang.String,java.math.BigDecimal,boolean,java.math.BigDecimal,java.math.BigDecimal,java.util.ArrayList,java.lang.String,java.lang.String,java.lang.String,int,int)">CustodyOrder(String, String, String, BigDecimal, boolean, BigDecimal, BigDecimal, ArrayList&lt;String&gt;, String, String, String, int, int)</a></span> - Constructor for class money.zumo.zumokit.<a href="money/zumo/zumokit/CustodyOrder.html" title="class in money.zumo.zumokit">CustodyOrder</a></dt>
+<dd>&nbsp;</dd>
+<dt><a href="money/zumo/zumokit/CustodyOrderStatus.html" title="class in money.zumo.zumokit"><span class="typeNameLink">CustodyOrderStatus</span></a> - Class in <a href="money/zumo/zumokit/package-summary.html">money.zumo.zumokit</a></dt>
+<dd>
+<div class="block">Custody order status, for example 'PENDING'.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="money/zumo/zumokit/CustodyOrderStatus.html#%3Cinit%3E()">CustodyOrderStatus()</a></span> - Constructor for class money.zumo.zumokit.<a href="money/zumo/zumokit/CustodyOrderStatus.html" title="class in money.zumo.zumokit">CustodyOrderStatus</a></dt>
+<dd>&nbsp;</dd>
+<dt><a href="money/zumo/zumokit/CustodyOrderType.html" title="class in money.zumo.zumokit"><span class="typeNameLink">CustodyOrderType</span></a> - Class in <a href="money/zumo/zumokit/package-summary.html">money.zumo.zumokit</a></dt>
+<dd>
+<div class="block">Custody order type, 'DEPOSIT' or 'WITHDRAW'.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="money/zumo/zumokit/CustodyOrderType.html#%3Cinit%3E()">CustodyOrderType()</a></span> - Constructor for class money.zumo.zumokit.<a href="money/zumo/zumokit/CustodyOrderType.html" title="class in money.zumo.zumokit">CustodyOrderType</a></dt>
+<dd>&nbsp;</dd>
 <dt><a href="money/zumo/zumokit/CustodyType.html" title="class in money.zumo.zumokit"><span class="typeNameLink">CustodyType</span></a> - Class in <a href="money/zumo/zumokit/package-summary.html">money.zumo.zumokit</a></dt>
 <dd>
 <div class="block">Account custody type, 'CUSTODY' or 'NON-CUSTODY'.</div>
@@ -470,6 +492,8 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/DefaultWebSocketFactory.html#%3Cinit%3E()">DefaultWebSocketFactory()</a></span> - Constructor for class money.zumo.zumokit.<a href="money/zumo/zumokit/DefaultWebSocketFactory.html" title="class in money.zumo.zumokit">DefaultWebSocketFactory</a></dt>
 <dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="money/zumo/zumokit/CustodyOrderType.html#DEPOSIT">DEPOSIT</a></span> - Static variable in class money.zumo.zumokit.<a href="money/zumo/zumokit/CustodyOrderType.html" title="class in money.zumo.zumokit">CustodyOrderType</a></dt>
+<dd>&nbsp;</dd>
 </dl>
 <a id="I:E">
 <!--   -->
@@ -495,6 +519,8 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/ComposedExchange.html#equals(java.lang.Object)">equals(Object)</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/ComposedExchange.html" title="class in money.zumo.zumokit">ComposedExchange</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/ComposedTransaction.html#equals(java.lang.Object)">equals(Object)</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/ComposedTransaction.html" title="class in money.zumo.zumokit">ComposedTransaction</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="money/zumo/zumokit/CustodyOrder.html#equals(java.lang.Object)">equals(Object)</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/CustodyOrder.html" title="class in money.zumo.zumokit">CustodyOrder</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/Exchange.html#equals(java.lang.Object)">equals(Object)</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/Exchange.html" title="class in money.zumo.zumokit">Exchange</a></dt>
 <dd>&nbsp;</dd>
@@ -560,6 +586,10 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 </a>
 <h2 class="title">F</h2>
 <dl>
+<dt><span class="memberNameLink"><a href="money/zumo/zumokit/CustodyOrderStatus.html#FAILED">FAILED</a></span> - Static variable in class money.zumo.zumokit.<a href="money/zumo/zumokit/CustodyOrderStatus.html" title="class in money.zumo.zumokit">CustodyOrderStatus</a></dt>
+<dd>
+<div class="block">Custody order failed.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/ExchangeStatus.html#FAILED">FAILED</a></span> - Static variable in class money.zumo.zumokit.<a href="money/zumo/zumokit/ExchangeStatus.html" title="class in money.zumo.zumokit">ExchangeStatus</a></dt>
 <dd>
 <div class="block">Exchange has failed.</div>
@@ -686,6 +716,10 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dd>
 <div class="block">Transaction amount in account currency.</div>
 </dd>
+<dt><span class="memberNameLink"><a href="money/zumo/zumokit/CustodyOrder.html#getAmount()">getAmount()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/CustodyOrder.html" title="class in money.zumo.zumokit">CustodyOrder</a></dt>
+<dd>
+<div class="block">Custody order amount, null if not known yet.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/Exchange.html#getAmount()">getAmount()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/Exchange.html" title="class in money.zumo.zumokit">Exchange</a></dt>
 <dd>
 <div class="block">Amount in base currency.</div>
@@ -766,6 +800,10 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dd>
 <div class="block">Country code in ISO 3166-1 Alpha-2 format, e.g.</div>
 </dd>
+<dt><span class="memberNameLink"><a href="money/zumo/zumokit/CustodyOrder.html#getCreatedAt()">getCreatedAt()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/CustodyOrder.html" title="class in money.zumo.zumokit">CustodyOrder</a></dt>
+<dd>
+<div class="block">Epoch timestamp when custody order was created.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/Exchange.html#getCreatedAt()">getCreatedAt()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/Exchange.html" title="class in money.zumo.zumokit">Exchange</a></dt>
 <dd>
 <div class="block">Timestamp when exchange was created, e.g.</div>
@@ -828,6 +866,10 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dd>
 <div class="block">Custody order properties if it is a transaction associated with a custody order, null otherwise.</div>
 </dd>
+<dt><span class="memberNameLink"><a href="money/zumo/zumokit/ComposedTransaction.html#getCustodyOrderId()">getCustodyOrderId()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/ComposedTransaction.html" title="class in money.zumo.zumokit">ComposedTransaction</a></dt>
+<dd>
+<div class="block">Custody order id for custody withdraw transaction, null otherwise.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/Account.html#getCustodyType()">getCustodyType()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/Account.html" title="class in money.zumo.zumokit">Account</a></dt>
 <dd>
 <div class="block">Custody type.</div>
@@ -889,6 +931,10 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dd>
 <div class="block">Error type, such as api_connection_error, api_error, wallet_error etc.</div>
 </dd>
+<dt><span class="memberNameLink"><a href="money/zumo/zumokit/CustodyOrder.html#getEstimatedFees()">getEstimatedFees()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/CustodyOrder.html" title="class in money.zumo.zumokit">CustodyOrder</a></dt>
+<dd>
+<div class="block">Estimated custody order fees.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/Transaction.html#getExchange()">getExchange()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/Transaction.html" title="class in money.zumo.zumokit">Transaction</a></dt>
 <dd>
 <div class="block">Exchange properties if it is a transaction associated with an exchange, null otherwise.</div>
@@ -945,9 +991,17 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dd>
 <div class="block">Amount that will be paid in fees.</div>
 </dd>
+<dt><span class="memberNameLink"><a href="money/zumo/zumokit/CustodyOrder.html#getFeeInAmount()">getFeeInAmount()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/CustodyOrder.html" title="class in money.zumo.zumokit">CustodyOrder</a></dt>
+<dd>
+<div class="block">Flag indicating if fees are included in order amount.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/Quote.html#getFeeRate()">getFeeRate()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/Quote.html" title="class in money.zumo.zumokit">Quote</a></dt>
 <dd>
 <div class="block">Fee rate in points of a percentage, e.g.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="money/zumo/zumokit/CustodyOrder.html#getFees()">getFees()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/CustodyOrder.html" title="class in money.zumo.zumokit">CustodyOrder</a></dt>
+<dd>
+<div class="block">Actual custody order fees, null if not known yet.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/InternalTransaction.html#getFiatAmount()">getFiatAmount()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/InternalTransaction.html" title="class in money.zumo.zumokit">InternalTransaction</a></dt>
 <dd>
@@ -973,6 +1027,10 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dd>
 <div class="block">Fiat properties if it is a fiat transaction, null otherwise.</div>
 </dd>
+<dt><span class="memberNameLink"><a href="money/zumo/zumokit/CustodyOrder.html#getFromAccountId()">getFromAccountId()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/CustodyOrder.html" title="class in money.zumo.zumokit">CustodyOrder</a></dt>
+<dd>
+<div class="block">Debit <a href="money/zumo/zumokit/Account.html" title="class in money.zumo.zumokit"><code>Account</code></a> identifier, if applicable.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/InternalTransaction.html#getFromAccountId()">getFromAccountId()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/InternalTransaction.html" title="class in money.zumo.zumokit">InternalTransaction</a></dt>
 <dd>
 <div class="block">Sender account id or null if it is external user.</div>
@@ -984,6 +1042,10 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/TransactionCryptoProperties.html#getFromAddress()">getFromAddress()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/TransactionCryptoProperties.html" title="class in money.zumo.zumokit">TransactionCryptoProperties</a></dt>
 <dd>
 <div class="block">Ethereum wallet address of sender.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="money/zumo/zumokit/CustodyOrder.html#getFromAddresses()">getFromAddresses()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/CustodyOrder.html" title="class in money.zumo.zumokit">CustodyOrder</a></dt>
+<dd>
+<div class="block">Crypto addresses from which funds where received, if any.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/ExchangeRate.html#getFromCurrency()">getFromCurrency()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/ExchangeRate.html" title="class in money.zumo.zumokit">ExchangeRate</a></dt>
 <dd>
@@ -1032,6 +1094,10 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/Card.html#getId()">getId()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/Card.html" title="class in money.zumo.zumokit">Card</a></dt>
 <dd>
 <div class="block">Unique card identifier.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="money/zumo/zumokit/CustodyOrder.html#getId()">getId()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/CustodyOrder.html" title="class in money.zumo.zumokit">CustodyOrder</a></dt>
+<dd>
+<div class="block">Identifier.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/Exchange.html#getId()">getId()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/Exchange.html" title="class in money.zumo.zumokit">Exchange</a></dt>
 <dd>
@@ -1228,6 +1294,10 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dd>
 <div class="block">Fee rate information provider.</div>
 </dd>
+<dt><span class="memberNameLink"><a href="money/zumo/zumokit/CustodyOrder.html#getStatus()">getStatus()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/CustodyOrder.html" title="class in money.zumo.zumokit">CustodyOrder</a></dt>
+<dd>
+<div class="block">Transaction status.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/Exchange.html#getStatus()">getStatus()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/Exchange.html" title="class in money.zumo.zumokit">Exchange</a></dt>
 <dd>
 <div class="block">Exchange status.</div>
@@ -1248,9 +1318,17 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dd>
 <div class="block">Epoch timestamp, minimum non-null value between submitted at and confirmed at timestamps.</div>
 </dd>
+<dt><span class="memberNameLink"><a href="money/zumo/zumokit/CustodyOrder.html#getToAccountId()">getToAccountId()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/CustodyOrder.html" title="class in money.zumo.zumokit">CustodyOrder</a></dt>
+<dd>
+<div class="block">Credit <a href="money/zumo/zumokit/Account.html" title="class in money.zumo.zumokit"><code>Account</code></a> identifier, if applicable.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/InternalTransaction.html#getToAccountId()">getToAccountId()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/InternalTransaction.html" title="class in money.zumo.zumokit">InternalTransaction</a></dt>
 <dd>
 <div class="block">Recipient account id or null if it is external user.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="money/zumo/zumokit/CustodyOrder.html#getToAddress()">getToAddress()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/CustodyOrder.html" title="class in money.zumo.zumokit">CustodyOrder</a></dt>
+<dd>
+<div class="block">Destination crypto address, if applicable.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/InternalTransaction.html#getToAddress()">getToAddress()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/InternalTransaction.html" title="class in money.zumo.zumokit">InternalTransaction</a></dt>
 <dd>
@@ -1322,7 +1400,11 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 </dd>
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/ComposedTransaction.html#getType()">getType()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/ComposedTransaction.html" title="class in money.zumo.zumokit">ComposedTransaction</a></dt>
 <dd>
-<div class="block">Transaction type, 'FIAT', 'CRYPTO' or 'NOMINATED'.</div>
+<div class="block">Transaction type, 'FIAT', 'CRYPTO', 'NOMINATED' or 'CUSTODY-WITHDRAW'.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="money/zumo/zumokit/CustodyOrder.html#getType()">getType()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/CustodyOrder.html" title="class in money.zumo.zumokit">CustodyOrder</a></dt>
+<dd>
+<div class="block">Custody order type.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/KbaAnswer.html#getType()">getType()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/KbaAnswer.html" title="class in money.zumo.zumokit">KbaAnswer</a></dt>
 <dd>
@@ -1335,6 +1417,10 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/Transaction.html#getType()">getType()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/Transaction.html" title="class in money.zumo.zumokit">Transaction</a></dt>
 <dd>
 <div class="block">Transaction type.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="money/zumo/zumokit/CustodyOrder.html#getUpdatedAt()">getUpdatedAt()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/CustodyOrder.html" title="class in money.zumo.zumokit">CustodyOrder</a></dt>
+<dd>
+<div class="block">Epoch timestamp when custody order was updated.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/Exchange.html#getUpdatedAt()">getUpdatedAt()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/Exchange.html" title="class in money.zumo.zumokit">Exchange</a></dt>
 <dd>
@@ -1400,6 +1486,8 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/ComposedTransaction.html#hashCode()">hashCode()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/ComposedTransaction.html" title="class in money.zumo.zumokit">ComposedTransaction</a></dt>
 <dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="money/zumo/zumokit/CustodyOrder.html#hashCode()">hashCode()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/CustodyOrder.html" title="class in money.zumo.zumokit">CustodyOrder</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/Exchange.html#hashCode()">hashCode()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/Exchange.html" title="class in money.zumo.zumokit">Exchange</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/ExchangeRate.html#hashCode()">hashCode()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/ExchangeRate.html" title="class in money.zumo.zumokit">ExchangeRate</a></dt>
@@ -1462,9 +1550,9 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dd>
 <div class="block">Incorrect change account selected.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="money/zumo/zumokit/ZumoCore.CppProxy.html#init(money.zumo.zumokit.HttpProvider,money.zumo.zumokit.WebSocketFactory,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)">init(HttpProvider, WebSocketFactory, String, String, String, String, String, String)</a></span> - Static method in class money.zumo.zumokit.<a href="money/zumo/zumokit/ZumoCore.CppProxy.html" title="class in money.zumo.zumokit">ZumoCore.CppProxy</a></dt>
+<dt><span class="memberNameLink"><a href="money/zumo/zumokit/ZumoCore.CppProxy.html#init(money.zumo.zumokit.HttpProvider,money.zumo.zumokit.WebSocketFactory,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)">init(HttpProvider, WebSocketFactory, String, String, String, String, String, String, String)</a></span> - Static method in class money.zumo.zumokit.<a href="money/zumo/zumokit/ZumoCore.CppProxy.html" title="class in money.zumo.zumokit">ZumoCore.CppProxy</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="money/zumo/zumokit/ZumoCore.html#init(money.zumo.zumokit.HttpProvider,money.zumo.zumokit.WebSocketFactory,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)">init(HttpProvider, WebSocketFactory, String, String, String, String, String, String)</a></span> - Static method in interface money.zumo.zumokit.<a href="money/zumo/zumokit/ZumoCore.html" title="interface in money.zumo.zumokit">ZumoCore</a></dt>
+<dt><span class="memberNameLink"><a href="money/zumo/zumokit/ZumoCore.html#init(money.zumo.zumokit.HttpProvider,money.zumo.zumokit.WebSocketFactory,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)">init(HttpProvider, WebSocketFactory, String, String, String, String, String, String, String)</a></span> - Static method in interface money.zumo.zumokit.<a href="money/zumo/zumokit/ZumoCore.html" title="interface in money.zumo.zumokit">ZumoCore</a></dt>
 <dd>
 <div class="block">Initializes ZumoKit SDK.</div>
 </dd>
@@ -1654,6 +1742,10 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 </dd>
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/NetworkType.html#%3Cinit%3E()">NetworkType()</a></span> - Constructor for class money.zumo.zumokit.<a href="money/zumo/zumokit/NetworkType.html" title="class in money.zumo.zumokit">NetworkType</a></dt>
 <dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="money/zumo/zumokit/CustodyOrderStatus.html#NEW">NEW</a></span> - Static variable in class money.zumo.zumokit.<a href="money/zumo/zumokit/CustodyOrderStatus.html" title="class in money.zumo.zumokit">CustodyOrderStatus</a></dt>
+<dd>
+<div class="block">Custody order has been created and is awaiting command to be executed.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/FuzzingBackOffGenerator.html#next()">next()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/FuzzingBackOffGenerator.html" title="class in money.zumo.zumokit">FuzzingBackOffGenerator</a></dt>
 <dd>
 <div class="block">Gets the next back off time.</div>
@@ -1823,6 +1915,10 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/TransactionStatus.html#PAUSED">PAUSED</a></span> - Static variable in class money.zumo.zumokit.<a href="money/zumo/zumokit/TransactionStatus.html" title="class in money.zumo.zumokit">TransactionStatus</a></dt>
 <dd>
 <div class="block">Transaction has been paused by Transaction Service before being submitted to blockchain.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="money/zumo/zumokit/CustodyOrderStatus.html#PENDING">PENDING</a></span> - Static variable in class money.zumo.zumokit.<a href="money/zumo/zumokit/CustodyOrderStatus.html" title="class in money.zumo.zumokit">CustodyOrderStatus</a></dt>
+<dd>
+<div class="block">Custody order has been submitted to blockchain.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/ExchangeStatus.html#PENDING">PENDING</a></span> - Static variable in class money.zumo.zumokit.<a href="money/zumo/zumokit/ExchangeStatus.html" title="class in money.zumo.zumokit">ExchangeStatus</a></dt>
 <dd>
@@ -2100,6 +2196,12 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/CurrencyType.html#toString()">toString()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/CurrencyType.html" title="class in money.zumo.zumokit">CurrencyType</a></dt>
 <dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="money/zumo/zumokit/CustodyOrder.html#toString()">toString()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/CustodyOrder.html" title="class in money.zumo.zumokit">CustodyOrder</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="money/zumo/zumokit/CustodyOrderStatus.html#toString()">toString()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/CustodyOrderStatus.html" title="class in money.zumo.zumokit">CustodyOrderStatus</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="money/zumo/zumokit/CustodyOrderType.html#toString()">toString()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/CustodyOrderType.html" title="class in money.zumo.zumokit">CustodyOrderType</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/CustodyType.html#toString()">toString()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/CustodyType.html" title="class in money.zumo.zumokit">CustodyType</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/Exchange.html#toString()">toString()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/Exchange.html" title="class in money.zumo.zumokit">Exchange</a></dt>
@@ -2148,7 +2250,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dd>
 <div class="block">Record containing transaction details.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="money/zumo/zumokit/Transaction.html#%3Cinit%3E(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.math.BigDecimal,java.math.BigDecimal,java.lang.String,java.util.ArrayList,java.util.ArrayList,java.util.ArrayList,java.lang.String,money.zumo.zumokit.TransactionCryptoProperties,money.zumo.zumokit.TransactionFiatProperties,money.zumo.zumokit.TransactionCardProperties,money.zumo.zumokit.Exchange,java.lang.String,java.lang.Integer,java.lang.Integer,int)">Transaction(String, String, String, String, String, String, BigDecimal, BigDecimal, String, ArrayList&lt;TransactionAmount&gt;, ArrayList&lt;TransactionAmount&gt;, ArrayList&lt;InternalTransaction&gt;, String, TransactionCryptoProperties, TransactionFiatProperties, TransactionCardProperties, Exchange, String, Integer, Integer, int)</a></span> - Constructor for class money.zumo.zumokit.<a href="money/zumo/zumokit/Transaction.html" title="class in money.zumo.zumokit">Transaction</a></dt>
+<dt><span class="memberNameLink"><a href="money/zumo/zumokit/Transaction.html#%3Cinit%3E(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.math.BigDecimal,java.math.BigDecimal,java.lang.String,java.util.ArrayList,java.util.ArrayList,java.util.ArrayList,money.zumo.zumokit.CustodyOrder,money.zumo.zumokit.TransactionCryptoProperties,money.zumo.zumokit.TransactionFiatProperties,money.zumo.zumokit.TransactionCardProperties,money.zumo.zumokit.Exchange,java.lang.String,java.lang.Integer,java.lang.Integer,int)">Transaction(String, String, String, String, String, String, BigDecimal, BigDecimal, String, ArrayList&lt;TransactionAmount&gt;, ArrayList&lt;TransactionAmount&gt;, ArrayList&lt;InternalTransaction&gt;, CustodyOrder, TransactionCryptoProperties, TransactionFiatProperties, TransactionCardProperties, Exchange, String, Integer, Integer, int)</a></span> - Constructor for class money.zumo.zumokit.<a href="money/zumo/zumokit/Transaction.html" title="class in money.zumo.zumokit">Transaction</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/ZumoKitErrorCode.html#TRANSACTION_AMOUNT_OVERFLOW">TRANSACTION_AMOUNT_OVERFLOW</a></span> - Static variable in class money.zumo.zumokit.<a href="money/zumo/zumokit/ZumoKitErrorCode.html" title="class in money.zumo.zumokit">ZumoKitErrorCode</a></dt>
 <dd>
@@ -2210,7 +2312,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dd>&nbsp;</dd>
 <dt><a href="money/zumo/zumokit/TransactionType.html" title="class in money.zumo.zumokit"><span class="typeNameLink">TransactionType</span></a> - Class in <a href="money/zumo/zumokit/package-summary.html">money.zumo.zumokit</a></dt>
 <dd>
-<div class="block">Transaction type, 'CUSTODY', 'CUSTODY_DEPOSIT', 'CUSTODY-WITHDRAW', 'CRYPTO', 'FIAT', 'NOMINATED' or 'CARD'.</div>
+<div class="block">Transaction type, 'CUSTODY', 'CUSTODY-DEPOSIT', 'CUSTODY-WITHDRAW', 'CRYPTO', 'FIAT', 'NOMINATED' or 'CARD'.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/TransactionType.html#%3Cinit%3E()">TransactionType()</a></span> - Constructor for class money.zumo.zumokit.<a href="money/zumo/zumokit/TransactionType.html" title="class in money.zumo.zumokit">TransactionType</a></dt>
 <dd>&nbsp;</dd>
@@ -2310,6 +2412,8 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/TimeInterval.html#WEEK">WEEK</a></span> - Static variable in class money.zumo.zumokit.<a href="money/zumo/zumokit/TimeInterval.html" title="class in money.zumo.zumokit">TimeInterval</a></dt>
 <dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="money/zumo/zumokit/CustodyOrderType.html#WITHDRAW">WITHDRAW</a></span> - Static variable in class money.zumo.zumokit.<a href="money/zumo/zumokit/CustodyOrderType.html" title="class in money.zumo.zumokit">CustodyOrderType</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/ExchangeStatus.html#WITHDRAWING">WITHDRAWING</a></span> - Static variable in class money.zumo.zumokit.<a href="money/zumo/zumokit/ExchangeStatus.html" title="class in money.zumo.zumokit">ExchangeStatus</a></dt>
 <dd>
 <div class="block">Outgoing transaction has been mined and return transaction has been initiated.</div>
@@ -2342,7 +2446,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dd>
 <div class="block">Entry point to ZumoKit Android SDK.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="money/zumo/zumokit/ZumoKit.html#%3Cinit%3E(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)">ZumoKit(String, String, String, String, String, String)</a></span> - Constructor for class money.zumo.zumokit.<a href="money/zumo/zumokit/ZumoKit.html" title="class in money.zumo.zumokit">ZumoKit</a></dt>
+<dt><span class="memberNameLink"><a href="money/zumo/zumokit/ZumoKit.html#%3Cinit%3E(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)">ZumoKit(String, String, String, String, String, String, String)</a></span> - Constructor for class money.zumo.zumokit.<a href="money/zumo/zumokit/ZumoKit.html" title="class in money.zumo.zumokit">ZumoKit</a></dt>
 <dd>
 <div class="block">Initializes ZumoKit SDK.</div>
 </dd>

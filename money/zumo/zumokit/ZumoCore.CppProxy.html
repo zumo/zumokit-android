@@ -249,14 +249,15 @@ implements <a href="ZumoCore.html" title="interface in money.zumo.zumokit">ZumoC
 </tr>
 <tr id="i10" class="altColor">
 <td class="colFirst"><code>static <a href="ZumoCore.html" title="interface in money.zumo.zumokit">ZumoCore</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#init(money.zumo.zumokit.HttpProvider,money.zumo.zumokit.WebSocketFactory,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)">init</a></span>&#8203;(<a href="HttpProvider.html" title="interface in money.zumo.zumokit">HttpProvider</a>&nbsp;httpProvider,
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#init(money.zumo.zumokit.HttpProvider,money.zumo.zumokit.WebSocketFactory,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)">init</a></span>&#8203;(<a href="HttpProvider.html" title="interface in money.zumo.zumokit">HttpProvider</a>&nbsp;httpProvider,
     <a href="WebSocketFactory.html" title="interface in money.zumo.zumokit">WebSocketFactory</a>&nbsp;webSocketFactory,
     java.lang.String&nbsp;apiKey,
     java.lang.String&nbsp;apiUrl,
     java.lang.String&nbsp;transactionServiceUrl,
     java.lang.String&nbsp;cardServiceUrl,
     java.lang.String&nbsp;notificationServiceUrl,
-    java.lang.String&nbsp;exchangeServiceUrl)</code></th>
+    java.lang.String&nbsp;exchangeServiceUrl,
+    java.lang.String&nbsp;custodyServiceUrl)</code></th>
 <td class="colLast">
 <div class="block">Initializes ZumoKit SDK.</div>
 </td>
@@ -578,7 +579,7 @@ implements <a href="ZumoCore.html" title="interface in money.zumo.zumokit">ZumoC
 </dl>
 </li>
 </ul>
-<a id="init(money.zumo.zumokit.HttpProvider,money.zumo.zumokit.WebSocketFactory,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)">
+<a id="init(money.zumo.zumokit.HttpProvider,money.zumo.zumokit.WebSocketFactory,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)">
 <!--   -->
 </a>
 <ul class="blockListLast">
@@ -591,8 +592,9 @@ implements <a href="ZumoCore.html" title="interface in money.zumo.zumokit">ZumoC
                             java.lang.String&nbsp;transactionServiceUrl,
                             java.lang.String&nbsp;cardServiceUrl,
                             java.lang.String&nbsp;notificationServiceUrl,
-                            java.lang.String&nbsp;exchangeServiceUrl)</pre>
-<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="ZumoCore.html#init(money.zumo.zumokit.HttpProvider,money.zumo.zumokit.WebSocketFactory,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)">ZumoCore</a></code></span></div>
+                            java.lang.String&nbsp;exchangeServiceUrl,
+                            java.lang.String&nbsp;custodyServiceUrl)</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="ZumoCore.html#init(money.zumo.zumokit.HttpProvider,money.zumo.zumokit.WebSocketFactory,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)">ZumoCore</a></code></span></div>
 <div class="block">Initializes ZumoKit SDK. Should only be called once.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
@@ -603,6 +605,8 @@ implements <a href="ZumoCore.html" title="interface in money.zumo.zumokit">ZumoC
 <dd><code>transactionServiceUrl</code> - ZumoKit Transaction Service URL</dd>
 <dd><code>cardServiceUrl</code> - ZumoKit Card Service URL</dd>
 <dd><code>notificationServiceUrl</code> - ZumoKit Notification Service URL</dd>
+<dd><code>exchangeServiceUrl</code> - ZumoKit Exchange Service URL</dd>
+<dd><code>custodyServiceUrl</code> - ZumoKit Custody Service URL</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>ZumoKit instance</dd>
 </dl>
