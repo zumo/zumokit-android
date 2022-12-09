@@ -27,9 +27,17 @@ public final class CustodyOrder {
 
     /*package*/ final String mFromAccountId;
 
+    /*package*/ final String mFromUserId;
+
+    /*package*/ final String mFromUserIntegratorId;
+
     /*package*/ final String mToAddress;
 
     /*package*/ final String mToAccountId;
+
+    /*package*/ final String mToUserId;
+
+    /*package*/ final String mToUserIntegratorId;
 
     /*package*/ final int mCreatedAt;
 
@@ -45,8 +53,12 @@ public final class CustodyOrder {
             java.math.BigDecimal fees,
             ArrayList<String> fromAddresses,
             String fromAccountId,
+            String fromUserId,
+            String fromUserIntegratorId,
             String toAddress,
             String toAccountId,
+            String toUserId,
+            String toUserIntegratorId,
             int createdAt,
             int updatedAt) {
         this.mId = id;
@@ -58,8 +70,12 @@ public final class CustodyOrder {
         this.mFees = fees;
         this.mFromAddresses = fromAddresses;
         this.mFromAccountId = fromAccountId;
+        this.mFromUserId = fromUserId;
+        this.mFromUserIntegratorId = fromUserIntegratorId;
         this.mToAddress = toAddress;
         this.mToAccountId = toAccountId;
+        this.mToUserId = toUserId;
+        this.mToUserIntegratorId = toUserIntegratorId;
         this.mCreatedAt = createdAt;
         this.mUpdatedAt = updatedAt;
     }
@@ -115,6 +131,16 @@ public final class CustodyOrder {
         return mFromAccountId;
     }
 
+    /** Debit {@link  Account's Account's} user identifier, if applicable.  */
+    public String getFromUserId() {
+        return mFromUserId;
+    }
+
+    /** Debit {@link  Account's Account's} user integrator identifier, if applicable.  */
+    public String getFromUserIntegratorId() {
+        return mFromUserIntegratorId;
+    }
+
     /** Destination crypto address, if applicable. */
     public String getToAddress() {
         return mToAddress;
@@ -123,6 +149,16 @@ public final class CustodyOrder {
     /** Credit {@link  Account Account} identifier, if applicable. */
     public String getToAccountId() {
         return mToAccountId;
+    }
+
+    /** Credit {@link  Account's Account's} user identifier, if applicable.  */
+    public String getToUserId() {
+        return mToUserId;
+    }
+
+    /** Credit {@link  Account's Account's} user integrator identifier, if applicable.  */
+    public String getToUserIntegratorId() {
+        return mToUserIntegratorId;
     }
 
     /** Epoch timestamp when custody order was created.  */
@@ -150,8 +186,12 @@ public final class CustodyOrder {
                 ((this.mFees == null && other.mFees == null) || (this.mFees != null && this.mFees.equals(other.mFees))) &&
                 ((this.mFromAddresses == null && other.mFromAddresses == null) || (this.mFromAddresses != null && this.mFromAddresses.equals(other.mFromAddresses))) &&
                 ((this.mFromAccountId == null && other.mFromAccountId == null) || (this.mFromAccountId != null && this.mFromAccountId.equals(other.mFromAccountId))) &&
+                ((this.mFromUserId == null && other.mFromUserId == null) || (this.mFromUserId != null && this.mFromUserId.equals(other.mFromUserId))) &&
+                ((this.mFromUserIntegratorId == null && other.mFromUserIntegratorId == null) || (this.mFromUserIntegratorId != null && this.mFromUserIntegratorId.equals(other.mFromUserIntegratorId))) &&
                 ((this.mToAddress == null && other.mToAddress == null) || (this.mToAddress != null && this.mToAddress.equals(other.mToAddress))) &&
                 ((this.mToAccountId == null && other.mToAccountId == null) || (this.mToAccountId != null && this.mToAccountId.equals(other.mToAccountId))) &&
+                ((this.mToUserId == null && other.mToUserId == null) || (this.mToUserId != null && this.mToUserId.equals(other.mToUserId))) &&
+                ((this.mToUserIntegratorId == null && other.mToUserIntegratorId == null) || (this.mToUserIntegratorId != null && this.mToUserIntegratorId.equals(other.mToUserIntegratorId))) &&
                 this.mCreatedAt == other.mCreatedAt &&
                 this.mUpdatedAt == other.mUpdatedAt;
     }
@@ -169,8 +209,12 @@ public final class CustodyOrder {
         hashCode = hashCode * 31 + (mFees == null ? 0 : mFees.hashCode());
         hashCode = hashCode * 31 + (mFromAddresses == null ? 0 : mFromAddresses.hashCode());
         hashCode = hashCode * 31 + (mFromAccountId == null ? 0 : mFromAccountId.hashCode());
+        hashCode = hashCode * 31 + (mFromUserId == null ? 0 : mFromUserId.hashCode());
+        hashCode = hashCode * 31 + (mFromUserIntegratorId == null ? 0 : mFromUserIntegratorId.hashCode());
         hashCode = hashCode * 31 + (mToAddress == null ? 0 : mToAddress.hashCode());
         hashCode = hashCode * 31 + (mToAccountId == null ? 0 : mToAccountId.hashCode());
+        hashCode = hashCode * 31 + (mToUserId == null ? 0 : mToUserId.hashCode());
+        hashCode = hashCode * 31 + (mToUserIntegratorId == null ? 0 : mToUserIntegratorId.hashCode());
         hashCode = hashCode * 31 + mCreatedAt;
         hashCode = hashCode * 31 + mUpdatedAt;
         return hashCode;
@@ -188,8 +232,12 @@ public final class CustodyOrder {
                 "," + "mFees=" + mFees +
                 "," + "mFromAddresses=" + mFromAddresses +
                 "," + "mFromAccountId=" + mFromAccountId +
+                "," + "mFromUserId=" + mFromUserId +
+                "," + "mFromUserIntegratorId=" + mFromUserIntegratorId +
                 "," + "mToAddress=" + mToAddress +
                 "," + "mToAccountId=" + mToAccountId +
+                "," + "mToUserId=" + mToUserId +
+                "," + "mToUserIntegratorId=" + mToUserIntegratorId +
                 "," + "mCreatedAt=" + mCreatedAt +
                 "," + "mUpdatedAt=" + mUpdatedAt +
         "}";
