@@ -114,7 +114,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dd>
 <div class="block">Record containing account's crypto related properties.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="money/zumo/zumokit/AccountCryptoProperties.html#%3Cinit%3E(java.lang.String,java.lang.String,java.lang.Integer)">AccountCryptoProperties(String, String, Integer)</a></span> - Constructor for class money.zumo.zumokit.<a href="money/zumo/zumokit/AccountCryptoProperties.html" title="class in money.zumo.zumokit">AccountCryptoProperties</a></dt>
+<dt><span class="memberNameLink"><a href="money/zumo/zumokit/AccountCryptoProperties.html#%3Cinit%3E(java.lang.String,java.lang.String,java.lang.String,java.lang.Integer)">AccountCryptoProperties(String, String, String, Integer)</a></span> - Constructor for class money.zumo.zumokit.<a href="money/zumo/zumokit/AccountCryptoProperties.html" title="class in money.zumo.zumokit">AccountCryptoProperties</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="money/zumo/zumokit/AccountDataListener.html" title="interface in money.zumo.zumokit"><span class="typeNameLink">AccountDataListener</span></a> - Interface in <a href="money/zumo/zumokit/package-summary.html">money.zumo.zumokit</a></dt>
 <dd>
@@ -913,6 +913,10 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/ComposedTransaction.html#getDestination()">getDestination()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/ComposedTransaction.html" title="class in money.zumo.zumokit">ComposedTransaction</a></dt>
 <dd>
 <div class="block">Transaction destination, i.e.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="money/zumo/zumokit/AccountCryptoProperties.html#getDirectDepositAddress()">getDirectDepositAddress()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/AccountCryptoProperties.html" title="class in money.zumo.zumokit">AccountCryptoProperties</a></dt>
+<dd>
+<div class="block">Account direct deposit crypto address, only applicable to custody accounts.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="money/zumo/zumokit/Transaction.html#getDirection()">getDirection()</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/Transaction.html" title="class in money.zumo.zumokit">Transaction</a></dt>
 <dd>
@@ -2144,9 +2148,9 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dd>
 <div class="block">Callback interface used by methods in <a href="money/zumo/zumokit/Wallet.html" title="interface in money.zumo.zumokit"><code>Wallet</code></a> class.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="money/zumo/zumokit/User.CppProxy.html#submitTransaction(money.zumo.zumokit.ComposedTransaction,java.lang.String,money.zumo.zumokit.SubmitTransactionCallback)">submitTransaction(ComposedTransaction, String, SubmitTransactionCallback)</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/User.CppProxy.html" title="class in money.zumo.zumokit">User.CppProxy</a></dt>
+<dt><span class="memberNameLink"><a href="money/zumo/zumokit/User.CppProxy.html#submitTransaction(money.zumo.zumokit.ComposedTransaction,java.lang.String,java.lang.String,money.zumo.zumokit.SubmitTransactionCallback)">submitTransaction(ComposedTransaction, String, String, SubmitTransactionCallback)</a></span> - Method in class money.zumo.zumokit.<a href="money/zumo/zumokit/User.CppProxy.html" title="class in money.zumo.zumokit">User.CppProxy</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="money/zumo/zumokit/User.html#submitTransaction(money.zumo.zumokit.ComposedTransaction,java.lang.String,money.zumo.zumokit.SubmitTransactionCallback)">submitTransaction(ComposedTransaction, String, SubmitTransactionCallback)</a></span> - Method in interface money.zumo.zumokit.<a href="money/zumo/zumokit/User.html" title="interface in money.zumo.zumokit">User</a></dt>
+<dt><span class="memberNameLink"><a href="money/zumo/zumokit/User.html#submitTransaction(money.zumo.zumokit.ComposedTransaction,java.lang.String,java.lang.String,money.zumo.zumokit.SubmitTransactionCallback)">submitTransaction(ComposedTransaction, String, String, SubmitTransactionCallback)</a></span> - Method in interface money.zumo.zumokit.<a href="money/zumo/zumokit/User.html" title="interface in money.zumo.zumokit">User</a></dt>
 <dd>
 <div class="block">Submit a transaction.</div>
 </dd>
