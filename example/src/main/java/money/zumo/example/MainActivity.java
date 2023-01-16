@@ -15,7 +15,6 @@ import money.zumo.zumokit.ComposeExchangeCallback;
 import money.zumo.zumokit.ComposedExchange;
 import money.zumo.zumokit.ComposedTransaction;
 import money.zumo.zumokit.Exchange;
-import money.zumo.zumokit.ExchangeRate;
 import money.zumo.zumokit.HttpCallback;
 import money.zumo.zumokit.NetworkType;
 import money.zumo.zumokit.ComposeTransactionCallback;
@@ -197,7 +196,7 @@ public class MainActivity extends AppCompatActivity {
                         if (!submit)
                             return;
 
-                        mUser.submitTransaction(ctx, null, new SubmitTransactionCallback() {
+                        mUser.submitTransaction(ctx, null, null, new SubmitTransactionCallback() {
                             @Override
                             public void onError(Exception e) {
                                 Log.e("zumokit", e.toString());
@@ -231,7 +230,7 @@ public class MainActivity extends AppCompatActivity {
                         if (!submit)
                             return;
 
-                        mUser.submitTransaction(ctx, null, new SubmitTransactionCallback() {
+                        mUser.submitTransaction(ctx, null, null, new SubmitTransactionCallback() {
                             @Override
                             public void onError(Exception e) {
                                 Log.e("zumokit", e.toString());
@@ -265,7 +264,7 @@ public class MainActivity extends AppCompatActivity {
                     if (!submit)
                         return;
 
-                    mUser.submitTransaction(composedTransaction, null, new SubmitTransactionCallback() {
+                    mUser.submitTransaction(composedTransaction, null, null, new SubmitTransactionCallback() {
                         @Override
                         public void onError(Exception e) {
                             Log.e("zumokit", e.toString());
@@ -292,7 +291,7 @@ public class MainActivity extends AppCompatActivity {
                     if (!submit)
                         return;
 
-                    mUser.submitTransaction(composedTransaction, null, new SubmitTransactionCallback() {
+                    mUser.submitTransaction(composedTransaction, null, null, new SubmitTransactionCallback() {
                         @Override
                         public void onError(Exception e) {
                             Log.e("zumokit", e.toString());

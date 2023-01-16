@@ -108,10 +108,12 @@ public interface User {
      *
      * @param composedTransaction Composed transaction retrieved as a result
      *                             of one of the compose transaction methods
+     * @param toAccountId        Debit account id override, only applicable to direct custody deposits.
+     *                             In case no account id is specified senders custody account will be debited.
      * @param metadata             Optional metadata (stringified JSON) that will be attached to transaction
      * @param callback An interface to receive the result or error
      */
-    public void submitTransaction(ComposedTransaction composedTransaction, String metadata, SubmitTransactionCallback callback);
+    public void submitTransaction(ComposedTransaction composedTransaction, String toAccountId, String metadata, SubmitTransactionCallback callback);
 
     /**
      * Fetch trading pairs that are currently supported. 
@@ -400,12 +402,12 @@ public interface User {
         private native void native_composeNominatedTransaction(long _nativeRef, String fromAccountId, java.math.BigDecimal amount, boolean sendMax, ComposeTransactionCallback callback);
 
         @Override
-        public void submitTransaction(ComposedTransaction composedTransaction, String metadata, SubmitTransactionCallback callback)
+        public void submitTransaction(ComposedTransaction composedTransaction, String toAccountId, String metadata, SubmitTransactionCallback callback)
         {
             assert !this.destroyed.get() : "trying to use a destroyed object";
-            native_submitTransaction(this.nativeRef, composedTransaction, metadata, callback);
+            native_submitTransaction(this.nativeRef, composedTransaction, toAccountId, metadata, callback);
         }
-        private native void native_submitTransaction(long _nativeRef, ComposedTransaction composedTransaction, String metadata, SubmitTransactionCallback callback);
+        private native void native_submitTransaction(long _nativeRef, ComposedTransaction composedTransaction, String toAccountId, String metadata, SubmitTransactionCallback callback);
 
         @Override
         public void fetchTradingPairs(StringifiedJsonCallback callback)
